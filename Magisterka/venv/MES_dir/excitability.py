@@ -3,7 +3,7 @@ import numpy.linalg as la
 from MES_dir import config
 from MES_dir import readData as rd
 import matplotlib.pyplot as plt
-from MES_dir import normalization
+from MES_dir import normalization, selectMode
 
 
 # Dla wektora lub 2-wymiarowej tablicy
@@ -105,6 +105,69 @@ def calculate_and_show_curves():
     plt.show()
 
 
+def calculate_excitablity2(mode_data, force_vector):
+    # k_vect = np.linspace(1e-10, np.pi / 8, num=51)
+    k_vect = rd.read_kvect("../eig/kvect")
+    # omega = rd.read_complex_omega("../eig/omega", mode)
+    # omega_string = rd.read_string_omega("../eig/omega", mode)
+    omega = mode_data.allOmega
+    a = []
+    for kv, om in zip(k_vect, omega):
+        # x = calculate_displacement(om)
+        # dim = int(len(x)/3)
+        # x0 = x[dim : 2 * dim]
+
+        # eigv = rd.readEigMap("../eig/normeig/normeig_{}".format(kv), str(om))
+
+        eigv = rd.readEigMap("../eig/eig_{}".format(kv), eigval=str(om))
+        # print(eigv)
+        # print(om)
+        # print(str(om))
+        # print(kv)
+        # exit(0)
+
+        p = calculate_p(config.kr, config.kl, kv, eigv)
+
+        temp = np.dot(eigv, force_vector[0:len(eigv)])
+        a.append(temp/p)
+
+
+    abs_a = []
+    for aa in a:
+        abs_a.append(abs(aa.imag))
+
+    new_omega = []
+    for om in omega:
+        new_omega.append(om.real*1e-3/(2*np.pi))
+
+    # print("Interpolacja")
+    # polynomial = interpolation(new_omega, abs_a)
+    # rd.write_vector_to_file("../interpolated_curves/mode_{}".format(mode), polynomial)
+
+    plt.plot(new_omega, abs_a, '--')
+
+    return a
+
+
+def calculate_and_show_curves2(dispersion_curves, number_of_modes_to_display):
+    # wczytywanie macierzy k, m, itd..
+    # normalization.createNormFile("../eig/kvect")
+    print("Wczytywanie macierzy mas i sztywności z plików")
+    rd.read_matricies()
+    #zakladanie sily
+    print("Wprowadzanie wymuszenia")
+    force1 = np.zeros(np.shape(config.k))
+    force1[0] = 10
+    config.force = np.array(force1)
+
+    for mode_number in range(number_of_modes_to_display):
+        print("Obliczenia dla modu ", mode_number)
+        modes_values = dispersion_curves.getMode(mode_number)
+        calculate_excitablity2(modes_values, config.force)
+    # plt.legend()
+    plt.show()
+
+
 # DO PRZEROBIENIA WSZYSTKO PONIZEJ
 def interpolation(arguments, values):
     #finding values for Ax=b equation, where b are values
@@ -153,3 +216,9 @@ def draw_curves_from_files(arguments):
 # draw_curves_from_files(arguments)
 
 calculate_and_show_curves()
+
+
+#------- Wersja z posortowanymi modami ---------
+# KrzyweDyspersji=selectMode.SelectedMode('../eig/kvect', '../eig/omega')
+# KrzyweDyspersji.selectMode()
+# calculate_and_show_curves2(KrzyweDyspersji, 10)
