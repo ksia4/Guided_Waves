@@ -11,7 +11,6 @@ def find_accurate_len(actual_len):
         estimated_len *= 2
     return estimated_len
 
-
 def pad_timetraces_zeroes(time_vector, signal_vector):
     actual_len = len(signal_vector)
     print("teraz było tyle punktów")
@@ -56,6 +55,37 @@ def pad_timetraces_zeroes(time_vector, signal_vector):
 
     return [estimated_time_vector, new_signal]
 
+def calculate_n(dispercion_curves, signal_duration, dt):
+
+    # Funkcja obliczająca porządaną ilość próbek w wektorze odległości w końcowym śladzie
+    # powinien być zbliżony do długości wektora czasu
+    k_Nyq = calculate_k_nyquist(dispercion_curves, dt)
+    dk = calculat_delta_k(signal_duration)
+
+    print("n musi być większe niż:")
+    print(2*(k_Nyq/dk))
+    return 50000
+
+def calculate_k_nyquist(dispercion_curves, dt):
+    f_Nyq = 1/(2*dt) # to jest w Hz
+    f_Nyq_kHz = f_Nyq/1000
+    max_k_Nyq = 0
+    for mode in dispercion_curves.AllModes.modeTable:
+        if f_Nyq_kHz < mode.minOmega:
+            break
+        else:
+            k = mode.calculateK(f_Nyq_kHz)
+            temp_max_k = k[0]
+            if len(k)>1:
+                for potential_max_k in k:
+                    if potential_max_k > temp_max_k:
+                        temp_max_k = potential_max_k
+        if max_k_Nyq < temp_max_k:
+            max_k_Nyq = temp_max_k
+
+    return max_k_Nyq
+
+def calculate_delta_k(signal_duration):
 
 
 
@@ -93,19 +123,31 @@ if __name__ == "__main__":
 
     signal_array, time_x_freq = Anim_dyspersji.get_chirp()
 
-    signal_to_fft = pad_timetraces_zeroes(dispersion[0], dispersion[1])
+    # signal_to_fft = pad_timetraces_zeroes(dispersion[0], dispersion[1])
+    signal_to_fft = dispersion
     signal_after_fft = np.fft.rfft(signal_to_fft[1])
     freq_sampling = time_x_freq[3]
+    time = time_x_freq[0]
+    dt = time[-1]/len(time)
     print(len(freq_sampling))
     print("A długość fft to:")
     print(len(signal_after_fft))
     new_freq_sampling = np.linspace(freq_sampling[0], freq_sampling[-1], len(signal_after_fft))
-    plt.plot(new_freq_sampling*1e-3, np.sqrt(signal_after_fft.real**2 + signal_after_fft.imag**2))
+    plt.plot(new_freq_sampling*1e-3, np.sqrt(signal_after_fft.real**2 + signal_after_fft.imag**2), '*')
     plt.show()
+    # print(dt)
+    # print(time[-1])
+    # print("Uwaga Uwaga")
+    # print(len(time)*dt)
+    # print(time[1])
+    # print(time[-1]/len(time))
+    # print(time[-1]/len(time)*len(time))
+    # print(len(time))
+    n = calculate_n(KrzyweDyspersji, time[-1], dt) # n to długość wektora x, liczba próbek na odległości
 
     # chirp, time_x_frq = make_chirp(0, 1e5, 1e-4, True)
     # timeTraces = make_disp(chirp, time_x_frq[0], time_x_frq[1], time_x_frq[2], length, dx, KrzyweDyspersji)
     # animDisp(vertices, len(plane), length)
 
     #
-    # signal_array, time_x_freq = chirp_propagation.get_chirp()
+# signal_array, time_x_freq = chirp_propagation.get_chirp()

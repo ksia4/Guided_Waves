@@ -72,7 +72,13 @@ def draw_chirp_and_window(signal_array, time_x_freq_array):
     plt.ylabel("Amplituda [-]")
 
     plt.subplot(325)
-    plt.plot(time, chirp_windowed)
+    plt.plot(freq_sampling*1e-3, np.sqrt(np.fft.rfft(hanning).real**2 + np.fft.rfft(hanning).imag**2))
+    plt.title("Okno Hanninga")
+    plt.xlabel("Częstotliwość [kHz]")
+    plt.ylabel("Amplituda [-]")
+
+    plt.subplot(325)
+    plt.plot(np.fft.rfftfreq(len(signal_array[2])), np.sqrt(f_chirp_windowed.real**2 + f_chirp_windowed.imag**2))
     plt.title("Chirp okienkowany")
     plt.xlabel("Czas [s]")
     plt.ylabel("Amplituda [-]")
@@ -412,11 +418,11 @@ def draw_time_propagation_frequency(signal_array, time_x_freq_array):
                         wspace=0.35)
 
 signal_array, time_x_freq = get_chirp()
-# draw_chirp_and_window(signal_array, time_x_freq)
-# draw_chirp_in_length(signal_array, time_x_freq)
-# draw_transformation(signal_array, time_x_freq)
-# draw_time_propagation(signal_array, time_x_freq)
-# draw_length_propagation(signal_array, time_x_freq)
+draw_chirp_and_window(signal_array, time_x_freq)
+draw_chirp_in_length(signal_array, time_x_freq)
+draw_transformation(signal_array, time_x_freq)
+draw_time_propagation(signal_array, time_x_freq)
+draw_length_propagation(signal_array, time_x_freq)
 draw_time_propagation_frequency(signal_array, time_x_freq)
 
 

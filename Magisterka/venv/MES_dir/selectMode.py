@@ -7,9 +7,10 @@ zmiana = 2000*np.pi
 #Klasa opisująca pojedynczy punkt krzywej dyspersji, czyli k i omega
 class Point:
 
-    def __init__(self,w = complex(0), k=float(0)):
+    def __init__(self, w=complex(0), k=float(0)):
         self.w = w.real /zmiana #wartość w khz
-        self.wkat = w.real
+        self.wkat_real_part = w.real
+        self.wkat_complex = w
         self.k = k
 
     #Funkcja do wypisywania współrzędnych punktu
@@ -25,10 +26,17 @@ class Point:
 class Mode:
     def __init__(self):
         self.points = []
+        self.minOmega=float('inf') #wartość w khz
+        self.min_omega_kat = float('inf') #wartość w rad/s
+        self.allOmega=[]
 
     #Funkcja dodająca kolejny punkt do danego modu
     def addPoint(self, point):
         self.points.append(point)
+        if point.w < self.minOmega:
+            self.minOmega=point.w
+            self.min_omega_kat = point.wkat_real_part
+        self.allOmega.append(point.wkat_complex)
     #Funkcja usuwająca punkt (podajemy punkt, nie indeks)
     def delPoint(self,point):
         pk = point.k
@@ -133,14 +141,38 @@ class Mode:
                 PotentialPoints.append(potPoint)
         return PotentialPoints
 
-    #def displayMode(self,n):
+    def findPoint(self, points, omega):
+        P1 = points[0]
+        P2 = points[1]
+        a = (P1.k - P2.k)/(P1.w - P2.w)
+        b = P1.k - a * P1.w
 
+        return a * omega + b
 
+    def calculateK(self, omega): #omega w kHz
+        if omega < self.minOmega:
+            return []
+        potPoints=[]
+        K = []
+        for temp_omega in range(1, len(self.points)-1):
+            if self.points[temp_omega-1].w == omega:
+                return self.points[temp_omega-1].k
+            if self.points[temp_omega].w == omega:
+                return self.points[temp_omega].k
+            if self.points[temp_omega-1].w < omega < self.points[temp_omega].w:
+                potPoints.append((self.points[temp_omega-1], self.points[temp_omega]))
+            elif self.points[temp_omega-1].w > omega > self.points[temp_omega].w:
+                potPoints.append((self.points[temp_omega-1], self.points[temp_omega]))
 
-    #def displayFirstNModes(self,n):
+        if len(potPoints)==0:
+            print("Nie dotyczy tego modu, minimalna omega to: ")
+            print(self.minOmega)
+            return []
 
-    #def displayAllModes(self):
+        for point in potPoints:
+            K.append(self.findPoint(point, omega))
 
+        return K
 
 class Data:
     def __init__(self):
@@ -149,109 +181,231 @@ class Data:
         self.modeTable.append(mode)
 
 
-#Wczytujemy kolejne k, dla których mamy omegi
-kvect = np.array(rd.read_kvect('../eig/kvect'))
-k_v = kvect * 1e3
+class SelectedMode:
+    def __init__(self, kvect_path, omega_path, rows=426):
+        self.eig_path = kvect_path
+        self.omega_path = omega_path
+        self.rows = rows
+        self.AllModes = Data()
+        self.k_v=[]
 
-#AllModes jest obiektem typu Mode, który przechowuje wszyskit nieprzydzielone jeszcze do żadnego modu obiekty
-AllPoints = Mode()
+    def selectMode(self):
+        #Wczytujemy kolejne k, dla których mamy omegi
+        kvect = np.array(rd.read_kvect(self.eig_path)) #'../eig/kvect'
+        self.k_v = kvect * 1e3
 
-#Czytamy z pliku wszystkie omegi i robimy z nich pointy o współrzędnych omega i k
-for ind in range(426): #Jak to sparametryzować? :/ to jest liczba wierszy w tym omega
-    #temp = np.array(rd.read_complex_omega('../eig/omega', ind))/(2 * np.pi)
-    temp = np.array(rd.read_complex_omega('../eig/omega', ind))
-    for p in range (len(temp)):
-        AllPoints.addPoint(Point(temp[p], k_v[p]))
+        #AllModes jest obiektem typu Mode, który przechowuje wszyskit nieprzydzielone jeszcze do żadnego modu obiekty
+        AllPoints = Mode()
 
-#ModeTable to obiekt klasy data, który przechowuje listę wszystkich modów
-ModeTable = Data()
-#obiekt Mode, w którym są punktu z najmniejszym K czyli pierwsze punkty kolejnych modów
-MinKTable = Mode()
-#drugie punkty kolejnych modów
-MinKTable2 = Mode()
-mink = min(k_v)
-#Wyszukiwanie pierwszych dwóch punktów kolejnych modów (punktów o najmniejszym i prawie najmniejszym k)
-for wszystko in AllPoints.points:
-    if(wszystko.k == mink):
-        MinKTable.addPoint(wszystko)
-    elif(wszystko.k == k_v[1]):
-        MinKTable2.addPoint(wszystko)
+        #Czytamy z pliku wszystkie omegi i robimy z nich pointy o współrzędnych omega i k
+        for ind in range(426): #Jak to sparametryzować? :/ to jest liczba wierszy w tym omega
+            #temp = np.array(rd.read_complex_omega('../eig/omega', ind))/(2 * np.pi)
+            temp = np.array(rd.read_complex_omega(self.omega_path, ind)) #'../eig/omega'
+            for p in range (len(temp)):
+                AllPoints.addPoint(Point(temp[p], self.k_v[p]))
 
-#usuwanie punktów które już znalazły swój mod
-AllPoints.delDuplicats(MinKTable.points)
-AllPoints.delDuplicats(MinKTable2.points)
+        #obiekt Mode, w którym są punktu z najmniejszym K czyli pierwsze punkty kolejnych modów
+        MinKTable = Mode()
+        #drugie punkty kolejnych modów
+        MinKTable2 = Mode()
+        mink = min(self.k_v)
+        #Wyszukiwanie pierwszych dwóch punktów kolejnych modów (punktów o najmniejszym i prawie najmniejszym k)
+        for wszystko in AllPoints.points:
+            if(wszystko.k == mink):
+                MinKTable.addPoint(wszystko)
+            elif(wszystko.k == self.k_v[1]):
+                MinKTable2.addPoint(wszystko)
 
-#sortowanie po omegach
-AllPoints.quicksort(0, len(AllPoints.points) - 1)
-MinKTable.quicksort(0, len(MinKTable.points)-1)
-MinKTable2.quicksort(0, len(MinKTable.points)-1)
+        #usuwanie punktów które już znalazły swój mod
+        AllPoints.delDuplicats(MinKTable.points)
+        AllPoints.delDuplicats(MinKTable2.points)
 
-#dodajemy pierwsze dwa punkty do odpowiednich modów
-for ind, m in enumerate(MinKTable.points):
-    ModeTable.addMode(Mode())
-    ModeTable.modeTable[ind].addPoint(m)
-    ModeTable.modeTable[ind].addPoint(MinKTable2.points[ind])
+        #sortowanie po omegach
+        AllPoints.quicksort(0, len(AllPoints.points) - 1)
+        MinKTable.quicksort(0, len(MinKTable.points)-1)
+        MinKTable2.quicksort(0, len(MinKTable.points)-1)
 
-#Segregowanie punktów do modów
-for i in range(2, len(k_v)):
-    actk = k_v[i]
-    potentialPoints = AllPoints.findPointsWithK(actk)
-    test = np.array(potentialPoints)
-    AllPoints.delDuplicats(potentialPoints)
-    j = 0
-    print(i)
-    for mod in ModeTable.modeTable:
-        print(j)
-        j += 1
-        print("ostatnie dwa punkty to:")
-        print(mod.points[i-1].printCoor())
-        print(mod.points[i-2].printCoor())
-        ind = mod.findSmallestAngle(potentialPoints)
-        print("I wygrał punkt: ")
-        print(ind)
-        potentialPoints[ind].printCoor()
-#        print(ind)
-        mod.addPoint(potentialPoints[ind])
-        if(len(potentialPoints) > 3):
-            potentialPoints.pop(ind)
-#    print(len(AllPoints.points))
+        #dodajemy pierwsze dwa punkty do odpowiednich modów
+        for ind, m in enumerate(MinKTable.points):
+            self.AllModes.addMode(Mode())
+            self.AllModes.modeTable[ind].addPoint(m)
+            self.AllModes.modeTable[ind].addPoint(MinKTable2.points[ind])
+
+        #Segregowanie punktów do modów
+        for i in range(2, len(self.k_v)):
+            actk = self.k_v[i]
+            potentialPoints = AllPoints.findPointsWithK(actk)
+            test = np.array(potentialPoints)
+            AllPoints.delDuplicats(potentialPoints)
+            j = 0
+            print(i)
+            for mod in self.AllModes.modeTable:
+                print(j)
+                j += 1
+                print("ostatnie dwa punkty to:")
+                print(mod.points[i-1].printCoor())
+                print(mod.points[i-2].printCoor())
+                ind = mod.findSmallestAngle(potentialPoints)
+                print("I wygrał punkt: ")
+                print(ind)
+                potentialPoints[ind].printCoor()
+#               print(ind)
+                mod.addPoint(potentialPoints[ind])
+                if(len(potentialPoints) > 3):
+                    potentialPoints.pop(ind)
+
+
+    def plot_modes(self,num_of_modes):
+        plt.figure(1)
+        for i in range(num_of_modes):
+            dziady = []
+            for p in self.AllModes.modeTable[i].points:
+                dziady.append(p.w)
+            plt.plot(dziady, self.k_v, markersize=8)
+        plt.xlabel("Frequency [kHz]")
+        plt.ylabel("Wavenumber [rad/m]")
+        plt.xlim([0, 500])#600
+        plt.ylim([0, 400])#2000
+        plt.show()
+
+    def getMode(self, number):
+        return self.AllModes.modeTable[number]
+
+
+
+
+if __name__ == "__main__":
+    Mody = SelectedMode('../eig/kvect', '../eig/omega')
+    Mody.selectMode()
+    Mody.plot_modes(50)
+    mod0=Mody.getMode(0)
+    K_szuk = mod0.calculateK(30)
+    print(K_szuk)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# #Wczytujemy kolejne k, dla których mamy omegi
+# kvect = np.array(rd.read_kvect('../eig/kvect'))
+# k_v = kvect * 1e3
+
+# #AllModes jest obiektem typu Mode, który przechowuje wszyskit nieprzydzielone jeszcze do żadnego modu obiekty
+# AllPoints = Mode()
+
+# #Czytamy z pliku wszystkie omegi i robimy z nich pointy o współrzędnych omega i k
+# for ind in range(426): #Jak to sparametryzować? :/ to jest liczba wierszy w tym omega
+#     #temp = np.array(rd.read_complex_omega('../eig/omega', ind))/(2 * np.pi)
+#     temp = np.array(rd.read_complex_omega('../eig/omega', ind))
+#     for p in range (len(temp)):
+#         AllPoints.addPoint(Point(temp[p], k_v[p]))
+
+# #ModeTable to obiekt klasy data, który przechowuje listę wszystkich modów
+# ModeTable = Data()
+# #obiekt Mode, w którym są punktu z najmniejszym K czyli pierwsze punkty kolejnych modów
+# MinKTable = Mode()
+# #drugie punkty kolejnych modów
+# MinKTable2 = Mode()
+# mink = min(k_v)
+# #Wyszukiwanie pierwszych dwóch punktów kolejnych modów (punktów o najmniejszym i prawie najmniejszym k)
+# for wszystko in AllPoints.points:
+#     if(wszystko.k == mink):
+#         MinKTable.addPoint(wszystko)
+#     elif(wszystko.k == k_v[1]):
+#         MinKTable2.addPoint(wszystko)
+
+# #usuwanie punktów które już znalazły swój mod
+# AllPoints.delDuplicats(MinKTable.points)
+# AllPoints.delDuplicats(MinKTable2.points)
+
+# #sortowanie po omegach
+# AllPoints.quicksort(0, len(AllPoints.points) - 1)
+# MinKTable.quicksort(0, len(MinKTable.points)-1)
+# MinKTable2.quicksort(0, len(MinKTable.points)-1)
+
+# #dodajemy pierwsze dwa punkty do odpowiednich modów
+# for ind, m in enumerate(MinKTable.points):
+#     ModeTable.addMode(Mode())
+#     ModeTable.modeTable[ind].addPoint(m)
+#     ModeTable.modeTable[ind].addPoint(MinKTable2.points[ind])
+
+# #Segregowanie punktów do modów
+# for i in range(2, len(k_v)):
+#     actk = k_v[i]
+#     potentialPoints = AllPoints.findPointsWithK(actk)
+#     test = np.array(potentialPoints)
+#     AllPoints.delDuplicats(potentialPoints)
+#     j = 0
+#     print(i)
+#     for mod in ModeTable.modeTable:
+#         print(j)
+#         j += 1
+#         print("ostatnie dwa punkty to:")
+#         print(mod.points[i-1].printCoor())
+#         print(mod.points[i-2].printCoor())
+#         ind = mod.findSmallestAngle(potentialPoints)
+#         print("I wygrał punkt: ")
+#         print(ind)
+#         potentialPoints[ind].printCoor()
+# #        print(ind)
+#         mod.addPoint(potentialPoints[ind])
+#         if(len(potentialPoints) > 3):
+#             potentialPoints.pop(ind)
+# #    print(len(AllPoints.points))
 
 #ModeTable.modeTable[0].points[0].printCoor()
 #ModeTable.modeTable[0].points[1].printCoor()
 
-plt.figure(1)
-for i in range(50):
-    dziady = []
-    for p in ModeTable.modeTable[i].points:
-        dziady.append(p.w)
-    plt.plot(dziady, k_v, markersize=8)
+# plt.figure(1)
+# for i in range(50):
+#     dziady = []
+#     for p in ModeTable.modeTable[i].points:
+#         dziady.append(p.w)
+#     plt.plot(dziady, k_v, markersize=8)
+#
+# plt.xlabel("Frequency [kHz]")
+# plt.ylabel("Wavenumber [rad/m]")
+# plt.xlim([0, 500])#600
+# plt.ylim([0, 400])#2000
+# plt.show()
 
-plt.xlabel("Frequency [kHz]")
-plt.ylabel("Wavenumber [rad/m]")
-plt.xlim([0, 500])#600
-plt.ylim([0, 400])#2000
-plt.show()
 
 
-
-testowy = Mode()
-testowy.addPoint(Point(1947561.8804188366, 1.0000000000000001e-07))
-testowy.addPoint(Point(1947510.0704228566, 7.853981731974482))
-print("Wynik testu")
-Ppoints = []
-Ppoints.append(Point(1947517.7369396675, 15.707963363948966))
-Ppoints.append(Point(1947794.7754657774, 15.707963363948966))
-Ppoints.append(Point(1977900.5513070673, 15.707963363948966))
-#Ppoints.append(Point(117.4,94.25))
-#Ppoints.append(Point(117.53,94.25))
-print("uwaga uwaga")
-#print(testowy.findSmallestAngle(Ppoints))
-print(testowy.findAngle(Ppoints[0]))
-#print(testowy.findAngle(Ppoints[1]))
-#print(testowy.findAngle(Ppoints[2]))
-#print(testowy.findAngle(Ppoints[3]))
-testowy.addPoint(Point(2345100.5914220423, 1.0000000000000001e-07))
-testowy.addPoint(Point(2345212.8649803414, 7.853981731974482))
-Ppoints.append(Point(2345073.20201909, 15.707963363948966))
-print("Z 39 modu")
-print(testowy.findAngle(Ppoints[3]))
+# testowy = Mode()
+# testowy.addPoint(Point(1947561.8804188366, 1.0000000000000001e-07))
+# testowy.addPoint(Point(1947510.0704228566, 7.853981731974482))
+# print("Wynik testu")
+# Ppoints = []
+# Ppoints.append(Point(1947517.7369396675, 15.707963363948966))
+# Ppoints.append(Point(1947794.7754657774, 15.707963363948966))
+# Ppoints.append(Point(1977900.5513070673, 15.707963363948966))
+# #Ppoints.append(Point(117.4,94.25))
+# #Ppoints.append(Point(117.53,94.25))
+# print("uwaga uwaga")
+# #print(testowy.findSmallestAngle(Ppoints))
+# print(testowy.findAngle(Ppoints[0]))
+# #print(testowy.findAngle(Ppoints[1]))
+# #print(testowy.findAngle(Ppoints[2]))
+# #print(testowy.findAngle(Ppoints[3]))
+# testowy.addPoint(Point(2345100.5914220423, 1.0000000000000001e-07))
+# testowy.addPoint(Point(2345212.8649803414, 7.853981731974482))
+# Ppoints.append(Point(2345073.20201909, 15.707963363948966))
+# print("Z 39 modu")
+# print(testowy.findAngle(Ppoints[3]))
