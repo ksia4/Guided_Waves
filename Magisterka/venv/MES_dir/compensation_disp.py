@@ -1,4 +1,5 @@
 from MES_dir import mesh, selectMode, config
+from MES_dir import dispersion as disp
 from Animation import Anim_dyspersji
 import matplotlib.pyplot as plt
 import numpy as np
@@ -55,38 +56,75 @@ def pad_timetraces_zeroes(time_vector, signal_vector):
 
     return [estimated_time_vector, new_signal]
 
-def calculate_n(dispercion_curves, signal_duration, dt):
+def calculate_n(k_Nyquista, delta_k, factor=1.1):
 
     # Funkcja obliczająca porządaną ilość próbek w wektorze odległości w końcowym śladzie
     # powinien być zbliżony do długości wektora czasu
-    k_Nyq = calculate_k_nyquist(dispercion_curves, dt)
-    dk = calculat_delta_k(signal_duration)
+    # n > 2(k_Nyquista/deltak)
+    if factor <= 1:
+        print("Współczynnik musi być większy od 1, przyjęta wartość wynosi 1,1")
+        factor = 1.1
 
-    print("n musi być większe niż:")
-    print(2*(k_Nyq/dk))
-    return 50000
+    return int(factor * 2 * (k_Nyquista/delta_k))
 
-def calculate_k_nyquist(dispercion_curves, dt):
+# def calculate_n2(delta_x, delta_k, k_Nyquista):
+#     #Obliczam n z równania n=1/(delta_k*delta_x)
+#     n = 1/(delta_k*delta_x)
+#     #sprawdzam warunek n > 2*(k_Nyquista/delta_k)
+#     if n > 2*(k_Nyquista/delta_k):
+#         print("Wszystko ok")
+#     else:
+#         print("Zupa z trupa")
+#
+#     return n
+
+def calculate_k_nyquist(dispercion_curves, dt, factor=1.1):
+    #k_Nyquista powinno być >= k(f_Nyquista) f_Nyquista to 1/(2*delta_t)
+    #Zależność k(f) przechowywana jest w krzywych dyspersji
+
+    if factor <= 1:
+        print("Podany współczynnik musi być większy od 1, przyjęto wartość 1,1")
+        factor = 1.1
     f_Nyq = 1/(2*dt) # to jest w Hz
     f_Nyq_kHz = f_Nyq/1000
     max_k_Nyq = 0
     for mode in dispercion_curves.AllModes.modeTable:
-        if f_Nyq_kHz < mode.minOmega:
-            break
-        else:
-            k = mode.calculateK(f_Nyq_kHz)
-            temp_max_k = k[0]
-            if len(k)>1:
-                for potential_max_k in k:
-                    if potential_max_k > temp_max_k:
-                        temp_max_k = potential_max_k
-        if max_k_Nyq < temp_max_k:
-            max_k_Nyq = temp_max_k
+        k_temp = Anim_dyspersji.curve_sampling(mode.all_omega_khz, dispercion_curves.k_v, [f_Nyq_kHz])
+        if k_temp > max_k_Nyq:
+            max_k_Nyq = k_temp
 
-    return max_k_Nyq
+    return factor*max_k_Nyq[0] # Zwracana wartość jest w rad/m
 
-def calculate_delta_k(signal_duration):
+def calculate_delta_k(dispercion_curves, signal_duration, factor=0.9):
+    # delta k powinno być = 1/(n(delta_x) i mniejsze niż 1/(m*delta_t*v_gr_max) m*delta_t jest równe długości trwania sygnału :)
+    if signal_duration <= 0:
+        print("Długość sygnału musi być większa od 0")
+        exit(0)
+    if factor >= 1:
+        print("Współczynnik musi być mniejszy od 1, przyjęta wartość to 0,9")
+        factor = 0.9
+    max_v_gr = 0
+    for mode in dispercion_curves.AllModes.modeTable:
+        temp_v_gr = 1000 * max(disp.calculate_group_velocity(mode.all_omega_khz, dispercion_curves.k_v/1000))
+        if temp_v_gr > max_v_gr:
+            max_v_gr = temp_v_gr
+    print("Prędkość grupowa max = " + str(max_v_gr))
+    delta_k = factor/(signal_duration * max_v_gr)
+    return delta_k # delta_k zwracana jest w rad/m
 
+def calculate_delta_x(k_Nyquista):
+    return 1/(2*k_Nyquista) # w metrach
+
+def check_all_conditions(n, delta_k, delta_x, k_nyq):
+    if(n < 2*(k_nyq/delta_k)):
+        print("nierówność na n jest niespełniona")
+    if delta_k != 1/(n*delta_x):
+        print("Warunek na delte k nie jest spełniony, delta_k wynosi:")
+        print(delta_k)
+        print("natomiast 1/(n*deltax)")
+        print(1/(n*delta_x))
+    if k_nyq != 1/(2*delta_x):
+        print("Warunek na k_Nyquista nie jest spełniony")
 
 
 if __name__ == "__main__":
@@ -109,7 +147,7 @@ if __name__ == "__main__":
     # draw_bar(vertices, len(plane), length)
     KrzyweDyspersji=selectMode.SelectedMode('../eig/kvect', '../eig/omega')
     KrzyweDyspersji.selectMode()
-    dist = 2 # w metrach
+    dist = 1 # w metrach
     # KrzyweDyspersji.plot_modes(50)
 
     signal_array, time_x_freq = Anim_dyspersji.get_chirp()
@@ -129,21 +167,49 @@ if __name__ == "__main__":
     freq_sampling = time_x_freq[3]
     time = time_x_freq[0]
     dt = time[-1]/len(time)
-    print(len(freq_sampling))
-    print("A długość fft to:")
-    print(len(signal_after_fft))
     new_freq_sampling = np.linspace(freq_sampling[0], freq_sampling[-1], len(signal_after_fft))
     plt.plot(new_freq_sampling*1e-3, np.sqrt(signal_after_fft.real**2 + signal_after_fft.imag**2), '*')
     plt.show()
-    # print(dt)
-    # print(time[-1])
-    # print("Uwaga Uwaga")
-    # print(len(time)*dt)
-    # print(time[1])
-    # print(time[-1]/len(time))
-    # print(time[-1]/len(time)*len(time))
-    # print(len(time))
-    n = calculate_n(KrzyweDyspersji, time[-1], dt) # n to długość wektora x, liczba próbek na odległości
+    k_nyq = calculate_k_nyquist(KrzyweDyspersji, dt)
+    delta_x = calculate_delta_x(k_nyq)
+    delta_k = calculate_delta_k(KrzyweDyspersji, time[-1])
+    n = calculate_n(k_nyq, delta_k) # n to długość wektora x, liczba próbek na odległości
+
+    mode_0 = KrzyweDyspersji.getMode(0)
+    k_vect = KrzyweDyspersji.k_v
+    G_k = []
+    print(k_vect[-1]/delta_k)
+    print(len(signal_after_fft.real))
+    if k_vect[-1]/delta_k < len(signal_after_fft.real) - 1:
+        delta_k = k_vect[-1]/(len(signal_after_fft.real)-1)
+    print(delta_k)
+    new_k_sampling = []
+    k = 0
+    while k < k_vect[-1]:
+        new_k_sampling.append(k)
+        # omega = find_omega_with_k(k, k_vect, mode_0)
+        # omega = Anim_dyspersji.curve_sampling(mode_0.all_omega_khz, k_vect, [k])
+        k += delta_k
+    new_omega_vector = Anim_dyspersji.curve_sampling(k_vect, mode_0.all_omega_khz, new_k_sampling)
+    G_k = Anim_dyspersji.curve_sampling(mode_0.all_omega_khz, np.sqrt(signal_after_fft.real**2 + signal_after_fft.imag**2), new_omega_vector)
+    plt.plot(new_omega_vector)
+    plt.show()
+    k = 0
+    v_gr = []
+    for k in range(len(G_k)-1):
+        v_gr.append((new_omega_vector[k+1]-new_omega_vector[k])/delta_k)
+
+    H_k = []
+
+    for ind in range(len(v_gr)):
+        H_k.append(G_k[ind]*v_gr[ind])
+
+    new_signal = np.fft.irfft(H_k)
+    print(len(new_signal))
+    print(n*delta_x)
+    plt.plot(new_signal)
+    plt.show()
+    # check_all_conditions(n, delta_k, delta_x, k_nyq) Nie ma sensu tego sprawdzać...
 
     # chirp, time_x_frq = make_chirp(0, 1e5, 1e-4, True)
     # timeTraces = make_disp(chirp, time_x_frq[0], time_x_frq[1], time_x_frq[2], length, dx, KrzyweDyspersji)

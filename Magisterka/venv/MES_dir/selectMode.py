@@ -29,6 +29,7 @@ class Mode:
         self.minOmega=float('inf') #wartość w khz
         self.min_omega_kat = float('inf') #wartość w rad/s
         self.allOmega=[]
+        self.all_omega_khz = []
 
     #Funkcja dodająca kolejny punkt do danego modu
     def addPoint(self, point):
@@ -37,6 +38,7 @@ class Mode:
             self.minOmega=point.w
             self.min_omega_kat = point.wkat_real_part
         self.allOmega.append(point.wkat_complex)
+        self.all_omega_khz.append(point.w)
     #Funkcja usuwająca punkt (podajemy punkt, nie indeks)
     def delPoint(self,point):
         pk = point.k
