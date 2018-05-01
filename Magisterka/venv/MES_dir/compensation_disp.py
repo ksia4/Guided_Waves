@@ -166,6 +166,23 @@ def find_omega_in_dispercion_curves(mode, temp_k, k_vect):
                 omega = mode.findPointWithGivenK([mode.points[ind], mode.points[ind+1]], temp_k)
     return omega
 
+def find_omega_in_dispercion_curves_rad_s(mode, temp_k, k_vect):
+    omega = mode.points[0].wkat_complex
+    if temp_k > k_vect[-1]:
+        omega = mode.findPointWithGivenK_rad_s([mode.points[-2], mode.points[-1]], temp_k)
+    elif temp_k < k_vect[0]:
+        if mode.points[0].w < 5:
+            temp_point = selectMode.Point()
+            omega = mode.findPointWithGivenK_rad_s([temp_point, mode.points[0]], temp_k)
+        else:
+            omega = mode.points[0].wkat_complex
+    else:
+        for ind in range(len(k_vect)-1):
+            if k_vect[ind] < temp_k and k_vect[ind + 1] > temp_k:
+                omega = mode.findPointWithGivenK_rad_s([mode.points[ind], mode.points[ind+1]], temp_k)
+                break
+    return omega
+
 def find_value_by_omega_in_G_w(G_w, freq_sampling_kHz, omega):
     value = -1
     for ind in range(len(freq_sampling_kHz)-1):
@@ -182,6 +199,14 @@ def find_value_by_omega_in_G_w(G_w, freq_sampling_kHz, omega):
             value = G_w[-1]
     return value
 
+def calculate_group_velocity(mode, k_sampling_rad_m, ind, k_vect):
+    k1 = k_sampling_rad_m[ind + 1]
+    k2 = k_sampling_rad_m[ind]
+    om1 = find_omega_in_dispercion_curves_rad_s(mode, k1, k_vect)
+    om2 = find_omega_in_dispercion_curves_rad_s(mode, k2, k_vect)
+
+    group_velocity = (om1 - om2)/(k1 - k2)
+    return group_velocity
 
 if __name__ == "__main__":
     # parametry preta
@@ -203,7 +228,7 @@ if __name__ == "__main__":
     # draw_bar(vertices, len(plane), length)
     KrzyweDyspersji=selectMode.SelectedMode('../eig/kvect', '../eig/omega')
     KrzyweDyspersji.selectMode()
-    dist = 1 # w metrach
+    dist = 4 # w metrach
     # KrzyweDyspersji.plot_modes(50)
 
     signal_array, time_x_freq = Anim_dyspersji.get_chirp()
@@ -211,7 +236,8 @@ if __name__ == "__main__":
     print("Zaraz będzie się dzało :o")
     # make_dispersion_in_bar(length, len(plane), dx, KrzyweDyspersji)
     dispersion = Anim_dyspersji.draw_time_propagation(signal_array, time_x_freq, dist, KrzyweDyspersji)
-
+    plt.plot(time_x_freq[0], signal_array[3])
+    plt.show()
     plt.plot(dispersion[0], dispersion[1])
     plt.show()
 
@@ -261,6 +287,37 @@ if __name__ == "__main__":
     plt.plot(new_freq_sampling_kHz, G_w)
     plt.show()
     plt.plot(new_k_sampling_rad_m, np.sqrt(np.array(G_k).real**2 + np.array(G_k).imag**2))
+    plt.show()
+
+    v_gr = []
+    print("Teraz będę liczyć prędkość grupową")
+    for ind in range(len(new_k_sampling_rad_m) - 1):
+        print("Indeks wynosi " + str(ind))
+        value = calculate_group_velocity(mode_0, new_k_sampling_rad_m, ind, k_vect)
+        v_gr.append(value)
+
+    v_gr.append(v_gr[-1])
+    plt.plot(new_k_sampling_rad_m, v_gr)
+    plt.show()
+
+    H_k = []
+    for ind in range(len(v_gr)):
+        H_k.append(G_k[ind] * v_gr[ind])
+
+    plt.plot(new_k_sampling_rad_m, np.sqrt(np.array(H_k).real**2 + np.array(H_k).imag**2))
+    plt.show()
+    print("długość H(k) to " + str(len(H_k)))
+
+    h_x = np.fft.ifft(H_k)
+    distance = 1/delta_k # w metrach
+    n = len(h_x)
+    dx = distance/n
+    print("dx wynosi " + str(dx) + "A cały dystans " + str(distance))
+    dist_vect = []
+    for i in range(n):
+        dist_vect.append(i*dx*6)
+
+    plt.plot(dist_vect, h_x)
     plt.show()
 
     # print(k_vect[-1]/delta_k)

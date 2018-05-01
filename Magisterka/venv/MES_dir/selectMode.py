@@ -162,6 +162,17 @@ class Mode:
         else:
             return (k-b)/a #w kHz
 
+    def findPointWithGivenK_rad_s(self, points, k):
+        P1 = points[0]
+        P2 = points[1]
+        a = (P1.k - P2.k)/(P1.wkat_complex - P2.wkat_complex)
+        b = P1.k - a * P1.wkat_complex
+
+        if a == 0:
+            return b
+        else:
+            return (k-b)/a #rad/s
+
     def calculateK(self, omega): #omega w kHz
         if omega < self.minOmega:
             return []
