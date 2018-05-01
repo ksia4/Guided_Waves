@@ -151,6 +151,17 @@ class Mode:
 
         return a * omega + b
 
+    def findPointWithGivenK(self, points, k):
+        P1 = points[0]
+        P2 = points[1]
+        a = (P1.k - P2.k)/(P1.w - P2.w)
+        b = P1.k - a * P1.w
+
+        if a == 0:
+            return b
+        else:
+            return (k-b)/a #w kHz
+
     def calculateK(self, omega): #omega w kHz
         if omega < self.minOmega:
             return []

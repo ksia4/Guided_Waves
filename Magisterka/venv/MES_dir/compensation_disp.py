@@ -108,7 +108,7 @@ def calculate_delta_k(dispercion_curves, signal_duration, factor=0.9):
         temp_v_gr = 1000 * max(disp.calculate_group_velocity(mode.all_omega_khz, dispercion_curves.k_v/1000))
         if temp_v_gr > max_v_gr:
             max_v_gr = temp_v_gr
-    print("Prędkość grupowa max = " + str(max_v_gr))
+    # print("Prędkość grupowa max = " + str(max_v_gr))
     delta_k = factor/(signal_duration * max_v_gr)
     return delta_k # delta_k zwracana jest w rad/m
 
@@ -125,6 +125,62 @@ def check_all_conditions(n, delta_k, delta_x, k_nyq):
         print(1/(n*delta_x))
     if k_nyq != 1/(2*delta_x):
         print("Warunek na k_Nyquista nie jest spełniony")
+
+def find_max_k(mode, k_vect, max_omega_kHz):
+    print(max_omega_kHz)
+    print(mode.all_omega_khz[-1])
+    print(mode.all_omega_khz[-2])
+    print(k_vect[-1])
+    print(k_vect[-2])
+    if max_omega_kHz > mode.all_omega_khz[-1]:
+        max_k = mode.findPoint([mode.points[-2], mode.points[-1]], max_omega_kHz)
+        print(max_k)
+    elif max_omega_kHz < mode.minOmega:
+        print("Ten mod nie zostanie wzbudzony")
+        max_k = -1
+    else:
+        P1 = selectMode.Point()
+        P2 = selectMode.Point()
+        for ind in range(len(mode.points)-1):
+            if mode.points[ind].w < max_omega_kHz and mode.points[ind+1].w > max_omega_kHz:
+                P1 = mode.points[ind]
+                P2 = mode.points[ind+1]
+                break
+        max_k = mode.findPoint([P1, P2], max_omega_kHz)
+        print(max_k)
+    return max_k
+
+def find_omega_in_dispercion_curves(mode, temp_k, k_vect):
+    omega = mode.points[0].w
+    if temp_k > k_vect[-1]:
+        omega = mode.findPointWithGivenK([mode.points[-2], mode.points[-1]], temp_k)
+    elif temp_k < k_vect[0]:
+        if mode.points[0].w < 5:
+            temp_point = selectMode.Point()
+            omega = mode.findPointWithGivenK([temp_point, mode.points[0]], temp_k)
+        else:
+            omega = mode.points[0].w
+    else:
+        for ind in range(len(k_vect)-1):
+            if k_vect[ind] < temp_k and k_vect[ind + 1] > temp_k:
+                omega = mode.findPointWithGivenK([mode.points[ind], mode.points[ind+1]], temp_k)
+    return omega
+
+def find_value_by_omega_in_G_w(G_w, freq_sampling_kHz, omega):
+    value = -1
+    for ind in range(len(freq_sampling_kHz)-1):
+        if freq_sampling_kHz[ind] == omega:
+            value = G_w[ind]
+            break
+        elif freq_sampling_kHz[ind] < omega and freq_sampling_kHz[ind + 1] > omega:
+            a = (G_w[ind] - G_w[ind+1])/(freq_sampling_kHz[ind] - freq_sampling_kHz[ind +1])
+            b = G_w[ind] - a * freq_sampling_kHz[ind]
+            value = a* omega + b
+            break
+    if value == -1:
+        if omega == freq_sampling_kHz[-1]:
+            value = G_w[-1]
+    return value
 
 
 if __name__ == "__main__":
@@ -168,8 +224,12 @@ if __name__ == "__main__":
     time = time_x_freq[0]
     dt = time[-1]/len(time)
     new_freq_sampling = np.linspace(freq_sampling[0], freq_sampling[-1], len(signal_after_fft))
-    plt.plot(new_freq_sampling*1e-3, np.sqrt(signal_after_fft.real**2 + signal_after_fft.imag**2), '*')
+    new_freq_sampling_kHz = new_freq_sampling*1e-3
+    G_w = np.sqrt(signal_after_fft.real**2 + signal_after_fft.imag**2)
+    plt.plot(new_freq_sampling_kHz, G_w, '*')
     plt.show()
+
+
     k_nyq = calculate_k_nyquist(KrzyweDyspersji, dt)
     delta_x = calculate_delta_x(k_nyq)
     delta_k = calculate_delta_k(KrzyweDyspersji, time[-1])
@@ -177,38 +237,63 @@ if __name__ == "__main__":
 
     mode_0 = KrzyweDyspersji.getMode(0)
     k_vect = KrzyweDyspersji.k_v
-    G_k = []
-    print(k_vect[-1]/delta_k)
-    print(len(signal_after_fft.real))
-    if k_vect[-1]/delta_k < len(signal_after_fft.real) - 1:
-        delta_k = k_vect[-1]/(len(signal_after_fft.real)-1)
-    print(delta_k)
-    new_k_sampling = []
+    max_k = find_max_k(mode_0, k_vect, new_freq_sampling_kHz[-1])
+    new_k_sampling_rad_m = []
     k = 0
-    while k < k_vect[-1]:
-        new_k_sampling.append(k)
-        # omega = find_omega_with_k(k, k_vect, mode_0)
-        # omega = Anim_dyspersji.curve_sampling(mode_0.all_omega_khz, k_vect, [k])
+    print("Tworzenie wektora k")
+    while k < max_k:
+        new_k_sampling_rad_m.append(k)
         k += delta_k
-    new_omega_vector = Anim_dyspersji.curve_sampling(k_vect, mode_0.all_omega_khz, new_k_sampling)
-    G_k = Anim_dyspersji.curve_sampling(mode_0.all_omega_khz, np.sqrt(signal_after_fft.real**2 + signal_after_fft.imag**2), new_omega_vector)
-    plt.plot(new_omega_vector)
+    print("Utworzono wektor k ma on " + str(len(new_k_sampling_rad_m)) + "elementów")
+
+    G_k = []
+    ind = 0
+    print("Teraz będziemy robić G(k)")
+    for temp_k in new_k_sampling_rad_m:
+        om = find_omega_in_dispercion_curves(mode_0, temp_k, k_vect)
+        # val = find_value_by_omega_in_G_w(G_w, new_freq_sampling_kHz, om)
+        val = find_value_by_omega_in_G_w(signal_after_fft, new_freq_sampling_kHz, om)
+        G_k.append(val)
+        print(ind)
+        ind += 1
+
+
+    plt.plot(new_freq_sampling_kHz, G_w)
     plt.show()
-    k = 0
-    v_gr = []
-    for k in range(len(G_k)-1):
-        v_gr.append((new_omega_vector[k+1]-new_omega_vector[k])/delta_k)
-
-    H_k = []
-
-    for ind in range(len(v_gr)):
-        H_k.append(G_k[ind]*v_gr[ind])
-
-    new_signal = np.fft.irfft(H_k)
-    print(len(new_signal))
-    print(n*delta_x)
-    plt.plot(new_signal)
+    plt.plot(new_k_sampling_rad_m, np.sqrt(np.array(G_k).real**2 + np.array(G_k).imag**2))
     plt.show()
+
+    # print(k_vect[-1]/delta_k)
+    # print(len(signal_after_fft.real))
+    # if k_vect[-1]/delta_k < len(signal_after_fft.real) - 1:
+    #     delta_k = k_vect[-1]/(len(signal_after_fft.real)-1)
+    # print(delta_k)
+    # new_k_sampling = []
+    # k = 0
+    # while k < k_vect[-1]:
+    #     new_k_sampling.append(k)
+    #     # omega = find_omega_with_k(k, k_vect, mode_0)
+    #     # omega = Anim_dyspersji.curve_sampling(mode_0.all_omega_khz, k_vect, [k])
+    #     k += delta_k
+    # new_omega_vector = Anim_dyspersji.curve_sampling(k_vect, mode_0.all_omega_khz, new_k_sampling)
+    # G_k = Anim_dyspersji.curve_sampling(mode_0.all_omega_khz, np.sqrt(signal_after_fft.real**2 + signal_after_fft.imag**2), new_omega_vector)
+    # plt.plot(new_omega_vector)
+    # plt.show()
+    # k = 0
+    # v_gr = []
+    # for k in range(len(G_k)-1):
+    #     v_gr.append((new_omega_vector[k+1]-new_omega_vector[k])/delta_k)
+    #
+    # H_k = []
+    #
+    # for ind in range(len(v_gr)):
+    #     H_k.append(G_k[ind]*v_gr[ind])
+    #
+    # new_signal = np.fft.irfft(H_k)
+    # print(len(new_signal))
+    # print(n*delta_x)
+    # plt.plot(new_signal)
+    # plt.show()
     # check_all_conditions(n, delta_k, delta_x, k_nyq) Nie ma sensu tego sprawdzać...
 
     # chirp, time_x_frq = make_chirp(0, 1e5, 1e-4, True)
