@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
+
 def find_accurate_len(actual_len):
     min_len = 8 * actual_len
     estimated_len = 256
@@ -95,6 +96,23 @@ def calculate_k_nyquist(dispercion_curves, dt, factor=1.1):
 
     return factor*max_k_Nyq[0] # Zwracana wartość jest w rad/m
 
+def calculate_k_nyquist_in_function(dispercion_curves_of_propagated_mode, k_vector_to_dispercion_curves, dt, factor=1.1):
+    #k_Nyquista powinno być >= k(f_Nyquista) f_Nyquista to 1/(2*delta_t)
+    #Zależność k(f) przechowywana jest w krzywych dyspersji
+
+    if factor <= 1:
+        print("Podany współczynnik musi być większy od 1, przyjęto wartość 1,1")
+        factor = 1.1
+    f_Nyq = 1/(2*dt) # to jest w Hz
+    f_Nyq_kHz = f_Nyq/1000
+    max_k_Nyq = 0
+    for mode in dispercion_curves_of_propagated_mode:
+        k_temp = Anim_dyspersji.curve_sampling_new(mode.all_omega_khz, k_vector_to_dispercion_curves, [f_Nyq_kHz])
+        if k_temp > max_k_Nyq:
+            max_k_Nyq = k_temp
+
+    return factor*max_k_Nyq[0] # Zwracana wartość jest w rad/m
+
 def calculate_delta_k(dispercion_curves, signal_duration, factor=0.9):
     # delta k powinno być = 1/(n(delta_x) i mniejsze niż 1/(m*delta_t*v_gr_max) m*delta_t jest równe długości trwania sygnału :)
     if signal_duration <= 0:
@@ -109,6 +127,24 @@ def calculate_delta_k(dispercion_curves, signal_duration, factor=0.9):
         if temp_v_gr > max_v_gr:
             max_v_gr = temp_v_gr
     # print("Prędkość grupowa max = " + str(max_v_gr))
+    delta_k = factor/(signal_duration * max_v_gr)
+    return delta_k # delta_k zwracana jest w rad/m
+
+def calculate_delta_k_in_function(dispercion_curves, signal_duration, k_vector, factor=0.9):
+    # delta k powinno być = 1/(n(delta_x) i mniejsze niż 1/(m*delta_t*v_gr_max) m*delta_t jest równe długości trwania sygnału :)
+    if signal_duration <= 0:
+        print("Długość sygnału musi być większa od 0")
+        exit(0)
+    if factor >= 1:
+        print("Współczynnik musi być mniejszy od 1, przyjęta wartość to 0,9")
+        factor = 0.9
+    max_v_gr = 0
+    for mode in dispercion_curves:
+        # temp_v_gr = calculate_max_group_velocity_for_single_mode(mode, k_vector)
+        temp_v_gr = 1000 * max(disp.calculate_group_velocity(mode.all_omega_khz, k_vector/1000))
+        if temp_v_gr > max_v_gr:
+            max_v_gr = temp_v_gr
+    print("Prędkość grupowa max = " + str(max_v_gr))
     delta_k = factor/(signal_duration * max_v_gr)
     return delta_k # delta_k zwracana jest w rad/m
 
@@ -199,6 +235,33 @@ def find_value_by_omega_in_G_w(G_w, freq_sampling_kHz, omega):
             value = G_w[-1]
     return value
 
+def find_value_by_k_in_G_k(G_k, actual_k_vector, temp_k):
+    value = -1
+    for ind in range(len(actual_k_vector) - 1):
+        if actual_k_vector[ind] == temp_k:
+            value = G_k[ind]
+            break
+        elif actual_k_vector[0] > temp_k:
+            a = G_k[0]/actual_k_vector[0]
+            value = a * temp_k
+        elif actual_k_vector[ind] < temp_k and actual_k_vector[ind + 1] > temp_k:
+            a = (G_k[ind] - G_k[ind+1])/(actual_k_vector[ind] - actual_k_vector[ind +1])
+            b = G_k[ind] - a * actual_k_vector[ind]
+            value = a* temp_k + b
+            break
+    if value == -1:
+        if temp_k == actual_k_vector[-1]:
+            value = G_k[-1]
+    return value
+
+def calculate_max_group_velocity_for_single_mode(mode, k_vect):
+    max_group_velocity = 0
+    for ind in range(len(k_vect)-1):
+        temp_group_velocity = (mode.allOmega[ind + 1].real - mode.allOmega[ind].real)/(k_vect[ind + 1] - k_vect[ind])
+        if temp_group_velocity > max_group_velocity:
+            max_group_velocity = temp_group_velocity
+    return max_group_velocity
+
 def calculate_group_velocity(mode, k_sampling_rad_m, ind, k_vect):
     k1 = k_sampling_rad_m[ind + 1]
     k2 = k_sampling_rad_m[ind]
@@ -208,64 +271,100 @@ def calculate_group_velocity(mode, k_sampling_rad_m, ind, k_vect):
     group_velocity = (om1 - om2)/(k1 - k2)
     return group_velocity
 
-if __name__ == "__main__":
-    # parametry preta
-    bar_length = 1
-    length = 100
-    dx=bar_length/length
-    radius = 10
-    num_of_circles = 6
-    num_of_points_at_c1 = 6
+# def find_k_in_mode(modes_all_omega_khz, k_vector, omega):
+#     if omega < modes_all_omega_khz[0]:
+#         if modes_all_omega_khz < 5:
 
-    # wektor liczby falowej
-    config.kvect_min = 1e-10
-    config.kvect_max = np.pi / 2
-    config.kvect_no_of_points = 101
 
-    # obliczenia
-    # plane = mesh.circle_mesh_full(1, radius, num_of_circles, num_of_points_at_c1)
-    vertices = mesh.circle_mesh_full(length, radius, num_of_circles, num_of_points_at_c1)
-    # draw_bar(vertices, len(plane), length)
-    KrzyweDyspersji=selectMode.SelectedMode('../eig/kvect', '../eig/omega')
-    KrzyweDyspersji.selectMode()
-    dist = 4 # w metrach
-    # KrzyweDyspersji.plot_modes(50)
 
-    signal_array, time_x_freq = Anim_dyspersji.get_chirp()
-    # for i in range(length):
-    print("Zaraz będzie się dzało :o")
-    # make_dispersion_in_bar(length, len(plane), dx, KrzyweDyspersji)
-    dispersion = Anim_dyspersji.draw_time_propagation(signal_array, time_x_freq, dist, KrzyweDyspersji)
-    plt.plot(time_x_freq[0], signal_array[3])
+def calculate_mean_mode(dispercion_curves, numbers_of_propagated_modes):
+    print("Robię średni mod")
+    modes = []
+    for ind in numbers_of_propagated_modes:
+        modes.append(dispercion_curves.getMode(ind))
+
+    mean_mode = selectMode.Mode()
+    mean_k_vector = []
+    omegs = modes[0].all_omega_khz
+    for ind in range(len(omegs)):
+        mean_k = modes[0].points[ind].k
+        for mode_ind in range(len(modes)-1):
+            # mean_k = mean_k + find_k_in_mode(modes[mode_ind + 1].all_omega_khz, dispercion_curves.k_v, omegs[ind])
+            # print("z tego modu wyliczamy k")
+            # plt.plot(modes[mode_ind + 1].all_omega_khz, dispercion_curves.k_v)
+            # plt.show()
+            calc_k = Anim_dyspersji.curve_sampling_new(modes[mode_ind + 1].all_omega_khz, dispercion_curves.k_v, [omegs[ind]])[0]
+            # print("O takie mi wyszło to k " + str(calc_k))
+            # print("A takie było w tym pierwszym modzie, powinny być podobne bardzo " + str(mean_k))
+            mean_k = mean_k + calc_k
+        mean_k = mean_k/(len(modes))
+        mean_mode.addPoint(modes[0].points[ind])
+        mean_mode.points[ind].k = mean_k
+        mean_k_vector.append(mean_k)
+    plt.plot(mean_mode.all_omega_khz, mean_k_vector)
     plt.show()
-    plt.plot(dispersion[0], dispersion[1])
-    plt.show()
+    return [mean_mode, mean_k_vector]
 
-    signal_array, time_x_freq = Anim_dyspersji.get_chirp()
+def transpose_G_w_to_G_k(mode, k_vector, frequency_sampling_kHz):
+    transopsed_k_vector = Anim_dyspersji.curve_sampling_new(mode.all_omega_khz, k_vector, frequency_sampling_kHz)
+    return transopsed_k_vector
+
+def compensate_dispercion_Wilcox_method(received_signal_vector, time_vector, dispercion_curves_of_propagated_mode, k_vector_to_dispercion_curves):
+    print("To wcale nei działa :(")
+
+
+def gupi_Wilcox_Bedzie_dzialac(dispersion, dispercion_curves, propagated_modes):
 
     # signal_to_fft = pad_timetraces_zeroes(dispersion[0], dispersion[1])
-    signal_to_fft = dispersion
-    signal_after_fft = np.fft.rfft(signal_to_fft[1])
-    freq_sampling = time_x_freq[3]
-    time = time_x_freq[0]
+    # signal_to_fft = dispersion
+    # signal_after_fft = np.fft.rfft(signal_to_fft[1])
+    signal_after_fft = np.fft.rfft(dispersion[1])
+    # freq_sampling = time_x_freq[3]
+    # time = time_x_freq[0]
+    time = dispersion[0]
+    # frequency_from_numpy = np.fft.rfftfreq(len(signal_to_fft[1]))*1e4
+    frequency_from_numpy = np.fft.rfftfreq(len(dispersion[1]))*1e4
     dt = time[-1]/len(time)
-    new_freq_sampling = np.linspace(freq_sampling[0], freq_sampling[-1], len(signal_after_fft))
-    new_freq_sampling_kHz = new_freq_sampling*1e-3
+    new_freq_sampling_kHz = frequency_from_numpy
+    modes = []
+    for ind in range(len(propagated_modes)):
+        modes.append(dispercion_curves.getMode(ind))
+    # dispercion_curves_of_propagated_mode = KrzyweDyspersji.getMode(0)
+    k_vect = dispercion_curves.k_v
+
+#-------------------------------Tutaj kończy się program ---------------------------------
+
+    # new_freq_sampling = np.linspace(freq_sampling[0], freq_sampling[-1], len(signal_after_fft))
+    # new_freq_sampling_kHz = new_freq_sampling*1e-3
+
     G_w = np.sqrt(signal_after_fft.real**2 + signal_after_fft.imag**2)
+    print("Trzeci plot")
     plt.plot(new_freq_sampling_kHz, G_w, '*')
     plt.show()
-
-
-    k_nyq = calculate_k_nyquist(KrzyweDyspersji, dt)
+    print("Czwarty plot")
+    plt.plot(frequency_from_numpy, G_w, '*')
+    plt.show()
+#------------------Wyliczanie ograniczeń --------------------------------
+    k_nyq = calculate_k_nyquist(dispercion_curves, dt)
     delta_x = calculate_delta_x(k_nyq)
-    delta_k = calculate_delta_k(KrzyweDyspersji, time[-1])
+    delta_k = calculate_delta_k(dispercion_curves, time[-1]) * 0.5e5
     n = calculate_n(k_nyq, delta_k) # n to długość wektora x, liczba próbek na odległości
-
-    mode_0 = KrzyweDyspersji.getMode(0)
-    k_vect = KrzyweDyspersji.k_v
+#--------------------------to już skopiowane i działa-----------------
+    if len(modes) > 1:
+        mean_data = calculate_mean_mode(dispercion_curves, propagated_modes)
+        mean_mode = mean_data[0]
+        mean_k_vector = mean_data[1]
+    else:
+        mean_mode = modes[0]
+        mean_k_vector = dispercion_curves.k_v
+    mode_0 = mean_mode
+    k_vect = mean_k_vector
+    plt.plot(mean_mode.all_omega_khz, mean_k_vector)
+    plt.show()
     max_k = find_max_k(mode_0, k_vect, new_freq_sampling_kHz[-1])
     new_k_sampling_rad_m = []
     k = 0
+    print("Max k = " + str(max_k) + "delta k = " + str(delta_k))
     print("Tworzenie wektora k")
     while k < max_k:
         new_k_sampling_rad_m.append(k)
@@ -315,10 +414,30 @@ if __name__ == "__main__":
     print("dx wynosi " + str(dx) + "A cały dystans " + str(distance))
     dist_vect = []
     for i in range(n):
-        dist_vect.append(i*dx*6)
+        dist_vect.append(i*dx*2*np.pi/len(propagated_modes))
 
     plt.plot(dist_vect, h_x)
     plt.show()
+
+
+if __name__ == "__main__":
+    KrzyweDyspersji=selectMode.SelectedMode('../eig/kvect', '../eig/omega')
+    KrzyweDyspersji.selectMode()
+    dist = 2 # w metrach
+
+    signal_array, time_x_freq = Anim_dyspersji.get_chirp()
+    # for i in range(length):
+    print("Zaraz będzie się dzało :o")
+    # make_dispersion_in_bar(length, len(plane), dx, KrzyweDyspersji)
+    dispersion = Anim_dyspersji.draw_time_propagation(signal_array, time_x_freq, dist, KrzyweDyspersji)
+    print("Pierwszy plot")
+    plt.plot(time_x_freq[0], signal_array[3])
+    plt.show()
+    print("Drugi plot")
+    plt.plot(dispersion[0], dispersion[1])
+    plt.show()
+
+    gupi_Wilcox_Bedzie_dzialac(dispersion, KrzyweDyspersji, [0, 1, 2, 3])
 
     # print(k_vect[-1]/delta_k)
     # print(len(signal_after_fft.real))
