@@ -50,13 +50,40 @@ def curve_sampling(omega, values, freq_sampled):
             if om > omega[i].real and om < omega[i + 1].real:
                 linera_fc = find_linear_fc(omega[i].real, omega[i + 1].real, values[i], values[i + 1])
                 sampled_k = linera_fc[0] + om * linera_fc[1]
-                # print("k: ", sampled_k)
                 k.append(sampled_k)
                 break
         if om <= omega[0]:
             k.append(values[0])
         if om >= omega[-1]:
             k.append(values[-1])
+    return np.array(k)
+
+def curve_sampling_new(omega, values, freq_sampled):
+    k = [] # szukane k dla zadanych czestotliwosci -> frequencies
+
+    for om in freq_sampled:
+        if om <= omega[0]:
+            if omega[0] < 5:
+                linear_fc = find_linear_fc(0, omega[0], 0, values[0])
+                sampled_k = linear_fc[0] + om * linear_fc[1]
+                k.append(sampled_k)
+                continue
+            else:
+                k.append(0)
+        if om >= omega[-1]:
+            linear_fc = find_linear_fc(omega[-2], omega[-1], values[-2], values[-1])
+            sampled_k = linear_fc[0] + om * linear_fc[1]
+            k.append(sampled_k)
+            continue
+
+        for i in range(len(omega) - 1):
+            if om > omega[i].real and om < omega[i + 1].real:
+                linera_fc = find_linear_fc(omega[i].real, omega[i + 1].real, values[i], values[i + 1])
+                sampled_k = linera_fc[0] + om * linera_fc[1]
+                k.append(sampled_k)
+                break
+            if om == omega[i]:
+                k.append(values[i])
     return np.array(k)
 
 def disp_in_time(distance, signal, time, freq, x, KrzyweDyspersji, num_of_modes=4):
