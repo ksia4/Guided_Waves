@@ -1,4 +1,7 @@
 from numpy import pi
+import os
+
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 ndof = 3    # liczba stopni swobody
 
@@ -20,9 +23,9 @@ force = []
 
 
 # Stale materialowe
-young_mod = 70000 #70000
-poisson_coef = 0.33333
-density = 2.7*1e-9
+young_mod = 210000 #70000
+poisson_coef = 0.3 #0.33333
+density = 7.8*1e-9 # 2.7*1e-9
 
 
 # Wykresy

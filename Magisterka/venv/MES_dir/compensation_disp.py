@@ -1,4 +1,4 @@
-from MES_dir import mesh, selectMode, config
+from MES_dir import selectMode, config
 from MES_dir import dispersion as disp
 from Animation import Anim_dyspersji
 import matplotlib.pyplot as plt

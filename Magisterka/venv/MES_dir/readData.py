@@ -64,10 +64,12 @@ def readEigMap(path, eigval = '0+0j',delimiter = ', '):
 
     else:
         for line in f:
-
+            # print(len(line))
             if(len(line)< 60 and eigf==False):
+
                 if(eigcomplexvalue == complex(line)):
                     eigf = True
+
                     continue
             elif(len(line) > 60 and eigf==True):
                 temp = line
