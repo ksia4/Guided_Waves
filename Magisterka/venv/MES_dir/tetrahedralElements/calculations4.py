@@ -2,9 +2,8 @@ import sympy as sp
 import numpy as np
 import numpy.linalg as la
 import scipy.integrate as integr
-from MES_dir import mesh, gauss, config
-import matplotlib.pyplot as plt
-from dispersion_curves import functions
+from MES_dir.tetrahedralElements import gauss4
+
 
 # TODO: wprowadzenie sily wymuszajacej i warunkow brzegowych
 # TODO: rozwiazanie ukladu - metoda roznicowa
@@ -164,7 +163,7 @@ def stiff_local_matrix(shape_functions, vertices, element_indices, young_modulus
 def mass_local_matrix(density):
     ksi, eta, dzeta = sp.symbols('ksi, eta, dzeta')
 
-    N_integrate = gauss.matrix_to_integrate(density)
+    N_integrate = gauss4.matrix_to_integrate(density)
     #granice calkowania
     y_bot = lambda ksi: -1
     y_top = lambda ksi: -ksi

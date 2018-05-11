@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from MES_dir import calculations, gauss
+from MES_dir.tetrahedralElements import calculations4, gauss4
 
 
 def assemble_global_stiff_matrix(vertices, indices, young_modulus, poisson_coefficient):
@@ -8,8 +8,8 @@ def assemble_global_stiff_matrix(vertices, indices, young_modulus, poisson_coeff
     global_matrix = np.zeros([np.shape(vertices)[0]*3, np.shape(vertices)[0]*3])
     # print("global ", np.shape(global_matrix))
     for elem_ind in indices:
-        n = calculations.shape_functions(vertices, elem_ind)
-        ki = calculations.stiff_local_matrix(n, vertices, elem_ind, young_modulus, poisson_coefficient)
+        n = calculations4.shape_functions(vertices, elem_ind)
+        ki = calculations4.stiff_local_matrix(n, vertices, elem_ind, young_modulus, poisson_coefficient)
 
         for i in range(len(elem_ind)):  #petla po liczbie punktow w jednej osi
             for j in range(len(elem_ind)):  # w drugiej osi
@@ -53,14 +53,14 @@ def assemble_global_mass_matrix(vertices, indices, density):
     print("Obliczanie macierzy mas")
 
     global_matrix = np.zeros([np.shape(vertices)[0] * 3, np.shape(vertices)[0] * 3])
-    mass_neutral = calculations.mass_local_matrix(density)
+    mass_neutral = calculations4.mass_local_matrix(density)
 
-    sfn = gauss.shape_functions_natural()
+    sfn = gauss4.shape_functions_natural()
 
 
     for elem_ind in indices:
 
-        j = gauss.jacobian(vertices[elem_ind], sfn)
+        j = gauss4.jacobian(vertices[elem_ind], sfn)
         mass = mass_neutral*j
 
         for i in range(len(elem_ind)):  #petla po liczbie punktow w jednej osi

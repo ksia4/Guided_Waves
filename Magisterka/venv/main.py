@@ -1,7 +1,7 @@
 import sympy as sp
 import numpy as np
 from MES_dir import MES, config, dispersion
-
+from dispersion_curves import functions
 
 x, y, z = sp.symbols('x, y, z')
 
@@ -12,31 +12,52 @@ if __name__ == "__main__":
     text = input()
 
     if text == '1':
+
+        print("Wpisz wartość: ")
+        print("4 - elementy czworościenne")
+        print("8 - elemnty sześcienne")
+        print("M - wczytanie macierzy z MARC i wykreślenie krzywych")
+        text1 = input()
+
         # parametry preta
-        length = 3
+        length = 2
         radius = 10
         num_of_circles = 6
-        num_of_points_at_c1 = 6
+        num_of_points_at_c1 = 4
 
         # wektor liczby falowej
         config.kvect_min = 1e-10
-        config.kvect_max = np.pi / 2
-        config.kvect_no_of_points = 101
+        config.kvect_max = np.pi / 4
+        config.kvect_no_of_points = 51
 
         # rysowanie wykresow
         config.show_plane = False
         config.show_bar = False
-        config.show_elements = False
+        config.show_elements = True
 
         # obliczenia
-        MES.mes(length, radius, num_of_circles, num_of_points_at_c1)
-        # print(np.shape(config.k))
-        # print(np.shape(config.m))
-        a = 5
+
+        if text1 == '4':
+
+            MES.mes4(length, radius, num_of_circles, num_of_points_at_c1)
+            # print(np.shape(config.k))
+            # print(np.shape(config.m))
+            a = 5
+
+        if text1 == '8':
+            numberOfPlanes = 3
+            firstCircle = 10
+            addNodes = 5
+            circles = 8
+            MES.mes8(length, numberOfPlanes, radius, firstCircle, addNodes, circles)
+
+        if text1 == 'M':
+            config.k, config.m = functions.getStiffAndMassMatrix()
+
         dispersion.draw_dispercion_curves()
         print("koniec")
-
 
     # rysowanie krzywych dyspersji z wczesniej obliczonych wartosci
     if text == '2':
         dispersion.draw_dispercion_curves_from_file()
+

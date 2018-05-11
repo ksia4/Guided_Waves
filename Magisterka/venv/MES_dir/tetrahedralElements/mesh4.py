@@ -21,7 +21,7 @@ def circle_plane_verticies(x, radius, number_of_points):
 def circle_mesh_full(length, radius, number_of_circles, number_of_points):
     vertices = []
     circles_rad = np.linspace(radius/number_of_circles, radius, number_of_circles)
-    for i in range(length):
+    for i in range(length + 1):
         vertices.append([i, 0, 0])
         for j, r in enumerate(circles_rad):
 
