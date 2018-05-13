@@ -23,9 +23,9 @@ force = []
 
 
 # Stale materialowe
-young_mod = 210000 #70000
+young_mod = 70000 #70000
 poisson_coef = 0.3 #0.33333
-density = 7.8*1e-9 # 2.7*1e-9
+density = 2.7*1e-9 # 2.7*1e-9
 
 
 # Wykresy

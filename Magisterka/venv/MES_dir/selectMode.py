@@ -2,7 +2,7 @@ from MES_dir import readData as rd
 import numpy as np
 import matplotlib.pyplot as plt
 zmiana = 2000*np.pi
-
+import test
 
 #Klasa opisująca pojedynczy punkt krzywej dyspersji, czyli k i omega
 class Point:
@@ -15,8 +15,8 @@ class Point:
 
     #Funkcja do wypisywania współrzędnych punktu
     def printCoor(self):
-        #print("w = ", self.w/(2000 * np.pi), "k = ", self.k)
-        print("w = ", self.w, "k = ", self.k)
+        print("w = ", self.w/(2000 * np.pi), "k = ", self.k)
+        # print("w = ", self.w, "k = ", self.k)
 
     #Funkcja, która oblicza dystans między dwoma punktami Chyyba jednak nie będzie potrzebna
     def calcDist(self,point2):
@@ -99,14 +99,14 @@ class Mode:
             dotprod = (svx * nvx) + (svy * nvy) #iloczyn skalarny tych dwóch wektorów
             svlen = np.sqrt(svx**2 + svy**2)
             nvlen = np.sqrt(nvx**2 + nvy**2)
-            print("kąt pomiędzy: \npoczątek:")
-            print(self.points[ind1].printCoor())
-            print("koniec")
-            print(self.points[ind2].printCoor())
-            print("a wektorem ktory ma poczatek: ")
-            print(Ppoint.printCoor())
-            print("a koniec ma: ")
-            print(Ppoint.printCoor())
+            # print("kąt pomiędzy: \npoczątek:")
+            # print(self.points[ind1].printCoor())
+            # print("koniec")
+            # print(self.points[ind2].printCoor())
+            # print("a wektorem ktory ma poczatek: ")
+            # print(Ppoint.printCoor())
+            # print("a koniec ma: ")
+            # print(Ppoint.printCoor())
             return np.arccos(dotprod/(svlen*nvlen))
 
     #Funkcja która z pośród wektora punktów zwróci indeks tego, który tworzy najmniejszy kąt z tym już istniejącym i ten punkt będziemy dodawać do modu
@@ -119,18 +119,18 @@ class Mode:
                 continue
             #temp = np.abs(self.findAngle(Ppoint)) #abs bo nie jestem pewna czy kąt może być ujemny, ale chyyba może a znak tutaj nie ma znaczenia (chyba)
             temp = self.findAngle(Ppoint)
-            print("Potencjalny punkt: ")
-            Ppoint.printCoor()
-            print("jego kąt: ")
-            print(temp)
+            # print("Potencjalny punkt: ")
+            # Ppoint.printCoor()
+            # print("jego kąt: ")
+            # print(temp)
             if(temp < angle):
                 angle = temp
                 angind = ind
         #print(angind)
         #print(angle)
         if angind == float("inf"):
-            print("rekurencja")
-            print(dist)
+            # print("rekurencja")
+            # print(dist)
             return self.findSmallestAngle(vPoints, dist+20000/zmiana)
         else:
             return angind
@@ -189,8 +189,8 @@ class Mode:
                 potPoints.append((self.points[temp_omega-1], self.points[temp_omega]))
 
         if len(potPoints)==0:
-            print("Nie dotyczy tego modu, minimalna omega to: ")
-            print(self.minOmega)
+            # print("Nie dotyczy tego modu, minimalna omega to: ")
+            # print(self.minOmega)
             return []
 
         for point in potPoints:
@@ -262,17 +262,17 @@ class SelectedMode:
             test = np.array(potentialPoints)
             AllPoints.delDuplicats(potentialPoints)
             j = 0
-            print(i)
+            # print(i)
             for mod in self.AllModes.modeTable:
-                print(j)
+                # print(j)
                 j += 1
-                print("ostatnie dwa punkty to:")
-                print(mod.points[i-1].printCoor())
-                print(mod.points[i-2].printCoor())
+                # print("ostatnie dwa punkty to:")
+                # print(mod.points[i-1].printCoor())
+                # print(mod.points[i-2].printCoor())
                 ind = mod.findSmallestAngle(potentialPoints)
-                print("I wygrał punkt: ")
-                print(ind)
-                potentialPoints[ind].printCoor()
+                # print("I wygrał punkt: ")
+                # print(ind)
+                # potentialPoints[ind].printCoor()
 #               print(ind)
                 mod.addPoint(potentialPoints[ind])
                 if(len(potentialPoints) > 3):

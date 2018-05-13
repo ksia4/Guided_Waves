@@ -25,7 +25,7 @@ def curve_sampling(omega, values, freq_sampled):
             k.append(values[0])
         if om >= omega[-1]:
             k.append(values[-1])
-    return np.array(k)
+    return k
 
 
 def drawing_modes(number_of_modes):
