@@ -264,7 +264,9 @@ if __name__ == "__main__":
     # fc returns list [time, chirp, freqSampling, fChirp]
     chirp = getChirp(1000, 1e-4, 1e5)
     # chirpLengthPropagation(signalArray, numOfModes, drawSignal=False)
-    timeVector, ampVector = chirpLengthPropagation(chirp, 4, 2, drawSignal=True)
+    timeVector, ampVector = chirpLengthPropagation(chirp, 4, 4, drawSignal=True)
+    plt.plot(timeVector, ampVector)
+    plt.show()
     # draw_time_propagation(chirp)
 
 

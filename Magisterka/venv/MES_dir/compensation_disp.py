@@ -11,10 +11,10 @@ def find_accurate_len(actual_len, factor=8):
         estimated_len *= 2
     return estimated_len
 
-def pad_timetraces_zeroes(time_vector, signal_vector):
+def pad_timetraces_zeroes(time_vector, signal_vector, multi=8):
     actual_len = len(signal_vector)
     print("teraz było tyle punktów")
-    estimated_len = find_accurate_len(actual_len)
+    estimated_len = find_accurate_len(actual_len, multi)
     print(actual_len)
     print("teraz będzie o tyle punktów")
     dt = time_vector[-1]/len(time_vector)
@@ -63,7 +63,7 @@ def calculate_k_nyquist(dispercion_curves, dt, factor=1.1):
 
     return factor*max_k_Nyq[0] # Zwracana wartość jest w rad/m
 
-def calculate_delta_k(dispercion_curves, signal_duration, factor=0.9):
+def calculate_delta_k(max_v_gr, signal_duration, factor=0.9):
     # delta k powinno być = 1/(n(delta_x) i mniejsze niż 1/(m*delta_t*v_gr_max) m*delta_t jest równe długości trwania sygnału :)
     if signal_duration <= 0:
         print("Długość sygnału musi być większa od 0")
@@ -71,11 +71,10 @@ def calculate_delta_k(dispercion_curves, signal_duration, factor=0.9):
     if factor >= 1:
         print("Współczynnik musi być mniejszy od 1, przyjęta wartość to 0,9")
         factor = 0.9
-    max_v_gr = 0
-    for mode in dispercion_curves.AllModes.modeTable:
-        temp_v_gr = 1000 * max(disp.calculate_group_velocity(mode.all_omega_khz, dispercion_curves.k_v/1000))
-        if temp_v_gr > max_v_gr:
-            max_v_gr = temp_v_gr
+    # for mode in dispercion_curves.AllModes.modeTable:
+    #     temp_v_gr = 1000 * max(disp.calculate_group_velocity(mode.all_omega_khz, dispercion_curves.k_v/1000))
+    #     if temp_v_gr > max_v_gr:
+    #         max_v_gr = temp_v_gr
     # print("Prędkość grupowa max = " + str(max_v_gr))
     delta_k = factor/(signal_duration * max_v_gr)
     return delta_k # delta_k zwracana jest w rad/m
@@ -197,7 +196,7 @@ def calculate_mean_mode(dispercion_curves, numbers_of_propagated_modes):
     plt.show()
     return [mean_mode, mean_k_vector]
 
-def Wilcox_compensation(dispersion, dispercion_curves, propagated_modes, need_to_pad = False):
+def Wilcox_compensation2(dispersion, dispercion_curves, propagated_modes, need_to_pad = False):
     if need_to_pad:
         signal_to_fft = pad_timetraces_zeroes(dispersion[0], dispersion[1])
     else:
@@ -210,17 +209,16 @@ def Wilcox_compensation(dispersion, dispercion_curves, propagated_modes, need_to
     # time = time_x_freq[0]
     # time = dispersion[0]
     time = signal_to_fft[0]
-    frequency_from_numpy = np.fft.rfftfreq(len(signal_to_fft[1]))*1e4
-    # frequency_from_numpy = np.fft.rfftfreq(len(dispersion[1]))*1e4
     dt = time[-1]/len(time)
+    frequency_from_numpy = np.fft.rfftfreq(len(signal_to_fft[1]), d=dt)*1e-3
+    # frequency_from_numpy = np.fft.rfftfreq(len(dispersion[1]))*1e4
+
     new_freq_sampling_kHz = frequency_from_numpy
     modes = []
     for ind in range(len(propagated_modes)):
         modes.append(dispercion_curves.getMode(ind))
     # dispercion_curves_of_propagated_mode = KrzyweDyspersji.getMode(0)
     k_vect = dispercion_curves.k_v
-
-#-------------------------------Tutaj kończy się program ---------------------------------
 
     # new_freq_sampling = np.linspace(freq_sampling[0], freq_sampling[-1], len(signal_after_fft))
     # new_freq_sampling_kHz = new_freq_sampling*1e-3
@@ -232,12 +230,7 @@ def Wilcox_compensation(dispersion, dispercion_curves, propagated_modes, need_to
     print("Czwarty plot")
     plt.plot(frequency_from_numpy, G_w, '*')
     plt.show()
-#------------------Wyliczanie ograniczeń --------------------------------
-    k_nyq = calculate_k_nyquist(dispercion_curves, dt)
-    delta_x = calculate_delta_x(k_nyq)
-    delta_k = calculate_delta_k(dispercion_curves, time[-1]) * 0.5e5
-    n = calculate_n(k_nyq, delta_k) # n to długość wektora x, liczba próbek na odległości
-#--------------------------to już skopiowane i działa-----------------
+
     if len(modes) > 1:
         mean_data = calculate_mean_mode(dispercion_curves, propagated_modes)
         mean_mode = mean_data[0]
@@ -249,8 +242,28 @@ def Wilcox_compensation(dispersion, dispercion_curves, propagated_modes, need_to
     k_vect = mean_k_vector
     plt.plot(mean_mode.all_omega_khz, mean_k_vector)
     plt.show()
+    v_gr_max = 0
+    # test = []
+    for ind in range(len(k_vect) - 1):
+        print("Indeks wynosi " + str(ind))
+        value = (mode_0.points[ind + 1].wkat_complex - mode_0.points[ind].wkat_complex)/(k_vect[ind+1]-k_vect[ind])
+        # test.append(value)
+        if value > v_gr_max:
+            v_gr_max = value
+    # plt.plot(test)
+    # plt.show()
+
+    #------------------Wyliczanie ograniczeń --------------------------------
+    k_nyq = calculate_k_nyquist(dispercion_curves, dt)
+    delta_x = calculate_delta_x(k_nyq)
+    delta_k = calculate_delta_k(v_gr_max.real, time[-1])
+
+    n = calculate_n(k_nyq, delta_k) # n to długość wektora x, liczba próbek na odległości
+
     max_k = find_max_k(mode_0, k_vect, new_freq_sampling_kHz[-1])
     new_k_sampling_rad_m = []
+    while max_k/delta_k > 40000:
+        delta_k = delta_k * 5
     k = 0
     print("Max k = " + str(max_k) + "delta k = " + str(delta_k))
     print("Tworzenie wektora k")
@@ -307,6 +320,47 @@ def Wilcox_compensation(dispersion, dispercion_curves, propagated_modes, need_to
     plt.plot(dist_vect, h_x)
     plt.show()
 
+def wave_length_propagation(signal, numbers_of_modes, disp_curves, distance_m, F_PADZEROS, mult=8):
+    modes_table = []
+    for mode_number in numbers_of_modes:
+        modes_table.append(disp_curves.getMode(mode_number))
+
+    if F_PADZEROS:
+        signal_to_fft = pad_timetraces_zeroes(signal[0], signal[1], mult)
+    else:
+        signal_to_fft = signal
+
+    signal_after_fft = np.fft.rfft(signal_to_fft[1])
+    time = signal_to_fft[0]
+    dt = time[-1]/len(time)
+    frequency_from_numpy = np.fft.rfftfreq(len(signal_to_fft[1]), d=dt)*1e-3#*1e4
+
+    print("Plotuje po fftxD")
+    plt.plot(frequency_from_numpy, np.sqrt(signal_after_fft.real**2 + signal_after_fft.imag**2))
+    plt.show()
+
+    k_vect = []
+    new_signal_after_fft = []
+    for ind, f in enumerate(frequency_from_numpy):
+        k_vect.append(0)
+        for mode in modes_table:
+            k_vect[-1] += mode.findKWithGivenOmega_kHz(f)
+        new_signal_after_fft.append(signal_after_fft[ind] * np.exp(-1j * k_vect[ind] * distance_m))
+
+    plt.plot(frequency_from_numpy, np.sqrt(np.array(new_signal_after_fft).real**2 + np.array(new_signal_after_fft).imag**2))
+    plt.show()
+
+    propagated_signal = np.fft.irfft(new_signal_after_fft) #/distance_m
+    print("Przepropagowałam sygnał?")
+    print(len(propagated_signal))
+    print(len(time))
+    new_time = np.linspace(time[0], time[-1], len(propagated_signal))
+    plt.plot(new_time, propagated_signal)
+    plt.show()
+    return [new_time, propagated_signal]
+
+
+
 
 if __name__ == "__main__":
     KrzyweDyspersji=selectMode.SelectedMode('../eig/kvect', '../eig/omega')
@@ -325,4 +379,10 @@ if __name__ == "__main__":
     plt.plot(dispersion[0], dispersion[1])
     plt.show()
 
-    Wilcox_compensation(dispersion, KrzyweDyspersji, [0, 1, 2, 3])
+    signal = wave_length_propagation([time_x_freq[0], signal_array[3]], [0, 1, 2, 3], KrzyweDyspersji, dist, True, 100)
+    # print("Przepropagowało...")
+    # plt.plot(signal[0], signal[1])
+    # plt.show()
+    # exit(0)
+
+    Wilcox_compensation2(signal, KrzyweDyspersji, [0, 1, 2, 3])

@@ -198,6 +198,28 @@ class Mode:
 
         return K
 
+    def findKWithGivenOmega_kHz(self, omega_kHz):
+        point1 = Point()
+        point2 = Point()
+        if omega_kHz < self.minOmega:
+            return float(0)
+        if omega_kHz > self.points[-1].w:
+            point1 = self.points[-2]
+            point2 = self.points[-1]
+        for ind in range(len(self.points) - 1):
+            if self.points[ind].w == omega_kHz:
+                return self.points[ind].k
+            if self.points[ind].w > omega_kHz:
+                continue
+            if self.points[ind].w < omega_kHz and self.points[ind+1].w >omega_kHz:
+                point1 = self.points[ind]
+                point2 = self.points[ind+1]
+                break
+        a = (point1.k - point2.k)/(point1.w - point2.w)
+        b = point1.k - a * point1.w
+        return a* omega_kHz + b
+
+
 class Data:
     def __init__(self):
         self.modeTable = []
