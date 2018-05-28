@@ -359,6 +359,25 @@ def wave_length_propagation(signal, numbers_of_modes, disp_curves, distance_m, F
     plt.show()
     return [new_time, propagated_signal]
 
+def time_reverse_compensation(signal, zeros=0.01):
+    temp_signal = []
+    temp_signal2 = []
+    for s in signal[1]:
+        temp_signal2.append(s)
+        if abs(s) > zeros:
+            temp_signal.append(s)
+        else:
+            temp_signal.append(0)
+
+    temp_signal.reverse()
+    temp_signal2.reverse()
+    new_signal = []
+    for ind, s in enumerate(temp_signal):
+        if s != 0:
+            new_signal.append(temp_signal2[ind])
+
+    time_vector = signal[0][0:len(new_signal)]
+    return [time_vector, new_signal]
 
 
 
@@ -368,21 +387,21 @@ if __name__ == "__main__":
     dist = 2 # w metrach
 
     signal_array, time_x_freq = Anim_dyspersji.get_chirp()
-    # for i in range(length):
-    print("Zaraz będzie się dzało :o")
-    # make_dispersion_in_bar(length, len(plane), dx, KrzyweDyspersji)
-    dispersion = Anim_dyspersji.draw_time_propagation(signal_array, time_x_freq, dist, KrzyweDyspersji)
-    print("Pierwszy plot")
-    plt.plot(time_x_freq[0], signal_array[3])
-    plt.show()
-    print("Drugi plot")
-    plt.plot(dispersion[0], dispersion[1])
-    plt.show()
+    # # for i in range(length):
+    # print("Zaraz będzie się dzało :o")
+    # # make_dispersion_in_bar(length, len(plane), dx, KrzyweDyspersji)
+    # dispersion = Anim_dyspersji.draw_time_propagation(signal_array, time_x_freq, dist, KrzyweDyspersji)
+    # print("Pierwszy plot")
+    # plt.plot(time_x_freq[0], signal_array[3])
+    # plt.show()
+    # print("Drugi plot")
+    # plt.plot(dispersion[0], dispersion[1])
+    # plt.show()
 
     signal = wave_length_propagation([time_x_freq[0], signal_array[3]], [0, 1, 2, 3], KrzyweDyspersji, dist, True, 100)
-    # print("Przepropagowało...")
-    # plt.plot(signal[0], signal[1])
-    # plt.show()
-    # exit(0)
 
-    Wilcox_compensation2(signal, KrzyweDyspersji, [0, 1, 2, 3])
+    inversed = time_reverse_compensation(signal)
+    
+    compensated = wave_length_propagation(inversed, [0, 1, 2, 3], KrzyweDyspersji, 2, True, 100)
+
+    # Wilcox_compensation2(signal, KrzyweDyspersji, [0, 1, 2, 3])
