@@ -216,7 +216,7 @@ def Wilcox_compensation2(dispersion, dispercion_curves, propagated_modes, need_t
     new_freq_sampling_kHz = frequency_from_numpy
     modes = []
     for ind in range(len(propagated_modes)):
-        modes.append(dispercion_curves.getMode(ind))
+        modes.append(dispercion_curves.getMode(propagated_modes[ind])) #było samo ind
     # dispercion_curves_of_propagated_mode = KrzyweDyspersji.getMode(0)
     k_vect = dispercion_curves.k_v
 
@@ -403,18 +403,93 @@ def linear_mapping_compensation(signal, numbers_of_modes, disp_curves):
 
     max_g = G_w[0]
     max_ind = 0
-    first_non_zero_index = 0
-    last_non_zero_indeks = 0
     for ind, g in enumerate(G_w):
         if g>max_g:
             max_g = g
             max_ind = ind
-        if ind == 0 and g != 0:
+
+    w_0 = frequency_from_numpy[max_ind]
+
+    plt.plot(frequency_from_numpy, G_w)
+    plt.show()
+
+    print("Max silna omega w k_Hz" + str(frequency_from_numpy[max_ind]))
+
+    modes = []
+    for ind in range(len(numbers_of_modes)):
+        modes.append(disp_curves.getMode(numbers_of_modes[ind]))
+    if len(modes) > 1:
+        mean_data = calculate_mean_mode(disp_curves, numbers_of_modes)
+        mean_mode = mean_data[0]
+        mean_k_vector = mean_data[1]
+    else:
+        mean_mode = modes[0]
+        mean_k_vector = disp_curves.k_v
+
+    k_vect = []
+    for ind, f in enumerate(frequency_from_numpy):
+        k_vect.append(mean_mode.findKWithGivenOmega_kHz(f))
+    G_k = []
+    ind = 0
+    print("Teraz będziemy robić G(k)")
+    print(len(k_vect))
+    for temp_k in k_vect:
+        om = find_omega_in_dispercion_curves(mean_mode, temp_k, mean_k_vector)
+        val = find_value_by_omega_in_G_w(signal_after_fft, frequency_from_numpy, om)
+        G_k.append(val)
+
+    k_0 = mean_mode.findKWithGivenOmega_kHz(w_0)
+    k_1 = 0
+    point1 = selectMode.Point()
+    point2 = selectMode.Point()
+    point3 = selectMode.Point()
+    if w_0 < mean_mode.minOmega:
+        k_1 = 0
+    if w_0 > mean_mode.points[-1].w:
+        point1 = mean_mode.points[-2]
+        point2 = mean_mode.points[-1]
+    for ind in range(len(mean_mode.points) - 1):
+        if mean_mode.points[ind].w == w_0:
+            point1 = mean_mode.points[ind-1]
+            point2 = mean_mode.points[ind]
+            point3 = mean_mode.points[ind+1]
+            break
+
+        if mean_mode.points[ind].w > w_0:
             continue
-        if first_non_zero_index == 0 and g>0:
-            first_non_zero_index = ind
-        if g>0:
-            last_non_zero_indeks = ind
+        if mean_mode.points[ind].w < w_0 and mean_mode.points[ind+1].w > w_0:
+            point1 = mean_mode.points[ind]
+            point2 = mean_mode.points[ind+1]
+            break
+    if point3.k == 0:
+        k_1 = (point1.k - point2.k)/(point1.w - point2.w)
+    else:
+        k_1_left = (point1.k - point2.k)/(point1.w - point2.w)
+        k_1_right = (point2.k - point3.k)/(point2.w - point3.w)
+        k1 = (k_1_right + k_1_left)/2
+
+    new_G_w = []
+    print("Liczę nowe G(w) to z falką")
+
+    for ind, f in enumerate(frequency_from_numpy):
+        print(len(frequency_from_numpy)-ind)
+        k_lin = k_0 + k_1*(f - w_0)
+        val = find_value_by_omega_in_G_w(G_k, frequency_from_numpy, k_lin)
+        new_G_w.append(val)
+
+    new_g_t = np.fft.ifft(new_G_w)
+    new_time = np.linspace(time[0], time[-1], len(new_g_t))
+
+    print("Usunęłam dyspersję")
+    plt.plot(new_time, new_g_t)
+    plt.show()
+
+
+        # print(len(k_vect) - ind)
+        # ind +=1
+    # plt.plot(k_vect, np.sqrt(np.array(G_k).real**2 + np.array(G_k).imag**2))
+    # plt.show()
+
 
 
 
@@ -434,63 +509,69 @@ if __name__ == "__main__":
     # print("Drugi plot")
     # plt.plot(dispersion[0], dispersion[1])
     # plt.show()
-
     signal = wave_length_propagation([time_x_freq[0], signal_array[3]], [0, 1, 2, 3], KrzyweDyspersji, dist, True, 100)
 
-    inversed = time_reverse_compensation(signal)
-
-    print("Kompensujemy o 1 m (1/4 odległości)")
-
-    compensated1 = wave_length_propagation(inversed, [0, 1, 2, 3], KrzyweDyspersji, 1, True, 4)
-
-    print("Kompensujemy o 2 m (1/2 odległości)")
-
-    compensated2 = wave_length_propagation(inversed, [0, 1, 2, 3], KrzyweDyspersji, 2, True, 4)
-
-    print("Komensujemy o 3 m (3/4 odległości)")
-
-    compensated3 = wave_length_propagation(inversed, [0, 1, 2, 3], KrzyweDyspersji, 3, True, 4)
-
-    print("Kompensujemy całościowo o 4 m")
-
-    compensated4 = wave_length_propagation(inversed, [0, 1, 2, 3], KrzyweDyspersji, 4, True, 4)
-
-    print("Kompensujemy za bardzo (o 5 m)")
-
-    compensated5 = wave_length_propagation(inversed, [0, 1, 2, 3], KrzyweDyspersji, 5, True, 4)
-
-    print("Zestawienie wyników")
-    plt.figure("Porównanie kompensacji")
-
-    plt.subplot(511)
-    plt.plot(compensated1[0], compensated1[1])
-    plt.title("1 metr")
-    plt.xlabel("czas[s]")
-    plt.ylabel("Amplituda[-]")
-
-    plt.subplot(512)
-    plt.plot(compensated2[0], compensated2[1])
-    plt.title("2 metr")
-    plt.xlabel("czas[s]")
-    plt.ylabel("Amplituda[-]")
-
-    plt.subplot(513)
-    plt.plot(compensated3[0], compensated3[1])
-    plt.title("3 metr")
-    plt.xlabel("czas[s]")
-    plt.ylabel("Amplituda[-]")
-
-    plt.subplot(514)
-    plt.plot(compensated4[0], compensated4[1])
-    plt.title("4 metr")
-    plt.xlabel("czas[s]")
-    plt.ylabel("Amplituda[-]")
-
-    plt.subplot(515)
-    plt.plot(compensated5[0], compensated5[1])
-    plt.title("5 metr")
-    plt.xlabel("czas[s]")
-    plt.ylabel("Amplituda[-]")
-
+    print("Taki jest zdyspersowany sygnał")
+    plt.plot(signal[0], signal[1])
     plt.show()
+
+    linear_mapping_compensation(signal, [0, 1, 2, 3], KrzyweDyspersji)
+    # signal = wave_length_propagation([time_x_freq[0], signal_array[3]], [0, 1, 2, 3], KrzyweDyspersji, dist, True, 100)
+
+    # inversed = time_reverse_compensation(signal)
+    #
+    # print("Kompensujemy o 1 m (1/4 odległości)")
+    #
+    # compensated1 = wave_length_propagation(inversed, [0, 1, 2, 3], KrzyweDyspersji, 1, True, 4)
+    #
+    # print("Kompensujemy o 2 m (1/2 odległości)")
+    #
+    # compensated2 = wave_length_propagation(inversed, [0, 1, 2, 3], KrzyweDyspersji, 2, True, 4)
+    #
+    # print("Komensujemy o 3 m (3/4 odległości)")
+    #
+    # compensated3 = wave_length_propagation(inversed, [0, 1, 2, 3], KrzyweDyspersji, 3, True, 4)
+    #
+    # print("Kompensujemy całościowo o 4 m")
+    #
+    # compensated4 = wave_length_propagation(inversed, [0, 1, 2, 3], KrzyweDyspersji, 4, True, 4)
+    #
+    # print("Kompensujemy za bardzo (o 5 m)")
+    #
+    # compensated5 = wave_length_propagation(inversed, [0, 1, 2, 3], KrzyweDyspersji, 5, True, 4)
+    #
+    # print("Zestawienie wyników")
+    # plt.figure("Porównanie kompensacji")
+    #
+    # plt.subplot(511)
+    # plt.plot(compensated1[0], compensated1[1])
+    # plt.title("1 metr")
+    # plt.xlabel("czas[s]")
+    # plt.ylabel("Amplituda[-]")
+    #
+    # plt.subplot(512)
+    # plt.plot(compensated2[0], compensated2[1])
+    # plt.title("2 metr")
+    # plt.xlabel("czas[s]")
+    # plt.ylabel("Amplituda[-]")
+    #
+    # plt.subplot(513)
+    # plt.plot(compensated3[0], compensated3[1])
+    # plt.title("3 metr")
+    # plt.xlabel("czas[s]")
+    # plt.ylabel("Amplituda[-]")
+    #
+    # plt.subplot(514)
+    # plt.plot(compensated4[0], compensated4[1])
+    # plt.title("4 metr")
+    # plt.xlabel("czas[s]")
+    # plt.ylabel("Amplituda[-]")
+    #
+    # plt.subplot(515)
+    # plt.plot(compensated5[0], compensated5[1])
+    # plt.title("5 metr")
+    # plt.xlabel("czas[s]")
+    # plt.ylabel("Amplituda[-]")
+    #
+    # plt.show()
     # Wilcox_compensation2(signal, KrzyweDyspersji, [0, 1, 2, 3])
