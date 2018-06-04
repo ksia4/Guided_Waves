@@ -216,7 +216,7 @@ def Wilcox_compensation2(dispersion, dispercion_curves, propagated_modes, need_t
     new_freq_sampling_kHz = frequency_from_numpy
     modes = []
     for ind in range(len(propagated_modes)):
-        modes.append(dispercion_curves.getMode(propagated_modes[ind])) #było samo ind
+        modes.append(dispercion_curves.getMode(ind)) #było samo ind
     # dispercion_curves_of_propagated_mode = KrzyweDyspersji.getMode(0)
     k_vect = dispercion_curves.k_v
 
@@ -308,7 +308,7 @@ def Wilcox_compensation2(dispersion, dispercion_curves, propagated_modes, need_t
     plt.show()
     print("długość H(k) to " + str(len(H_k)))
 
-    h_x = np.fft.ifft(H_k)
+    h_x = np.fft.ifft(H_k) / (2000 * np.pi)
     distance = 1/delta_k # w metrach
     n = len(h_x)
     dx = distance/n
@@ -496,7 +496,7 @@ def linear_mapping_compensation(signal, numbers_of_modes, disp_curves):
 if __name__ == "__main__":
     KrzyweDyspersji=selectMode.SelectedMode('../eig/kvect', '../eig/omega')
     KrzyweDyspersji.selectMode()
-    dist = 4 # w metrach
+    dist = 2 # w metrach
 
     signal_array, time_x_freq = Anim_dyspersji.get_chirp()
     # # for i in range(length):
@@ -509,13 +509,22 @@ if __name__ == "__main__":
     # print("Drugi plot")
     # plt.plot(dispersion[0], dispersion[1])
     # plt.show()
+    print("wpuszczany sygnał")
+    plt.plot(time_x_freq[0], signal_array[3])
+    plt.xlabel("time[s]")
+    plt.show()
     signal = wave_length_propagation([time_x_freq[0], signal_array[3]], [0, 1, 2, 3], KrzyweDyspersji, dist, True, 100)
 
-    print("Taki jest zdyspersowany sygnał")
-    plt.plot(signal[0], signal[1])
-    plt.show()
+    print("kompensacja Wilcoxem")
+    Wilcox_compensation2(signal, KrzyweDyspersji, [0, 1, 2, 3])
 
-    linear_mapping_compensation(signal, [0, 1, 2, 3], KrzyweDyspersji)
+
+    # print("Taki jest zdyspersowany sygnał")
+    # plt.plot(signal[0], signal[1])
+    # plt.xlabel("time[s]")
+    # plt.show()
+
+    # linear_mapping_compensation(signal, [0, 1, 2, 3], KrzyweDyspersji)
     # signal = wave_length_propagation([time_x_freq[0], signal_array[3]], [0, 1, 2, 3], KrzyweDyspersji, dist, True, 100)
 
     # inversed = time_reverse_compensation(signal)
@@ -574,4 +583,4 @@ if __name__ == "__main__":
     # plt.ylabel("Amplituda[-]")
     #
     # plt.show()
-    # Wilcox_compensation2(signal, KrzyweDyspersji, [0, 1, 2, 3])
+
