@@ -1,0 +1,293 @@
+\documentclass[pl,12pt]{aghdpl}
+% \documentclass[en,11pt]{aghdpl}  % praca w języku angielskim
+
+% Lista wszystkich języków stanowiących języki pozycji bibliograficznych użytych w pracy.
+% (Zgodnie z zasadami tworzenia bibliografii każda pozycja powinna zostać utworzona zgodnie z zasadami języka, w którym dana publikacja została napisana.)
+\usepackage[english,polish]{babel}
+
+% Użyj polskiego łamania wyrazów (zamiast domyślnego angielskiego).
+\usepackage{polski}
+
+\usepackage[utf8]{inputenc}
+
+% Załączniki
+
+\usepackage[toc, page]{appendix}
+\renewcommand\appendixpagename{Załączniki}
+\renewcommand\appendixtocname{Załączniki}
+
+% dodatkowe pakiety
+
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{systeme}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{float}% do umieszczenia floatów [H]
+\usepackage{enumitem}
+\setlist{nosep} % or \setlist{noitemsep} to leave space around whole list
+\usepackage[bookmarks,hidelinks]{hyperref}
+
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+% Środowisko float do kodu źródłowego \begin{program}
+
+\floatstyle{plaintop}
+\ifcsname{chapter}\endcsname%
+    \newfloat{program}{!tbh}{lop}[chapter]
+\else%
+    \newfloat{program}{!tbh}{lop}
+\fi
+\floatname{program}{Kod źr.}
+
+% Kod poniżej powoduje, że floaty nie wylatują poza granice sekcji
+
+\usepackage{placeins}
+
+\ifcsname{chapter}\endcsname%
+    \let\Oldchapter\chapter
+    \renewcommand{\chapter}{\FloatBarrier\Oldchapter}
+\fi
+
+\let\Oldsection\section
+\renewcommand{\section}{\FloatBarrier\Oldsection}
+
+\let\Oldsubsection\subsection
+\renewcommand{\subsection}{\FloatBarrier\Oldsubsection}
+
+\let\Oldsubsubsection\subsubsection
+\renewcommand{\subsubsection}{\FloatBarrier\Oldsubsubsection}
+
+% --- < bibliografia > ---
+
+
+\usepackage[
+style=numeric,
+sorting=none,
+%
+% Zastosuj styl wpisu bibliograficznego właściwy językowi publikacji.
+language=autobib,
+autolang=other,
+% Zapisuj datę dostępu do strony WWW w formacie RRRR-MM-DD.
+urldate=edtf,
+seconds=true,
+% Nie dodawaj numerów stron, na których występuje cytowanie.
+backref=false,
+% Podawaj ISBN.
+isbn=true,
+% Nie podawaj URL-i, o ile nie jest to konieczne.
+url=false,
+%
+% Ustawienia związane z polskimi normami dla bibliografii.
+maxbibnames=3,
+% Jeżeli używamy Bibera:
+backend=biber
+]{biblatex}
+
+\usepackage{csquotes}
+% Ponieważ `csquotes` nie posiada polskiego stylu, można skorzystać z mocno zbliżonego stylu chorwackiego.
+\DeclareQuoteAlias{croatian}{polish}
+
+\addbibresource{bibliografia.bib}
+
+% Nie wyświetlaj wybranych pól.
+%\AtEveryBibitem{\clearfield{note}}
+
+
+% ------------------------
+% --- < listingi > ---
+
+% Użyj czcionki kroju Times.
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+
+\usepackage{listings}
+\lstset{language=TeX}
+
+\lstset{
+        literate={ą}{{\k{a}}}1
+           {ć}{{\'c}}1
+           {ę}{{\k{e}}}1
+           {ó}{{\'o}}1
+           {ń}{{\'n}}1
+           {ł}{{\l{}}}1
+           {ś}{{\'s}}1
+           {ź}{{\'z}}1
+           {ż}{{\.z}}1
+           {Ą}{{\k{A}}}1
+           {Ć}{{\'C}}1
+           {Ę}{{\k{E}}}1
+           {Ó}{{\'O}}1
+           {Ń}{{\'N}}1
+           {Ł}{{\L{}}}1
+           {Ś}{{\'S}}1
+           {Ź}{{\'Z}}1
+           {Ż}{{\.Z}}1
+}
+
+% Ustawienia pakietu lstlisting do umieszczania kodu
+
+\usepackage{color}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  backgroundcolor=\color{white},     % choose the background color
+  basicstyle=\ttfamily\footnotesize, % size of fonts used for the code
+  breaklines, breakatwhitespace,     % automatic line breaking only at whitespace
+  commentstyle=\color{mygreen},      % comment style
+  numbers=left,
+  showstringspaces=false,
+  numberstyle=\tiny,
+  frame=l,
+  escapeinside={\%*}{*)},            % if you want to add LaTeX within your code
+  keywordstyle=\color{blue},         % keyword style
+  stringstyle=\color{mymauve}        % string literal style
+}
+
+% ------------------------
+
+\AtBeginDocument{
+        \renewcommand{\tablename}{Tab.}
+        \renewcommand{\figurename}{Rys.}
+}
+
+% ------------------------
+% --- < tabele > ---
+
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage[flushleft]{threeparttable}
+
+% defines the X column to use m (\parbox[c]) instead of p (`parbox[t]`)
+\newcolumntype{C}[1]{>{\hsize=#1\hsize\centering\arraybackslash}X}
+
+
+%---------------------------------------------------------------------------
+
+\author{{}Katarzyna Rugiełło}
+\authorsec{{}Bartłomiej Piwowarczyk}
+
+\makeatletter% Poniższe makra są wyłącznie zdefiniowane w klasie aghdpl-imir
+\@ifclassloaded{aghdpl}{
+
+  \sex{k} % Mężczyzna - m; kobieta - cokolwiek
+  \sex{m}
+  \shortauthor{{[}Im. i nazwisko]}
+  \albumnum{2694--}
+  \albumnumsec{269466}
+  \address{wypelnic}
+  \addresssec{Stryszowa 27, 32-420 Gdów}
+
+  \titlePL{Metody kompensacji dyspersji dla fal prowadzonych propagujących w prętach stalowych}
+  \titleEN{Dispersion compensation methods of guided waves(GW) propagating in steel bars}
+
+  \shorttitlePL{{[}Skrócony temat pracy]} % skrócona wersja tytułu
+  \shorttitleEN{{[}Short thesis subject]}
+
+  % rodzaj pracy bez końcówki fleksyjnej np. inżyniersk, magistersk
+  \thesistypePL{magistersk}
+  \thesistypeEN{master}
+
+  \supervisor{prof. dr hab. inż. Tadeusz Stepinski}
+
+  \reviewer{dr hab. inż. Paweł Paćko}
+
+  \degreeprogrammePL{Automatyka i Robotyka}
+  \degreeprogrammeEN{Automatics and Robotics}
+
+  \specialisationPL{Automatyka i Metrologia}
+  \specialisationEN{Automation and Metrology}
+
+  \graduationyear{2018}
+  \years{2017/2018}
+  \yearofstudy{II}
+
+  \department{Katedra Automatyzacji Procesów}
+
+  \facultyPL{Wydział Inżynierii Mechanicznej i Robotyki}
+  \facultyEN{Faculty of Mechanical Engineering and Robotics}
+
+  \thesisplan{ % Przykłądowy plan pracy, należy omówić z promotorem
+    \begin{enumerate}
+    \item Omówienie tematu pracy i sposobu realizacji z promotorem.
+    \item Zebranie i opracowanie literatury dotyczącej tematu pracy.
+    \item Zebranie i opracowanie wyników badań.
+    \item Analiza wyników badań, ich omówienie i zatwierdzenie przez promotora.
+    \item Opracowanie redakcyjne.
+    \end{enumerate}
+  }
+
+  \summaryPL{\indent\indent%
+    {[}Treść streszczenia]
+  }
+  \summaryEN{\indent\indent%
+    {[}Summary text]
+  }
+
+  \acknowledgements{%
+    Serdecznie dziękuję \dots tu ciąg dalszych podziękowań np. dla promotora,
+    żony, sąsiada itp.
+  }
+
+  \setlength{\cftsecnumwidth}{10mm}
+}{}%
+\makeatother%
+
+\date{\today}
+
+
+%---------------------------------------------------------------------------
+\setcounter{secnumdepth}{4}
+\brokenpenalty=10000\relax
+
+\begin{document}
+
+\titlepages
+
+% Ponowne zdefiniowanie stylu `plain`, aby usunąć numer strony z pierwszej strony spisu treści i poszczególnych rozdziałów.
+\fancypagestyle{plain}
+{
+        % Usuń nagłówek i stopkę
+        \fancyhf{}
+        % Usuń linie.
+        \renewcommand{\headrulewidth}{0pt}
+        \renewcommand{\footrulewidth}{0pt}
+}
+
+\setcounter{tocdepth}{2}
+{\singlespacing\tableofcontents}
+\clearpage
+
+\include{1_Wprowadzenie}
+\include{2_Wybrane_zagadnienia_propagacji_fal_w_osrodku_sprezystym}
+\include{3_Wykorzystywane_zagadnienia_metody_elementow_skonczonych}
+%\include{4_Aplikacja_do_obliczen_numerycznych}
+%\include{5_Pomiary}
+%\include{6_Porownanie_metod_i_wnioski}
+%\include{7_Podsumowanie}
+
+%\include{tests}
+
+%Kod poniżej dodaje Bibliografię do spisu treści
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Bibliografia}
+\printbibliography
+
+% Załączniki
+\begin{appendices}
+  \makeatletter% Kod poniżej powoduje ustęp w spisie treści
+  \addtocontents{toc}{\let\protect\l@chapter\protect\l@section}
+  \input{zalacznikA}
+  % \input{zalocznikB}
+  % itd.
+  \makeatother%
+\end{appendices}
+
+\end{document}

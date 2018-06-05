@@ -1,0 +1,128 @@
+
+\section{Rozwiązanie wyznaczonego równania macierzowego}
+\label{sec:rozwiazanie_r_roz}
+
+Przyjmijmy, że wyznaczone równanie różniczkowe po agregacji macierzy ma postać:
+
+\begin{equation} \label{eq:mes_wyjsciowe}
+	\textbf{M} \ddot{\textbf{x}} + \textbf{Kx} = \textbf{F}.
+\end{equation}
+
+Rozwiązać to równanie można na wiele sposobów. Przedstawione zostaną tutaj trzy. Pierwszy sposób to metoda całkowania jawnego, druga - metoda całkowania niejawnego, a trzecie to metoda modalna.
+
+W metodzie całkowania jawnego zakładamy rozpoczęcie obliczeń w kroku czasowym t i przybliżamy pochodną drugiego rzędu poprzez formułę centralną:
+
+\begin{equation}
+	\ddot{\textbf{x}}^t = \frac{\textbf{x}^{t+1} - 2\textbf{x}^t + \textbf{x}^{t-1}}{\delta t^2}.
+\end{equation}
+
+Po podstawieniu do równania \ref{eq:mes_wyjsciowe} wyznaczamy \( \textbf{x}^{t+1} \):
+
+\begin{equation} \label{eq:jawne_calkowanie}
+	\textbf{x}^{t+1} = \Delta t^2 \textbf{M}^{-1}(\textbf{F}^t - \textbf{Kx}^t) + 2\textbf{x}^t - \textbf{x}^{t-1}.
+\end{equation}
+
+Metoda ta charakteryzuje się tym, że do stabilności rozwiązania często wymaga małego kroku czasowego. Nadaje się ona za to do zrównoleglania obliczeń, co pozwala zastosować do tego celu procesory graficzne. Operacja odwracania macierzy \( \textbf{M} \) we wzorze \ref{eq:jawne_calkowanie} jest kosztowna obliczeniowo. Zastosowanie macierzy skupionej pozwala znacznie przyspieszyć tą procedurę.
+
+Metoda całkowania niejawnego różni się wyjściowym krokiem czasowym. Zakładamy początkową chwilę czasową \( t+1 \), co przy zastosowaniu tej samej formuły różnicowej wprowadza krok wstecz.
+
+\begin{equation} \label{eq:niejawne}
+	\ddot{\textbf{x}}^{t+1} = \frac{\textbf{x}^{t+1} - 2\textbf{x}^t + \textbf{x}^{t-1}}{\delta t^2}.
+\end{equation}
+
+Podstawiamy równanie \ref{eq:niejawne} do równania
+
+\begin{equation} \label{eq:mes_wyjsciowe}
+	\textbf{M} \ddot{\textbf{x}}^{t+1} + \textbf{Kx}^{t+1} = \textbf{F}^{t+1}
+\end{equation}
+
+i otrzymujemy 
+
+\begin{equation} 
+	\textbf{x}^{t+1} = (\textbf{M} + \Delta t^2 \textbf{K})^{-1} (\Delta t^2 \textbf{F}^{t+1} + 2\textbf{MX}^t - \textbf{MX}^{t-1}.
+\end{equation}
+
+W tym wypadku nie unikniemy już odwracania macierzy \( \textbf{M} + \Delta t^2 \textbf{K} \), co powoduje wydłużenie obliczeń. Zaletą tej metody jest fakt, że jest ona bezwarunkowo stabilna.
+
+W metodzie modalnej jako pierwsze należy wyznaczyć wektory własne dla równania jednorodnego \( \textbf{M} \ddot{\textbf{x}} + \textbf{Kx} = 0 \). Wektory własne wyznaczyć można z dokładnością do stałej multiplikatywnej. Możliwe jest wyskalowanie tych wektorów w taki sposób, aby maciesz tych wektorów \( \boldsymbol{\phi} \) miała własność:
+
+\begin{equation} 
+	\boldsymbol{\phi}^T \textbf{M} \boldsymbol{\phi} = \textbf{I}.
+\end{equation}
+
+Zakładając przekształcenie współrzędnych \( \textbf{x} = \boldsymbol{\phi} \overbar{\textbf{x}}  \) otrzymamy nową postać równania \ref{eq:mes_wyjsciowe}.
+
+\begin{equation} 
+	\ddot{\overbar{\textbf{x}}} + \boldsymbol{\Lambda} \overbar{\textbf{x}} = \overbar{\textbf{F}}, \quad \boldsymbol{\Lambda} = \boldsymbol{\phi}^T\textbf{K}\boldsymbol{\phi}, \quad \overbar{\textbf{F}} = \boldsymbol{\phi}^T \textbf{F}.
+\end{equation}
+
+Macierz \( \boldsymbol{\Lambda} \) jest macierzą diagonalną, więc rozwiązanie układu sprowadza się teraz do znalezienia rozwiązania dla pojedynczych oscylatorów harmonicznych. Elementy macierzy \( \boldsymbol{\Lambda} \) są kwadratami częstości własnych drgań węzłów.
+
+\begin{gather}
+	\begin{bmatrix} 
+		\ddot{\overbar{x}_1} \\
+		\ddot{\overbar{x}_2} \\
+		\ddot{\overbar{x}_3} \\
+		\vdots \\
+		\ddot{\overbar{x}_n}
+	\end{bmatrix} +
+	\begin{bmatrix} 
+		\omega_1^2	&			&			&				& \\
+				& \omega_2^2	& 			& \text{\huge{0}}		& \\
+				&			& \omega_3^2 	& 				& \\
+				& \text{\huge{0}}	& 			& \ddots			& \\
+				&			&			&				& \omega_n^2
+	\end{bmatrix}
+	\begin{bmatrix} 
+		\overbar{x}_1 \\
+		\overbar{x}_2 \\
+		\overbar{x}_3 \\
+		\vdots \\
+		\overbar{x}_n
+	\end{bmatrix} =
+	\begin{bmatrix} 
+		\overbar{F}_1 \\
+		\overbar{F}_2 \\
+		\overbar{F}_3 \\
+		\vdots \\
+		\overbar{F}_n
+	\end{bmatrix}
+\end{gather}
+
+ \begin{equation}
+	\left\{
+                \begin{array}{ll}
+  		\ddot{\overbar{x}_1}+\omega_1^2\overbar{x}_1=\overbar{F}_1 \quad \rightarrow\\
+  		\ddot{\overbar{x}_2}+\omega_2^2\overbar{x}_2=\overbar{F}_2 \quad \rightarrow\\
+  		\ddot{\overbar{x}_3}+\omega_3^2\overbar{x}_3=\overbar{F}_3 \quad \rightarrow\\
+		\quad \quad \vdots \quad \quad \\
+  		\ddot{\overbar{x}_n}+\omega_n^2\overbar{x}_n=\overbar{F}_n \quad \rightarrow
+                \end{array}
+	\begin{bmatrix} 
+		\overbar{x}_1 \\
+		\overbar{x}_2 \\
+		\overbar{x}_3 \\
+		\vdots \\
+		\overbar{x}_n
+	\end{bmatrix}
+	\right.
+ \end{equation}
+
+Po rozwiązaniu równań należy wyznaczyć ostateczne rozwiązanie \( \textbf{x} = \boldsymbol{\phi} \overbar{\textbf{x}}  \).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
