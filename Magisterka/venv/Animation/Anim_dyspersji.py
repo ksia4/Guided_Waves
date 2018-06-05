@@ -1,8 +1,9 @@
 import sympy as sp
 import numpy as np
-from MES_dir import MES, config, dispersion, mesh, selectMode, mode_sampling
+from MES_dir import MES, config, dispersion,  selectMode, mode_sampling
 import matplotlib.pyplot as plt
 import matplotlib.colors as color
+from MES_dir.tetrahedralElements import mesh4 as mesh
 
 BASECOLOR = (230/255, 230/255, 250/255)
 
