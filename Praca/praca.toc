@@ -1,0 +1,35 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\select@language {polish}
+\select@language {english}
+\select@language {polish}
+\contentsline {chapter}{\numberline {1}Wprowadzenie}{10}{chapter.1}
+\contentsline {section}{\numberline {1.1}Cele pracy}{10}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Jaki\IeC {\'s} tytu\IeC {\l }}{10}{subsection.1.1.1}
+\contentsline {subsubsection}{\numberline {1.1.1.1}Jaki\IeC {\'s} tytu\IeC {\l } w subsubsection}{10}{subsubsection.1.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Jaki\IeC {\'s} tytu\IeC {\l } 2}{10}{subsection.1.1.2}
+\contentsline {section}{\numberline {1.2}Zawarto\IeC {\'s}\IeC {\'c} pracy}{10}{section.1.2}
+\contentsline {chapter}{\numberline {2}Wybrane zagadnienia propagacji fal w o\IeC {\'s}rodku spr\IeC {\k e}\IeC {\.z}ystym}{11}{chapter.2}
+\contentsline {section}{\numberline {2.1}Liniowa teoria spr\IeC {\k e}\IeC {\.z}ysto\IeC {\'s}ci}{11}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Napr\IeC {\k e}\IeC {\.z}enie}{11}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Odkszta\IeC {\l }cenie i prawko Hooke'a}{12}{subsection.2.1.2}
+\contentsline {section}{\numberline {2.2}Rodzaje fal spr\IeC {\k e}\IeC {\.z}ystych}{14}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Fale pod\IeC {\l }u\IeC {\.z}ne}{14}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Fale poprzeczne}{15}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Fale Rayleigha i L\"{o}va}{15}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Fale Lamba}{16}{subsection.2.2.4}
+\contentsline {section}{\numberline {2.3}Zjawisko dyspersji}{17}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Pr\IeC {\k e}dko\IeC {\'s}\IeC {\'c} fazowa i grupowa}{18}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Analityczne wyznaczanie krzywych dyspersji}{20}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Numeryczne wyznaczanie krzywych dyspresji}{24}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.4}Eksperymentalne wyznaczanie krzywych dyspersji}{30}{subsection.2.3.4}
+\contentsline {chapter}{\numberline {3}Wykorzystywane zagadnienia metody element\IeC {\'o}w sko\IeC {\'n}czonych}{32}{chapter.3}
+\contentsline {section}{\numberline {3.1}Rozwi\IeC {\k a}zywanie zada\IeC {\'n} z pomoc\IeC {\k a} MES}{32}{section.3.1}
+\contentsline {section}{\numberline {3.2}Funkcje kszta\IeC {\l }tu}{33}{section.3.2}
+\contentsline {section}{\numberline {3.3}Wyznaczanie macierzy sztywno\IeC {\'s}ci i mas element\IeC {\'o}w}{35}{section.3.3}
+\contentsline {section}{\numberline {3.4}Agregacja globalnych macierzy mas i sztywno\IeC {\'s}ci}{39}{section.3.4}
+\contentsline {section}{\numberline {3.5}Rozwi\IeC {\k a}zanie wyznaczonego r\IeC {\'o}wnania macierzowego}{41}{section.3.5}
+\contentsline {section}{\numberline {3.6}Zbie\IeC {\.z}no\IeC {\'s}\IeC {\'c} metody i b\IeC {\l }\IeC {\k e}dy rozwi\IeC {\k a}zania}{43}{section.3.6}
+\contentsline {chapter}{Bibliografia}{46}{section*.31}
+\contentsline {chapter}{Za\IeC {\l }\IeC {\k a}czniki}{46}{section*.32}
+\let \l@chapter \l@section 
+\contentsline {chapter}{\numberline {A}Lorem Ipsum}{47}{Dodatek.a.A}
