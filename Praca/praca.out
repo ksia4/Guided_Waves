@@ -24,6 +24,17 @@
 \BOOKMARK [1][-]{section.3.4}{Agregacja globalnych macierzy mas i sztywnosci}{chapter.3}% 24
 \BOOKMARK [1][-]{section.3.5}{Rozwiazanie wyznaczonego r\363wnania macierzowego}{chapter.3}% 25
 \BOOKMARK [1][-]{section.3.6}{Zbieznosc metody i bledy rozwiazania}{chapter.3}% 26
-\BOOKMARK [0][-]{section*.31}{Bibliografia}{}% 27
-\BOOKMARK [0][-]{section*.32}{Zalaczniki}{}% 28
-\BOOKMARK [0][-]{Dodatek.a.A}{Lorem Ipsum}{}% 29
+\BOOKMARK [0][-]{chapter.4}{Metody kompensacji dyspersji}{}% 27
+\BOOKMARK [1][-]{section.4.1}{Cel kompensacji}{chapter.4}% 28
+\BOOKMARK [2][-]{subsection.4.1.1}{Zastosowanie fal Lamba w nieniszczacych testach}{section.4.1}% 29
+\BOOKMARK [2][-]{subsection.4.1.2}{Sygnal stosowany wy symulacji}{section.4.1}% 30
+\BOOKMARK [1][-]{section.4.2}{Agregacja krzywych dyspersji uzyskanych z zaimplementowanego solvera}{chapter.4}% 31
+\BOOKMARK [2][-]{subsection.4.2.1}{Cel agregacji}{section.4.2}% 32
+\BOOKMARK [2][-]{subsection.4.2.2}{Algorytm agregacji}{section.4.2}% 33
+\BOOKMARK [1][-]{section.4.3}{Metoda odwracania sygnalu w czasie}{chapter.4}% 34
+\BOOKMARK [2][-]{subsection.4.3.1}{Podstawy teoretyczne}{section.4.3}% 35
+\BOOKMARK [2][-]{subsection.4.3.2}{Implementacja numeryczna}{section.4.3}% 36
+\BOOKMARK [1][-]{section.4.4}{Metoda mapowania liniowego przy pomocy rozwiniecia w szereg Taylora}{chapter.4}% 37
+\BOOKMARK [0][-]{section*.38}{Bibliografia}{}% 38
+\BOOKMARK [0][-]{section*.39}{Zalaczniki}{}% 39
+\BOOKMARK [0][-]{Dodatek.a.A}{Lorem Ipsum}{}% 40
