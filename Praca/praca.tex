@@ -22,12 +22,14 @@
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{systeme}
+\usepackage{caption}
 \usepackage{amsthm}
 \usepackage{graphicx}
 \usepackage{float}% do umieszczenia floatów [H]
 \usepackage{enumitem}
 \setlist{nosep} % or \setlist{noitemsep} to leave space around whole list
 \usepackage[bookmarks,hidelinks]{hyperref}
+%\usepackage{cite}
 
 \newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
 % Środowisko float do kodu źródłowego \begin{program}
@@ -83,6 +85,7 @@ maxbibnames=3,
 % Jeżeli używamy Bibera:
 backend=biber
 ]{biblatex}
+
 
 \usepackage{csquotes}
 % Ponieważ `csquotes` nie posiada polskiego stylu, można skorzystać z mocno zbliżonego stylu chorwackiego.
@@ -179,13 +182,13 @@ backend=biber
   \sex{k} % Mężczyzna - m; kobieta - cokolwiek
   \sex{m}
   \shortauthor{{[}Im. i nazwisko]}
-  \albumnum{269475}
+  \albumnum{2694--}
   \albumnumsec{269466}
-  \address{ul. Adama Mickiewicza 17/38, 38-400 Krosno}
+  \address{wypelnic}
   \addresssec{Stryszowa 27, 32-420 Gdów}
 
-  \titlePL{Opracowanie aplikacji do symulacji propagacji fal prowadzonych w prętach stalowych}
-  \titleEN{Development of software application for the simulation of guided wave in steel bars}
+  \titlePL{Metody kompensacji dyspersji dla fal prowadzonych propagujących w prętach stalowych}
+  \titleEN{Dispersion compensation methods of guided waves(GW) propagating in steel bars}
 
   \shorttitlePL{{[}Skrócony temat pracy]} % skrócona wersja tytułu
   \shorttitleEN{{[}Short thesis subject]}
@@ -268,9 +271,8 @@ backend=biber
 \include{2_Wybrane_zagadnienia_propagacji_fal_w_osrodku_sprezystym}
 \include{3_Wykorzystywane_zagadnienia_metody_elementow_skonczonych}
 \include{4_Metody_kompensacji_dyspersji}
-%\include{5_Pomiary}
-%\include{6_Porownanie_metod_i_wnioski}
-%\include{7_Podsumowanie}
+\include{5_Aplikacja_do_obliczen_numerycznych}
+%\include{6_Podsumowanie}
 
 %\include{tests}
 
@@ -279,6 +281,7 @@ backend=biber
 \phantomsection
 \addcontentsline{toc}{chapter}{Bibliografia}
 \printbibliography
+
 
 % Załączniki
 \begin{appendices}
