@@ -1,8 +1,9 @@
 import sympy as sp
 import numpy as np
-from MES_dir import MES, config, dispersion
+from MES_dir import MES, config, dispersion_curves
 from dispersion_curves import functions
 
+# begin MES
 x, y, z = sp.symbols('x, y, z')
 
 if __name__ == "__main__":
@@ -54,10 +55,10 @@ if __name__ == "__main__":
         if text1 == 'M':
             config.k, config.m = functions.getStiffAndMassMatrix()
 
-        dispersion.draw_dispercion_curves()
+        dispersion_curves.draw_dispercion_curves()
         print("koniec")
 
     # rysowanie krzywych dyspersji z wczesniej obliczonych wartosci
     if text == '2':
-        dispersion.draw_dispercion_curves_from_file()
+        dispersion_curves.draw_dispercion_curves_from_file()
 
