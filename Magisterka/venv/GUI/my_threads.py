@@ -1,6 +1,6 @@
 import threading, time
 import sys
-from MES_dir import dispersion
+from MES_dir import dispersion_curves
 
 
 class Drawer(threading.Thread):
@@ -11,7 +11,7 @@ class Drawer(threading.Thread):
         print("Jestem wątkiem")
 
     def run(self):
-        dispersion.draw_dispercion_curves_from_file('../eig', self.number_of_curves)
+        dispersion_curves.draw_dispercion_curves_from_file('../eig', self.number_of_curves)
         time.sleep(1)
 
     def _stop(self):

@@ -2,46 +2,49 @@
 \select@language {polish}
 \select@language {english}
 \select@language {polish}
-\contentsline {chapter}{\numberline {1}Wprowadzenie}{11}{chapter.1}
-\contentsline {section}{\numberline {1.1}Cele pracy}{11}{section.1.1}
-\contentsline {subsection}{\numberline {1.1.1}Jaki\IeC {\'s} tytu\IeC {\l }}{11}{subsection.1.1.1}
-\contentsline {subsubsection}{\numberline {1.1.1.1}Jaki\IeC {\'s} tytu\IeC {\l } w subsubsection}{11}{subsubsection.1.1.1.1}
-\contentsline {subsection}{\numberline {1.1.2}Jaki\IeC {\'s} tytu\IeC {\l } 2}{11}{subsection.1.1.2}
-\contentsline {section}{\numberline {1.2}Zawarto\IeC {\'s}\IeC {\'c} pracy}{11}{section.1.2}
-\contentsline {chapter}{\numberline {2}Wybrane zagadnienia propagacji fal w o\IeC {\'s}rodku spr\IeC {\k e}\IeC {\.z}ystym}{12}{chapter.2}
-\contentsline {section}{\numberline {2.1}Liniowa teoria spr\IeC {\k e}\IeC {\.z}ysto\IeC {\'s}ci}{12}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Napr\IeC {\k e}\IeC {\.z}enie}{12}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}Odkszta\IeC {\l }cenie i prawko Hooke'a}{13}{subsection.2.1.2}
-\contentsline {section}{\numberline {2.2}Rodzaje fal spr\IeC {\k e}\IeC {\.z}ystych}{15}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Fale pod\IeC {\l }u\IeC {\.z}ne}{15}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Fale poprzeczne}{16}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}Fale Rayleigha i L\"{o}va}{16}{subsection.2.2.3}
-\contentsline {subsection}{\numberline {2.2.4}Fale Lamba}{17}{subsection.2.2.4}
-\contentsline {section}{\numberline {2.3}Zjawisko dyspersji}{18}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Pr\IeC {\k e}dko\IeC {\'s}\IeC {\'c} fazowa i grupowa}{19}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Analityczne wyznaczanie krzywych dyspersji}{21}{subsection.2.3.2}
-\contentsline {subsection}{\numberline {2.3.3}Numeryczne wyznaczanie krzywych dyspresji}{25}{subsection.2.3.3}
-\contentsline {subsection}{\numberline {2.3.4}Eksperymentalne wyznaczanie krzywych dyspersji}{31}{subsection.2.3.4}
-\contentsline {chapter}{\numberline {3}Wykorzystywane zagadnienia metody element\IeC {\'o}w sko\IeC {\'n}czonych}{33}{chapter.3}
-\contentsline {section}{\numberline {3.1}Rozwi\IeC {\k a}zywanie zada\IeC {\'n} z pomoc\IeC {\k a} MES}{33}{section.3.1}
-\contentsline {section}{\numberline {3.2}Funkcje kszta\IeC {\l }tu}{34}{section.3.2}
-\contentsline {section}{\numberline {3.3}Wyznaczanie macierzy sztywno\IeC {\'s}ci i mas element\IeC {\'o}w}{36}{section.3.3}
-\contentsline {section}{\numberline {3.4}Agregacja globalnych macierzy mas i sztywno\IeC {\'s}ci}{40}{section.3.4}
-\contentsline {section}{\numberline {3.5}Rozwi\IeC {\k a}zanie wyznaczonego r\IeC {\'o}wnania macierzowego}{42}{section.3.5}
-\contentsline {section}{\numberline {3.6}Zbie\IeC {\.z}no\IeC {\'s}\IeC {\'c} metody i b\IeC {\l }\IeC {\k e}dy rozwi\IeC {\k a}zania}{44}{section.3.6}
-\contentsline {chapter}{\numberline {4}Metody kompensacji dyspersji}{47}{chapter.4}
-\contentsline {section}{\numberline {4.1}Cel kompensacji}{47}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Zastosowanie fal Lamba w nieniszczacych testach}{47}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Sygna\IeC {\l } stosowany wy symulacji}{50}{subsection.4.1.2}
-\contentsline {section}{\numberline {4.2}Agregacja krzywych dyspersji uzyskanych z zaimplementowanego solvera}{51}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Cel agregacji}{51}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Algorytm agregacji}{52}{subsection.4.2.2}
-\contentsline {section}{\numberline {4.3}Metoda odwracania sygna\IeC {\l }u w czasie}{53}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Podstawy teoretyczne}{53}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Implementacja numeryczna}{55}{subsection.4.3.2}
-\contentsline {section}{\numberline {4.4}Metoda mapowania liniowego przy pomocy rozwini\IeC {\k e}cia w szereg Taylora}{57}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Podstawy teoretyczne}{57}{subsection.4.4.1}
-\contentsline {chapter}{Bibliografia}{60}{section*.39}
-\contentsline {chapter}{Za\IeC {\l }\IeC {\k a}czniki}{60}{section*.40}
+\contentsline {chapter}{\numberline {1}Wst\IeC {\k e}p}{11}{chapter.1}
+\contentsline {section}{\numberline {1.1}Cele pracy}{12}{section.1.1}
+\contentsline {section}{\numberline {1.2}Plan pracy}{13}{section.1.2}
+\contentsline {chapter}{\numberline {2}Wybrane zagadnienia propagacji fal w o\IeC {\'s}rodku spr\IeC {\k e}\IeC {\.z}ystym}{15}{chapter.2}
+\contentsline {section}{\numberline {2.1}Liniowa teoria spr\IeC {\k e}\IeC {\.z}ysto\IeC {\'s}ci}{15}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Napr\IeC {\k e}\IeC {\.z}enie}{15}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Odkszta\IeC {\l }cenie i prawko Hooke'a}{16}{subsection.2.1.2}
+\contentsline {section}{\numberline {2.2}Rodzaje fal spr\IeC {\k e}\IeC {\.z}ystych}{18}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Fale pod\IeC {\l }u\IeC {\.z}ne}{18}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Fale poprzeczne}{19}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Fale Rayleigha i L\"{o}va}{19}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Fale Lamba}{20}{subsection.2.2.4}
+\contentsline {section}{\numberline {2.3}Zjawisko dyspersji}{21}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Pr\IeC {\k e}dko\IeC {\'s}\IeC {\'c} fazowa i grupowa}{22}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Analityczne wyznaczanie krzywych dyspersji}{24}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Numeryczne wyznaczanie krzywych dyspresji}{28}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.4}Eksperymentalne wyznaczanie krzywych dyspersji}{34}{subsection.2.3.4}
+\contentsline {chapter}{\numberline {3}Wykorzystywane zagadnienia metody element\IeC {\'o}w sko\IeC {\'n}czonych}{36}{chapter.3}
+\contentsline {section}{\numberline {3.1}Rozwi\IeC {\k a}zywanie zada\IeC {\'n} z pomoc\IeC {\k a} MES}{36}{section.3.1}
+\contentsline {section}{\numberline {3.2}Funkcje kszta\IeC {\l }tu}{37}{section.3.2}
+\contentsline {section}{\numberline {3.3}Wyznaczanie macierzy sztywno\IeC {\'s}ci i mas element\IeC {\'o}w}{39}{section.3.3}
+\contentsline {section}{\numberline {3.4}Agregacja globalnych macierzy mas i sztywno\IeC {\'s}ci}{43}{section.3.4}
+\contentsline {section}{\numberline {3.5}Rozwi\IeC {\k a}zanie wyznaczonego r\IeC {\'o}wnania macierzowego}{45}{section.3.5}
+\contentsline {section}{\numberline {3.6}Zbie\IeC {\.z}no\IeC {\'s}\IeC {\'c} metody i b\IeC {\l }\IeC {\k e}dy rozwi\IeC {\k a}zania}{47}{section.3.6}
+\contentsline {chapter}{\numberline {4}Metody kompensacji dyspersji}{50}{chapter.4}
+\contentsline {section}{\numberline {4.1}Cel kompensacji}{50}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Zastosowanie fal Lamba w nieniszczacych testach}{50}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Sygna\IeC {\l } stosowany wy symulacji}{53}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Agregacja krzywych dyspersji uzyskanych z zaimplementowanego solvera}{54}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Cel agregacji}{54}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Algorytm agregacji}{55}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Metoda odwracania sygna\IeC {\l }u w czasie}{56}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Podstawy teoretyczne}{56}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Implementacja numeryczna}{58}{subsection.4.3.2}
+\contentsline {section}{\numberline {4.4}Metoda mapowania liniowego przy pomocy rozwini\IeC {\k e}cia w szereg Taylora}{60}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Podstawy teoretyczne}{60}{subsection.4.4.1}
+\contentsline {chapter}{\numberline {5}Aplikacja do oblicze\IeC {\'n} numerycznych}{63}{chapter.5}
+\contentsline {section}{\numberline {5.1}Instalacja i konfiguracja \IeC {\'s}rodowiska}{63}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Anaconda}{63}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}PyCharm}{68}{subsection.5.1.2}
+\contentsline {section}{\numberline {5.2}Obliczenia MES i wyznaczanie krzywych dyspersji oraz wzbudzalno\IeC {\'s}ci}{69}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}MESH - tworzenie siatki}{69}{subsection.5.2.1}
+\contentsline {chapter}{Bibliografia}{70}{section*.51}
+\contentsline {chapter}{Za\IeC {\l }\IeC {\k a}czniki}{70}{section*.52}
 \let \l@chapter \l@section 
-\contentsline {chapter}{\numberline {A}Lorem Ipsum}{61}{Dodatek.a.A}
+\contentsline {chapter}{\numberline {A}Lorem Ipsum}{71}{Dodatek.a.A}

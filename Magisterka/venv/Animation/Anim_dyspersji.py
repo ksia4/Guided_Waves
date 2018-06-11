@@ -1,8 +1,7 @@
-import sympy as sp
 import numpy as np
-from MES_dir import MES, config, dispersion,  selectMode, mode_sampling
+from MES_dir import config, mode_sampling
+from Propagation import selectMode
 import matplotlib.pyplot as plt
-import matplotlib.colors as color
 from MES_dir.tetrahedralElements import mesh4 as mesh
 
 BASECOLOR = (230/255, 230/255, 250/255)
@@ -414,7 +413,7 @@ if __name__ == "__main__":
     plane = mesh.circle_mesh_full(1, radius, num_of_circles, num_of_points_at_c1)
     vertices = mesh.circle_mesh_full(length, radius, num_of_circles, num_of_points_at_c1)
     draw_bar(vertices, len(plane), length)
-    KrzyweDyspersji=selectMode.SelectedMode('../eig/kvect', '../eig/omega')
+    KrzyweDyspersji= selectMode.SelectedMode('../eig/kvect', '../eig/omega')
     KrzyweDyspersji.selectMode()
     # KrzyweDyspersji.plot_modes(50)
 

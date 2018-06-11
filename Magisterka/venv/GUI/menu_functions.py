@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 import pygame
 from GUI import text
-from MES_dir import config, MES, dispersion
+from MES_dir import config, MES, dispersion_curves
 
 def display_image(image, title):
 
@@ -43,6 +43,6 @@ def set_parameters(screen, BACKGROUND, screen_width, screen_height, BUTTONBACKGR
     pygame.display.update()
 
     MES.mes(length, radius, num_of_circles, num_of_points_at_c1)
-    dispersion.draw_dispercion_curves('../eig', True)
+    dispersion_curves.draw_dispercion_curves('../eig', True)
 
 # display_image('dis_curves.png', 'Krzywe dyspersji')

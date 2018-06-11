@@ -545,7 +545,6 @@ def drawHexahedrons(vertices, indices):
             hexahedronIndicesInt = [int(i) for i in hexahedronIndices]
             #[punkt], wspolrzedna
             #pierwszy czworokat
-            fig = plt.figure()
             ax = fig.gca(projection='3d')
             ax.plot([vertices[hexahedronIndicesInt[0], 0], vertices[hexahedronIndicesInt[1], 0]],
                      [vertices[hexahedronIndicesInt[0], 1], vertices[hexahedronIndicesInt[1], 1]],
@@ -610,14 +609,14 @@ def draw_triangulation(vertices, indices):
     plt.show()
 
 #
-#brickMesh(length, numberOfPlanes, radius, circles, pointsOnCircle)
-# vert = brickMesh(2, 3, 10, 3, 16)
-# # print(vert)
+# brickMesh(length, numberOfPlanes, radius, circles, pointsOnCircle)
+vert = brickMesh(2, 3, 10, 3, 16)
+# print(vert)
 # draw_plane(vert)
-# #createBrickElements(brickVertices, numberOfPlanes, numberOfPointsOnCircle, numberOfCircles)
-# ind = createBrickElements(vert, 3, 16, 3)
+#createBrickElements(brickVertices, numberOfPlanes, numberOfPointsOnCircle, numberOfCircles)
+ind = createBrickElements(vert, 3, 16, 3)
 # drawTetragons(vert, ind)
-# drawHexahedrons(vert, ind)
+drawHexahedrons(vert, ind)
 
 
 

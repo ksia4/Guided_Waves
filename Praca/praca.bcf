@@ -2026,9 +2026,6 @@
     <bcf:datasource type="file" datatype="bibtex">bibliografia.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">Dil00</bcf:citekey>
-    <bcf:citekey order="2">Lam92</bcf:citekey>
-    <bcf:citekey order="3">Alvis2011</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="none/global" type="entry" sortscheme="none" sortnamekeyscheme="global">
   <bcf:sorting>
