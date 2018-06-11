@@ -310,7 +310,7 @@ class SelectedMode:
             plt.plot(dziady, self.k_v, markersize=8)
         plt.xlabel("Frequency [kHz]")
         plt.ylabel("Wavenumber [rad/m]")
-        plt.xlim([0, 500])#600
+        plt.xlim([0, 180])#600
         plt.ylim([0, 400])#2000
         plt.show()
 
@@ -324,9 +324,9 @@ if __name__ == "__main__":
     Mody = SelectedMode('../eig/kvect', '../eig/omega')
     Mody.selectMode()
     Mody.plot_modes(50)
-    mod0=Mody.getMode(0)
-    K_szuk = mod0.calculateK(30)
-    print(K_szuk)
+    # mod0=Mody.getMode(0)
+    # K_szuk = mod0.calculateK(30)
+    # print(K_szuk)
 
 
 

@@ -216,7 +216,10 @@ def Wilcox_compensation2(dispersion, dispercion_curves, propagated_modes, need_t
     new_freq_sampling_kHz = frequency_from_numpy
     modes = []
     for ind in range(len(propagated_modes)):
-        modes.append(dispercion_curves.getMode(ind)) #było samo ind
+        if ind != propagated_modes[ind]:
+            print("indeks = " + str(ind) + "a w tablicy jest " + str(propagated_modes[ind]))
+            exit(0)
+        modes.append(dispercion_curves.getMode(propagated_modes[ind])) #było samo ind
     # dispercion_curves_of_propagated_mode = KrzyweDyspersji.getMode(0)
     k_vect = dispercion_curves.k_v
 
@@ -319,6 +322,7 @@ def Wilcox_compensation2(dispersion, dispercion_curves, propagated_modes, need_t
 
     plt.plot(dist_vect, h_x)
     plt.show()
+    return [dist_vect, h_x]
 
 def wave_length_propagation(signal, numbers_of_modes, disp_curves, distance_m, F_PADZEROS, mult=8):
     modes_table = []
@@ -489,6 +493,7 @@ def linear_mapping_compensation(signal, numbers_of_modes, disp_curves):
         # ind +=1
     # plt.plot(k_vect, np.sqrt(np.array(G_k).real**2 + np.array(G_k).imag**2))
     # plt.show()
+    return [new_time, new_g_t]
 
 
 
@@ -496,7 +501,7 @@ def linear_mapping_compensation(signal, numbers_of_modes, disp_curves):
 if __name__ == "__main__":
     KrzyweDyspersji=selectMode.SelectedMode('../eig/kvect', '../eig/omega')
     KrzyweDyspersji.selectMode()
-    dist = 2 # w metrach
+    dist = 3 # w metrach
 
     signal_array, time_x_freq = Anim_dyspersji.get_chirp()
     # # for i in range(length):
@@ -512,11 +517,48 @@ if __name__ == "__main__":
     print("wpuszczany sygnał")
     plt.plot(time_x_freq[0], signal_array[3])
     plt.xlabel("time[s]")
+    plt.title("Sygnał przed propagacja")
     plt.show()
     signal = wave_length_propagation([time_x_freq[0], signal_array[3]], [0, 1, 2, 3], KrzyweDyspersji, dist, True, 100)
+    plt.figure("Dyspersja")
+    plt.subplot(211)
+    plt.plot(time_x_freq[0], signal_array[3])
+    plt.xlabel("time[s]")
+    plt.title("Sygnał przed propagacja")
+    plt.subplot(212)
+    plt.plot(signal[0], signal[1])
+    plt.xlabel("time[s]")
+    plt.title("Sygnał po propagacji")
+    plt.show()
+    exit(0)
 
-    print("kompensacja Wilcoxem")
-    Wilcox_compensation2(signal, KrzyweDyspersji, [0, 1, 2, 3])
+
+
+    wilcox = Wilcox_compensation2(signal, KrzyweDyspersji, [0, 1, 2, 3])
+
+    plt.figure("Wilcox")
+    plt.subplot(211)
+    plt.plot(signal[0], signal[1])
+    plt.title("Rozproszony sygnał")
+    plt.xlabel("time [s]")
+    plt.ylabel("Amplitude [-]")
+    plt.subplot(212)
+    plt.plot(wilcox[0], wilcox[1])
+    plt.title("Skompensowany sygnał")
+    plt.xlabel("distence [m]")
+    plt.ylabel("Amplitude [-]")
+    plt.show()
+
+
+    # plt.figure("Pojedyncza postać fali po przebyciu 5 metrów")
+    # plt.plot(signal[0], signal[1])
+    # plt.xlabel("time[s]")
+    # plt.ylabel("Amplitude [-]")
+    # plt.show()
+
+
+    # print("kompensacja Wilcoxem")
+    # Wilcox_compensation2(signal, KrzyweDyspersji, [0, 1, 2, 3])
 
 
     # print("Taki jest zdyspersowany sygnał")
@@ -527,60 +569,78 @@ if __name__ == "__main__":
     # linear_mapping_compensation(signal, [0, 1, 2, 3], KrzyweDyspersji)
     # signal = wave_length_propagation([time_x_freq[0], signal_array[3]], [0, 1, 2, 3], KrzyweDyspersji, dist, True, 100)
 
-    # inversed = time_reverse_compensation(signal)
-    #
-    # print("Kompensujemy o 1 m (1/4 odległości)")
-    #
-    # compensated1 = wave_length_propagation(inversed, [0, 1, 2, 3], KrzyweDyspersji, 1, True, 4)
-    #
-    # print("Kompensujemy o 2 m (1/2 odległości)")
-    #
-    # compensated2 = wave_length_propagation(inversed, [0, 1, 2, 3], KrzyweDyspersji, 2, True, 4)
-    #
-    # print("Komensujemy o 3 m (3/4 odległości)")
-    #
-    # compensated3 = wave_length_propagation(inversed, [0, 1, 2, 3], KrzyweDyspersji, 3, True, 4)
-    #
-    # print("Kompensujemy całościowo o 4 m")
-    #
-    # compensated4 = wave_length_propagation(inversed, [0, 1, 2, 3], KrzyweDyspersji, 4, True, 4)
-    #
-    # print("Kompensujemy za bardzo (o 5 m)")
-    #
-    # compensated5 = wave_length_propagation(inversed, [0, 1, 2, 3], KrzyweDyspersji, 5, True, 4)
-    #
-    # print("Zestawienie wyników")
-    # plt.figure("Porównanie kompensacji")
-    #
-    # plt.subplot(511)
-    # plt.plot(compensated1[0], compensated1[1])
-    # plt.title("1 metr")
-    # plt.xlabel("czas[s]")
-    # plt.ylabel("Amplituda[-]")
-    #
-    # plt.subplot(512)
-    # plt.plot(compensated2[0], compensated2[1])
-    # plt.title("2 metr")
-    # plt.xlabel("czas[s]")
-    # plt.ylabel("Amplituda[-]")
-    #
-    # plt.subplot(513)
-    # plt.plot(compensated3[0], compensated3[1])
-    # plt.title("3 metr")
-    # plt.xlabel("czas[s]")
-    # plt.ylabel("Amplituda[-]")
-    #
-    # plt.subplot(514)
-    # plt.plot(compensated4[0], compensated4[1])
-    # plt.title("4 metr")
-    # plt.xlabel("czas[s]")
-    # plt.ylabel("Amplituda[-]")
-    #
-    # plt.subplot(515)
-    # plt.plot(compensated5[0], compensated5[1])
-    # plt.title("5 metr")
-    # plt.xlabel("czas[s]")
-    # plt.ylabel("Amplituda[-]")
-    #
-    # plt.show()
+    inversed = time_reverse_compensation(signal)
+
+    print("Kompensujemy o 1 m (1/4 odległości)")
+
+    compensated1 = wave_length_propagation(inversed, [0, 1, 2, 3], KrzyweDyspersji, 1, True, 4)
+
+    print("Kompensujemy o 2 m (1/2 odległości)")
+
+    compensated2 = wave_length_propagation(inversed, [0, 1, 2, 3], KrzyweDyspersji, 2, True, 4)
+
+    print("Komensujemy o 3 m (3/4 odległości)")
+
+    compensated3 = wave_length_propagation(inversed, [0, 1, 2, 3], KrzyweDyspersji, 3, True, 4)
+
+    print("Kompensujemy całościowo o 4 m")
+
+    compensated4 = wave_length_propagation(inversed, [0, 1, 2, 3], KrzyweDyspersji, 4, True, 4)
+
+    print("Kompensujemy za bardzo (o 5 m)")
+
+    compensated5 = wave_length_propagation(inversed, [0, 1, 2, 3], KrzyweDyspersji, 5, True, 4)
+
+    print("Zestawienie wyników")
+    plt.figure("Porównanie kompensacji")
+
+    plt.subplot(511)
+    plt.plot(compensated1[0], compensated1[1])
+    plt.title("1 metr")
+    plt.xlabel("czas[s]")
+    plt.ylabel("Amplituda[-]")
+
+    plt.subplot(512)
+    plt.plot(compensated2[0], compensated2[1])
+    plt.title("2 metr")
+    plt.xlabel("czas[s]")
+    plt.ylabel("Amplituda[-]")
+
+    plt.subplot(513)
+    plt.plot(compensated3[0], compensated3[1])
+    plt.title("3 metr")
+    plt.xlabel("czas[s]")
+    plt.ylabel("Amplituda[-]")
+
+    plt.subplot(514)
+    plt.plot(compensated4[0], compensated4[1])
+    plt.title("4 metr")
+    plt.xlabel("czas[s]")
+    plt.ylabel("Amplituda[-]")
+
+    plt.subplot(515)
+    plt.plot(compensated5[0], compensated5[1])
+    plt.title("5 metr")
+    plt.xlabel("czas[s]")
+    plt.ylabel("Amplituda[-]")
+
+    plt.show()
+
+
+    signal1 = wave_length_propagation([time_x_freq[0], signal_array[3]], [1], KrzyweDyspersji, dist, True, 100)
+    liniowe = linear_mapping_compensation(signal1, [1], KrzyweDyspersji)
+
+    plt.figure("Rozwinięcie w szereg Taylora")
+    plt.subplot(211)
+    plt.plot(signal1[0], signal1[1])
+    plt.xlabel("time [s]")
+    plt.ylabel("Amplitude [-]")
+    plt.title("Przed kompensacją")
+
+    plt.subplot(212)
+    plt.plot(liniowe[0], liniowe[1])
+    plt.title("Po kompensacji")
+    plt.xlabel("time [s]")
+    plt.ylabel("Amplitude [-]")
+    plt.show()
 
