@@ -31,7 +31,6 @@ def get_data_for_eiq():
     rd.write_matrix_to_file("m0", config.m0)
     rd.write_matrix_to_file("mr", config.mr)
 
-
 # Znajduje wektor wartosci wlasnych dla systemu
 def find_eig(path='eig', other=False):
     get_data_for_eiq()
@@ -69,7 +68,6 @@ def find_eig(path='eig', other=False):
         print("eig ", ind+1, " z {}".format(config.kvect_no_of_points))
         print(np.shape(f1))
     return np.array(fsys).transpose(), kvect
-
 
 def draw_dispercion_curves(path_to_folder_with_data='eig', save_plot_to_file=False):
     start = time.clock()
@@ -142,8 +140,7 @@ def draw_dispercion_curves(path_to_folder_with_data='eig', save_plot_to_file=Fal
         plt.savefig('dis_curves.png')
     plt.show()
 
-
-
+#Rysuje z zapisanych w folderze eig wartości własnych, bez obliczania ich.
 def draw_dispercion_curves_from_file(path_to_folder_with_data='eig', number_of_curves_to_draw=10, save_plot_to_file=False):
 
     plt.figure(1)
@@ -190,20 +187,6 @@ def draw_dispercion_curves_from_file(path_to_folder_with_data='eig', number_of_c
         plt.savefig('dis_curves.png')
     plt.show()
 
-
-def small_numbers_equal_zero(matrix):
-    new_matrix = []
-    for row in matrix:
-        temp = []
-        for element in row:
-            if - 1e-5 < element < 1e-8:
-                temp.append(0)
-            else:
-                temp.append(element)
-        new_matrix.append(temp)
-    return np.array(new_matrix)
-
-
 def sort_columns(matrix):
     new_matrix = []
     print("wymair macierzy: ", np.shape(matrix))
@@ -211,7 +194,6 @@ def sort_columns(matrix):
         column = matrix[:, i]
         new_matrix.append(np.sort_complex(column))
     return np.array(new_matrix).transpose()
-
 
 def calculate_group_velocity(f_for_mode, kvect):
     group_vel = []
@@ -223,8 +205,3 @@ def calculate_group_velocity(f_for_mode, kvect):
     return np.array(group_vel)
 
 
-
-# aa = np.array([[11.2131111111, 21321.211111111, 12.13213, 1.2131, 21321.21, 2.13213], [1.213123, 2.1231, 3.2131, 1.2131, 21321.21, 2.13213],
-#       [3.21321, 4.21312, 5.21312, 1.2131, 21321.21, 2.13213], [3.21321, 4.21312, 5.21312, 1.2131, 21321.21, 2.13213],
-#       [3.21321, -4.21312, -5.21312, -1.2131, 21321.2155555555555555, 2.13213], [3.21321, 4.21312, 5.21312, 1.2131, 21321.21, 2.13213]])
-# write_matrix_to_file('aa', aa)

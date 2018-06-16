@@ -4,11 +4,9 @@ import numpy.linalg as la
 import scipy.integrate as integr
 from MES_dir import config
 
-
-
 # UWAGA! Wszystko dla 8-wierzchołkowych elementów 3D
 
-
+#Oblicza lokalna macierz sztywności
 def localStiffMatrix(elementVertices):
     ksi, eta, dzeta = sp.symbols('ksi, eta, dzeta')
 

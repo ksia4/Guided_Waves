@@ -4,13 +4,7 @@ import numpy.linalg as la
 import scipy.integrate as integr
 from MES_dir.tetrahedralElements import gauss4
 
-
-# TODO: wprowadzenie sily wymuszajacej i warunkow brzegowych
-# TODO: rozwiazanie ukladu - metoda roznicowa
-# TODO: identyfikacja punktow w elementach
-
-# UWAGA! Wszystko dla 4-wierzchołkowych elementów 3D
-
+# Wyznaczanie funkcji kształtu metodą opisaną w pracy magisterskiej.
 def p_vector():
     x, y, z = sp.symbols('x, y, z')
     p = [1, x, y, z]
@@ -25,7 +19,6 @@ def me_matrix(vertices, element_indices):
         me.append(temp)
     return sp.Matrix(me)
 
-
 def me_inv_matrix(vertices, element_indices):
     me = []
     for ind in element_indices:
@@ -33,13 +26,11 @@ def me_inv_matrix(vertices, element_indices):
         me.append(temp)
     return sp.Matrix(me).inv()
 
-
 def shape_functions(vertices, element_indices):
     x, y, z = sp.symbols('x, y, z')
     p = p_vector()
     me_inv = me_inv_matrix(vertices, element_indices)
     return p * me_inv  # N
-
 
 def b_matrix_fc(shape_functions):
     x, y, z = sp.symbols('x, y, z')
@@ -85,7 +76,6 @@ def b_matrix_fc(shape_functions):
 
     return np.array(b)
 
-
 def b_matrix_natural(shape_functions):
     ksi, eta, dzeta = sp.symbols('ksi, eta, dzeta')
     b = []
@@ -130,7 +120,7 @@ def b_matrix_natural(shape_functions):
 
     return np.array(b)
 
-
+#Macierz stałych materiałowych.
 def d_matrix_fc(young_modulus, poisson_coeficient):
     a = young_modulus / ((1 + poisson_coeficient) * (1 - 2*poisson_coeficient))
     b1 = (1 - poisson_coeficient) * a
@@ -139,7 +129,6 @@ def d_matrix_fc(young_modulus, poisson_coeficient):
     matrix = [[b1, b2, b2, 0, 0, 0], [b2, b1, b2, 0, 0, 0], [b2, b2, b1, 0, 0, 0],
               [0, 0, 0, b3, 0, 0], [0, 0, 0, 0, b3, 0], [0, 0, 0, 0, 0, b3]]
     return np.array(matrix)
-
 
 def stiff_local_matrix(shape_functions, vertices, element_indices, young_modulus, poisson_coefficient):
 
@@ -158,7 +147,6 @@ def stiff_local_matrix(shape_functions, vertices, element_indices, young_modulus
     stiff = temp1 * v
 
     return np.array(stiff)
-
 
 def mass_local_matrix(density):
     ksi, eta, dzeta = sp.symbols('ksi, eta, dzeta')
@@ -188,8 +176,7 @@ def mass_local_matrix(density):
 
     return np.array(integral)
 
-
-#geometrycznie
+#Z wykorzystaniem geometrii analitycznej.
 def volume(element_vertices):
     #dlugosci bokow podstawy
     d1 = la.norm(element_vertices[0] - element_vertices[1])
@@ -214,8 +201,7 @@ def volume(element_vertices):
     volume = (1/3)*area*h
     return volume
 
-
-#wyznacznikiem
+#Przy pomocy wyznacznika.
 def volume_det(vertices):
     #to samo wyznacznikiem
     temp1 = [1]

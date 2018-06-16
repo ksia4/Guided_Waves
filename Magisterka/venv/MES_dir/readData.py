@@ -1,6 +1,8 @@
 import numpy as np
 from MES_dir import config
 
+#Funkcje z tego modułu wykorzystywane są do zapisywania danych do plikow
+#  i wczytywania danych z plików w różnych częściach programu.
 
 def readdata(path):
     f = open(path,'r')
@@ -14,14 +16,14 @@ def readdata(path):
 
 
 def read_matricies():
-    config.k = readdata('../k')
-    config.m = readdata('../m')
-    config.kl = readdata('../kl')
-    config.k0 = readdata('../k0')
-    config.kr = readdata('../kr')
-    config.ml = readdata('../ml')
-    config.m0 = readdata('../m0')
-    config.mr = readdata('../mr')
+    config.k = readdata(config.ROOT_DIR + '/../k')
+    config.m = readdata(config.ROOT_DIR + '/../m')
+    config.kl = readdata(config.ROOT_DIR + '/../kl')
+    config.k0 = readdata(config.ROOT_DIR + '/../k0')
+    config.kr = readdata(config.ROOT_DIR + '/../kr')
+    config.ml = readdata(config.ROOT_DIR + '/../ml')
+    config.m0 = readdata(config.ROOT_DIR + '/../m0')
+    config.mr = readdata(config.ROOT_DIR + '/../mr')
 
 
 def read_complex_vector(path):

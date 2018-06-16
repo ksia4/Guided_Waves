@@ -21,7 +21,7 @@ def assemble_global_stiff_matrix(vertices, indices):
                         global_matrix[elem_ind[i]*3 + m, elem_ind[j]*3 + n] += ki[i*3 + m, j*3 + n]
     return np.array(global_matrix)
 
-
+#Pozwala zaobserwować rzadkość macierzy.
 def draw_matrix_sparsity(matrix):
     max = 0
     min = 0
@@ -50,7 +50,6 @@ def draw_matrix_sparsity(matrix):
     plt.imshow(matrix, cmap='binary')
     plt.show()
 
-
 def assemble_global_mass_matrix(vertices, indices, density):
     print("Obliczanie macierzy mas")
     global_matrix = np.zeros([np.shape(vertices)[0]*3, np.shape(vertices)[0]*3])
@@ -68,7 +67,7 @@ def assemble_global_mass_matrix(vertices, indices, density):
                         global_matrix[elem_ind[i]*3 + m, elem_ind[j]*3 + n] += mass[i*3 + m, j*3 + n]
     return np.array(global_matrix)
 
-
+#Wyznacza macierz skupioną.
 def focuse_matrix_rows(matrix):
     new_matrix = np.zeros(np.shape(matrix))
 

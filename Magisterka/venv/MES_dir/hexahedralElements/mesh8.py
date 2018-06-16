@@ -4,17 +4,11 @@ from mpl_toolkits.mplot3d import Axes3D
 import scipy.spatial as spt
 import numpy.linalg as la
 
-def plotTrianglesToCheck(vertices, triangleIndices, triangles):
-    verticesYZ = vertices[:, 1:3]
-    print(triangleIndices[0])
-    for tri in triangles:
-        if not (tri > 0.01 and tri < 0.9):
-            plt.plot([verticesYZ[int(triangleIndices[tri, 0]), 0], verticesYZ[int(triangleIndices[tri, 1]), 0]], [verticesYZ[int(triangleIndices[tri, 0]), 1], verticesYZ[int(triangleIndices[tri, 1]), 1]])
-            plt.plot([verticesYZ[int(triangleIndices[tri, 0]), 0], verticesYZ[int(triangleIndices[tri, 2]), 0]], [verticesYZ[int(triangleIndices[tri, 0]), 1], verticesYZ[int(triangleIndices[tri, 2]), 1]])
-            plt.plot([verticesYZ[int(triangleIndices[tri, 1]), 0], verticesYZ[int(triangleIndices[tri, 2]), 0]], [verticesYZ[int(triangleIndices[tri, 1]), 1], verticesYZ[int(triangleIndices[tri, 2]), 1]])
-    plt.show()
-
-def circleMeshFull(length, numberOfPlanes, radius, firstCircle, addNodes, circles):
+#Siatka o zadanym promieniu - radius. Tworzy punkt środkowy i okregi w ilości - circles.
+#First circle oznacza ilość punktów na pierwszym okregu.
+#Add nodes oznacza ile punktów więcej będzie na każdym kolejnym okręgu.
+#Zwraca macierz n x 3, gdzie n to liczba węzłów. W kolumnach są współrzędne punktów.
+def circleMeshFull(radius, firstCircle, addNodes, circles):
 
     def plane(x, radius, firstCircle, addNodes, circles):
         vertices = []
@@ -38,7 +32,7 @@ def circleMeshFull(length, numberOfPlanes, radius, firstCircle, addNodes, circle
 
         return vertices
 
-    planeX = np.linspace(0, length, numberOfPlanes)
+    planeX = np.linspace(0, 2, 3)
 
     vertices = []
 
@@ -51,8 +45,11 @@ def circleMeshFull(length, numberOfPlanes, radius, firstCircle, addNodes, circle
 
     return np.array(vertices), numberOfPointsOnLastCircle #węzły siatki i liczba punktow na najwiekszym okregu
 
-# Do porównania z wynikami od doktora
-def circleMeshSparse(length, numberOfPlanes, radius, firstCircle, circles):
+#Siatka o zadanym promieniu - radius. Tworzy punkt środkowy i okregi w ilości - circles.
+#First circle oznacza ilość punktów na pierwszym okregu.
+#Na każdym okręgu jest tyle samo punktów
+#Zwraca macierz n x 3, gdzie n to liczba węzłów. W kolumnach są współrzędne punktów.
+def circleMeshSparse(radius, firstCircle, circles):
     # first circle - 17, circles - 10
     def plane(x, radius, firstCircle, circles):
         vertices = []
@@ -74,7 +71,7 @@ def circleMeshSparse(length, numberOfPlanes, radius, firstCircle, circles):
 
         return vertices
 
-    planeX = np.linspace(0, length, numberOfPlanes)
+    planeX = np.linspace(0, 2, 3)
 
     vertices = []
 
@@ -87,7 +84,12 @@ def circleMeshSparse(length, numberOfPlanes, radius, firstCircle, circles):
 
     return np.array(vertices), numberOfPointsOnLastCircle #węzły siatki
 
-
+#Funkcja tworzy elementy skończone na siatce węzłów z funkcji circleMeshFull lub circleMeshSparse.
+#Na pierwszej płaszczyźnie tworzy czworokąty z trójkątów wyliczonych przy pomocy triangulacji Delaunay'a.
+#Jeśli powstają przerwy w układzie elementów na obwodzie to wypełnia je dodając nowy węzeł.
+#Zwraca macierz n x 8, gdzie n to liczba elementów skończonych, a kolumny to indeksy węzłów należących do elementu.
+#Węzły ułożone są w dwóch płaszczyznach. W kolejność jest przeciwna do ruchu wskazówek zegara,
+# a w drugiej 5 odpowiada 1 punktowi, 6 - 2 itd..
 def createFiniteElements(vertices, pointsOnLastCircle, length, numberOfPlanes):
 
     def triangulation1():
@@ -426,13 +428,14 @@ def createFiniteElements(vertices, pointsOnLastCircle, length, numberOfPlanes):
     # print(np.array(hexaherdonsIndices))
     return np.array(newVertices), np.array(hexaherdonsIndices).astype(int)
 
-def brickMesh(length, numberOfPlanes, radius, circles, pointsOnCircle):
+#Tworzy siatkę na bazie ośmiokąta, dal elementów typu brick.
+def brickMesh(radius, numberOfPlanes, numberOfCircles, numberOfPointsOnCircle):
     def planeVertices():
         #radius of circles
-        rad_temp = np.linspace(0, radius, circles + 1)
+        rad_temp = np.linspace(0, radius, numberOfCircles + 1)
         rad = np.delete(rad_temp, 0)
         #angles
-        angle_temp = np.linspace(0, np.pi*2, pointsOnCircle + 1)
+        angle_temp = np.linspace(0, np.pi * 2, numberOfPointsOnCircle + 1)
         angle = np.delete(angle_temp, -1)
 
         vertices_plane = []
@@ -460,7 +463,8 @@ def brickMesh(length, numberOfPlanes, radius, circles, pointsOnCircle):
 
     return np.array(vertices)
 
-def createBrickElements(brickVertices, numberOfPlanes, numberOfPointsOnCircle, numberOfCircles):
+#Tworzy elementy typu brick na siatce brickMesh.
+def createBrickElements(brickVertices, numberOfPlanes, numberOfCircles, numberOfPointsOnCircle):
     def createQuadrangles(planeVertices):
         indices = []
         #cetral elements
@@ -504,12 +508,13 @@ def createBrickElements(brickVertices, numberOfPlanes, numberOfPointsOnCircle, n
     print("Liczba elementów skończonych: ", np.shape(hexahedronIndices)[0])
     return np.array(hexahedronIndices)
 
-def draw_plane(vertices):
+#Rysuje węły na płaszczyźnie.
+def drawPlane(vertices):
     plt.scatter(vertices[:, 1], vertices[:, 2])
     plt.show()
 
-
-def draw_bar(vertices):
+#Rysuje wszystkie płaszczyzn w 3D.
+def drawBar(vertices):
     fig = plt.figure()
     ax = fig.gca(projection='3d')
     ax.scatter(vertices[:, 0], vertices[:, 1], vertices[:, 2])
@@ -517,7 +522,7 @@ def draw_bar(vertices):
     # ax.set_zlim([-200, 200])
     plt.show()
 
-
+#Rysuje czworokąty wykorzystane do tworzenia elementów.
 def drawTetragons(vertices, indices):
         nodesOnPlane = int(len(vertices[:, 0])/2)
         halfOfFiniteElements = int(len(indices[:, 0])/2)
@@ -536,6 +541,7 @@ def drawTetragons(vertices, indices):
             plt.ylim([-11, 11])
         plt.show()
 
+#Rysuje sposób ułożenia elementów skończonych w 3D.
 def drawHexahedrons(vertices, indices):
         nodesOnPlane = int(len(vertices[:, 0])/2)
         halfOfFiniteElements = int(len(indices[:, 0])/2)
@@ -589,8 +595,8 @@ def drawHexahedrons(vertices, indices):
 
         plt.show()
 
-
-def draw_triangulation(vertices, indices):
+#Rysuje triangulację. W createFiniteElement triangulacja jest potrzebna do tworzenia czworokątów.
+def drawTriangulation(vertices, indices):
     fig = plt.figure()
     lines = []
     for i, ind in enumerate(indices):
@@ -608,15 +614,15 @@ def draw_triangulation(vertices, indices):
     ax.scatter(vertices[indices[0:3, :], 0], vertices[indices[0:3, :], 1], vertices[indices[0:3, :], 2])
     plt.show()
 
-#
-# brickMesh(length, numberOfPlanes, radius, circles, pointsOnCircle)
-vert = brickMesh(2, 3, 10, 3, 16)
-# print(vert)
-# draw_plane(vert)
-#createBrickElements(brickVertices, numberOfPlanes, numberOfPointsOnCircle, numberOfCircles)
-ind = createBrickElements(vert, 3, 16, 3)
-# drawTetragons(vert, ind)
-drawHexahedrons(vert, ind)
+if __name__ == "__main__":
+    # brickMesh(numberOfPlanes, radius, circles, pointsOnCircle)
+    vert = brickMesh(10, 3, 3, 16)
+    #createBrickElements(brickVertices, numberOfPlanes, numberOfPointsOnCircle, numberOfCircles)
+    ind = createBrickElements(vert, 3, 3, 16)
+    drawPlane(vert)
+    drawBar(vert)
+    drawTetragons(vert, ind)
+    drawHexahedrons(vert, ind)
 
 
 

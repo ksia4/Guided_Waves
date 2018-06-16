@@ -4,10 +4,8 @@ from mpl_toolkits.mplot3d import Axes3D
 import scipy.spatial as spt
 import numpy.linalg as la
 
-
-
-def circle_plane_verticies(x, radius, number_of_points):
-    angles = np.array(np.linspace(0, 2*np.pi, number_of_points))
+def circlePlaneVerticies(x, radius, numberOfPoints):
+    angles = np.array(np.linspace(0, 2*np.pi, numberOfPoints))
     angles1 = np.delete(angles, -1, 0)
     vertices = []
     for fi in angles1:
@@ -17,60 +15,39 @@ def circle_plane_verticies(x, radius, number_of_points):
         vertices.append(vertex)
     return np.array(vertices)
 
-
-def circle_mesh_full(length, radius, number_of_circles, number_of_points):
+#Siatka o zadanym promieniu - radius. Tworzy punkt środkowy i okregi w ilości - circles.
+#First circle oznacza ilość punktów na pierwszym okregu.
+#Add nodes oznacza ile punktów więcej będzie na każdym kolejnym okręgu.
+#Zwraca macierz n x 3, gdzie n to liczba węzłów. W kolumnach są współrzędne punktów.
+def circleMeshFull(radius, numberOfCircles, numberOfPoints):
     vertices = []
-    circles_rad = np.linspace(radius/number_of_circles, radius, number_of_circles)
-    for i in range(length + 1):
+    circles_rad = np.linspace(radius / numberOfCircles, radius, numberOfCircles)
+    for i in range(3):
         vertices.append([i, 0, 0])
         for j, r in enumerate(circles_rad):
 
-            circle = circle_plane_verticies(i, r, (number_of_points+1) * (j+1))
+            circle = circlePlaneVerticies(i, r, (numberOfPoints + 1) * (j + 1))
             for row in circle:
                 vertices.append(row)
     return np.array(vertices)
 
-
-def circle_mesh_full2(length, radius, number_of_circles, number_of_points):
-    vertices = []
-    circles_rad = np.linspace(radius/number_of_circles, radius, number_of_circles)
-    for i in range(length):
-        vertices.append([i- i*0.01, 0, 0])
-        for j, r in enumerate(circles_rad):
-
-            circle = circle_plane_verticies(i-i*0.01, r, (number_of_points+1) * (j+1))
-            for row in circle:
-                vertices.append(row)
-    return np.array(vertices)
-
-
-def circle_mesh_sparse(length, radius, number_of_circles, number_of_points):
+#Siatka o zadanym promieniu - radius. Tworzy punkt środkowy i okregi w ilości - circles.
+#First circle oznacza ilość punktów na pierwszym okregu.
+#Na każdym okręgu jest tyle samo punktów
+#Zwraca macierz n x 3, gdzie n to liczba węzłów. W kolumnach są współrzędne punktów.
+def circleMeshSparse(radius, numberOfCircles, numberOfPoints):
     vertices = [] #central point
-    circles_rad = np.linspace(radius/number_of_circles, radius, number_of_circles)
-    for i in range(length):
+    circles_rad = np.linspace(radius/numberOfCircles, radius, numberOfCircles)
+    for i in range(3):
         vertices.append([i, 0, 0])
         for r in circles_rad:
-            circle = circle_plane_verticies(i, r, number_of_points + 1)
+            circle = circlePlaneVerticies(i, r, numberOfPoints + 1)
             for row in circle:
                 vertices.append(row)
     return np.array(vertices)
 
-
-def draw_plane(vertices):
-    plt.scatter(vertices[:, 1], vertices[:, 2])
-    plt.show()
-
-
-def draw_bar(vertices):
-    fig = plt.figure()
-    ax = fig.gca(projection='3d')
-    ax.scatter(vertices[:, 0], vertices[:, 1], vertices[:, 2])
-    ax.set_xlim([-10, 10])
-    # ax.set_zlim([-200, 200])
-    plt.show()
-
-
-def correct_volume_sign(vertices, indices):
+#Zmienia kolejność węzłów jeśli objętość liczona przy pomocy wyznacznika jest ujemna.
+def correctVolumeSign(vertices, indices):
     corrected_indices = []
 
     for row in indices:
@@ -97,7 +74,7 @@ def correct_volume_sign(vertices, indices):
 
     return corrected_indices
 
-
+#Tworzy elementy czworościenne wykorzystując przestrzenną triangulację Delaunay'a.
 def triangulation(vertices):
     tri = spt.Delaunay(vertices)
     indices = tri.simplices.copy()
@@ -118,12 +95,26 @@ def triangulation(vertices):
     # usuwanie wierszy z wierzcholkami wspolplaszczyznowymi
     indices1 = np.delete(indices, planar, 0)
 
-    indices2 = correct_volume_sign(vertices, indices1)
+    indices2 = correctVolumeSign(vertices, indices1)
 
     return np.array(indices2)
 
+#Rysuje węły na płaszczyźnie.
+def drawPlane(vertices):
+    plt.scatter(vertices[:, 1], vertices[:, 2])
+    plt.show()
 
-def draw_triangulation(vertices, indices):
+#Rysuje wszystkie płaszczyzn w 3D.
+def drawBar(vertices):
+    fig = plt.figure()
+    ax = fig.gca(projection='3d')
+    ax.scatter(vertices[:, 0], vertices[:, 1], vertices[:, 2])
+    ax.set_xlim([-10, 10])
+    # ax.set_zlim([-200, 200])
+    plt.show()
+
+#Rysje układ elementów czworościennych w 3D.
+def drawTriangulation(vertices, indices):
     fig = plt.figure()
     lines = []
     for i, ind in enumerate(indices):
@@ -141,16 +132,12 @@ def draw_triangulation(vertices, indices):
     ax.scatter(vertices[indices[0:3, :], 0], vertices[indices[0:3, :], 1], vertices[indices[0:3, :], 2])
     plt.show()
 
-
-# def mesh_fc():
-#     length = 4000
-#     planes = 10
-#     radius = 20
-#     density = 10
-#     number_of_edge_points = 15
-#     verticies = equal_size_mesh(length, planes, radius, density, number_of_edge_points)
-#     return verticies
-
+if __name__ == "__main__":
+    vertices = circleMeshFull(10, 10, 10)
+    drawPlane(vertices)
+    indices = triangulation(vertices)
+    drawBar(vertices)
+    drawTriangulation(vertices, indices)
 
 
 

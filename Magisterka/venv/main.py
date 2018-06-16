@@ -1,7 +1,7 @@
 import sympy as sp
 import numpy as np
 from MES_dir import MES, config, dispersion_curves
-from dispersion_curves import functions
+from MARC import functions
 
 # begin MES
 x, y, z = sp.symbols('x, y, z')
