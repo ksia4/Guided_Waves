@@ -595,24 +595,6 @@ def drawHexahedrons(vertices, indices):
 
         plt.show()
 
-#Rysuje triangulację. W createFiniteElement triangulacja jest potrzebna do tworzenia czworokątów.
-def drawTriangulation(vertices, indices):
-    fig = plt.figure()
-    lines = []
-    for i, ind in enumerate(indices):
-        for i in ind:
-            for j in ind:
-                if j != i and not [i, j] in lines and not [j, i] in lines:
-                    lines.append([i, j])
-    ax = fig.gca(projection='3d')
-    # ax.set_xlim([-1, 2])
-    # ax.triplot(np.array(points[:, 0]), np.array(points[:, 1]), np.array(points[:, 2]), tri.simplices.copy()))
-    # ax.plot(np.array(points)[:, 0], np.array(points)[:, 1], np.array(points)[:, 2], 'o')
-    for line in lines:
-        ax.plot(vertices[line[0: 2], 0], vertices[line[0: 2], 1], vertices[line[0: 2], 2], 'r-')
-
-    ax.scatter(vertices[indices[0:3, :], 0], vertices[indices[0:3, :], 1], vertices[indices[0:3, :], 2])
-    plt.show()
 
 if __name__ == "__main__":
     # brickMesh(numberOfPlanes, radius, circles, pointsOnCircle)
@@ -623,6 +605,7 @@ if __name__ == "__main__":
     drawBar(vert)
     drawTetragons(vert, ind)
     drawHexahedrons(vert, ind)
+
 
 
 

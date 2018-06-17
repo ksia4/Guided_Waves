@@ -3,13 +3,13 @@ import matplotlib.pyplot as plt
 from MES_dir.tetrahedralElements import calculations4, gauss4
 
 
-def assemble_global_stiff_matrix(vertices, indices, young_modulus, poisson_coefficient):
+def assembleGlobalStiffMatrix(vertices, indices, youngModulus, poissonCoefficient):
     print("Obliczanie macierzy sztywności")
     global_matrix = np.zeros([np.shape(vertices)[0]*3, np.shape(vertices)[0]*3])
     # print("global ", np.shape(global_matrix))
     for elem_ind in indices:
         n = calculations4.shape_functions(vertices, elem_ind)
-        ki = calculations4.stiff_local_matrix(n, vertices, elem_ind, young_modulus, poisson_coefficient)
+        ki = calculations4.stiff_local_matrix(n, vertices, elem_ind, youngModulus, poissonCoefficient)
 
         for i in range(len(elem_ind)):  #petla po liczbie punktow w jednej osi
             for j in range(len(elem_ind)):  # w drugiej osi
@@ -20,7 +20,7 @@ def assemble_global_stiff_matrix(vertices, indices, young_modulus, poisson_coeff
     return np.array(global_matrix)
 
 #Pozwala zaobserwować rzadkość macierzy.
-def draw_matrix_sparsity(matrix):
+def drawMatrixSparsity(matrix):
     max = 0
     min = 0
 
@@ -48,13 +48,13 @@ def draw_matrix_sparsity(matrix):
     plt.imshow(matrix, cmap='binary')
     plt.show()
 
-def assemble_global_mass_matrix(vertices, indices, density):
+def assembleGlobalMassMatrix(vertices, indices, density):
     print("Obliczanie macierzy mas")
 
     global_matrix = np.zeros([np.shape(vertices)[0] * 3, np.shape(vertices)[0] * 3])
-    mass_neutral = calculations4.mass_local_matrix(density)
+    mass_neutral = calculations4.massLocalMatrix(density)
 
-    sfn = gauss4.shape_functions_natural()
+    sfn = gauss4.shapeFunctionsNatural()
 
 
     for elem_ind in indices:
@@ -71,7 +71,7 @@ def assemble_global_mass_matrix(vertices, indices, density):
     return np.array(global_matrix)
 
 #Wyznacza macierz skupioną.
-def focuse_matrix_rows(matrix):
+def focuseMatrixRows(matrix):
     new_matrix = np.zeros(np.shape(matrix))
 
     for ind, row in enumerate(matrix):

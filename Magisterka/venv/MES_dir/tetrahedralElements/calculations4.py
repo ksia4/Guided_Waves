@@ -5,34 +5,34 @@ import scipy.integrate as integr
 from MES_dir.tetrahedralElements import gauss4
 
 # Wyznaczanie funkcji kształtu metodą opisaną w pracy magisterskiej.
-def p_vector():
+def pVector():
     x, y, z = sp.symbols('x, y, z')
     p = [1, x, y, z]
     return sp.Matrix(p).reshape(1, 4)
 
 # indicies - indeksy wezlow jednego elementu (jeden wiersz z Delaunay-a)
 # verticies - macierz punktow siatki
-def me_matrix(vertices, element_indices):
+def meMatrix(vertices, elementIndices):
     me = []
-    for ind in element_indices:
+    for ind in elementIndices:
         temp = [1, vertices[ind, 0], vertices[ind, 1], vertices[ind, 2]]
         me.append(temp)
     return sp.Matrix(me)
 
-def me_inv_matrix(vertices, element_indices):
+def meInvMatrix(vertices, elementIndices):
     me = []
-    for ind in element_indices:
+    for ind in elementIndices:
         temp = [1, vertices[ind, 0], vertices[ind, 1], vertices[ind, 2]]
         me.append(temp)
     return sp.Matrix(me).inv()
 
-def shape_functions(vertices, element_indices):
+def shapeFunctions(vertices, elementIndices):
     x, y, z = sp.symbols('x, y, z')
-    p = p_vector()
-    me_inv = me_inv_matrix(vertices, element_indices)
+    p = pVector()
+    me_inv = meInvMatrix(vertices, elementIndices)
     return p * me_inv  # N
 
-def b_matrix_fc(shape_functions):
+def bMatrixFc(shapeFunctions):
     x, y, z = sp.symbols('x, y, z')
     b = []
     w1 = []
@@ -42,7 +42,7 @@ def b_matrix_fc(shape_functions):
     w5 = []
     w6 = []
 
-    for n in shape_functions:
+    for n in shapeFunctions:
         w1.append(sp.diff(n, x))
         w1.append(0)
         w1.append(0)
@@ -76,7 +76,7 @@ def b_matrix_fc(shape_functions):
 
     return np.array(b)
 
-def b_matrix_natural(shape_functions):
+def bMatrixNatural(shapeFunctions):
     ksi, eta, dzeta = sp.symbols('ksi, eta, dzeta')
     b = []
     w1 = []
@@ -86,7 +86,7 @@ def b_matrix_natural(shape_functions):
     w5 = []
     w6 = []
 
-    for n in shape_functions:
+    for n in shapeFunctions:
         w1.append(sp.diff(n, ksi))
         w1.append(0)
         w1.append(0)
@@ -121,23 +121,23 @@ def b_matrix_natural(shape_functions):
     return np.array(b)
 
 #Macierz stałych materiałowych.
-def d_matrix_fc(young_modulus, poisson_coeficient):
-    a = young_modulus / ((1 + poisson_coeficient) * (1 - 2*poisson_coeficient))
-    b1 = (1 - poisson_coeficient) * a
-    b2 = (poisson_coeficient) * a
-    b3 = ((1 - 2*poisson_coeficient) / 2) * a
+def dMatrixFc(youngModulus, poissonCoeficient):
+    a = youngModulus / ((1 + poissonCoeficient) * (1 - 2 * poissonCoeficient))
+    b1 = (1 - poissonCoeficient) * a
+    b2 = (poissonCoeficient) * a
+    b3 = ((1 - 2 * poissonCoeficient) / 2) * a
     matrix = [[b1, b2, b2, 0, 0, 0], [b2, b1, b2, 0, 0, 0], [b2, b2, b1, 0, 0, 0],
               [0, 0, 0, b3, 0, 0], [0, 0, 0, 0, b3, 0], [0, 0, 0, 0, 0, b3]]
     return np.array(matrix)
 
-def stiff_local_matrix(shape_functions, vertices, element_indices, young_modulus, poisson_coefficient):
+def stiffLocalMatrix(shapeFunctions, vertices, elementIndices, youngModulus, poissonCoefficient):
 
-    element_vertices = vertices[element_indices, :]
+    element_vertices = vertices[elementIndices, :]
 
-    v = volume_det(element_vertices)
+    v = volumeDet(element_vertices)
 
-    b_matrix = b_matrix_fc(shape_functions)
-    d_matrix = d_matrix_fc(young_modulus, poisson_coefficient)
+    b_matrix = bMatrixFc(shapeFunctions)
+    d_matrix = dMatrixFc(youngModulus, poissonCoefficient)
 
     b_tran = np.transpose(b_matrix)
 
@@ -148,7 +148,7 @@ def stiff_local_matrix(shape_functions, vertices, element_indices, young_modulus
 
     return np.array(stiff)
 
-def mass_local_matrix(density):
+def massLocalMatrix(density):
     ksi, eta, dzeta = sp.symbols('ksi, eta, dzeta')
 
     N_integrate = gauss4.matrix_to_integrate(density)
@@ -177,23 +177,23 @@ def mass_local_matrix(density):
     return np.array(integral)
 
 #Z wykorzystaniem geometrii analitycznej.
-def volume(element_vertices):
+def volume(elementVertices):
     #dlugosci bokow podstawy
-    d1 = la.norm(element_vertices[0] - element_vertices[1])
-    d2 = la.norm(element_vertices[0] - element_vertices[2])
-    d3 = la.norm(element_vertices[1] - element_vertices[2])
+    d1 = la.norm(elementVertices[0] - elementVertices[1])
+    d2 = la.norm(elementVertices[0] - elementVertices[2])
+    d3 = la.norm(elementVertices[1] - elementVertices[2])
     p = (d1 + d2 + d3)/2
     #pole podstawy - wzor Herona
     area = np.sqrt(p*(p-d1)*(p-d2)*(p-d3))
 
     # poszukiwanie rownania plaszczyzny podstawy
-    a = np.array([list(element_vertices[0]), list(element_vertices[1]), list(element_vertices[2])])
+    a = np.array([list(elementVertices[0]), list(elementVertices[1]), list(elementVertices[2])])
 
     b = np.array([-1, -1, -1])
     wsp = la.solve(a, b)
 
     #obliczanie wysokosci - odleglosc punktu do plaszczyzny
-    numerator = abs(wsp[0] * element_vertices[3, 0] + wsp[1] * element_vertices[3, 1] + wsp[2] * element_vertices[3, 2] + 1)
+    numerator = abs(wsp[0] * elementVertices[3, 0] + wsp[1] * elementVertices[3, 1] + wsp[2] * elementVertices[3, 2] + 1)
     denominator = np.sqrt(wsp[0]**2 + wsp[1]**2 + wsp[2]**2)
     h = numerator/denominator
 
@@ -202,7 +202,7 @@ def volume(element_vertices):
     return volume
 
 #Przy pomocy wyznacznika.
-def volume_det(vertices):
+def volumeDet(vertices):
     #to samo wyznacznikiem
     temp1 = [1]
     temp1.extend(list(vertices[0]))
