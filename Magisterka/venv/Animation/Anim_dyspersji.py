@@ -1,5 +1,5 @@
 import numpy as np
-from MES_dir import config, mode_sampling
+from MES_dir import config
 from Propagation import selectMode
 import matplotlib.pyplot as plt
 from MES_dir.tetrahedralElements import mesh4 as mesh
@@ -161,7 +161,7 @@ def draw_time_propagation(signal_array, time_x_freq_array, distance, krzyweDyspe
     for m in range(4): # POPRAWIĆ
         mode = krzyweDyspersji.getMode(m)
         omegi = mode.allOmega
-        all_k.append(mode_sampling.curve_sampling(np.array(omegi).real, np.array(k_vect).real, np.array(freq_temp).real))
+        all_k.append(curve_sampling(np.array(omegi).real, np.array(k_vect).real, np.array(freq_temp).real))
 
     # plt.figure("Przebieg w odleglosci")
     #
