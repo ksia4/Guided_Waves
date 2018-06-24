@@ -4,6 +4,7 @@ import os
 #W tym pliku są wszystkie parametry wykorzystywane w rożnych częściach programu.
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+#sciezka do katalogu MES_dir
 
 ndof = 3    # liczba stopni swobody
 
@@ -24,9 +25,9 @@ kr = []
 force = []
 
 # Stale materialowe
-young_mod = 70000 #70000
-poisson_coef = 0.3 #0.33333
-density = 2.7*1e-9 # 2.7*1e-9
+young_mod = 70000
+poisson_coef = 0.3
+density = 2.7*1e-9
 
 # Wyswietlanie siatki na plaszczyznie, siatki w 3D i triangulacji
 show_plane = False

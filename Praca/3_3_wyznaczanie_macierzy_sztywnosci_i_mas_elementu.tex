@@ -167,10 +167,15 @@ Ostatnim elmentem niezbędnym do prawidłowego całkowania we współrzędnych n
 
 Ostatecznie wyznaczanie macierzy mas i sztywności dla elementu sześciennego zostanie zmodyfikowane jak poniżej:
 
-\begin{equation} \label{eq:f_ksztaltu_hex}
+\begin{equation} \label{eq:macierz_sztywnosci}
+	\begin{aligned}
+	\textbf{K}^e = \int_V {\textbf{B}}^T E \textbf{B} dV \quad \rightarrow \quad \textbf{K}^e =  \int_{-1}^1 \int_{-1}^1 \int_{-1}^1  {\textbf{B}}^T \textbf{D} \textbf{B} det\textbf{J} d\xi d\eta d\zeta.
+	\end{aligned}
+\end{equation}
+
+\begin{equation} \label{eq:macierz_mas}
 	\begin{aligned}
 	\textbf{M}^e = \int_V \rho {\textbf{N}}^T \textbf{N} dV \quad \rightarrow \quad \textbf{M}^e = \int_{-1}^1 \int_{-1}^1 \int_{-1}^1 \rho {\textbf{N}}^T \textbf{N} det\textbf{J} d\xi d\eta d\zeta \\
-	\textbf{K}^e = \int_V {\textbf{B}}^T E \textbf{B} dV \quad \rightarrow \quad \textbf{K}^e =  \int_{-1}^1 \int_{-1}^1 \int_{-1}^1  {\textbf{B}}^T \textbf{D} \textbf{B} det\textbf{J} d\xi d\eta d\zeta.
 	\end{aligned}
 \end{equation}
 

@@ -8,7 +8,7 @@ from GUI import my_threads as threads
 
 
 # Zwraca macierze K0, KL, KR, M0 do policzenia wartosci wlasnych ukladu
-def get_data_for_eiq():
+def getDataForEiq():
     dim = int(np.shape(config.k)[0]/3)
     print(dim)
     config.kl = config.k[dim:2 * dim, 0:dim]
@@ -32,7 +32,7 @@ def get_data_for_eiq():
     rd.write_matrix_to_file("mr", config.mr)
 
 # Znajduje wektor wartosci wlasnych dla systemu
-def find_eig(path='eig', other=False):
+def findEig(path='eig', other=False):
     get_data_for_eiq()
 
     ux = 1
@@ -69,7 +69,7 @@ def find_eig(path='eig', other=False):
         print(np.shape(f1))
     return np.array(fsys).transpose(), kvect
 
-def draw_dispercion_curves(path_to_folder_with_data='eig', save_plot_to_file=False):
+def drawDispercionCurves(path_to_folder_with_data='eig', save_plot_to_file=False):
     start = time.clock()
 
     fsys, kvect = find_eig(path_to_folder_with_data, True)
@@ -141,7 +141,7 @@ def draw_dispercion_curves(path_to_folder_with_data='eig', save_plot_to_file=Fal
     plt.show()
 
 #Rysuje z zapisanych w folderze eig wartości własnych, bez obliczania ich.
-def draw_dispercion_curves_from_file(path_to_folder_with_data='eig', number_of_curves_to_draw=10, save_plot_to_file=False):
+def drawDispercionCurvesFromFile(path_to_folder_with_data='eig', number_of_curves_to_draw=10, save_plot_to_file=False):
 
     plt.figure(1)
     plt.subplot(311)
@@ -187,7 +187,7 @@ def draw_dispercion_curves_from_file(path_to_folder_with_data='eig', number_of_c
         plt.savefig('dis_curves.png')
     plt.show()
 
-def sort_columns(matrix):
+def sortColumns(matrix):
     new_matrix = []
     print("wymair macierzy: ", np.shape(matrix))
     for i in range(len(matrix[0, :])):
@@ -195,7 +195,7 @@ def sort_columns(matrix):
         new_matrix.append(np.sort_complex(column))
     return np.array(new_matrix).transpose()
 
-def calculate_group_velocity(f_for_mode, kvect):
+def calculateGroupVelocity(f_for_mode, kvect):
     group_vel = []
     for ind in range(len(kvect)-1):
         numerator = f_for_mode[ind + 1] - f_for_mode[ind]

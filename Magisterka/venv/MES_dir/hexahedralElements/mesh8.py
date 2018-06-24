@@ -483,7 +483,7 @@ def createBrickElements(brickVertices, numberOfPlanes, numberOfCircles, numberOf
                     indices.append([(p-1)*16 + i, (p-1)*16 + i + 16, (p-1)*16 + i + 17, (p-1)*16 + i + 1])
                 else:
                     indices.append([(p-1)*16 + i, (p-1)*16 + i + 16, (p-1)*16 + i + 17 - 16, (p-1)*16 + i + 1 - 16])
-        print("kwadraty", indices)
+        # print("kwadraty", indices)
         return indices
 
     planeVertices = brickVertices[0: int(np.shape(brickVertices)[0]/3), :]
@@ -598,9 +598,9 @@ def drawHexahedrons(vertices, indices):
 
 if __name__ == "__main__":
     # brickMesh(numberOfPlanes, radius, circles, pointsOnCircle)
-    vert = brickMesh(10, 3, 3, 16)
-    #createBrickElements(brickVertices, numberOfPlanes, numberOfPointsOnCircle, numberOfCircles)
-    ind = createBrickElements(vert, 3, 3, 16)
+    vert = brickMesh(10, 3, 8, 16)
+    #createBrickElements(brickVertices, numberOfPlanes, numberOfCircles, numberOfPointsOnCircle)
+    ind = createBrickElements(vert, 3, 8, 16)
     drawPlane(vert)
     drawBar(vert)
     drawTetragons(vert, ind)
