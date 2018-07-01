@@ -32,13 +32,13 @@ def getDataForEiq():
     rd.write_matrix_to_file("mr", config.mr)
 
 # Znajduje wektor wartosci wlasnych dla systemu
-def findEig(path='eig', other=False):
-    get_data_for_eiq()
+def findEig():
+    getDataForEiq()
 
     ux = 1
     kvect = np.linspace(1e-10, np.pi/8, num=51)
     #kvect = np.linspace(config.kvect_min, config.kvect_max, num=config.kvect_no_of_points)
-    path_to_kvect = path + '/kvect'
+    path_to_kvect = config.ROOT_DIR + "/../eig/kvect"
 
     rd.write_vector_to_file(path_to_kvect, kvect)
 
@@ -58,21 +58,17 @@ def findEig(path='eig', other=False):
             eig_list.append(f1[i])
             temp = [v[i, j] for j in range(np.shape(v)[0])]
             eig_list.append(temp)
-        if other:
-            rd.write_vector_to_file('../eig/eig_{}'.format(k), eig_list)
-        else:
-            rd.write_vector_to_file('eig/eig_{}'.format(k), eig_list)
-
+            rd.write_vector_to_file(config.ROOT_DIR + '/../eig/eig_{}'.format(k), eig_list)
 
         fsys.append(f1)
         print("eig ", ind+1, " z {}".format(config.kvect_no_of_points))
         print(np.shape(f1))
     return np.array(fsys).transpose(), kvect
 
-def drawDispercionCurves(path_to_folder_with_data='eig', save_plot_to_file=False):
+def drawDispercionCurves(number_of_curves_to_draw=10, save_plot_to_file=False):
     start = time.clock()
 
-    fsys, kvect = find_eig(path_to_folder_with_data, True)
+    fsys, kvect = findEig()
 
     plt.figure(1)
     plt.subplot(311)
@@ -101,11 +97,11 @@ def drawDispercionCurves(path_to_folder_with_data='eig', save_plot_to_file=False
     print("Obliczono wartosci wlasne. Czas: ", (time.clock() - start)/60, "[min]")
     print("Obliczono wartosci wlasne. Czas: ", (time.clock() - start)/3600, "[h]")
 
-    new_fsys = sort_columns(fsys)
+    new_fsys = sortColumns(fsys)
 
-    curves = [i for i in range(10)]
+    curves = [i for i in range(number_of_curves_to_draw)]
     # curves = [10]
-    omega_path = path_to_folder_with_data + '/omega'
+    omega_path = config.ROOT_DIR + '/../eig/omega'
     rd.write_matrix_to_file(omega_path, new_fsys, length=50)
 
     for ind in curves:
@@ -130,7 +126,7 @@ def drawDispercionCurves(path_to_folder_with_data='eig', save_plot_to_file=False
     plt.subplot(313)
     for ind in curves:
         f_v = new_fsys[ind, :] / (2 * np.pi)
-        v_g = calculate_group_velocity(f_v, kvect)
+        v_g = calculateGroupVelocity(f_v, kvect)
         plt.plot(f_v[0: -1] * 1e-3, v_g, 'g.', markersize=3)
     plt.xlabel("Frequency [kHz]")
     plt.ylabel("Velocity [m/s]")
@@ -141,13 +137,13 @@ def drawDispercionCurves(path_to_folder_with_data='eig', save_plot_to_file=False
     plt.show()
 
 #Rysuje z zapisanych w folderze eig wartości własnych, bez obliczania ich.
-def drawDispercionCurvesFromFile(path_to_folder_with_data='eig', number_of_curves_to_draw=10, save_plot_to_file=False):
+def drawDispercionCurvesFromFile(number_of_curves_to_draw=10, save_plot_to_file=False):
 
     plt.figure(1)
     plt.subplot(311)
 
-    path_to_kvect_file = path_to_folder_with_data + '/kvect'
-    path_to_omega_files = path_to_folder_with_data + '/omega'
+    path_to_kvect_file = config.ROOT_DIR + '/../eig/kvect'
+    path_to_omega_files = config.ROOT_DIR + '/../eig/omega'
     kvect = np.array(rd.read_kvect(path_to_kvect_file))
     k_v = kvect * 1e3
 

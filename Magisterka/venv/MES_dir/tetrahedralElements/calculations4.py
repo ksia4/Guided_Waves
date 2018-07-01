@@ -151,7 +151,7 @@ def stiffLocalMatrix(shapeFunctions, vertices, elementIndices, youngModulus, poi
 def massLocalMatrix(density):
     ksi, eta, dzeta = sp.symbols('ksi, eta, dzeta')
 
-    N_integrate = gauss4.matrix_to_integrate(density)
+    N_integrate = gauss4.matrixToIntegrate(density)
     #granice calkowania
     y_bot = lambda ksi: -1
     y_top = lambda ksi: -ksi

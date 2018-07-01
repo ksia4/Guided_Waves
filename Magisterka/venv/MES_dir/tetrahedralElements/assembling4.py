@@ -8,8 +8,8 @@ def assembleGlobalStiffMatrix(vertices, indices, youngModulus, poissonCoefficien
     global_matrix = np.zeros([np.shape(vertices)[0]*3, np.shape(vertices)[0]*3])
     # print("global ", np.shape(global_matrix))
     for elem_ind in indices:
-        n = calculations4.shape_functions(vertices, elem_ind)
-        ki = calculations4.stiff_local_matrix(n, vertices, elem_ind, youngModulus, poissonCoefficient)
+        n = calculations4.shapeFunctions(vertices, elem_ind)
+        ki = calculations4.stiffLocalMatrix(n, vertices, elem_ind, youngModulus, poissonCoefficient)
 
         for i in range(len(elem_ind)):  #petla po liczbie punktow w jednej osi
             for j in range(len(elem_ind)):  # w drugiej osi

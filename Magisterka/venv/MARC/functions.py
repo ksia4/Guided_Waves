@@ -365,5 +365,28 @@ def sort_columns(matrix):
         new_matrix.append(np.sort(column, 0))
     return np.array(new_matrix).transpose()
 
-# d = read_coordinates_from_DAT("rod_v4_job1.dat", 724, 3)
-# print("dsad")
+
+def getStiffAndMassMatrix():
+    ndof = 3
+    nnodes = 724
+    K = read_MARC_matrix("rod_v4_job1_glstif_0000", nnodes, ndof)
+    M = read_MARC_matrix("rod_v4_job1_glmass_0000", nnodes, ndof)
+    d = read_coordinates_from_DAT("rod_v4_job1.dat", nnodes, ndof)
+    L, C, R = planes_indecies(d)
+
+    all_planes = L + C + R
+    M1 = np.zeros((np.shape(M)[0], np.shape(M)[0]))
+    K1 = np.zeros((np.shape(K)[0], np.shape(K)[0]))
+
+    for loop_ind, d_ind in enumerate(all_planes):
+        M1[:, 3*loop_ind : 3*loop_ind + 3] = M[:, 3*d_ind : 3*d_ind + 3]
+        K1[:, 3*loop_ind : 3*loop_ind + 3] = K[:, 3*d_ind : 3*d_ind + 3]
+
+    M2 = np.zeros((np.shape(M)[0], np.shape(M)[0]))
+    K2 = np.zeros((np.shape(K)[0], np.shape(K)[0]))
+
+    for loop_ind, d_ind in enumerate(all_planes):
+        M2[3*loop_ind : 3*loop_ind + 3, :] = M1[3*d_ind : 3*d_ind + 3, :]
+        K2[3*loop_ind : 3*loop_ind + 3, :] = K1[3*d_ind : 3*d_ind + 3, :]
+
+    return K2, M2 #final stiff and mass matrix

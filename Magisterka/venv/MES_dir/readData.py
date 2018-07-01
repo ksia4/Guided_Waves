@@ -38,14 +38,6 @@ def read_complex_vector(path):
         return np.array(complexdata)
 
 
-def read_interpolated_fc(path):
-    vector = []
-    with open(path, 'r') as file:
-        for line in file:
-            vector.append(float(line))
-    return np.array(vector)
-
-
 def read_kvect(path):
     with open(path, 'r') as file:
         k = []
