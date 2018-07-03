@@ -15,33 +15,48 @@
 \BOOKMARK [2][-]{subsection.2.3.2}{Analityczne wyznaczanie krzywych dyspersji}{section.2.3}% 15
 \BOOKMARK [2][-]{subsection.2.3.3}{Numeryczne wyznaczanie krzywych dyspresji}{section.2.3}% 16
 \BOOKMARK [2][-]{subsection.2.3.4}{Eksperymentalne wyznaczanie krzywych dyspersji}{section.2.3}% 17
-\BOOKMARK [0][-]{chapter.3}{Wykorzystywane zagadnienia metody element\363w skonczonych}{}% 18
-\BOOKMARK [1][-]{section.3.1}{Rozwiazywanie zadan z pomoca MES}{chapter.3}% 19
-\BOOKMARK [1][-]{section.3.2}{Funkcje ksztaltu}{chapter.3}% 20
-\BOOKMARK [1][-]{section.3.3}{Wyznaczanie macierzy sztywnosci i mas element\363w}{chapter.3}% 21
-\BOOKMARK [1][-]{section.3.4}{Agregacja globalnych macierzy mas i sztywnosci}{chapter.3}% 22
-\BOOKMARK [1][-]{section.3.5}{Rozwiazanie wyznaczonego r\363wnania macierzowego}{chapter.3}% 23
-\BOOKMARK [1][-]{section.3.6}{Zbieznosc metody i bledy rozwiazania}{chapter.3}% 24
-\BOOKMARK [0][-]{chapter.4}{Metody kompensacji dyspersji}{}% 25
-\BOOKMARK [1][-]{section.4.1}{Cel kompensacji}{chapter.4}% 26
-\BOOKMARK [2][-]{subsection.4.1.1}{Zastosowanie fal Lamba w nieniszczacych testach}{section.4.1}% 27
-\BOOKMARK [2][-]{subsection.4.1.2}{Sygnal stosowany wy symulacji}{section.4.1}% 28
-\BOOKMARK [1][-]{section.4.2}{Agregacja krzywych dyspersji uzyskanych z zaimplementowanego solvera}{chapter.4}% 29
-\BOOKMARK [2][-]{subsection.4.2.1}{Cel agregacji}{section.4.2}% 30
-\BOOKMARK [2][-]{subsection.4.2.2}{Algorytm agregacji}{section.4.2}% 31
-\BOOKMARK [1][-]{section.4.3}{Metoda odwracania sygnalu w czasie}{chapter.4}% 32
-\BOOKMARK [2][-]{subsection.4.3.1}{Podstawy teoretyczne}{section.4.3}% 33
-\BOOKMARK [2][-]{subsection.4.3.2}{Implementacja numeryczna}{section.4.3}% 34
-\BOOKMARK [1][-]{section.4.4}{Metoda mapowania liniowego przy pomocy rozwiniecia w szereg Taylora}{chapter.4}% 35
-\BOOKMARK [2][-]{subsection.4.4.1}{Podstawy teoretyczne}{section.4.4}% 36
-\BOOKMARK [2][-]{subsection.4.4.2}{Implementacja numeryczna}{section.4.4}% 37
-\BOOKMARK [0][-]{chapter.5}{Aplikacja do obliczen numerycznych}{}% 38
-\BOOKMARK [1][-]{section.5.1}{Instalacja i konfiguracja srodowiska}{chapter.5}% 39
-\BOOKMARK [2][-]{subsection.5.1.1}{Anaconda}{section.5.1}% 40
-\BOOKMARK [2][-]{subsection.5.1.2}{PyCharm}{section.5.1}% 41
-\BOOKMARK [1][-]{section.5.2}{Obliczenia MES i wyznaczanie krzywych dyspersji oraz wzbudzalnosci}{chapter.5}% 42
-\BOOKMARK [2][-]{subsection.5.2.1}{Elementy czworoscienne}{section.5.2}% 43
-\BOOKMARK [2][-]{subsection.5.2.2}{Elementy szescienne}{section.5.2}% 44
-\BOOKMARK [0][-]{section*.59}{Bibliografia}{}% 45
-\BOOKMARK [0][-]{section*.60}{Zalaczniki}{}% 46
-\BOOKMARK [0][-]{Dodatek.a.A}{Lorem Ipsum}{}% 47
+\BOOKMARK [2][-]{subsection.2.3.5}{Wyznaczanie krzywych wzbudzalnosci}{section.2.3}% 18
+\BOOKMARK [2][-]{subsection.2.3.6}{System sing-around}{section.2.3}% 19
+\BOOKMARK [0][-]{chapter.3}{Wykorzystywane zagadnienia metody element\363w skonczonych}{}% 20
+\BOOKMARK [1][-]{section.3.1}{Rozwiazywanie zadan z pomoca MES}{chapter.3}% 21
+\BOOKMARK [1][-]{section.3.2}{Funkcje ksztaltu}{chapter.3}% 22
+\BOOKMARK [1][-]{section.3.3}{Wyznaczanie macierzy sztywnosci i mas element\363w}{chapter.3}% 23
+\BOOKMARK [1][-]{section.3.4}{Agregacja globalnych macierzy mas i sztywnosci}{chapter.3}% 24
+\BOOKMARK [1][-]{section.3.5}{Rozwiazanie wyznaczonego r\363wnania macierzowego}{chapter.3}% 25
+\BOOKMARK [1][-]{section.3.6}{Zbieznosc metody i bledy rozwiazania}{chapter.3}% 26
+\BOOKMARK [0][-]{chapter.4}{Metody kompensacji dyspersji}{}% 27
+\BOOKMARK [1][-]{section.4.1}{Cel kompensacji}{chapter.4}% 28
+\BOOKMARK [2][-]{subsection.4.1.1}{Zastosowanie fal Lamba w nieniszczacych testach}{section.4.1}% 29
+\BOOKMARK [2][-]{subsection.4.1.2}{Sygnal stosowany wy symulacji}{section.4.1}% 30
+\BOOKMARK [1][-]{section.4.2}{Agregacja krzywych dyspersji uzyskanych z zaimplementowanego solvera}{chapter.4}% 31
+\BOOKMARK [2][-]{subsection.4.2.1}{Cel agregacji}{section.4.2}% 32
+\BOOKMARK [2][-]{subsection.4.2.2}{Algorytm agregacji}{section.4.2}% 33
+\BOOKMARK [1][-]{section.4.3}{Metoda odwracania sygnalu w czasie}{chapter.4}% 34
+\BOOKMARK [2][-]{subsection.4.3.1}{Podstawy teoretyczne}{section.4.3}% 35
+\BOOKMARK [2][-]{subsection.4.3.2}{Implementacja numeryczna}{section.4.3}% 36
+\BOOKMARK [2][-]{subsection.4.3.3}{Wybrane wyniki z symulacji}{section.4.3}% 37
+\BOOKMARK [1][-]{section.4.4}{Metoda mapowania liniowego przy pomocy rozwiniecia w szereg Taylora}{chapter.4}% 38
+\BOOKMARK [2][-]{subsection.4.4.1}{Podstawy teoretyczne}{section.4.4}% 39
+\BOOKMARK [2][-]{subsection.4.4.2}{Implementacja numeryczna}{section.4.4}% 40
+\BOOKMARK [2][-]{subsection.4.4.3}{Wybrane wyniki symulacji}{section.4.4}% 41
+\BOOKMARK [1][-]{section.4.5}{Metoda mapowania sygnalu z dziedziny czasu na dziedzine odleglosci}{chapter.4}% 42
+\BOOKMARK [2][-]{subsection.4.5.1}{Podstawy teoretyczne}{section.4.5}% 43
+\BOOKMARK [2][-]{subsection.4.5.2}{implementacja numeryczna}{section.4.5}% 44
+\BOOKMARK [2][-]{subsection.4.5.3}{Wybrane wyniki symulacji}{section.4.5}% 45
+\BOOKMARK [1][-]{section.4.6}{Porownanie opracowanych metod kompensacji}{chapter.4}% 46
+\BOOKMARK [2][-]{subsection.4.6.1}{Metoda odwracania sygnalu w czasie}{section.4.6}% 47
+\BOOKMARK [2][-]{subsection.4.6.2}{Metoda mapowania liniowego przy pomocy rozwiniecia w szereg Taylora}{section.4.6}% 48
+\BOOKMARK [2][-]{subsection.4.6.3}{Metoda mapowania sygnalu z dziedziny czasu na dziedzine odleglosci}{section.4.6}% 49
+\BOOKMARK [0][-]{chapter.5}{Aplikacja do obliczen numerycznych}{}% 50
+\BOOKMARK [1][-]{section.5.1}{Instalacja i konfiguracja srodowiska}{chapter.5}% 51
+\BOOKMARK [2][-]{subsection.5.1.1}{Anaconda}{section.5.1}% 52
+\BOOKMARK [2][-]{subsection.5.1.2}{PyCharm}{section.5.1}% 53
+\BOOKMARK [1][-]{section.5.2}{Obliczenia MES i wyznaczanie krzywych dyspersji oraz wzbudzalnosci}{chapter.5}% 54
+\BOOKMARK [2][-]{subsection.5.2.1}{Elementy czworoscienne}{section.5.2}% 55
+\BOOKMARK [2][-]{subsection.5.2.2}{Elementy szescienne}{section.5.2}% 56
+\BOOKMARK [2][-]{subsection.5.2.3}{Pozostale moduly katalogu MES\137dir}{section.5.2}% 57
+\BOOKMARK [2][-]{subsection.5.2.4}{Modul main}{section.5.2}% 58
+\BOOKMARK [1][-]{section.5.3}{Segregacja krzywych dyspersji}{chapter.5}% 59
+\BOOKMARK [0][-]{section*.68}{Bibliografia}{}% 60
+\BOOKMARK [0][-]{section*.69}{Zalaczniki}{}% 61
+\BOOKMARK [0][-]{Dodatek.a.A}{Lorem Ipsum}{}% 62

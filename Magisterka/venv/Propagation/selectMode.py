@@ -15,12 +15,8 @@ class Point:
 
     #Funkcja do wypisywania współrzędnych punktu
     def printCoor(self):
-        print("w = ", self.w/(2000 * np.pi), "k = ", self.k)
+        print("w = ", self.w, "k = ", self.k)
         # print("w = ", self.w, "k = ", self.k)
-
-    #Funkcja, która oblicza dystans między dwoma punktami Chyyba jednak nie będzie potrzebna
-    def calcDist(self,point2):
-        return np.sqrt((self.k-point2.k)**2+(self.w+point2.w)**2)
 
 #Klasa przechowująca pojedynczy mode czyli po prostu uporządkowany zbiór punktów
 class Mode:
@@ -46,6 +42,14 @@ class Mode:
         for ind, todel in enumerate(self.points):
             if(todel.k == pk and todel.w == pw):
                 self.points.pop(ind)
+                break
+        for ind, todel in enumerate(self.allOmega):
+            if(todel.wkat_complex == point.wkat_complex):
+                self.allOmega.pop(ind)
+                break
+        for ind, todel in enumerate(self.all_omega_khz):
+            if(todel.w == pw):
+                self.all_omega_khz.pop(ind)
                 return
 
     #Funkcja, która usuwa część wspólną listy punktów tego modu i podanej listy punktów
@@ -99,14 +103,6 @@ class Mode:
             dotprod = (svx * nvx) + (svy * nvy) #iloczyn skalarny tych dwóch wektorów
             svlen = np.sqrt(svx**2 + svy**2)
             nvlen = np.sqrt(nvx**2 + nvy**2)
-            # print("kąt pomiędzy: \npoczątek:")
-            # print(self.points[ind1].printCoor())
-            # print("koniec")
-            # print(self.points[ind2].printCoor())
-            # print("a wektorem ktory ma poczatek: ")
-            # print(Ppoint.printCoor())
-            # print("a koniec ma: ")
-            # print(Ppoint.printCoor())
             return np.arccos(dotprod/(svlen*nvlen))
 
     #Funkcja która z pośród wektora punktów zwróci indeks tego, który tworzy najmniejszy kąt z tym już istniejącym i ten punkt będziemy dodawać do modu
@@ -172,31 +168,6 @@ class Mode:
             return b
         else:
             return (k-b)/a #rad/s
-
-    def calculateK(self, omega): #omega w kHz
-        if omega < self.minOmega:
-            return []
-        potPoints=[]
-        K = []
-        for temp_omega in range(1, len(self.points)-1):
-            if self.points[temp_omega-1].w == omega:
-                return self.points[temp_omega-1].k
-            if self.points[temp_omega].w == omega:
-                return self.points[temp_omega].k
-            if self.points[temp_omega-1].w < omega < self.points[temp_omega].w:
-                potPoints.append((self.points[temp_omega-1], self.points[temp_omega]))
-            elif self.points[temp_omega-1].w > omega > self.points[temp_omega].w:
-                potPoints.append((self.points[temp_omega-1], self.points[temp_omega]))
-
-        if len(potPoints)==0:
-            # print("Nie dotyczy tego modu, minimalna omega to: ")
-            # print(self.minOmega)
-            return []
-
-        for point in potPoints:
-            K.append(self.findPoint(point, omega))
-
-        return K
 
     def findKWithGivenOmega_kHz(self, omega_kHz):
         point1 = Point()
@@ -300,7 +271,6 @@ class SelectedMode:
                 if(len(potentialPoints) > 3):
                     potentialPoints.pop(ind)
 
-
     def plot_modes(self,num_of_modes):
         plt.figure(1)
         for i in range(num_of_modes):
@@ -324,9 +294,6 @@ if __name__ == "__main__":
     Mody = SelectedMode('../eig/kvect', '../eig/omega')
     Mody.selectMode()
     Mody.plot_modes(50)
-    # mod0=Mody.getMode(0)
-    # K_szuk = mod0.calculateK(30)
-    # print(K_szuk)
 
 
 

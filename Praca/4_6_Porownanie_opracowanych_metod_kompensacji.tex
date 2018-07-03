@@ -1,0 +1,47 @@
+\section{Porownanie opracowanych metod kompensacji}
+
+W tym rozdziale opisane zostały wybrane trzy metody kompensacji dyspersji, które zostały zainplementowane do stworzonej aplikacji w ramach niniejszej pracy. Każda z przedstawionych metod ma zarówno wady jak i zalety i ograniczenia. W poniższym podrozdziale znajduje się porównanie opracowanych metod.
+\subsection{Metoda odwracania sygnału w czasie}
+Zalety:
+\begin{enumerate}
+\item Szybkość działania - ze wszystkich zaimplementowanych metod ta pozwala w najkrótszym czasie uzyskać rządane rezultaty.
+\item Skuteczność kompensacji - sygnał otrzymany w wyniku symulacji kompensuje się do postaci sygnału wejściowego z dokładnością do kolejności w czasie
+\item Możliwość kompensacji sygnału wielopostaciowego - Metoda ta ze względu na swoją prostotę pozwala na skompensowanie zarówno sygnału będącego rozproszonym pojedynczym trybem fali prowadzonej jak i sygnału będącego złożeniem kilku rozproszonych postaci tej fali 
+\end{enumerate}
+
+Wady i ograniczenia:
+\begin{enumerate}
+\item Znana długość ścieżki propagacji - aby wygenerować żądany sygnał musi być znana długość ściażki propagacji, po przebyciu której sygnał powinien się skompensować.
+\item Otrzymany sygnał odwrócony w czasie - otrzymany po propagacji sygnał nie jest identyczny z żądanym sygnałem. Jak pokazano w symulacji otrzymany sygnał jest żądanym sygnałem odwróconym w czasie
+\item Trudności w zastosowaniu w przypadku więcej niż jednego punktu odbicia - w przypadku odbić od kilku powierzchni, jak na przykład w przypadku badanie dwóch połączonych ze sobą prętów, stworzenie sygnału, który wprowadzony do obiektu powróci w skompensowanej formie jest trudniejsze i wymagałoby wielu prób heurystycznych.
+\item Konieczność znajomości krzywych dyspersji - Aby móc wygenerować odpowiedni sygnał, który skompensuje sie na zadanej odległości, niezbędna jest znajomość krzywych dyspersji do wstępnej symulacji sygnał.
+\end{enumerate}
+Podsumowując, największą zaletą tej metody jest jej szybkość działania. Pomimo ograniczenia w postaci konieczności posiadania informacji o długości ścieżki propagacji, metoda ta wydaje się być skuteczna do kontroli zbadanych wcześniej obiektów. W przypadku badań heurystycznych wydaje się iż jej dodatkowym atutem może być brak konieczność znajomości krzywych dyspersji. Być może wystarczyłoby wcześniej zbadać obiekt, czyli wprowadzić do obiektu sygnał, który ostatenie chcemy otrzymywać po propagacji. Otrzymany eksperymentalnie sygnał odwrócić w czasie i znów wprowadzić do pręta. Tak przygotowany sygnał również powinien skompensować się podobnie jak w symulacji, jednak z pewnością już po pierwszej propagacji, w sygnale pojawią się szumy, które ostatecznie mogą pogarszać otrzymywane wyniki. Metoda wydaje się być dobra do kontroli dobrze, zbadanych obiektów, co do których należy się tylko upewnić, że nie powstały żadne uszkodzenia od czasu ostatniej kontroli. W takim wypadku po zadaniu sygnału oczekiwany jest konkretny rezultat, w przypadku pojawienia się uszkodzeń, które spowodują dodatkowe i przedwczesne odbicie sygnału, otrzymany sygnał świadczyć będzie o uszkodzeniu. Nie dostarczy nam jednak informacji o miejscu jego wystąpienia.
+
+\subsection{Metoda mapowania liniowego przy pomocy rozwinięcia w szereg Taylora}
+Zalety:
+\begin{enumerate}
+\item Kompensacja dowolnej ilości odbić zadanego sygnału - Przedstawiona metoda pozwala na kompensację dowolnej ilości odbić sygnału wejściowego. Jeśli tylko punkty odbić nie będą zbyt blisko siebie, sygnały po kompensacji da się rozróżnić i określić liczbę punktów odbicia
+\item Możliwość oszacowania długości ścieżki propagacji - znając prędkość grupową częstotliwości o najwyższej energii oraz czas przybycia sygnału możliwe jest oszacowanie długość ścieżki jego propagacji.
+\end{enumerate}
+Wady i ograniczenia:
+\begin{enumerate}
+\item Czas obliczeń - ze wszystkich zaimplementowanych metod czas obliczeń tej jest najdłuższy.
+\item Niedokładne odwzorowanie sygnału wejściowego - Wyniki z symulacji pokazują, iż ta metoda pomimo, że kompensuje sygnał do postaci zbliżonej do tej wejściowej to jednak jego obwiednia wydaje się być nieco zniekształcona w stosunku do oryginału
+\item Możliwość kompensacji tylko pojedyńczej postaci fali - przedstawiona metoda pozwala na skompensowanie dyspersji tylko w przypadku, gdy mamy do czynienia z pojedyńczym trybem fali.
+\item Znana krzywa dyspersji propagującego trybu fali - jest to informacja niezbędna do skompensowania sygnału.
+\end{enumerate}
+Podsumowując, prezentowana metoda pozwala na skompensowanie sygnału odbitego od dowolnej ilości punktów. Jednak jej zasadniczym ograniczeniem jest propagacja fali tylko w jednej postaci, co jednak jest możliwe do osiągnięcia dzięki odpowiednio dobranemu wzbudnikowi oraz wyliczeniu postaci, która ma zostać wzbudzona oraz tych które powinny być stłumione. Przy odpowiednio spreparowanym sygnale wejściowym, zapewniającym propagację jedynie wybranej postaci fali, metoda ta powinna skutecznie skompensować dyspersję oraz pozwolić na oszacowanie odległości na jakich znajdują się punkty odbicia, co za tym idzie zlokalizować potencjalne uszkodzenia.
+\subsection{Metoda mapowania sygnału z dziedziny czasu na dziedzinę odległości}
+Zalety:
+\begin{enumerate}
+\item Otrzymywana informacja o długości ścieżki propagacji - metoda ta przynosi podwójne korzyści, poniewąż oprócz skompensowanego sygnału dostarczana jest automatycznie również informacja o długości ścieżki propagacji sygnału. Otrzyman sygnał wyjściowy jest sygnałem w dziedzinie odległości, więc długość ścieżki propagacji można odczytać bezpośrednio z wygenerowanego wyniku
+\item Kompensacja dowolnej ilości propagujących postaci oraz dowolnej liczby odbić sygnału - Jedynym elementem wymaganym aby skompensować otrzymany sygnał jest znajomość krzywych dyspersji opisujących propagujące postaci. Metoda pozwala na skompensowanie sygnału zarówno jednomowego jak i takiego, który zawiera kilka postaci fali.
+\item szybkość działania - mimo iż zaimplementowany algorytm działa nieco dłużej niż pierwsza z omawianych metod, ta również dokonuje obliczeń w dość zadawalającym czasie. Dodatkowym atutej jest to, ze poprzez drobne zmiany w aplikacji jesteśmy w stanie sterować szybkością jej działania. Poprzez zmianę odpowiednich parametrów użytkownik jest w stanie zdecydować czy zależy mu na dokładności wyników czy na szybkości wykonywanego algorytmu.
+\item Jakość wyników - wyniki uzyskane z symulacji pokazują, iż kompensacja tą metodą pozwala na dokładne odwzorowanie sygnału wejściowego. Im dokładniejsze są opisujące go krzywe dyspersji tym otrzymany w wyniku kompensacji sygnał lepiej odwzorowuje stan faktyczny.
+\end{enumerate}
+Wady i ograniczenia:
+\begin{enumerate}
+\item znajomość krzywych dyspersji - tak jak i poprzednie metody tak i ta również wymaga znajomości funkcji opisujących badany obiekt. Potrzebna jest również informacja o tym, które postaci zostały wzbudzone i propagowały w badanym obiekcie.
+\end{enumerate}
+Ta metoda jest najskuteczniejszą z opracowanych w ramach tej pracy metod. Posiada najmniej ograniczeń jednocześnie pozwalając uzyskać najdokładniejsze rezultaty. Długość ścieżki propagacji nie tylko nie musi być znana jak również jest bezpośrednio przekazywana użytkownikowi wraz ze skompensowanym sygnałem.
