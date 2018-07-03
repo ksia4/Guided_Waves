@@ -33,3 +33,5 @@ class Text:
         rect_render_text = render_text.get_rect()
         rect_render_text.center = (self.center_x, self.center_y)
         screen.blit(render_text, rect_render_text)
+        return rect_render_text
+

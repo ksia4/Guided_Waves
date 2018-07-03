@@ -81,17 +81,6 @@ def calculate_delta_k(max_v_gr, signal_duration, factor=0.9):
 def calculate_delta_x(k_Nyquista):
     return 1/(2*k_Nyquista) # w metrach
 
-def check_all_conditions(n, delta_k, delta_x, k_nyq):
-    if(n < 2*(k_nyq/delta_k)):
-        print("nierówność na n jest niespełniona")
-    if delta_k != 1/(n*delta_x):
-        print("Warunek na delte k nie jest spełniony, delta_k wynosi:")
-        print(delta_k)
-        print("natomiast 1/(n*deltax)")
-        print(1/(n*delta_x))
-    if k_nyq != 1/(2*delta_x):
-        print("Warunek na k_Nyquista nie jest spełniony")
-
 def find_max_k(mode, k_vect, max_omega_kHz):
     print(max_omega_kHz)
     print(mode.all_omega_khz[-1])
@@ -195,7 +184,7 @@ def calculate_mean_mode(dispercion_curves, numbers_of_propagated_modes):
     plt.show()
     return [mean_mode, mean_k_vector]
 
-def Wilcox_compensation2(dispersion, dispercion_curves, propagated_modes, need_to_pad = False):
+def mapping_from_time_to_distance(dispersion, dispercion_curves, propagated_modes, need_to_pad = False):
     if need_to_pad:
         signal_to_fft = pad_timetraces_zeroes(dispersion[0], dispersion[1])
     else:
@@ -366,8 +355,7 @@ def wave_length_propagation(signal, numbers_of_modes, disp_curves, distance_m, F
     plt.show()
     return [new_time, propagated_signal]
 
-#Te funkcje chce poprawić tak, żeby przyjmowała sygnał który mamy zrobić do kompensacji i odległość po jakiej się ma kompensować i ile modów ma propagować :)
-def time_reverse_compensation(signal, zeros=0.01):
+def time_reverse(signal):
     time_vector = signal[0]
     new_signal = []
     for s in signal[1]:
@@ -376,26 +364,13 @@ def time_reverse_compensation(signal, zeros=0.01):
     print("Odwrócony sygnał ma być o tu")
     plt.plot(time_vector, new_signal)
     plt.show()
-    # temp_signal = []
-    # temp_signal2 = []
-    # for s in signal[1]:
-    #     temp_signal2.append(s)
-    #     if abs(s) > zeros:
-    #         temp_signal.append(s)
-    #     else:
-    #         temp_signal.append(0)
-    #
-    # temp_signal.reverse()
-    # temp_signal2.reverse()
-    # new_signal = []
-    # for ind, s in enumerate(temp_signal):
-    #     if s != 0:
-    #         new_signal.append(temp_signal2[ind])
-    #
-    # time_vector = signal[0][0:len(new_signal)]
     return [time_vector, new_signal]
 
-def linear_mapping_compensation(signal, numbers_of_modes, disp_curves):
+def time_reverse_compensation(signal, distance, numbers_of_modes, disp_curves):
+    signal_temp = wave_length_propagation(signal, numbers_of_modes, disp_curves, distance, True, 100)
+    return time_reverse(signal_temp)
+
+def linear_mapping_compensation(signal, number_of_modes, disp_curves):
 
     signal_after_fft = np.fft.rfft(signal[1])
     time = signal[0]
@@ -418,16 +393,16 @@ def linear_mapping_compensation(signal, numbers_of_modes, disp_curves):
 
     print("Max silna omega w k_Hz" + str(frequency_from_numpy[max_ind]))
 
-    modes = []
-    for ind in range(len(numbers_of_modes)):
-        modes.append(disp_curves.getMode(numbers_of_modes[ind]))
-    if len(modes) > 1:
-        mean_data = calculate_mean_mode(disp_curves, numbers_of_modes)
-        mean_mode = mean_data[0]
-        mean_k_vector = mean_data[1]
-    else:
-        mean_mode = modes[0]
-        mean_k_vector = disp_curves.k_v
+    # modes = []
+    # for ind in range(len(numbers_of_modes)):
+    #     modes.append(disp_curves.getMode(numbers_of_modes[ind]))
+    # if len(modes) > 1:
+    #     mean_data = calculate_mean_mode(disp_curves, numbers_of_modes)
+    #     mean_mode = mean_data[0]
+    #     mean_k_vector = mean_data[1]
+    # else:
+    mean_mode = disp_curves.getMode(number_of_modes)
+    mean_k_vector = disp_curves.k_v
 
     k_vect = []
     for ind, f in enumerate(frequency_from_numpy):
@@ -540,7 +515,7 @@ if __name__ == "__main__":
 
 
 
-    # wilcox = Wilcox_compensation2(signal, KrzyweDyspersji, [0, 1, 2, 3])
+    # wilcox = mapping_from_time_to_distance(signal, KrzyweDyspersji, [0, 1, 2, 3])
     #
     # plt.figure("Wilcox")
     # plt.subplot(211)
@@ -564,7 +539,7 @@ if __name__ == "__main__":
 
 
     # print("kompensacja Wilcoxem")
-    # Wilcox_compensation2(signal, KrzyweDyspersji, [0, 1, 2, 3])
+    # mapping_from_time_to_distance(signal, KrzyweDyspersji, [0, 1, 2, 3])
 
 
     # print("Taki jest zdyspersowany sygnał")

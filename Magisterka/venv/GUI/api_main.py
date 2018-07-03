@@ -88,7 +88,7 @@ class Game_Window(object):
                 self.text.set_center(self.width/2, 100)
                 self.text.render_text(self.screen)
                 pygame.display.update()
-                dispersion_curves.draw_dispercion_curves_from_file(path, self.number_of_curves, True)
+                dispersion_curves.drawDispercionCurvesFromFile(self.number_of_curves, True)
                 # first = False
                 self.to_do = 2
                 # wait = True
