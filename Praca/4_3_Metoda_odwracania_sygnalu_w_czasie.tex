@@ -4,7 +4,7 @@
 Metoda omawiana w tej sekcji polega na wygenerowaniu sygnału który po przepropagowaniu pewnej odległości sam się skompensuje. Technika kompensacji dyspersji poprzez wygenerowanie sygnału odwróconego w czasie została zaprezentowana w artykule [] [\textcolor{red}{referencja do pialucha}]
 
 \subsection{Podstawy teoretyczne}
-Podstawową ideą prezentowanej w tej części pracy techniki kompensacji dyspersji jest wytworzenie sygnału, który poprzez nałożenie składowych częstotliwości w czasie propagacji skompensuje się, tworząc oczekiwany sygnał w pozycji pomiarowej. W przypadku w którym do obiektu wprowadzony zosteni zwykły sygnał sinusoidalny o liniowo zmieniającej się częstotliwości (linear-chirp) zostanie wzbudzone przynajmniej kilka trybów fali prowadzonej. Każdy tryb w każdej z częstotliwości może poruszać się z różną prędkością fazową i grupową. Ze względu na dyspersję sygnał wraz z propagacją będzie stawał się coraz dłuższy a jego amplituda będzie spadać, ponieważ ulegnie on rozproszeniu.  Składowe częstotliwości sygnału odpowiadające najwyższym prędkością grupowym będą znajdować się z przodu, natomiast wolniejsze komponenty będą znajdowały się z tyłu. Podstawa przedstawianej metody polega na założeniu, że tak otrzymany sygnał jesteśmy w stanie odwrócić w czasie, tak aby komponenty o mniejszej prędkości znalazły się z przodu sygnału a komponenty o większej prędkości znalazły się z tyłu. Wzbudzenie obiektu tak przygotowanym sygnałem da w odpowiedzi sygnał skompensowany tej samej postaci co pierwotne wzbudzenie. Skuteczność metody można wykazać analitycznie. Przyjijmy, że sygnał zastosowany do wzbudzenia pręta zostanie zastosowany w punkcie $x = 0$ i będzie to sygnał $f(t)$. Sygnał wzbudzający w dziedzinie częstotliwości możemy zapisać jako:
+Podstawową ideą prezentowanej w tej części pracy techniki kompensacji dyspersji jest wytworzenie sygnału, który poprzez nałożenie składowych częstotliwości w czasie propagacji skompensuje się, tworząc oczekiwany sygnał w pozycji pomiarowej. W przypadku w którym do obiektu wprowadzony zostanie zwykły sygnał sinusoidalny o liniowo zmieniającej się częstotliwości (linear-chirp) zostanie wzbudzone przynajmniej kilka trybów fali prowadzonej. Każdy tryb w każdej z częstotliwości może poruszać się z różną prędkością fazową i grupową. Ze względu na dyspersję sygnał wraz z propagacją będzie stawał się coraz dłuższy a jego amplituda będzie spadać, ponieważ ulegnie on rozproszeniu.  Składowe częstotliwości sygnału odpowiadające najwyższym prędkością grupowym będą znajdować się z przodu, natomiast wolniejsze komponenty będą znajdowały się z tyłu. Podstawa przedstawianej metody polega na założeniu, że tak otrzymany sygnał jesteśmy w stanie odwrócić w czasie, tak aby komponenty o mniejszej prędkości znalazły się z przodu sygnału a komponenty o większej prędkości znalazły się z tyłu. Wzbudzenie obiektu tak przygotowanym sygnałem da w odpowiedzi sygnał skompensowany tej samej postaci co pierwotne wzbudzenie. Skuteczność metody można wykazać analitycznie. Przyjijmy, że sygnał zastosowany do wzbudzenia pręta zostanie zastosowany w punkcie $x = 0$ i będzie to sygnał $f(t)$. Sygnał wzbudzający w dziedzinie częstotliwości możemy zapisać jako:
 \begin{equation}
 [F(\omega)_{x=0}=\int\limits_{-\int}^{\int}]f(t)e^{-i\omega t}dt \label{eq:F(omega)_x=0}
 \end{equation}
@@ -23,7 +23,7 @@ Zakładając, że chcemy uzyskać sygnał $g(t)$, którego transformata Fouriera
 \begin{equation}
 Y(\omega) = \frac{G(\omega)}{H(\omega)} = G(\omega)[H(\omega)]^{-1} \label{eq:Y(omega)}
 \end{equation}
-Sygnał w dziedzinie czasu y(t) jaki musi zostać wpuszczony do badanego pręta w punkcie $x=0$ aby uzyskać odebrany sygnał $g(t)$ w punkcie $x=L$ można uzyskać z odwrotnej transformaty Fouriera równanie (\ref{eq:Y(omega)}):
+Sygnał w dziedzinie czasu y(t) jaki musi zostać wprowadzony do badanego pręta w punkcie $x=0$ aby uzyskać odebrany sygnał $g(t)$ w punkcie $x=L$ można uzyskać z odwrotnej transformaty Fouriera, co pokazuje równanie (\ref{eq:Y(omega)}):
 \begin{equation}
 y(t) = \frac{1}{2\pi}\int\limits_{-\infty}^{\infty}\frac{G(\omega)}{H(\omega)}e^{i\omega t}d\omega \label{eq:y(t)}
 \end{equation}
@@ -52,7 +52,7 @@ W ramach niniejszej pracy, omawiana metoda została zaimplementowana do aplikacj
 \label{fig:kolejne_etapy_TR}
 \end{figure}
 
-W zaprezentowanym przykładzie odwrócony w czasie sygnał został dodatkowo wypełniony zerami. Zabieg ten został zastosowany, ponieważ całość została przeprowadzona w ramach symulacji i wypełnienie sygnału było zabiegiem niezbędnym do przeprowadzenia prawidłowej symulacji propagacji. Przedstawiana metoda pozwala zatem wygenerować sygnał kompensujący się na zadanej odległości do fali o oczekiwanym kształcie. Pozwala na propagowanie zarówno pojedynczego trybu jaki nałożonych wielu postaci. Jednak Aby móc stosować tę motodę konieczna jest znajomość długości ścieżki propagacji sygnału. Jeżeli ściażka propagacji ulegnie zmianie, konieczne jest wygenerowanie nowego sygnału adekwatnego do aktualnego badanego obiektu. W przypadku w którym podczas propagacji następowałyby dodatkowe odbicia, na przykład mielibyśmy do czynienia z falą propagującą przez dwa pręty złączone ze sobą, część energii odbiła by się od łączenia a część przepropagowała przez drugi pręt i odbiła się na końcu. Stworzenie sygnału kompensującego się w takiej sytuacji byłoby bardziej skomplikowane i nie zostało opisane w tej pracy. Rysunek \ref{fig:rozne_odl} prezentuje przykład fali przygotowanej do kompensacji po 4 metrach propagacji. 
+W zaprezentowanym przykładzie odwrócony w czasie sygnał został dodatkowo wypełniony zerami. Zabieg ten został zastosowany, ponieważ całość została przeprowadzona w ramach symulacji i wypełnienie sygnału było zabiegiem niezbędnym do przeprowadzenia prawidłowej symulacji propagacji. Przedstawiana metoda pozwala zatem wygenerować sygnał kompensujący się na zadanej odległości do fali o oczekiwanym kształcie. Pozwala na propagowanie zarówno pojedynczego trybu jaki nałożonych wielu postaci. Jednak aby móc stosować tę motodę konieczna jest znajomość długości ścieżki propagacji sygnału. Jeżeli ściażka propagacji ulegnie zmianie, konieczne jest wygenerowanie nowego sygnału adekwatnego do aktualnego badanego obiektu. W przypadku w którym podczas propagacji następowałyby dodatkowe odbicia, na przykład w sytuacji, w której fala propagujące przez dwa pręty złączone ze sobą, część energii odbiła by się od łączenia a część przepropagowała przez drugi pręt i odbiła się na końcu. Stworzenie sygnału kompensującego się w takiej sytuacji byłoby bardziej skomplikowane i nie zostało opisane w tej pracy. Rysunek \ref{fig:rozne_odl} prezentuje przykład fali przygotowanej do kompensacji po 4 metrach propagacji. 
 
 \begin{figure}[h]
 \centering
@@ -64,15 +64,46 @@ W zaprezentowanym przykładzie odwrócony w czasie sygnał został dodatkowo wyp
 Jak łatwo zauważyć wprowadzony sygnał kompensuje się tylko i wyłącznie po przepropagowaniu założonej odległości. wraz z oddalaniem się od punktu, w którm przewidziany był odbiornik efekt dyspersji się nasila. Tak więc zarówno przed jak i za założonym punktem odbioru odebrany sygnał byłby rozproszony. Metoda ta może służyć do przeprowadzania nieniszczących testów obiektów o znanej charakterystyce przejścia. W sytuacji w której w strukturze nie będzie żadnych uszkodzeń otrzymywany sygnał będzie skompensowany. Natomiast gdy pojawią się uszkodzenia, nieciągłości w strukturze spowodują odbicie fali i skrócenie ścieżki propagacji co da informację o uszkodzeniach. 
 
 \subsection{Wybrane wyniki z symulacji}
-Rysunek \textcolor{red}{Numerek obrazka z chirpem} przedstawiono sygnał przekazany do funkcji, jako ten, który ma się skompensować na zadanej odległości
-\textcolor{red}{Obrazek chirpa}
-Wygenerowany sygnał jest różny dla różnych zadanych odległości. Obrazuje to rysunek \textcolor{red}{Numerek obrazka z sygnałami do kompensacji 1 2 3 4 m} na którym przedstawiono sygnały mające się skompensować odpowiednio po 1 2 3 4 metrach, gdy propagują pierwsze trzy postaci fali prowadzonej. 
-\textcolor{red}{obrazek z sygnałami do kompensacji 1 2 3 4 m}
-Sygnał jest też różny dla różnej ilości propagujących trybów, rysunek \textcolor{red}{Numerek obrazka z różną ilością trybów 2,5 m 1,2,3,5 postaci}
-\textcolor{red}{obrazek z różną ilością trybów 2,5 m 1,2,3,5 postaci}
-Tak wygenerowany sygnał został przetestowany przez propagację w symulacji. Rysunek \textcolor{red}{Numerek obrazka z przepropagowanym sygnałem co się ma skompensować na 3 m a przepropagowany przez 1 2 3 i 4 metry} ilustruje jak ważna jest znajomość długości ścieżki propagacji. Jeśli sygnał przebędzie zbyt krótką lub zbyt długą drogę to odebrany sygnał nie będzie skompensowany.
-\textcolor{red}{obrazek z przepropagowanym sygnałem co się ma skompensować na 3 m a przepropagowane przez 1 2 3 i 4 metry}
-Rysunek \textcolor{red}{Numerek obrazka ze skompensowanymi tymi pierwszymi sygnałami} ilustruje wyniki symulacji propagacji na odpowiednie odległości sygnałów przedstawinych na rysunku \textcolor{red}{ten pierwszy obrazek z kilkoma sygnałami}
-\textcolor{red}{obrazek se skompensowanymi tymi pierwszymi sygnałami}
-Rysunek \textcolor{red}{Numerek obrazka ze skompensowanymi tymi drugimi sygnałami} ilustruje wyniki  symulacji propagacji sygnałów przedstawionych na rysunku \textcolor{red}{Numer tego drugiego obrazka z sygnałami z trybami}
-\textcolor{red}{obrazek tych skompensowanych różnych modów}  
+Rysunek \ref{fig:sygnal we} przedstawiono sygnał przekazany do funkcji, jako ten, do którego sygnał ma się skompensować po przepropagowaniu zadanej odległości
+\begin{figure}[h]
+\centering
+\includegraphics[width=14cm]{Zdjecia/4/test_chirp}
+\caption{Algorytm kompensacji odwracania czasu}
+\label{fig:sygnal we}
+\end{figure}
+Wygenerowany przez aplikację sygnał jest różny dla różnych zadanych odległości. Obrazuje to rysunek \ref{fig:rozne_odl} na którym przedstawiono sygnały mające się skompensować odpowiednio po 1 2 3 4 metrach, gdy propagują pierwsze cztery postaci fali prowadzonej. 
+\begin{figure}[h]
+\centering
+\includegraphics[width=14cm]{Zdjecia/4/tr_przykl}
+\caption{Sygnał przygotowany do kompensacji po odpowiedno 1,2,3 oraz 4 metrach}
+\label{fig:rozne_odl}
+\end{figure}
+Sygnał jest też różny dla różnej ilości propagujących trybów, rysunek \ref{fig:rozne_tryby}
+\begin{figure}[h]
+\centering
+\includegraphics[width=14cm]{Zdjecia/4/TR-rozna_ilosc_modow}
+\caption{Sygnał przygotowany do kompensacji po 2,5 metra propagacji zawierający kolejno 1,2,3 oraz 4 postaci fali prowadzonej}
+\label{fig:rozne_tryby}
+\end{figure}
+Tak wygenerowane sygnały zostały przetestowane przez propagację w symulacji. Rysunek \ref{fig:100} ilustruje jak ważna jest znajomość długości ścieżki propagacji. Jeśli sygnał przebędzie zbyt krótką lub zbyt długą drogę to odebrany sygnał nie będzie skompensowany.
+\begin{figure}[h]
+\centering
+\includegraphics[width=14cm]{Zdjecia/4/obrazek100}
+\caption{Sygnał przygotowany do kompensacji po 3 metrach propagacji przepropagowany kolejno o 1,2,3 i 5 metrów}
+\label{fig:100}
+\end{figure}
+Rysunek \ref{fig:skompensowane_TR} ilustruje wyniki symulacji propagacji na odpowiednie odległości sygnałów przedstawinych na rysunku 4.9
+\begin{figure}[h]
+\centering
+\includegraphics[width=14cm]{Zdjecia/4/skompensowane_TR}
+\caption{Sygnały  z rysunu 4.9 po przepropagowaniu odpowiednich odległości}
+\label{fig:skompensowane_TR}
+\end{figure}
+
+Rysunek \ref{fig:tr_rozna_il_postaci_skomp} ilustruje wyniki  symulacji propagacji sygnałów przedstawionych na rysunku 4.10
+\begin{figure}[h]
+\centering
+\includegraphics[width=14cm]{Zdjecia/4/tr_rozna_il_postaci_skomp}
+\caption{Sygnały  z rysunu 4.10 po przepropagowaniu odpowiedniej odległości}
+\label{fig:tr_rozna_il_postaci_skomp}
+\end{figure} 

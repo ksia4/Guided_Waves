@@ -42,7 +42,7 @@ class Mode:
         for ind, todel in enumerate(self.points):
             if(todel.k == pk and todel.w == pw):
                 self.points.pop(ind)
-                break
+                return
         for ind, todel in enumerate(self.allOmega):
             if(todel.wkat_complex == point.wkat_complex):
                 self.allOmega.pop(ind)

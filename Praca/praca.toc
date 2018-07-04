@@ -39,30 +39,31 @@
 \contentsline {subsection}{\numberline {4.3.1}Podstawy teoretyczne}{60}{subsection.4.3.1}
 \contentsline {subsection}{\numberline {4.3.2}Implementacja numeryczna}{62}{subsection.4.3.2}
 \contentsline {subsection}{\numberline {4.3.3}Wybrane wyniki z symulacji}{64}{subsection.4.3.3}
-\contentsline {section}{\numberline {4.4}Metoda mapowania liniowego przy pomocy rozwini\IeC {\k e}cia w szereg Taylora}{64}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Podstawy teoretyczne}{64}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Implementacja numeryczna}{68}{subsection.4.4.2}
-\contentsline {subsection}{\numberline {4.4.3}Wybrane wyniki symulacji}{70}{subsection.4.4.3}
-\contentsline {section}{\numberline {4.5}Metoda mapowania sygna\IeC {\l }u z dziedziny czasu na dziedzin\IeC {\k e} odleg\IeC {\l }o\IeC {\'s}ci}{70}{section.4.5}
-\contentsline {subsection}{\numberline {4.5.1}Podstawy teoretyczne}{70}{subsection.4.5.1}
-\contentsline {subsection}{\numberline {4.5.2}implementacja numeryczna}{73}{subsection.4.5.2}
-\contentsline {subsection}{\numberline {4.5.3}Wybrane wyniki symulacji}{75}{subsection.4.5.3}
-\contentsline {section}{\numberline {4.6}Porownanie opracowanych metod kompensacji}{76}{section.4.6}
-\contentsline {subsection}{\numberline {4.6.1}Metoda odwracania sygna\IeC {\l }u w czasie}{76}{subsection.4.6.1}
-\contentsline {subsection}{\numberline {4.6.2}Metoda mapowania liniowego przy pomocy rozwini\IeC {\k e}cia w szereg Taylora}{77}{subsection.4.6.2}
-\contentsline {subsection}{\numberline {4.6.3}Metoda mapowania sygna\IeC {\l }u z dziedziny czasu na dziedzin\IeC {\k e} odleg\IeC {\l }o\IeC {\'s}ci}{78}{subsection.4.6.3}
-\contentsline {chapter}{\numberline {5}Aplikacja do oblicze\IeC {\'n} numerycznych}{79}{chapter.5}
-\contentsline {section}{\numberline {5.1}Instalacja i konfiguracja \IeC {\'s}rodowiska}{79}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Anaconda}{79}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}PyCharm}{84}{subsection.5.1.2}
-\contentsline {section}{\numberline {5.2}Obliczenia MES i wyznaczanie krzywych dyspersji oraz wzbudzalno\IeC {\'s}ci}{85}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Elementy czworo\IeC {\'s}cienne}{85}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Elementy sze\IeC {\'s}cienne}{90}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}Pozosta\IeC {\l }e modu\IeC {\l }y katalogu MES\_dir}{93}{subsection.5.2.3}
-\contentsline {subsection}{\numberline {5.2.4}Modu\IeC {\l } main}{97}{subsection.5.2.4}
-\contentsline {section}{\numberline {5.3}Segregacja krzywych dyspersji}{99}{section.5.3}
-\contentsline {section}{\numberline {5.4}Metody kompensacji dyspersji}{104}{section.5.4}
-\contentsline {chapter}{Bibliografia}{109}{section*.69}
-\contentsline {chapter}{Za\IeC {\l }\IeC {\k a}czniki}{109}{section*.70}
+\contentsline {section}{\numberline {4.4}Metoda mapowania liniowego przy pomocy rozwini\IeC {\k e}cia w szereg Taylora}{68}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Podstawy teoretyczne}{68}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Implementacja numeryczna}{71}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}Wybrane wyniki symulacji}{73}{subsection.4.4.3}
+\contentsline {section}{\numberline {4.5}Metoda mapowania sygna\IeC {\l }u z dziedziny czasu na dziedzin\IeC {\k e} odleg\IeC {\l }o\IeC {\'s}ci}{74}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Podstawy teoretyczne}{74}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}implementacja numeryczna}{77}{subsection.4.5.2}
+\contentsline {subsection}{\numberline {4.5.3}Wybrane wyniki symulacji}{79}{subsection.4.5.3}
+\contentsline {section}{\numberline {4.6}Porownanie opracowanych metod kompensacji}{82}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}Metoda odwracania sygna\IeC {\l }u w czasie}{82}{subsection.4.6.1}
+\contentsline {subsection}{\numberline {4.6.2}Metoda mapowania liniowego przy pomocy rozwini\IeC {\k e}cia w szereg Taylora}{83}{subsection.4.6.2}
+\contentsline {subsection}{\numberline {4.6.3}Metoda mapowania sygna\IeC {\l }u z dziedziny czasu na dziedzin\IeC {\k e} odleg\IeC {\l }o\IeC {\'s}ci}{84}{subsection.4.6.3}
+\contentsline {chapter}{\numberline {5}Aplikacja do oblicze\IeC {\'n} numerycznych}{85}{chapter.5}
+\contentsline {section}{\numberline {5.1}Instalacja i konfiguracja \IeC {\'s}rodowiska}{85}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Anaconda}{85}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}PyCharm}{90}{subsection.5.1.2}
+\contentsline {section}{\numberline {5.2}Obliczenia MES i wyznaczanie krzywych dyspersji oraz wzbudzalno\IeC {\'s}ci}{91}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Elementy czworo\IeC {\'s}cienne}{91}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Elementy sze\IeC {\'s}cienne}{96}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Pozosta\IeC {\l }e modu\IeC {\l }y katalogu MES\_dir}{99}{subsection.5.2.3}
+\contentsline {subsection}{\numberline {5.2.4}Modu\IeC {\l } main}{103}{subsection.5.2.4}
+\contentsline {section}{\numberline {5.3}Segregacja krzywych dyspersji}{105}{section.5.3}
+\contentsline {section}{\numberline {5.4}Metody kompensacji dyspersji}{110}{section.5.4}
+\contentsline {section}{\numberline {5.5}Graficzny interfejs u\IeC {\.z}ytkownika}{114}{section.5.5}
+\contentsline {chapter}{Bibliografia}{115}{section*.82}
+\contentsline {chapter}{Za\IeC {\l }\IeC {\k a}czniki}{115}{section*.83}
 \let \l@chapter \l@section 
-\contentsline {chapter}{\numberline {A}Lorem Ipsum}{110}{Dodatek.a.A}
+\contentsline {chapter}{\numberline {A}Lorem Ipsum}{116}{Dodatek.a.A}

@@ -4,7 +4,7 @@ GREEN = (0, 200, 0)
 GREY = (100, 100, 100)
 
 class RadioButton():
-    def __init__(self, center_x=0,center_y=0):
+    def __init__(self, center_x=0, center_y=0):
         self.radio = 10
         self.state = False
         self.colorOn = GREEN

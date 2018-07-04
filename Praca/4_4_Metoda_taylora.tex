@@ -54,7 +54,7 @@ Rysunek \ref{fig:krzywa_taylorem} obrazuje przykład krzywej dyspersji, trybu $A
 \label{fig:krzywa_taylorem}
 \end{figure}
 
-Łatwo zauważyć, że po pierwsze, rozszerzenie drugiego rzędu daje bardzo dobrze przybliżenie pierwotnego kształtu krzywej, po drugie, $K(\omega)$ jest monotoniczną funkcją $\omega$ w oroczeniu $\omega _0$. 
+Łatwo zauważyć, że po pierwsze, rozszerzenie drugiego rzędu daje bardzo dobrze przybliżenie pierwotnego kształtu krzywej, po drugie, $K(\omega)$ jest monotoniczną funkcją $\omega$ w otoczeniu $\omega _0$. 
 
 Równanie \ref{eq:G(omega)_taylor} można zapisać w postacji złożenia funkcji:
 \begin{equation}
@@ -98,9 +98,24 @@ Kolejnym krokiem implementowanego algorytmu, jest wyliczenie G(k) na podstawie o
 
 Przedstawia on krzywą $G(\omega)$ z aż trzema osiami poziomymi. Linia ciągła przedstawia zależność $G(K(\omega))$, czerwonymi kółkami oznaczony jest sygnał $G(\omega)$. Jak widać przejście z dziedziny $K(\omega)$ na $\omega$ jest nieliniowe co wynika z niliniowego charakteru krzywej dyspersji. Zielonymi trójkątami oznaczono natomiast krzywą $G(K_{lin}(\omega))$. Jak widać przejście z dziedziny $\omega$ na $K_{lin}(\omega)$ jest przejściem o charakterze liniowym. 
 \subsection{Wybrane wyniki symulacji}
-Rysunek \textcolor{red}{Numerek obrazka porównaniem krzywej i prostą} obrazuje przybliżenie krzywej dyspersji wyznaczonej dla zadanego sygnału z rysunku \textcolor{red}{Numerek obrazka z chirpem} 
-\textcolor{red}{obrazek z porównaniem krzywej i prostej}
-Rysunek \textcolor{red}{Numerek obrazka przed i po kompensacji kilka przykładów} ilustruje przykłady wyników kolejnych sygnałów przed i po kompensacji. Są to kolejnu \textcolor{red}{tutaj wymienić co to za obrazki som}
-\textcolor{red}{obrazek przed i po kompensacji kilka przykładów}
-Na ostatnim rysunku przedstawione zostało porównanie otrzymanych w wyniku kompensacji sygnałów z sygnałem zadanym \textcolor{red}{Numerek obrazka z porównaniem skompensowanego i zadanego sygnału}
-\textcolor{red}{obrazek z porównaniem skompensowanego i zadanego sygnału}
+Rysunek \ref{fig:liniakrzyws} obrazuje przybliżenie krzywej dyspersji wyznaczonej dla zadanego sygnału z rysunku 4.8.
+\begin{figure}[h]
+\centering
+\includegraphics[width=13cm]{Zdjecia/4/krzywa_moja}
+\caption{Porównanie oryginalnej krzwej z jej liniowym przybliżeniem}
+\label{fig:liniakrzyws}
+\end{figure}
+Rysunek \ref{fig:przedipo} ilustruje przykład sygnału przed i po kompensacji.
+\begin{figure}[h]
+\centering
+\includegraphics[width=13cm]{Zdjecia/4/przedipo}
+\caption{Porównanie sygału przed i po kompensacji}
+\label{fig:przedipo}
+\end{figure}
+Na ostatnim rysunku przedstawione zostało porównanie otrzymanych w wyniku kompensacji sygnałów z sygnałem zadanym \ref{fig:przedipo2}
+\begin{figure}[h]
+\centering
+\includegraphics[width=13cm]{Zdjecia/4/przedipo2}
+\caption{Porównanie sygnału oryginalnego z sygnałem skompensowanym}
+\label{fig:przedipo2}
+\end{figure}

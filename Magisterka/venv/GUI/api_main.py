@@ -1,6 +1,7 @@
 import pygame, time
 from GUI import button, text, input_box, menu_functions
 from MES_dir import dispersion_curves
+from Propagation import selectMode as sm
 
 
 WHITE = (255, 255, 255)
@@ -46,6 +47,7 @@ class Game_Window(object):
                 if self.mode_number == 1:
                     print("Będziemy liczyć nowe dane")
                     self.MES_menu()
+                    self.to_do =2
                 elif self.mode_number == 2:
                     print("Wczytamy ostatnio wygenerowane dane")
                     self.load_menu()
@@ -55,6 +57,7 @@ class Game_Window(object):
                     print(self.mode_number)
                     print("Coś nie pykło... nie ma takiego numerka")
             if self.to_do == 2:
+                print("todo2!")
                 self.main_menu()
             #print(self.mode_number)
             #exit(0)
@@ -72,27 +75,20 @@ class Game_Window(object):
         rect_text.center = (self.width/2, self.height/2)
 
         self.screen.blit(disp_text, rect_text)
-        wait = True
-        first = True
-        path = self.path
-        while wait: # pętla nieskończona
-            pygame.display.update()
-            for event in pygame.event.get(): #z pord wszystkich eventow
-                if event.type == pygame.QUIT: #jesli pojawi się zamknij
-                    pygame.quit() #to zamknij pygame
-                    exit() # i zamknij system
+        pygame.display.update()
 
-            if first:
-                self.screen.fill(BACKGROUND)
-                self.text.set_text('Wygenerowane z pliku krzywe dyspersji')
-                self.text.set_center(self.width/2, 100)
-                self.text.render_text(self.screen)
-                pygame.display.update()
-                dispersion_curves.drawDispercionCurvesFromFile(self.number_of_curves, True)
-                # first = False
-                self.to_do = 2
-                # wait = True
-                break
+        self.disp_curves = sm.SelectedMode('../eig/kvect', '../eig/omega')
+        self.disp_curves.selectMode()
+
+        self.screen.fill(BACKGROUND)
+        disp_text = self.header_font.render('Krzywe dyspersji', True, BLACK)
+        rect_text = disp_text.get_rect()
+        rect_text.center = (self.width/2, self.height/2)
+        self.screen.blit(disp_text, rect_text)
+        pygame.display.update()
+
+        self.disp_curves.plot_modes(100)
+        self.to_do = 2
 
     def start_menu(self):
         font_start = pygame.font.SysFont("Arial", 100) #ustawiam czcionke na ekran startowy na 100
@@ -147,6 +143,8 @@ class Game_Window(object):
 
     def MES_menu(self):
         menu_functions.set_parameters(self.screen, BACKGROUND, self.width, self.height, BUTTON_BACKGROUND)
+        self.disp_curves = sm.SelectedMode('../eig/kvect', '../eig/omega')
+        self.disp_curves.selectMode()
 
 
     def main_menu(self):
@@ -158,34 +156,28 @@ class Game_Window(object):
         rect_dysp = self.button.get_rect()
         print(rect_dysp)
 
-        self.button.set_text('Wczytaj inne dane')
-        self.button.set_center_y(200)
-        self.button.draw(self.screen, 366)
-        rect_next_dysp = self.button.get_rect()
-        print(rect_next_dysp)
-
 
         self.button.set_text('Wygeneruj nowe dane')
-        self.button.set_center_y(300)
+        self.button.set_center_y(200)
         self.button.draw(self.screen, 299)
         rect_new_dysp = self.button.get_rect()
         print(rect_new_dysp)
 
-        self.button.set_text('Wylicz krzywe wzbudzalności')
-        self.button.set_center_y(400)
-        self.button.draw(self.screen, 173)
+        self.button.set_text('Symulacja propagacji sygnału')
+        self.button.set_center_y(300)
+        self.button.draw(self.screen, 160)
         rect_excit = self.button.get_rect()
         print(rect_excit)
 
-        self.button.set_text('Symulacja propagacji fali prowadzonej')
-        self.button.set_center_y(500)
-        self.button.draw(self.screen)
+        self.button.set_text('Kompensacja dyspersji')
+        self.button.set_center_y(400)
+        self.button.draw(self.screen, 280)
         rect_prop = self.button.get_rect()
         print(rect_prop)
 
-        self.button.set_text('Symulacja propagacji chirpa')
-        self.button.set_center_y(600)
-        self.button.draw(self.screen, 190)
+        self.button.set_text('Generacja animacji')
+        self.button.set_center_y(500)
+        self.button.draw(self.screen, 350)
         rect_chirp = self.button.get_rect()
         print(rect_chirp)
 
@@ -198,7 +190,12 @@ class Game_Window(object):
 
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if rect_dysp.collidepoint(event.pos):
-                        menu_functions.display_image('dis_curves.png', 'Krzywe dyspersji')
+                        self.disp_curves.plot_modes(100)
+
+                    if rect_new_dysp.collidepoint(event.pos):
+                        wait = False
+                        self.to_do = 1
+                        self.mode_number = 1
 
             pygame.display.update()
 

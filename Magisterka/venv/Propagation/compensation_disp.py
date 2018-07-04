@@ -482,9 +482,10 @@ def linear_mapping_compensation(signal, number_of_modes, disp_curves):
 if __name__ == "__main__":
     KrzyweDyspersji= selectMode.SelectedMode('../eig/kvect', '../eig/omega')
     KrzyweDyspersji.selectMode()
-    dist = 3 # w metrach
+    dist = 5 # w metrach
 
     signal_array, time_x_freq = Anim_dyspersji.get_chirp()
+
     # # for i in range(length):
     # print("Zaraz będzie się dzało :o")
     # # make_dispersion_in_bar(length, len(plane), dx, KrzyweDyspersji)
@@ -495,40 +496,36 @@ if __name__ == "__main__":
     # print("Drugi plot")
     # plt.plot(dispersion[0], dispersion[1])
     # plt.show()
-    print("wpuszczany sygnał")
-    plt.plot(time_x_freq[0], signal_array[3])
-    plt.xlabel("time[s]")
-    plt.title("Sygnał przed propagacja")
-    plt.show()
+    # print("wpuszczany sygnał")
+    # plt.plot(time_x_freq[0], signal_array[3])
+    # plt.xlabel("time[s]")
+    # plt.title("Sygnał przed propagacja")
+    # plt.show()
     signal = wave_length_propagation([time_x_freq[0], signal_array[3]], [0, 1, 2, 3], KrzyweDyspersji, dist, True, 100)
-    plt.figure("Dyspersja")
-    plt.subplot(211)
-    plt.plot(time_x_freq[0], signal_array[3])
-    plt.xlabel("time[s]")
-    plt.title("Sygnał przed propagacja")
-    plt.subplot(212)
+
     plt.plot(signal[0], signal[1])
     plt.xlabel("time[s]")
-    plt.title("Sygnał po propagacji")
+    plt.title("Przykładowy sygnał wejściowy")
     plt.show()
 
 
 
 
-    # wilcox = mapping_from_time_to_distance(signal, KrzyweDyspersji, [0, 1, 2, 3])
-    #
-    # plt.figure("Wilcox")
-    # plt.subplot(211)
-    # plt.plot(signal[0], signal[1])
-    # plt.title("Rozproszony sygnał")
-    # plt.xlabel("time [s]")
-    # plt.ylabel("Amplitude [-]")
-    # plt.subplot(212)
-    # plt.plot(wilcox[0], wilcox[1])
-    # plt.title("Skompensowany sygnał")
-    # plt.xlabel("distence [m]")
-    # plt.ylabel("Amplitude [-]")
-    # plt.show()
+
+    wilcox = mapping_from_time_to_distance(signal, KrzyweDyspersji, [0, 1, 2, 3])
+
+    plt.figure("Wilcox")
+    plt.subplot(211)
+    plt.plot(signal[0], signal[1])
+    plt.title("Rozproszony sygnał")
+    plt.xlabel("time [s]")
+    plt.ylabel("Amplitude [-]")
+    plt.subplot(212)
+    plt.plot(wilcox[0], wilcox[1])
+    plt.title("Skompensowany sygnał")
+    plt.xlabel("distence [m]")
+    plt.ylabel("Amplitude [-]")
+    plt.show()
 
 
     # plt.figure("Pojedyncza postać fali po przebyciu 5 metrów")
@@ -547,7 +544,10 @@ if __name__ == "__main__":
     # plt.xlabel("time[s]")
     # plt.show()
 
-    # linear_mapping_compensation(signal, [0, 1, 2, 3], KrzyweDyspersji)
+    # po = linear_mapping_compensation(signal, 1, KrzyweDyspersji)
+    # exit(0)
+
+
     # signal = wave_length_propagation([time_x_freq[0], signal_array[3]], [0, 1, 2, 3], KrzyweDyspersji, dist, True, 100)
 
     # inversed = time_reverse_compensation(signal)
