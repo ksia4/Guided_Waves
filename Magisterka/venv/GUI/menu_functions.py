@@ -4,6 +4,7 @@ import pygame
 from GUI import text
 from MES_dir import config, MES, dispersion_curves
 from GUI import radioButton as rb, inputBox as ib, button
+from Propagation import compensation_disp
 
 def display_image(image, title):
 
@@ -425,3 +426,94 @@ def please_wait(screen, BACKGROUND, screen_width, screen_height):
     please_wait = text.Text('Obliczenia trwają, proszę czekać', screen_width/2, screen_height/2)
     please_wait.render_text(screen)
     pygame.display.update()
+
+def gen_signal_param(screen, BACKGROUND, screen_width, screen_height, signal_to_prop):
+    screen.fill(BACKGROUND)
+    disp_text = text.Text('Generowanie sygnału do propagacji', screen_width/2, 70)
+    path_length_text = text.Text('Długość ścieżki propagacji [m]', 300, 200, size=30)
+    propagated_indexes_text = text.Text('Indeksy propagujących postaci', 300, 250, size=30)
+    bracket_text = text.Text('(separacja przcinkami)', 300, 290, size=25)
+
+    disp_text.render_text(screen)
+    path_length_text.render_text(screen)
+    propagated_indexes_text.render_text(screen)
+    bracket_text.render_text(screen)
+
+    write_path_length = False
+    write_propagated_inexes = [False]
+
+    path_length = ib.InputBox(2, 600, 200, size=30)
+    propagated_indexes = [ib.InputBox(1, 600, 250, size=30)]
+    propagated_indexes[0].is_table = True
+
+    path_length.drawBox(screen, 30)
+    rect_propagated_indexes = []
+    for i in range(len(propagated_indexes)):
+        propagated_indexes[i].drawBox(screen, 30)
+        rect_propagated_indexes.append(propagated_indexes[i].get_rect())
+    rect_path_length = path_length.get_rect()
+
+    calculate = button.Button("Propaguj sygnał", screen_width/2, 650)
+    calculate.draw(screen)
+    rect_calculate = calculate.get_rect()
+
+    stop_while = False
+    while True: # pętla nieskończona
+        for event in pygame.event.get(): #z pord wszystkich eventow
+            if event.type == pygame.QUIT: #jesli pojawi się zamknij
+                pygame.quit() #to zamknij pygame
+                exit() # i zamknij system
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if rect_path_length.collidepoint(event.pos):
+                    write_path_length = True
+                    print("pierwszy kwadrat")
+                    for w in write_propagated_inexes:
+                        w = False
+
+                for ind in range(len(rect_propagated_indexes)):
+                    if rect_propagated_indexes[ind].collidepoint(event.pos):
+                        write_propagated_inexes[ind] = True
+                        write_path_length = False
+                        print(str(ind) + "Kwadrat")
+                    else:
+                        write_propagated_inexes[ind] = False
+
+                if rect_calculate.collidepoint(event.pos):
+                    stop_while = True
+                    break
+            if event.type == pygame.KEYDOWN and pygame.key.name(event.key) != "backspace":
+                if write_path_length:
+                    path_length.addNumber(pygame.key.name(event.key))
+                    path_length.drawBox(screen)
+                else:
+                    ind = -1
+                    for i in range(len(write_propagated_inexes)):
+                        if write_propagated_inexes[i] == True:
+                            ind = i
+                            break
+                    if ind > -1:
+                        propagated_indexes[ind].addNumber(pygame.key.name(event.key))
+                        propagated_indexes[ind].drawBox(screen)
+
+            if event.type == pygame.KEYDOWN and pygame.key.name(event.key) == "backspace":
+                if write_path_length:
+                    path_length.delNumber()
+                    path_length.drawBox(screen)
+                else:
+                    ind = -1
+                    for i in range(len(write_propagated_inexes)):
+                        if write_propagated_inexes[i] == True:
+                            ind = i
+                            break
+                    if ind > -1:
+                        propagated_indexes[ind].delNumber()
+                        propagated_indexes[ind].drawBox(screen)
+
+
+
+        pygame.display.update()
+        if stop_while:
+            break
+
+    return [path_length.value, propagated_indexes[0].table]
+

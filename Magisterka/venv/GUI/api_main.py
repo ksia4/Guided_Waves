@@ -1,7 +1,9 @@
 import pygame, time
 from GUI import button, text, input_box, menu_functions
 from MES_dir import dispersion_curves
-from Propagation import selectMode as sm
+from Propagation import selectMode as sm, compensation_disp
+from Animation import Anim_dyspersji as ad
+import matplotlib.pyplot as plt
 
 
 WHITE = (255, 255, 255)
@@ -34,6 +36,8 @@ class Game_Window(object):
         self.path = '../eig'
         self.button = button.Button('tekst', self.width / 2, self.height / 2, BLACK, 40, 'Arial')
         self.text = text.Text('tekst', self.width/2, self.height/2, BLACK, 40, 'Arial')
+        signal_array, time_x_freq = ad.get_chirp()
+        self.signal_to_propagate = [time_x_freq[0], signal_array[3]]
 
     def run(self): #funkcja run jest głowną funkcją obsługującą GUI
         while True: # pętla nieskończona
@@ -42,8 +46,10 @@ class Game_Window(object):
                     pygame.quit() #to zamknij pygame
                     exit() # i zamknij system
             if self.to_do == 0:
+                print(self.to_do)
                 self.start_menu()
             if self.to_do == 1:
+                print(self.to_do)
                 if self.mode_number == 1:
                     print("Będziemy liczyć nowe dane")
                     self.MES_menu()
@@ -59,12 +65,13 @@ class Game_Window(object):
             if self.to_do == 2:
                 print("todo2!")
                 self.main_menu()
-            #print(self.mode_number)
-            #exit(0)
-            # self.mode()
-            # self.choose_snake()
-            # self.game()
-            # self.game_over()
+            if self.to_do == 3:
+                print(self.to_do)
+                self.gen_signal()
+            if self.to_do == 4:
+                print(self.to_do)
+                self.sec_met()
+
 
     def load_menu(self):
 
@@ -146,6 +153,30 @@ class Game_Window(object):
         self.disp_curves = sm.SelectedMode('../eig/kvect', '../eig/omega')
         self.disp_curves.selectMode()
 
+    def gen_signal(self):
+        [dist, indexes] = menu_functions.gen_signal_param(self.screen, BACKGROUND, self.width, self.height, BUTTON_BACKGROUND)
+        menu_functions.please_wait(self.screen, BACKGROUND, self.width, self.height)
+        self.signal_after_propagation = compensation_disp.wave_length_propagation(self.signal_to_propagate, indexes, self.disp_curves, dist, True, 100)
+        self.compensated_signal = compensation_disp.mapping_from_time_to_distance(self.signal_after_propagation, self.disp_curves, indexes)
+        plt.plot(self.compensated_signal[0], self.compensated_signal[1])
+        plt.title("Skompensowany sygnał")
+        plt.xlabel("Odległość [m]")
+        plt.ylabel("Amplituda")
+        plt.show()
+        self.to_do = 2
+
+    def sec_met(self):
+        [dist, indexes] = menu_functions.gen_signal_param(self.screen, BACKGROUND, self.width, self.height, BUTTON_BACKGROUND)
+        menu_functions.please_wait(self.screen, BACKGROUND, self.width, self.height)
+        self.signal_after_propagation = compensation_disp.wave_length_propagation(self.signal_to_propagate, indexes, self.disp_curves, dist, True, 100)
+        self.compensated_signal = compensation_disp.linear_mapping_compensation(self.signal_after_propagation, indexes[0], self.disp_curves)
+
+        plt.plot(self.compensated_signal[0], self.compensated_signal[1])
+        plt.title("Skompensowany sygnał")
+        plt.xlabel("czas[s]")
+        plt.ylabel("Amplituda")
+        plt.show()
+        self.to_do = 2
 
     def main_menu(self):
         print("main menu")
@@ -163,13 +194,15 @@ class Game_Window(object):
         rect_new_dysp = self.button.get_rect()
         print(rect_new_dysp)
 
-        self.button.set_text('Symulacja propagacji sygnału')
+        self.button.set_text('Symulacja kompensacji metodą mapowania na dziedzinę odległości')
+        self.button.size = 20
         self.button.set_center_y(300)
         self.button.draw(self.screen, 160)
+        self.button.size = 40
         rect_excit = self.button.get_rect()
         print(rect_excit)
 
-        self.button.set_text('Kompensacja dyspersji')
+        self.button.set_text('Symulacja komensacji metodą mapowania liniowego')
         self.button.set_center_y(400)
         self.button.draw(self.screen, 280)
         rect_prop = self.button.get_rect()
@@ -196,6 +229,14 @@ class Game_Window(object):
                         wait = False
                         self.to_do = 1
                         self.mode_number = 1
+
+                    if rect_excit.collidepoint(event.pos):
+                        wait = False
+                        self.to_do = 3
+
+                    if rect_prop.collidepoint(event.pos):
+                        wait = False
+                        self.to_do = 4
 
             pygame.display.update()
 

@@ -17,6 +17,9 @@ class InputBox:
         self.width = width
         self.value = value
         self.text = str(self.value)
+        self.table = []
+        self.table.append(self.value)
+        self.is_table = False
 
 
     def set_font(self):
@@ -31,15 +34,44 @@ class InputBox:
         pg.draw.rect(screen, self.backgroundColor, rect_button_text)
         screen.blit(render_text, rect_text)
 
+    def make_table(self):
+        self.table = []
+        tab = self.text.split(",")
+        for num in tab:
+            if len(num) > 0:
+                self.table.append(int(num))
+        print(self.table)
+
     def addNumber(self, cypher):
-        self.text = self.text + cypher
-        self.value = float(self.text)
+        if self.text == "0":
+            self.text = cypher
+        else:
+            self.text = self.text + cypher
+        if cypher == ".":
+            self.value = float(self.text[0:(len(self.text)-1)])
+        elif cypher == ",":
+            self.is_table = True
+        elif cypher == " ":
+            self.text = self.text
+        else:
+            if self.is_table:
+                self.make_table()
+            else:
+                self.value = float(self.text)
         print("Ustawiono wartość")
         print(self.value)
 
     def delNumber(self):
         self.text = self.text[0:(len(self.text)-1)]
-        self.value = float(self.text)
+        if len(self.text) == 0:
+            self.text = "0"
+        elif self.text[-1] == ".":
+            self.value = float(self.text[0:len(self.text)-1])
+        elif self.is_table:
+            self.value = self.value
+            self.make_table()
+        else:
+            self.value = float(self.text)
 
     def get_rect(self):
         return self.rect

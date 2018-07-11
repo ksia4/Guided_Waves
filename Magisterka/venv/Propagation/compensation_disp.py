@@ -204,9 +204,9 @@ def mapping_from_time_to_distance(dispersion, dispercion_curves, propagated_mode
     new_freq_sampling_kHz = frequency_from_numpy
     modes = []
     for ind in range(len(propagated_modes)):
-        if ind != propagated_modes[ind]:
-            print("indeks = " + str(ind) + "a w tablicy jest " + str(propagated_modes[ind]))
-            exit(0)
+        # if ind != propagated_modes[ind]:
+        #     print("indeks = " + str(ind) + "a w tablicy jest " + str(propagated_modes[ind]))
+        #     exit(0)
         modes.append(dispercion_curves.getMode(propagated_modes[ind])) #było samo ind
     # dispercion_curves_of_propagated_mode = KrzyweDyspersji.getMode(0)
     k_vect = dispercion_curves.k_v
@@ -449,12 +449,12 @@ def linear_mapping_compensation(signal, number_of_modes, disp_curves):
     new_G_w = []
     print("Liczę nowe G(w) to z falką")
 
-    plt.figure("Porównanie 2 wyników")
-    plt.plot(mean_mode.all_omega_khz, KrzyweDyspersji.k_v)
-    plt.plot(frequency_from_numpy, k_0 + k_1*(frequency_from_numpy - w_0))
-
-    plt.title("Porównanie oryginalnej krzywej z jej liniowym przybliżeniem")
-    plt.show()
+    # plt.figure("Porównanie 2 wyników")
+    # plt.plot(mean_mode.all_omega_khz, KrzyweDyspersji.k_v)
+    # plt.plot(frequency_from_numpy, k_0 + k_1*(frequency_from_numpy - w_0))
+    #
+    # plt.title("Porównanie oryginalnej krzywej z jej liniowym przybliżeniem")
+    # plt.show()
 
     for ind, f in enumerate(frequency_from_numpy):
         print(len(frequency_from_numpy)-ind)
