@@ -71,6 +71,9 @@ class Game_Window(object):
             if self.to_do == 4:
                 print(self.to_do)
                 self.sec_met()
+            if self.to_do == 5:
+                print(self.to_do)
+                self.last_method()
 
 
     def load_menu(self):
@@ -165,6 +168,26 @@ class Game_Window(object):
         plt.show()
         self.to_do = 2
 
+    def last_method(self):
+        [dist, indexes] = menu_functions.gen_signal_to_propagate(self.screen, BACKGROUND, self.width, self.height, BUTTON_BACKGROUND)
+        menu_functions.please_wait(self.screen, BACKGROUND, self.width, self.height)
+        self.signal_to_compensate = compensation_disp.time_reverse_compensation(self.signal_to_propagate, dist, indexes, self.disp_curves)
+        plt.plot(self.signal_to_compensate[0], self.signal_to_compensate[1])
+        plt.title("Wygenerowany sygnał")
+        plt.xlabel("Odległość [m]")
+        plt.ylabel("Amplituda")
+        plt.show()
+        [dist2, indexes2] = menu_functions.gen_comp_signal_after_propagate(self.screen, BACKGROUND, self.width, self.height, BUTTON_BACKGROUND, indexes)
+        menu_functions.please_wait(self.screen, BACKGROUND, self.width, self.height)
+        self.signal_after_propagation = compensation_disp.wave_length_propagation(self.signal_to_compensate, indexes2, self.disp_curves, dist2, True, 10)
+        plt.plot(self.signal_after_propagation[0], self.signal_after_propagation[1])
+        plt.title("Przepropagowany sygnał")
+        plt.xlabel("Odległość [m]")
+        plt.ylabel("Amplituda")
+        plt.show()
+
+        self.to_do = 2
+
     def sec_met(self):
         [dist, indexes] = menu_functions.gen_signal_param(self.screen, BACKGROUND, self.width, self.height, BUTTON_BACKGROUND)
         menu_functions.please_wait(self.screen, BACKGROUND, self.width, self.height)
@@ -208,7 +231,7 @@ class Game_Window(object):
         rect_prop = self.button.get_rect()
         print(rect_prop)
 
-        self.button.set_text('Generacja animacji')
+        self.button.set_text('Symulacja sygnału kompensującego się na zadanej odległości')
         self.button.set_center_y(500)
         self.button.draw(self.screen, 350)
         rect_chirp = self.button.get_rect()
@@ -237,6 +260,10 @@ class Game_Window(object):
                     if rect_prop.collidepoint(event.pos):
                         wait = False
                         self.to_do = 4
+
+                    if rect_chirp.collidepoint(event.pos):
+                        wait = False
+                        self.to_do = 5
 
             pygame.display.update()
 
