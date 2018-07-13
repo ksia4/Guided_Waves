@@ -1,5 +1,5 @@
 import pygame, time
-from GUI import button, text, input_box, menu_functions
+from GUI import button, text, menu_functions
 from MES_dir import dispersion_curves
 from Propagation import selectMode as sm, compensation_disp
 from Animation import Anim_dyspersji as ad
@@ -206,14 +206,14 @@ class Game_Window(object):
         self.screen.fill(BACKGROUND)
         self.button.set_text('Wyświetl krzywe dyspersji')
         self.button.set_center_y(100)
-        self.button.draw(self.screen, 229)
+        self.button.draw(self.screen, 800)
         rect_dysp = self.button.get_rect()
         print(rect_dysp)
 
 
         self.button.set_text('Wygeneruj nowe dane')
         self.button.set_center_y(200)
-        self.button.draw(self.screen, 299)
+        self.button.draw(self.screen, 850)
         rect_new_dysp = self.button.get_rect()
         print(rect_new_dysp)
 
@@ -227,7 +227,7 @@ class Game_Window(object):
 
         self.button.set_text('Symulacja komensacji metodą mapowania liniowego')
         self.button.set_center_y(400)
-        self.button.draw(self.screen, 280)
+        self.button.draw(self.screen, 300)
         rect_prop = self.button.get_rect()
         print(rect_prop)
 

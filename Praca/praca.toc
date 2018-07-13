@@ -63,7 +63,9 @@
 \contentsline {section}{\numberline {5.3}Segregacja krzywych dyspersji}{105}{section.5.3}
 \contentsline {section}{\numberline {5.4}Metody kompensacji dyspersji}{110}{section.5.4}
 \contentsline {section}{\numberline {5.5}Graficzny interfejs u\IeC {\.z}ytkownika}{114}{section.5.5}
-\contentsline {chapter}{Bibliografia}{115}{section*.82}
-\contentsline {chapter}{Za\IeC {\l }\IeC {\k a}czniki}{115}{section*.83}
+\contentsline {section}{\numberline {5.6}Potrzebne biblioteki}{122}{section.5.6}
+\contentsline {chapter}{\numberline {6}Podsumowanie}{126}{chapter.6}
+\contentsline {chapter}{Bibliografia}{128}{section*.100}
+\contentsline {chapter}{Za\IeC {\l }\IeC {\k a}czniki}{128}{section*.101}
 \let \l@chapter \l@section 
-\contentsline {chapter}{\numberline {A}Lorem Ipsum}{116}{Dodatek.a.A}
+\contentsline {chapter}{\numberline {A}Lorem Ipsum}{129}{Dodatek.a.A}

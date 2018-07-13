@@ -1,24 +1,10 @@
 import numpy as np
-import cv2
 import pygame
 from GUI import text
 from MES_dir import config, MES, dispersion_curves
 from GUI import radioButton as rb, inputBox as ib, button
 from Propagation import compensation_disp
 
-def display_image(image, title):
-
-    img = cv2.imread(image, 1)
-    cv2.imshow(title, img)
-    while True:
-        k = cv2.waitKey(100) # change the value from the original 0 (wait forever) to something appropriate
-        if k == 27:
-            print('ESC')
-            cv2.destroyAllWindows()
-            break
-        if cv2.getWindowProperty(title, cv2.WND_PROP_VISIBLE) < 1:
-            break
-    cv2.destroyAllWindows()
 
 def set_parameters(screen, BACKGROUND, screen_width, screen_height, BUTTONBACKGROUND):
 

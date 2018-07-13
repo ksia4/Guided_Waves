@@ -57,7 +57,14 @@ class InputBox:
             if self.is_table:
                 self.make_table()
             else:
-                self.value = float(self.text)
+                temp = self.text
+                while not temp[-1].isnumeric():
+                    temp = temp[0:(len(temp)-1)]
+                    if len(temp) == 0:
+                        self.text = "0"
+                        temp = "0"
+                        break
+                self.value = float(temp)
         print("Ustawiono wartość")
         print(self.value)
 
@@ -71,7 +78,17 @@ class InputBox:
             self.value = self.value
             self.make_table()
         else:
-            self.value = float(self.text)
+            temp = self.text
+            while not temp[-1].isnumeric():
+                temp = temp[0:(len(temp)-1)]
+                if len(temp) == 0:
+                    self.text = "0"
+                    temp = "0"
+                    break
+            self.value = float(temp)
+
+        print("Ustawiono wartość")
+        print(self.value)
 
     def get_rect(self):
         return self.rect
