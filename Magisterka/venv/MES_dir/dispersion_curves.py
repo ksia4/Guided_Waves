@@ -32,12 +32,12 @@ def getDataForEiq():
     rd.write_matrix_to_file("mr", config.mr)
 
 # Znajduje wektor wartosci wlasnych dla systemu
-def findEig():
+def findEig(saveEigVectors=False):
     getDataForEiq()
 
     ux = 1
-    kvect = np.linspace(1e-10, np.pi/8, num=51)
-    #kvect = np.linspace(config.kvect_min, config.kvect_max, num=config.kvect_no_of_points)
+    # kvect = np.linspace(1e-10, np.pi/8, num=51)
+    kvect = np.linspace(config.kvect_min, config.kvect_max, num=config.kvect_no_of_points)
     path_to_kvect = config.ROOT_DIR + "/../eig/kvect"
 
     rd.write_vector_to_file(path_to_kvect, kvect)
@@ -48,17 +48,20 @@ def findEig():
         ksys = config.k0 + np.exp(-1j * ux * k)*config.kl + np.exp(+1j * ux * k)*config.kr
         msys = config.m0 + np.exp(-1j * ux * k)*config.ml + np.exp(+1j * ux * k)*config.mr
         # msys = config.m0
+
         [f, v] = la.eig(ksys, msys)
 
         f1 = np.sqrt(f)
 
         # zapisywanie do plikow eig
-        eig_list = []
-        for i in range(len(f1)):
-            eig_list.append(f1[i])
-            temp = [v[i, j] for j in range(np.shape(v)[0])]
-            eig_list.append(temp)
-            rd.write_vector_to_file(config.ROOT_DIR + '/../eig/eig_{}'.format(k), eig_list)
+        if saveEigVectors:
+            eig_list = []
+            for i in range(len(f1)):
+
+                eig_list.append(f1[i])
+                temp = [v[i, j] for j in range(np.shape(v)[0])]
+                eig_list.append(temp)
+                rd.write_vector_to_file(config.ROOT_DIR + '/../eig/eig_{}'.format(k), eig_list)
 
         fsys.append(f1)
         print("eig ", ind+1, " z {}".format(config.kvect_no_of_points))
@@ -67,11 +70,11 @@ def findEig():
 
 def drawDispercionCurves(number_of_curves_to_draw=10, save_plot_to_file=False):
     start = time.clock()
-
+    print("eig")
     fsys, kvect = findEig()
-
+    print("po eig")
     plt.figure(1)
-    plt.subplot(311)
+    plt.subplot(211)
     k_v = kvect * 1e3
 
     # for ind in range(len(fsys)):
@@ -112,7 +115,7 @@ def drawDispercionCurves(number_of_curves_to_draw=10, save_plot_to_file=False):
     plt.xlim([-5, 200])#600
     plt.ylim([-5, 400])#2000
 
-    plt.subplot(312)
+    plt.subplot(212)
     for ind in curves:
         f_v = new_fsys[ind, :] / (2 * np.pi)
         # v_p = (2 * np.pi * (f_v / k_v)) / (np.sqrt(config.young_mod / config.density) * 1e-3)
@@ -123,24 +126,15 @@ def drawDispercionCurves(number_of_curves_to_draw=10, save_plot_to_file=False):
     plt.xlim([-5, 200])#500
     plt.ylim([-5, 5000])#50
 
-    plt.subplot(313)
-    for ind in curves:
-        f_v = new_fsys[ind, :] / (2 * np.pi)
-        v_g = calculateGroupVelocity(f_v, kvect)
-        plt.plot(f_v[0: -1] * 1e-3, v_g, 'g.', markersize=3)
-    plt.xlabel("Frequency [kHz]")
-    plt.ylabel("Velocity [m/s]")
-    plt.xlim([-5, 200])#500
-    plt.ylim([-5, 700])#50
     if save_plot_to_file:
         plt.savefig('dis_curves.png')
     plt.show()
 
 #Rysuje z zapisanych w folderze eig wartości własnych, bez obliczania ich.
-def drawDispercionCurvesFromFile(number_of_curves_to_draw=10, save_plot_to_file=False):
+def drawDispercionCurvesFromFile(number_of_curves_to_draw=30, save_plot_to_file=False):
 
     plt.figure(1)
-    plt.subplot(311)
+    plt.subplot(211)
 
     path_to_kvect_file = config.ROOT_DIR + '/../eig/kvect'
     path_to_omega_files = config.ROOT_DIR + '/../eig/omega'
@@ -158,7 +152,7 @@ def drawDispercionCurvesFromFile(number_of_curves_to_draw=10, save_plot_to_file=
     plt.xlim([-5, 200])#600
     plt.ylim([-5, 400])#2000
 
-    plt.subplot(312)
+    plt.subplot(212)
     for ind in curves:
         f_v = rd.read_complex_omega(path_to_omega_files, ind) / (2 * np.pi)
         v_p = f_v / k_v
@@ -169,16 +163,6 @@ def drawDispercionCurvesFromFile(number_of_curves_to_draw=10, save_plot_to_file=
     plt.xlim([-5, 200])#500
     plt.ylim([-5, 5000])#50
 
-    plt.subplot(313)
-    for ind in curves:
-        f_v = rd.read_complex_omega(path_to_omega_files, ind) / (2 * np.pi)
-        v_g = calculate_group_velocity(f_v, kvect)
-        # v_p = (2 * np.pi * (f_v / k_v)) / (np.sqrt(config.young_mod / config.density) * 1e-3)
-        plt.plot(f_v[0: -1] * 1e-3, v_g, 'g.', markersize=3)
-    plt.xlabel("Frequency [kHz]")
-    plt.ylabel("Group velocity [m/s]")
-    plt.xlim([-5, 200])
-    plt.ylim([-5, 700])
     if save_plot_to_file:
         plt.savefig('dis_curves.png')
     plt.show()
@@ -191,13 +175,6 @@ def sortColumns(matrix):
         new_matrix.append(np.sort_complex(column))
     return np.array(new_matrix).transpose()
 
-def calculateGroupVelocity(f_for_mode, kvect):
-    group_vel = []
-    for ind in range(len(kvect)-1):
-        numerator = f_for_mode[ind + 1] - f_for_mode[ind]
-        denominator = kvect[ind + 1] - kvect[ind]
-        denominator *= 1e3
-        group_vel.append(numerator.real/denominator)
-    return np.array(group_vel)
+
 
 

@@ -222,6 +222,7 @@ def calculate_dispersion_curves():
     nnodes = 724
     K = read_MARC_matrix("rod_v4_job1_glstif_0000", nnodes, ndof)
     M = read_MARC_matrix("rod_v4_job1_glmass_0000", nnodes, ndof)
+
     d = read_coordinates_from_DAT("rod_v4_job1.dat", nnodes, ndof)
     L, C, R = planes_indecies(d)
     # new_k = get_matrix_to_draw(K, L+C+R)
@@ -369,12 +370,15 @@ def sort_columns(matrix):
 def getStiffAndMassMatrix():
     ndof = 3
     nnodes = 724
+    print("Wczytywanie danych z plików")
     K = read_MARC_matrix("rod_v4_job1_glstif_0000", nnodes, ndof)
     M = read_MARC_matrix("rod_v4_job1_glmass_0000", nnodes, ndof)
     d = read_coordinates_from_DAT("rod_v4_job1.dat", nnodes, ndof)
+    print("Wyznaczanie macierzy mas i sztywności")
     L, C, R = planes_indecies(d)
 
     all_planes = L + C + R
+
     M1 = np.zeros((np.shape(M)[0], np.shape(M)[0]))
     K1 = np.zeros((np.shape(K)[0], np.shape(K)[0]))
 
@@ -389,4 +393,8 @@ def getStiffAndMassMatrix():
         M2[3*loop_ind : 3*loop_ind + 3, :] = M1[3*d_ind : 3*d_ind + 3, :]
         K2[3*loop_ind : 3*loop_ind + 3, :] = K1[3*d_ind : 3*d_ind + 3, :]
 
-    return K2, M2 #final stiff and mass matrix
+    temp = ndof * len(C)
+
+    return K2[0 : 3*temp, 0 : 3*temp], M2[0 : 3*temp, 0 : 3*temp] #final stiff and mass matrix
+    # return K2[0 : 209, 0 : 209], M2[0 : 209, 0 : 209] #for test
+

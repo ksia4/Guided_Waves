@@ -23,27 +23,28 @@ if __name__ == "__main__":
         # wektor liczby falowej
         config.kvect_min = 1e-10
         config.kvect_max = np.pi / 4
-        config.kvect_no_of_points = 51
+        config.kvect_no_of_points = 201
 
         # rysowanie wykresow
         config.show_plane = True
-        config.show_bar = True
-        config.show_elements = True
+        config.show_bar = False
+        config.show_elements = False
+
 
         # obliczenia
         if text1 == '4':
             # parametry preta
             radius = 10
-            num_of_circles = 4
-            num_of_points_at_c1 = 4
+            num_of_circles = 8
+            num_of_points_at_c1 = 8
             MES.mes4(radius, num_of_circles, num_of_points_at_c1)
 
         if text1 == '8':
             radius = 10
             numberOfPlanes = 3
-            firstCircle = 16 #for brickMesh should be 16
-            addNodes = 0
-            circles = 1
+            firstCircle = 16    # for brickMesh should be 16
+            addNodes = 0    # for brickMesh doesn't matter
+            circles = 2
             MES.mes8(numberOfPlanes, radius, circles, firstCircle, addNodes)
 
         if text1 == 'M':
