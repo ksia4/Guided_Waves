@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.7)  13 JUL 2018 19:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.7)  16 JUL 2018 19:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2872,13 +2872,13 @@ File: Zdjecia/4/test_chirp.png Graphic file (type png)
 <use Zdjecia/4/test_chirp.png>
 Package pdftex.def Info: Zdjecia/4/test_chirp.png used on input line 81.
 (pdftex.def)             Requested size: 398.33858pt x 225.31241pt.
-)
+ [57])
 (./4_2_Agregacja_krzywych_dyspersji_uzyskanych_z_zaimplementowanego_solvera.tex
-[57] [58 <./Zdjecia/4/linear_chirp.png> <./Zdjecia/4/test_chirp.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [59]
-<Zdjecia/4/zagregowane_krzywe.png, id=909, 1540.75626pt x 502.87875pt>
+Underfull \vbox (badness 3646) has occurred while \output is active []
+
+ [58 <./Zdjecia/4/linear_chirp.png> <./Zdjecia/4/test_chirp.png>] [59]
+<Zdjecia/4/zagregowane_krzywe.png, id=908, 1540.75626pt x 502.87875pt>
 File: Zdjecia/4/zagregowane_krzywe.png Graphic file (type png)
 
 <use Zdjecia/4/zagregowane_krzywe.png>
@@ -2887,11 +2887,7 @@ Package pdftex.def Info: Zdjecia/4/zagregowane_krzywe.png used on input line 23
 (pdftex.def)             Requested size: 369.88582pt x 120.72404pt.
 )
 (./4_3_Metoda_odwracania_sygnalu_w_czasie.tex [60 <./Zdjecia/4/zagregowane_krzy
-we.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [61]
-<Zdjecia/4/algorytm_komp_tr.png, id=929, 1477.52pt x 780.9175pt>
+we.png>] [61] <Zdjecia/4/algorytm_komp_tr.png, id=928, 1477.52pt x 780.9175pt>
 File: Zdjecia/4/algorytm_komp_tr.png Graphic file (type png)
 
 <use Zdjecia/4/algorytm_komp_tr.png>
@@ -2901,8 +2897,8 @@ Package pdftex.def Info: Zdjecia/4/algorytm_komp_tr.png used on input line 50.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-<Zdjecia/4/porownanie_roznych_odleglosci_time_reversal.png, id=931, 1665.22125p
+[62]
+<Zdjecia/4/porownanie_roznych_odleglosci_time_reversal.png, id=939, 1665.22125p
 t x 945.5325pt>
 File: Zdjecia/4/porownanie_roznych_odleglosci_time_reversal.png Graphic file (t
 ype png)
@@ -2912,10 +2908,7 @@ Package pdftex.def Info: Zdjecia/4/porownanie_roznych_odleglosci_time_reversal.
 png used on input line 59.
 (pdftex.def)             Requested size: 398.33858pt x 226.18219pt.
 
-Underfull \vbox (badness 3679) has occurred while \output is active []
-
- [62]
-Underfull \vbox (badness 5175) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [63 <./Zdjecia/4/algorytm_komp_tr.png> <./Zdjecia/4/porownanie_roznych_odleglo
 sci_time_reversal.png>]
@@ -3902,7 +3895,7 @@ live/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/txfonts/txsyc.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/
 utmri8a.pfb>
-Output written on praca.pdf (132 pages, 8974709 bytes).
+Output written on praca.pdf (132 pages, 8975005 bytes).
 PDF statistics:
  1653 PDF objects out of 1728 (max. 8388607)
  1357 compressed objects within 14 object streams

@@ -24,7 +24,6 @@ def get_chirp():
     chirp = np.sin(2*np.pi*freq*time)
     f_chirp = np.fft.rfft(chirp)
 
-    # freq_sampling = np.fft.fftfreq(chirp.size, d=time_end/samples)
 
     hanning = []
     for n in range(len(time)):

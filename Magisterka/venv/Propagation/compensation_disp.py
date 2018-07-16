@@ -480,12 +480,34 @@ def linear_mapping_compensation(signal, number_of_modes, disp_curves):
 
 
 if __name__ == "__main__":
-    KrzyweDyspersji= selectMode.SelectedMode('../eig/kvect', '../eig/omega')
-    KrzyweDyspersji.selectMode()
-    dist = 5 # w metrach
+    KrzyweDyspersji1= selectMode.SelectedMode('../../../Dane/Node4_10_4_4/kvect', '../../../Dane/Node4_10_4_4/omega')
+    KrzyweDyspersji1.selectMode()
+    print("1")
+    KrzyweDyspersji1.plot_modes(4)
+    KD2 = selectMode.SelectedMode('../../../Dane/Node4_10_6_6/kvect', '../../../Dane/Node4_10_6_6/omega')
+    KD2.selectMode()
+    print("2")
+    KD2.plot_modes(4)
+    KD3 = selectMode.SelectedMode('../../../Dane/Node4_10_8_8/kvect', '../../../Dane/Node4_10_8_8/omega')
+    KD3.selectMode()
+    print("3")
+    KD3.plot_modes(4)
+    KD4 = selectMode.SelectedMode('../../../Dane/Node8_brick_3/kvect', '../../../Dane/Node8_brick_3/omega')
+    KD4.selectMode()
+    print(4)
+    KD4.plot_modes(4)
+    KD5 = selectMode.SelectedMode('../../../Dane/Node8_brick_10/kvect', '../../../Dane/Node8_brick_10/omega')
+    KD5.selectMode()
+    print(5)
+    KD5.plot_modes(4)
 
-    signal_array, time_x_freq = Anim_dyspersji.get_chirp()
+    dist = 2 # w metrach
 
+    signal_array1, time_x_freq1 = Anim_dyspersji.get_chirp()
+    signal_array2, time_x_freq2 = Anim_dyspersji.get_chirp()
+    signal_array3, time_x_freq3 = Anim_dyspersji.get_chirp()
+    signal_array4, time_x_freq4 = Anim_dyspersji.get_chirp()
+    signal_array5, time_x_freq5 = Anim_dyspersji.get_chirp()
     # # for i in range(length):
     # print("Zaraz będzie się dzało :o")
     # # make_dispersion_in_bar(length, len(plane), dx, KrzyweDyspersji)
@@ -501,33 +523,61 @@ if __name__ == "__main__":
     # plt.xlabel("time[s]")
     # plt.title("Sygnał przed propagacja")
     # plt.show()
-    signal = wave_length_propagation([time_x_freq[0], signal_array[3]], [0, 1, 2, 3], KrzyweDyspersji, dist, True, 100)
+    signal1 = wave_length_propagation([time_x_freq1[0], signal_array1[3]], [1, 2, 3], KrzyweDyspersji1, dist, True, 100)
+    signal2 = wave_length_propagation([time_x_freq2[0], signal_array2[3]], [1, 2, 3], KD2, dist, True, 100)
+    signal3 = wave_length_propagation([time_x_freq3[0], signal_array3[3]], [1, 2, 3], KD3, dist, True, 100)
+    signal4 = wave_length_propagation([time_x_freq4[0], signal_array4[3]], [0, 1, 2], KD4, dist, True, 100)
+    signal5 = wave_length_propagation([time_x_freq5[0], signal_array5[3]], [0, 1, 2], KD5, dist, True, 100)
 
-    plt.plot(signal[0], signal[1])
+    plt.plot(signal1[0], signal1[1])
+    plt.plot(signal2[0], signal2[1])
+    plt.plot(signal3[0], signal3[1])
+    plt.plot(signal4[0], signal4[1])
+    plt.plot(signal5[0], signal5[1])
     plt.xlabel("time[s]")
     plt.title("Przykładowy sygnał wejściowy")
+    plt.legend()
     plt.show()
 
-
-
-
-
-    wilcox = mapping_from_time_to_distance(signal, KrzyweDyspersji, [0, 1, 2, 3])
+    wilcox1 = mapping_from_time_to_distance(signal1, KrzyweDyspersji1, [1, 2, 3])
+    wilcox2 = mapping_from_time_to_distance(signal2, KD2, [1, 2, 3])
+    wilcox3 = mapping_from_time_to_distance(signal3, KD3, [1, 2, 3])
+    wilcox4 = mapping_from_time_to_distance(signal4, KD4, [0, 1, 2])
+    wilcox5 = mapping_from_time_to_distance(signal5, KD5, [0, 1, 2])
 
     plt.figure("Wilcox")
-    plt.subplot(211)
-    plt.plot(signal[0], signal[1])
-    plt.title("Rozproszony sygnał")
-    plt.xlabel("time [s]")
+    plt.subplot(511)
+    plt.plot(wilcox1[0], wilcox1[1])
+    plt.title("Skompensowany sygnał1")
+    plt.xlabel("distence [m]")
     plt.ylabel("Amplitude [-]")
-    plt.subplot(212)
-    plt.plot(wilcox[0], wilcox[1])
-    plt.title("Skompensowany sygnał")
+
+    plt.subplot(512)
+    plt.plot(wilcox2[0], wilcox2[1])
+    plt.title("Skompensowany sygnał2")
+    plt.xlabel("distence [m]")
+    plt.ylabel("Amplitude [-]")
+
+    plt.subplot(513)
+    plt.plot(wilcox3[0], wilcox3[1])
+    plt.title("Skompensowany sygnał3")
+    plt.xlabel("distence [m]")
+    plt.ylabel("Amplitude [-]")
+
+    plt.subplot(514)
+    plt.plot(wilcox4[0], wilcox4[1])
+    plt.title("Skompensowany sygnał4")
+    plt.xlabel("distence [m]")
+    plt.ylabel("Amplitude [-]")
+
+    plt.subplot(515)
+    plt.plot(wilcox5[0], wilcox5[1])
+    plt.title("Skompensowany sygnał5")
     plt.xlabel("distence [m]")
     plt.ylabel("Amplitude [-]")
     plt.show()
 
-
+    exit(0)
     # plt.figure("Pojedyncza postać fali po przebyciu 5 metrów")
     # plt.plot(signal[0], signal[1])
     # plt.xlabel("time[s]")
