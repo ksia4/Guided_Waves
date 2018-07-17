@@ -2,7 +2,7 @@
 \section{Agregacja globalnych macierzy mas i sztywności}
 \label{sec:agregacja}
 
-Metoda agregacji macierzy globalnych zostanie przedstawiona na przykładzie macierzy sztywności dwóch elmentów kwadrratowych i obiektu z nich zbudowanego. Wspomniany obiekt przedstawia rysunek \ref{fig:agreg}. Czerne cyfry oznaczają numeracje lokalną wewnątrz elmentu, a czerwone numerację globalną.
+Metoda agregacji macierzy globalnych zostanie przedstawiona na przykładzie macierzy sztywności dwóch elmentów kwadrratowych i obiektu z nich zbudowanego. Wspomniany obiekt przedstawia rysunek \ref{fig:agreg}. Czarne cyfry oznaczają numerację lokalną wewnątrz elmentu, a czerwone numerację globalną.
 
 Algorytm agregacji polega na umieszczaniu odpowiednich elementów macierzy lokalnych do macierzy globalnej. Pokrywające się elmenty są sumowane. Ponieważ podmacierz sztywności dla jednego punktu lub zależności pomiędzy punktami jest umieszczana w macierzy globalnej bez wewnętrznych zmian, przyjmijmy zapis uproszczony:
 
@@ -70,16 +70,16 @@ Dla zależności globalnych punktów 2 i 5 mamy:
 \end{equation}
 ponieważ punkt globalny 2 pokrywa się z punktem 2 macierzy I oraz punktem 1 macierzy II, a punkt globalny 5 z punktem 3 macierzy I oraz punktem 4 macierzy II.
 
-Uwzględniając że sztywność względna punktów nie będących ze sobą w sąsiedztwie (np. 1 i 3 w I) wynosi 0, macierz globalna przyjmuje postać:
+Uwzględniając że sztywność względna punktów nie będących ze sobą w sąsiedztwie (np. 1 w pierwszym elemencie oraz 3 w drugim elemencie) wynosi 0, macierz globalna przyjmuje postać:
 
 \begin{gather}
 	\textbf{K} = \begin{bmatrix} 
-	 	\textbf{K}^{11}_I & \textbf{K}^{12}_I & 0 & 0 & 0 & \textbf{K}^{14}_I  \\
-	 	\textbf{K}^{21}_I & \textbf{K}^{22}_I + \textbf{K}^{11}_{II}  & \textbf{K}^{12}_{II} & 0 & \textbf{K}_{I}^{23} + \textbf{K}_{II}^{14} & 0 \\
-	 	0 & \textbf{K}^{21}_{II} & \textbf{K}^{22}_{II} & \textbf{K}^{23}_{II} & 0 & 0 \\
-	 	0 & 0 & \textbf{K}^{32}_{II} & \textbf{K}^{33}_{II} & \textbf{K}^{34}_{II} & 0 \\
-		0 & \textbf{K}_{I}^{32} + \textbf{K}_{II}^{41} & 0 & \textbf{K}^{43}_{II} & \textbf{K}^{33}_{I} + \textbf{K}	^{44}_{II} & \textbf{K}^{34}_{I} \\
-		\textbf{K}^{41}_I & 0 & 0 & 0 & \textbf{K}^{43}_I & \textbf{K}^{44}_I.
+	 	\textbf{K}^{11}_I & \textbf{K}^{12}_I & 0 & 0 & \textbf{K}^{13}_I & \textbf{K}^{14}_I  \\
+	 	\textbf{K}^{21}_I & \textbf{K}^{22}_I + \textbf{K}^{11}_{II}  & \textbf{K}^{12}_{II} & \textbf{K}^{13}_II & \textbf{K}_{I}^{23} + \textbf{K}_{II}^{14} & \textbf{K}^{24}_I \\
+	 	0 & \textbf{K}^{21}_{II} & \textbf{K}^{22}_{II} & \textbf{K}^{23}_{II} & \textbf{K}^{24}_II & 0 \\
+	 	0 & \textbf{K}^{31}_II & \textbf{K}^{32}_{II} & \textbf{K}^{33}_{II} & \textbf{K}^{34}_{II} & 0 \\
+		\textbf{K}^{31}_I & \textbf{K}_{I}^{32} + \textbf{K}_{II}^{41} & \textbf{K}^{42}_II & \textbf{K}^{43}_{II} & \textbf{K}^{33}_{I} + \textbf{K}	^{44}_{II} & \textbf{K}^{34}_{I} \\
+		\textbf{K}^{41}_I & \textbf{K}^{42}_I & 0 & 0 & \textbf{K}^{43}_I & \textbf{K}^{44}_I.
 	\end{bmatrix}
 \end{gather}
 

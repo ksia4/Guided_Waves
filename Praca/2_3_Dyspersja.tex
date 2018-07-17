@@ -12,7 +12,7 @@ Dyspersja jest zjawiskiem zależności prędkości propagacji fali od jej częst
 \end{figure}
 
 
-Kiedy mówimy o krzywych dyspersji, możne chodzić o zależności liczby falowej od częstotliwości, prędkości fazowej od częstotliwości lub prędkości grupowej od częstotliwości. Poniżej znajdują się przykładowe charakterystyki k(\(\omega\)) postaci fal Lamba dla aluminiowej płyty o grubości 1mm.
+Kiedy mówimy o krzywych dyspersji, możemy mieć na myśli zależności liczby falowej od częstotliwości, prędkości fazowej od częstotliwości lub prędkości grupowej od częstotliwości. Na rysunku \ref{fig:krzywe_k_od_omega} znajdują się przykładowe charakterystyki k(\(\omega\)) postaci fal Lamba dla aluminiowej płyty o grubości 1mm.
 
 \begin{figure}[h]
 \centering
@@ -21,7 +21,7 @@ Kiedy mówimy o krzywych dyspersji, możne chodzić o zależności liczby falowe
 \label{fig:krzywe_k_od_omega}
 \end{figure}
 
-Na wykresach widać jedną rzecz, ważną dla zastosowań fal prowadzonych - są one multimodalne. Z wykresów wynika, że w najkorzystniejszym do analizy przypadku propagują dwa mody, jeden symetryczny i jeden antysymetryczny. Wraz ze wzrostem częstotliwości propagującej fali pojawiają się dodatkowe jej postaci, co znacznie utrudnia analizę danych z przebiegów. Jednym ze sposobów ograniczania liczby modów, jest wprowadzanie wymuszeń od niskich częstotliwościach.
+Na wykresach widać jedną rzecz, ważną dla zastosowań fal prowadzonych - są one multimodalne. Z wykresów wynika, że w najkorzystniejszym do analizy przypadku propagują dwa mody, jeden symetryczny i jeden antysymetryczny. Wraz ze wzrostem częstotliwości propagującej fali pojawiają się dodatkowe jej postaci, co znacznie utrudnia analizę danych z przebiegów. Jednym ze sposobów ograniczania liczby modów, jest wprowadzanie wymuszeń o niskich częstotliwościach.
 
 \subsection{Prędkość fazowa i grupowa}
 
@@ -32,7 +32,7 @@ kx-\omega t=const \Rightarrow \frac{d(kx-\omega t)}{dt}=0 \Rightarrow k\frac{dx}
  \Rightarrow \frac{dx}{dt}=\frac{\omega}{k}
 \end{equation}
 
-Jak widać dla skończonej wartości \(\omega\) i k dążącego do zera, prędkość fazowa rośnie do nieskończoności. Dla przypadku pierwszych modów, gdzie zarówno k jak i \(\omega\) zmierzają do zera, sytuacja wygląda różnie. Poniżej znajduje się przykładowy wykres zależności prędkości fazowej od iloczynu częstotliwości i grubości materiału dla cienkościennej rury. W przypadku fal prowadzonych dla elementów cienkościennych, często wykreśla się charakterystyki z zaznaczeniem wpływu grubości ściany. Na wykresie widać, że wszystkie mody poza pierwszymi dwoma dążą prawostronnie do nieskończoności. Pozostałe dwa zachowują się odmiennie - jeden wykres dąży do 0 (postać antysymetryczna), a drugi do wartości skończonej (postać symetryczna).
+Jak widać dla skończonej wartości \(\omega\) i k dążącego do zera, prędkość fazowa rośnie do nieskończoności. Dla przypadku pierwszych modów, gdzie zarówno k jak i \(\omega\) zmierzają do zera, sytuacja wygląda różnie.Na rysunku \ref{fig:krzywe_vp_od_omega} znajduje się przykładowy wykres zależności prędkości fazowej od iloczynu częstotliwości i grubości materiału dla cienkościennej rury. W przypadku fal prowadzonych dla elementów cienkościennych, często wykreśla się charakterystyki z zaznaczeniem wpływu grubości ściany. Na wykresie widać, że wszystkie mody poza pierwszymi dwoma dążą prawostronnie do nieskończoności. Pozostałe dwa zachowują się odmiennie - jeden wykres dąży do 0 (postać antysymetryczna), a drugi do wartości skończonej (postać symetryczna).
 
 \begin{figure}[h]
 \centering
@@ -41,7 +41,7 @@ Jak widać dla skończonej wartości \(\omega\) i k dążącego do zera, prędko
 \label{fig:krzywe_vp_od_omega}
 \end{figure}
 
-Jeśli fala składa się z więcej niż jednej składowej sinusoidalnej, które mają różne prędkości, należy określić jeszcze prędkość grupową.  Prędkość każdej z pojedynczych składowych, będzie jej prędkością fazową. Prędkość grupowa dotyczy sygnału, złożonego ze wszystkich składowych. Można ją prezentować jako prędkość jakiegoś punktu na wykresie sygnału, np. maximum, jak na poniższym rysunku.
+Jeśli fala składa się z więcej niż jednej składowej sinusoidalnej, które mają różne prędkości, należy określić jeszcze prędkość grupową.  Prędkość każdej z pojedynczych składowych, będzie jej prędkością fazową. Prędkość grupowa dotyczy sygnału, złożonego ze wszystkich składowych. Można ją prezentować jako prędkość jakiegoś punktu na wykresie sygnału, np. maximum, jak na rysunku \ref{fig:przykladowy_sygnal}.
 
 \begin{figure}[h]
 \centering
@@ -64,7 +64,7 @@ V_g=\frac{dw}{dk}
 
 Z samego faktu istnienia takiej zależności nie wynika, że w sygnale znajdzie się jakiś charakterystyczny punkt, propagujący z taką prędkością. Wynika z niej natomiast, że jeśli takowy punkt będzie, to będzie się poruszał z prędkością grupową. Należy jeszcze wspomnieć o wyznaczaniu prędkości grupowej sygnału o składowch, o różnych wartościach \( \omega \). W takim przypadku należy prędkość grupową wyznaczyć dla wartości \(\omega\) sygnału dominującego. Dominujący sygnał można znaleźć przy pomocy przekształecenia Fouriera.
 
-Poniżej znajdują się przykładowe krzywe, przedstawiające prędkość grupową dla fal Lamba, dla cienkościennej płyty aluminiowej.
+Na rysunku \ref{preskodsc_grupow_wykres} znajdują się przykładowe krzywe, przedstawiające prędkość grupową dla fal Lamba, dla cienkościennej płyty aluminiowej.
 
 \begin{figure}[h]
 \centering
@@ -73,380 +73,13 @@ Poniżej znajdują się przykładowe krzywe, przedstawiające prędkość grupow
 \label{fig:preskodsc_grupow_wykres}
 \end{figure}
 
-\subsection{Analityczne wyznaczanie krzywych dyspersji}
-Zależności dyspersyjne są trudne, a często niemożliwe do wyznaczenia w sposób analityczny. Dla prostych przypadków rozwiązania analityczne są znane, a kilka z nich jest poniżej opisanych w celu lepszego wyjaśnienia zjawiska dyspersji.
-Pierwszym przypadkiem będzie model nieskończenie długiej, napiętej sprężyny, przedstawionej na rysunku poniżej.
+\input{2_3_A_Analitycznie}
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=10cm]{Zdjecia/2/dyspersja_analitycznie_sprezyna}
-\caption{Nieskończenie krótki odcinek napiętej sprężyny}
-\label{fig:nieskonczenie_krotki_odcinek_sprezyny}
-\end{figure}
+\input{2_3_B_Numerycznie}
 
-gdzie
-\begin{eqwhere}[2cm]
-        \item[$ds$] długość sprężyny
-        \item[$\theta$] kąt przyłożenia siły zewnętrznej
-        \item[$F$] siły wewnętrzne
-        \item[$q$] siła oddziaływania sprężyny na jednostkę długości ugięcia
-        \item[$\rho$] masa sprężyny na jednostkę długości
-\end{eqwhere}
+\input{2_3_C_Eksperymentalnie}
 
-Korzystając z drugiej zasady dynamiki Newtona, zapisujemy równanie ruchu układu:
-
-\begin{equation}
--Fsin\theta+Fsin(\theta+\frac{\partial \theta}{\partial x}dx)+qds = \rho ds \frac{\partial^2u}{\partial t^2}.
-\end{equation}
-
-Załóżmy dodatkowo, że:
-
-\begin{equation}
-ds \approx dx\; ,\; sin\theta=\theta \; i\; \theta = \frac{\partial u}{\partial x}.
-\end{equation}
-
-To pozwala uprościć równanie:
-
-\begin{equation}
--F\theta+F(\theta + \frac{\partial \theta}{\partial x}dx)=\rho dx\frac{\partial^2 u}{\partial^2 t}
-\end{equation}
-
-\begin{equation}
-F\frac{\partial^2 u}{\partial x^2} + q = \rho \frac{\partial^2 u}{\partial^2 t}.
-\end{equation}
-
-Jeśli założymy brak siły zewnętrznej, to otrzymujemy proste równanie falowe:
-
-\begin{equation}
-\frac{\partial^2 u}{\partial x^2} = \frac{1}{c_0^2} \frac{\partial^2 u}{\partial^2 t},\quad c_0=\sqrt{\frac{F}{\rho}}
-\end{equation}
-
-gdzie
-\begin{eqwhere}[2cm]
-        \item[$c_0$] prędkość fali.
-\end{eqwhere}
-
-Przyjmijmy rozwiązanie w postaci:
-
-\begin{equation}
-u(x,t)=Ae^{i(kx-\omega t)}.
-\end{equation}
-
-Jeśli wstawimy je do równania falowego to otrzymamy zależność dyspersyjną:
-
-\begin{equation}
-\omega^2=c_0^2 k^2.
-\end{equation}
-
-Jest to przypadek liniowej zależności \( k(\omega)\), a więc dyspersja fali nie zachodzi. W takim przypadku prędkość fazowa, jest równa prędkości grupowej:
-
-\begin{equation}
-V_p=\frac{\omega}{k}=\frac{d\omega}{dk}=V_g
-\end{equation}
-
-Prosta modyfikacja układu ze sprężyną, powoduje skomplikowanie zależności dyspersyjnej.
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=10cm]{Zdjecia/2/dyspersja_analitycznie_sprezyna2}
-\caption{Nieskończenie krótki odcinek napiętej sprężyny na sprężystym podłożu}
-\label{fig:nieskonczenie_krotki_odcinek_sprezyny2}
-\end{figure}
-
-Przyjmijmy siłę \(q=-Ku(x,t)\), co prowadzi do równania równowagi:
-
-\begin{equation}
-\frac{\partial^2 u}{\partial x^2} - \frac{K}{F}u = \frac{1}{c_0^2} \frac{\partial^2 u}{\partial^2 t}.
-\end{equation}
-
-Ponownie załóżmy rozwiązanie w postaci \( u(x,t)=Ae^{i(kx-\omega t)} \) i podstawmy je do równania równowagi. Prowadzi to do zależności:
-
-\begin{equation}
-\Big(-k^2-\frac{K}{F}+\frac{w^2}{c_0^2}\Big)e^{i(kx-\omega t)}=0.
-\end{equation}
-
-Równanie to jest nazywane równaniem charaktersytycznym (lub dyspersyjnym). Rozwiązaniem jest:
-
-\begin{equation}
--k^2-\frac{K}{F}+\frac{w^2}{c_0^2}=0.
-\end{equation}
-
-Zależność \(k(\omega)\) przyjmuje postać:
-
-\begin{equation}
-k^2=\frac{w^2}{c_0^2}-\frac{K}{F}.
-\end{equation}
-
-Podstawiając \( k=\frac{\omega}{c_p}\), otrzymujemy :
-
-\begin{equation}
-c_p = \sqrt{c_0^2\Bigg( \frac{1}{1 - \frac{c_0^2 K}{\omega^2 F} } \Bigg)}.
-\end{equation}
-
-Jak widać w takim przypadku prędkość fazowa jest zależna od częstotliwości, a więc będzie zachodzić dyspersja fali.
-
-Kolejnym problemem wartym wspomnienia, jest problem propagacji fal Lamba w cienkiej, nieskończonej płycie. Płyta wraz z przyjętym układem współrzędnych znajduje się poniżej.
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=10cm]{Zdjecia/2/dyspersja_analitycznie_plyta}
-\caption{Nieskończona płyta}
-\label{fig:nieskonczona_plyta}
-\end{figure}
-
-Jest kilka metod rozwiązania takiego zagadnienia, ale nie są opisane one w tej pracy (metoda potencjałów, metoda fal cząstkowych). Jeśli przyjmiemy zerowe naprężenia na płaszczyznach zewnętrznych jako warunki początkowe, to związki dyspersyjne przyjmują zależności:
-
-\begin{equation}
-\frac{tan(qh)}{tan(ph)}=-\frac{4k^2pq}{(q^2-k^2)^2}
-\end{equation}
-dla postaci symetryczych oraz
-
-\begin{equation}
-\frac{tan(qh)}{tan(ph)}=-\frac{(q^2-k^2)^2}{4k^2pq}
-\end{equation}
-dla postaci niesymetrycznych
-
-gdzie
-\begin{equation}
-p^2=\frac{\omega^2}{c_L^2} - k^2 \; ,a \; q^2=\frac{\omega^2}{c_L^2}-k^2
-\end{equation}
-
-\begin{eqwhere}[2cm]
-        \item[$c_T$] prędkość fali poprzecznej
-	\item[$c_L$] prędkość fali podłużnej
-\end{eqwhere}
-
-Równania te nazywają się równaniami Rayleigha-Lamba i są nierozwiązywalne w sposób analityczny. Jest to przykład bardziej skomplikowanego modelu, gdzie możliwe jest wyznaczenie związków \(k\) i \(\omega\), ale do wykreślenia krzywych dyspersji konieczne jest zastosowanie metod numerycznych.
-
-\subsection{Numeryczne wyznaczanie krzywych dyspresji}
-Pierwszym przypadkiem numerycznego wyznaczania krzywych dyspersji, jest rozwiązanie równań Rayleigha-Lamba przedstawionych w poprzedniej sekcji. Zakładamy, że interesują nas tylko rozwiązania rzeczywiste, które pojawią się jeśli k przyjmie wartości rzeczywiste bądź urojone (występuje tylko czynnik \(k^2\)).
-
-Poniżej znajdują się równania Rayleigha-Lamba w postaci ułatwiającej proponowany sposób rozwiązania:
-
-\begin{equation}
-\frac{tan(qh)}{q}+\frac{4k^2ptan(ph)}{{q^2-k^2}^2}=0
-\end{equation}
-
-\begin{equation}
-qtan(qh)+\frac{{(q^2-k^2)}^2tan(ph)}{2k^2p}=0.
-\end{equation}
-
-\vspace{5mm}
-
-Rozwiązać równanie możemy według przedstawionego algorytmu.
-
-\begin{enumerate}
-  \item Wybierz iloczyn \((\omega h)_0\).
-  \item Wybierz początkową estymatę prędkości fazowe \((c_p)_0\) (a pośrednio też \(k\)).
-  \item Oblicz znak lewych stron równań R-L.
-  \item Wybierz kolejną wartość prędkości fazowej \((c_p)_1 > (c_p)_0\) i policz znaki lewych stron jeszcze raz.
-  \item Powtarzaj kroki 3 i 4 aż znaki się zmienią. Oznaczać to bedzie, że pierwiastek równania znajduje się pomiędzy ostatnio wybranymi prędkościami. Załóżmy, że jest to pomiędzy \( (c_p)_n \) i \( (c_p)_{n+1} \).
-  \item Wykorzystaj jakiś algorytm iteraycjny do znalezienia pierwiastka \(c_p\) z odpowiednią dokładnością.
-   \item Po znalezienu pierwiastka, kontynuuj wyszukiwnie kolejnych pierwiastków dla założonego \( (\omega h)_0 \), powtarzając kroki 2-6.
-  \item Wybierz kolejną wartość \( \omega h \) i wykonaj dla niej kroki 2-7.
-\end{enumerate}
-
-\vspace{5mm}
-
-W ten sposób łatwo wyznaczyć krzywe dyspersji, ale należy zaznaczyć, że równania dyspersyjne zostały obliczone analitycznie dla konkretnego przypadku struktury, jaką jest płyta. Metody numeryczne ograniczają się w tym przypadku do rozwiązania wyznaczonych równań. Możliwość ogólniejszego podejścia do badań numerycznych, dla szerokiego wachlarza struktur daje metoda elementów skończonych.
-
-Metoda ta daje możliwości dokładnego przewidzenia odpowiedzi dynamicznych, dla złożonych układów mechanicznych. Jeśli założymy przypadek małych odkształceń, to problem można zapisać w postaci równania różniczkowego:
-
-\begin{equation} \label{eq:MES1}
-M\ddot u + Ku = f^{ext}
-\end{equation}
-
-gdzie
-\begin{eqwhere}[2cm]
-        \item[$M$] macierz mas układu
-        \item[$K$] macierz sztywności układu 
-        \item[$u$] przemieszczenia punktów układu
-        \item[$f^{ext}$] wektor sił zewnętrznych
-\end{eqwhere}
-
-Sposobem wyznaczenia krzywych dyspersji z tak określonego układu, może być rozwiązanie równania tj. znalezienie pola przemieszczeń dla wszystkich węzłów w dyskretnych chwilach czasowych, a następnie obliczenie wielowymiarowego przekształcenia Fouriera otrzymanego sygnału.
-
-Równanie można rozwiązać na przykład z wykorzystaniem centralnej formuły różnicowej dla \( \ddot u\):
-
-\begin{equation}
-\ddot x = \frac{u^{t+1} - 2u^t + u^{t-1}}{\Delta t^2}.
-\end{equation}
-
-Po podstawienu otrzymujemy zależność:
-
-\begin{equation}
-\frac{1}{\Delta t^2}M(u^{t-1}-2u^t+u^{t-1}) + Ku^t = f^t
-\end{equation}
-
-\begin{equation}
-u^{t+1}=\Delta t^2 M^{-1}(f^t -Ku^t)+2u^t-u^{t-1}
-\end{equation}
-
-gdzie \( t \) oznacza obecną chwilę czasową, a \( t+1 \) chwilę kolejną.
-Operacja odwracania macierzy mas jest kosztowna obliczeniowo. Można przyśpieszyć obliczenia przez zastosowanie skupionej macierzy mas (wyrazy niezerowe tylko na głownej diagonali).
-
-Jeśli interesuje nas propagacja tylko w jednym kierunku, to dla obliczonego sygnału \( u[m, n] \) (m - liczba kroków czasowych \(\Delta t \) , n - liczba kroków geometrycznych \(\Delta x\) w kierunku x) przekształcenie Fouriera można obliczyć według wzoru:
-
-\begin{equation}
-U[p, q] = \sum_{k=0}^{m-1} \sum_{l=0}^{n-1} u[k, l]e^{-i2\pi (-p \frac{k}{m} + q\frac{l}{n})}
-\end{equation}
-
-Mając dyskretną postać przekształcenia Fouriera można wykreślić krzywe dyspersji, wyznaczając dla każdej próbki wartość czętotliwości i liczby falowej. Można to zrobić wiedząc, że częstotliwość zawiera się w przedziale \([0, \frac{1}{2\Delta t}]\), a liczba falowa \([0, \frac{1}{2\Delta x}2\pi]\). Przykładowe krzywe przedstawione są na rysunku \ref{fig:krzywe_dyspersji_tian1}.
-
-\vspace{5mm}
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=10cm]{Zdjecia/2/dyspersja_tian1}
-\caption{Krzywe dyspersji wyznaczone przy pomocy dwuwymiarowego DFT}
-\label{fig:krzywe_dyspersji_tian1}
-\end{figure}
-
-Innym sposobem jest symulacja układu dla wymuszeń harmonicznych o ustalonych częstotliwościach, w których chcemu wyznaczyć krzywe. Jako przyład rozpatrzmy jednorodny pręt. Dla przypadku pręta wymuszanego na jednej płaszczyźnie przekroju, dane należy zebrać przed odbiciem fali od swobodnego końca pręta, tak aby sygnał propagował tylko w jednym kierunku. W liniach równoległych do osi, obliczamy pola prędkości przemieszczenia punktów. Może to być też pole przemieszczeń lub naprężeń, ale pole prędkości jest stosunkowo łatwe do wyznaczenia.
-Znając już prędkości dla wszystkich punktów w jednej lini, w chwili t, możemy wyznaczyć widmo otrzymanego sygnału. Następnie z widma sygnału odczytujemy liczby falowe, dla których powstały widoczne piki. Pik dla największej liczby falowej dotyczy pierwszego modu, a każdy kolejny, z coraz mniejszymi liczbami falowymi, modów kolejnych.
-
-Pole prędkości można wyznaczyć na podstawie różnycowych formuł centralnych \ref{eq:MES2} oraz \ref{eq:MES3}.
-
-\begin{equation} \label{eq:MES2}
-\dot u^{t+1} = \dot u^n + \frac{\Delta t}{2}(\ddot u^n + \ddot u^{n+1})
-\end{equation}
-
-\begin{equation} \label{eq:MES3}
-u^{n+1} = u^n + \Delta t(\dot u^n + \frac{\Delta t}{2}\ddot u^n)
-\end{equation}
-
-Załóżmy, że znamy pełne rozwiązanie w chwili t. Przemieszczenie w chwili t+1 możemy więc obliczyć z zależności \ref{eq:MES3}. Następnie podstawiamy wynik do równania \ref{eq:MES1} i obliczamy przyspeszenie w chwili t+1. Ostatecznie korzystając z formuły \ref{eq:MES2} możemy wyznaczyć prędkość w chwili t+1.
-
-Przykładowe widmo, z którego możemy odczytać liczby falowe czterech modów znajduje się na rysnuku \ref{fig:widmo_wymuszenie1}. Jak widać nie wszystkie liczby falowe da się wykryć przy pomocy danych z jednej lini, więc niezbędne jest prowadzenie obliczeń dla kilku różnych.
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=10cm]{Zdjecia/2/widmo_wymuszenia_waskopasmowe}
-\caption{Widmo sygnału prędkości na liniach równoległych do osi pręta}
-\label{fig:widmo_wymuszenie1}
-\end{figure}
-
-Wadą tego sposobu jest konieczność prowadzenia obliczeń dla każdej częstotliwości, dla jakiej chcemy mieć punkty krzywych dyspersji. Jedne przebieg daję nam tylko jeden punkt na każdej krzywej. Fakt prowadzenia obliczeń tylko w liniach równoległych do osi pręta, ogranicza dodatkow obszar propagujących fal do fal podłużnych.
-
-Sposobem zmniejszenia liczby symulacji jakie trzeba przeprowadzić jest symulacja z wymuszeniem szerokopasmowym. Pozwala to na uzyskanie informacji o krzywych dyspersji, dla częstotliwości zawierających się w wymuszającym sygnale. Pojawia się jednak kilka dodatkowych kroków jakie trzeba wykonać, aby uzyskać liczby falowe modów dla poszczególnych częstotliwości.
-
-Aby uzyskać dane do wykreślenia krzywych dyspersji, należy obliczyć przestrzenny rozkład prędkości na liniach równoległych do osi dla wszystkich częstotliwości. W tym celu trzeba wykonać następujące czynności.
-
-\begin{enumerate}
-  \item Wyznaczyć odpowiedzi czasowe dla każdego punktu na interesującej nas lini równoległej do osi pręta.
-  \item Obliczyć transformaty Fouriera tych sygnałów
-  \item Z widma sygnału w każdym punkcie pobrać informacje o amplitudzie dla kolejnych częstotliwości. Na tej podstawie odtworzyć amplitudowy przebieg sygnału na całej lini dla każdej interesującej nas częstotliwości.
-  \item Dla obliczonych w pkt. 3 przebiegów, obliczyć transformatę Fouriera i z wykresu odczytać wartości liczby falowej, dla wybranych częstotliwości.
-\end{enumerate}
-
-Rysunki \ref{fig:szer_odp_czasowe} oraz \ref{fig:szer_odp_przestrzenne} przedstawiają kolejne kroki postępowania, dla odpowiedzi na wymuszenie krokiem jednostkowym preta zbudowanego z 1601 węzłów na długości jednej lini. 
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=12cm]{Zdjecia/2/widmo_wymuszenia_szerokopasmowe1}
-\caption{a) Odpowiedzi na szerokopasmowe wymuszenie w wybranych punktach jednej lini b) Przekształcenia Fouriera odpowiedzi czasowych}
-\label{fig:szer_odp_czasowe}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=12cm]{Zdjecia/2/widmo_wymuszenia_szerokopasmowe2}
-\caption{a) Odtworzony sygnał apmlitudowy na długości pręta w jednej lini b) Przekształcenie Fouriera odtworzonych sygnałów}
-\label{fig:szer_odp_przestrzenne}
-\end{figure}
-
-Ostatnia przedstawiona tutaj metoda skupia się, na rozwiązaniu zagadnienia własnego modelu wyznaczonego z pomocą MES. Tym razem zakładać będziemy wybraną liczbę falową i dla niej obliczać częstości poszczególnych modów. 
-Po raz kolejny za przykład weźmy pręt. Pręt dzielimy na komórki, które będą się składać z kolejnych płaszczyzn, na których znajdują się węzły. Znając odległość płaszczyzn i wybierając liczbę falową, możemy okrelić przesunięcie fazowe fali pomiędzy płaszczyznami. Sytuacja przedstawiona jest na rysunku \ref{fig:komorki_preta}.
-
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=10cm]{Zdjecia/2/metoda_numeryczna3}
-\caption{Kolejne komórki pręta}
-\label{fig:komorki_preta}
-\end{figure}
-
-W liniowych systemach do opisu popagacji fali wystarcza jedna komórka i siły wewnętrzne pochodzące od komórek sąsiednich. W przypadku braku sił zewnętrznych i przy założeniu skupionej macierzy mas, równanie układu można zapisać w postaci \ref{eq:MES4}. Rysunek \ref{fig:komorki_preta_sztywnosc} przedstawia sposób wyznaczania macierzy sztywności dla komórki środkowej, z uwzględnieniem zależności z komórkami sąsiednimi.
-
-\begin{equation} \label{eq:MES4}
-M_0\ddot x_0 + \sum_{p=-1}^1 K_p x_p = 0
-\end{equation}
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=8cm]{Zdjecia/2/metoda_numeryczna3_sztywnosc}
-\caption{Wyznaczanie macierzy sztywności środkowej komórki z uwzględnieniem zależności z komórkami sąsiednimi}
-\label{fig:komorki_preta_sztywnosc}
-\end{figure}
-
-Uwzględniając wszystkie informacje równanie układu można zapisać jako \ref{eq:MES5}. Podstawiając dodatkowo zależności \( \ddot x = x \omega^2 \), \( M_{sys} = M_0 \) oraz \( K_{sys} = K_{-1} e^{-ikx_k} + K_0 + K_1 e^{ikx_k} \) otrzymujemy równanie \ref{eq:MES6}.
-
-\begin{equation} \label{eq:MES5}
-M_0\ddot x_0 + K_{-1} x_0 e^{-ikx_k} + K_0 x_0 + K_1 x_0 e^{ikx_k} = 0
-\end{equation}
-
-\begin{equation} \label{eq:MES6}
- (M_{sys}\omega^2 + K_{sys})x_0 = 0
-\end{equation}
-
-Ostatecznie rozwiązując zagadnienie własne dla pary macierzy \( M_{sys} \) i \( K_{sys} \) otrzymujemy kwadraty częstości własnych układu dla założonego \( k \). Każda z częstości należy do jednego modu krzywych dyspersji.
-
-Wadami tej metody są konieczność prowadzenia obliczeń dla każdej liczby falowej, którą chcemy uwzględnić w wynikach, oraz brak dokładnej informacji, która częstość własna należy do której postaci fali.
-
-Dużą zaletą z kolei jest fakt, że wyznaczamy jedną metodą krzywe dyspersji dla fal podłużnych i poprzecznych.
-
-Przykładowe krzywe dyspersji uzyskane w ten sposób przedstawia rysunek \ref{fig:przykladowe_krzywe}.
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=14cm]{Zdjecia/2/przykladowe_krzywe}
-\caption{Krzywe uzyskane przez wielokrotne rozwiązanie zagadnienia własnego pręta}
-\label{fig:przykladowe_krzywe}
-\end{figure}
-
-
-\subsection{Eksperymentalne wyznaczanie krzywych dyspersji}
-
-Eksperymentalne badania fal prowadzonych przeprowadza się, wzbudzając odpowiednio obiekt, a następnie zbiera się dane o powstałej fali w innych punktach lub w tym samym miejscu po odbiciu fali. Zebrane dane analizuje się za pomocą algorytmów, w których duże znaczenie ma przekształcenie Fouriera.
-
-Jako wzbudniki fal prowadzonych często stosowane są przetworniki piezoelektryczne (na przykład z ceramik PZT). Proste zjawisko piezoelektryczne z jakiego korzystają takie przetworniki, pozwala przekształcić energię elektryczną na energię mechaniczną. Efekt odwrotny pozwala zbierać informację o energi odkształcenie w materiale i sygnał mechaniczny przekształcić w elektryczny. 
-
-Materiały piezoelektryczne znalazły szerokie zastosowanie ze względu na dobre parametry mechaniczne, odporność na wiele substancji chemicznych oraz bardzo duże możliwości kształtowania przetowników. Wzbudniki i sensory piezoelektryczne często występują jako cienkie fragmenty materiału piezoelektrycznego, które można wykonać w dowolnym kształcie. W przypadku kiedy chcemy uzyskać większą apmlitudę wzbudzenia, stosuje się stosy stworzone z wielu warstw piezoelektryka.
-
-Obecna ilość dostępnych na rynku rozwiązań pozwala na dobranie odpowiedniego przetwornika do niemal każdego projektu bazującego na niskich częstotliwościach. Podczas analizy rozwiązań komercyjnych okazało się, że duża część takich przetowrników posiada ograniczenia działania do kilku kHz. Jest to najczęściej zbyt niska częstotliwość, nawet w przypadku badania wyłącznie modów podstawowoych. Dostępne są też rozwiązania dla częstotliwości do nawet kilkuset kHz, co w przypadku fal prowadzonych może stanowić wystarczającą wartość.
-
-Przykłady przetwoników piezoelektrycznych w formie płytki oraz stosu znajdują się na rysunku \ref{fig:piezoelektryki}.
-
-\begin{figure}[h]
-        \centering
-        \begin{subfigure}{0.35\textwidth}
-                \centering
-	     \includegraphics[width=5cm]{Zdjecia/2/piezo_stos}
-                \subcaption{\label{subfigure_a}}
-        \end{subfigure}
-        \begin{subfigure}{0.35\textwidth}
-                \centering
-	     \includegraphics[width=5cm]{Zdjecia/2/piezo_plytka}
-                \subcaption{\label{subfigure_b}}
-        \end{subfigure}
-        \caption{Przetworniki piezoelektryczne: \protect\subref{subfigure_a} w formie sotsu, \protect\subref{subfigure_b} w formie płytki}
-        \label{fig:piezoelektryki}
-\end{figure}
-
-Innym sposobem badań jest wykorzystanie techniki laserowej. Za pomocą wiązki lasera możliwe jest wzbudzenie fali sprężystych w materiale. Na szczególną uwagę zasługuje możliwość wzbudzenia fali krótki impulsem, którego widmo będzie miała bardzo duży zakres częstotliwości. Sygnał taki możemy porównać do delty Diraca, dla której widmo ma stałą amplitudę. 
-
-Za pomocą lasera możemy wykonywać także pomiary drgań materiału. Posłużyć może do tego na przykład interferometr laserow, wykorzystujący efekt Dopplera. Detekcja jest jednak ograniczona do fal powierzchniowych. Atutem takiego pomiaru jest możliwość wykonania go dla wielu punktów na badanym obiekcie. Dzięki temu możemy uzyskać przestrzenny obraz propagacji fali.
-
-Przykładowe stanowisko do badania płyt za pomocą wymuszenia laserem przedstawia rysunek \ref{fig:laser}.
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=10cm]{Zdjecia/2/laser}
-\caption{Przykładowy układ stanowiska do badania fal Lamba w cienkiej płycie}
-\label{fig:laser}
-\end{figure}
-
-\input{2_3_A_Wzbudzalnosc}
+\input{2_3_D_Wzbudzalnosc}
 %---------------------------------------------------------------------------
 
 

@@ -39,7 +39,7 @@ gdzie
 Znając funkcje kształtu i wartości przemieszczeń węzłów można wyznaczyć przemieszczenie w każdym punkcie pręta, a następnie odpowiednie pochodne po przemieszczeniach i po czasie.
 
 \begin{gather}
-u = N_1 x_1 + N_2 x_2 = 
+u = N_1 u_1 + N_2 u_2 = 
 	\begin{bmatrix} 
 	 	N_1 & N_2 \\
 	\end{bmatrix}
@@ -102,7 +102,7 @@ Równanie dynamiki układu zapisane jest poniżej.
 \int_0^L \rho A {\textbf{N}}^T \textbf{N} dx {\ddot{\textbf{u}}}^e + \int_0^L A {\textbf{B}}^T E \textbf{B} dx u = F \textbf{Nu}^e_{x=L}
 \end{equation}
 
-Postaci macierzy mas i sztywności są następujące:
+Stąd postaci macierzy mas i sztywności są następujące:
 
 \begin{gather}
 \textbf{M}^e = \int_0^L \rho A {\textbf{N}}^T \textbf{N} dx \\
@@ -111,7 +111,7 @@ Postaci macierzy mas i sztywności są następujące:
 
 W przypadku kiedy występuje więcej niż jedna stała materiałowa, zamiast \( E \) pojawia się macierz materiałowa \( D \). W przypadku bardziej złożonych obiektów o większej liczbie elementów skończonych, całkowanie niezbędne do obliczenia macierzy staje się bardzo czasochłonne. Ponieważ funkcje kształtu są wielomianami, optymalnym rozwiązaniem jest zastosowanie kwadratur Gaussa. Kolejny problem to określenie granic całkowania. W przypadku przedstawionym powyżej nie widać specjalnej trudności, natomiast dla trójwymiarowych obiektów o nieregularnych kształtach wymaga to dodatkowej serii obliczeń.
 
-W takich przypadkach można zastosować mapowanie na współrzędne naturalne. W takich współrzędnych element ma z góry ustalone współrzędne węzłów, co za tym idzie także granice całkowania są znane. Dla obiektu trójwymiarowego przyjmijmy współrzędne rzeczywiste \( x, y, z \) i współrzędne naturalne \( \xi, \eta, \zeta \). Mapowania z jednych współrzędnych na drugie oblicza się według poniższego wzoru. Wizualizacja procedury przedstawiona jest na rysunku \ref{fig:izoparam}.
+W takich przypadkach można zastosować mapowanie na współrzędne naturalne. W takich współrzędnych element może mieć z góry ustalone współrzędne węzłów, co za tym idzie także granice całkowania są znane. Dla obiektu trójwymiarowego przyjmijmy współrzędne rzeczywiste \( x, y, z \) i współrzędne naturalne \( \xi, \eta, \zeta \). Mapowania z jednych współrzędnych na drugie oblicza się według poniższego wzoru. Wizualizacja procedury przedstawiona jest na rysunku \ref{fig:izoparam}.
 
 
 \begin{gather}
@@ -140,7 +140,7 @@ W takich przypadkach można zastosować mapowanie na współrzędne naturalne. W
 \label{fig:izoparam}
 \end{figure}
 
-Dla elementów w takich współrzędnych funkcje kształtu są znane i stabelaryzowane. Dla elementu sześciennego wypisane są w \ref{eq:f_ksztaltu_hex}.
+Dla elementów w takich współrzędnych funkcje kształtu są znane i stabelaryzowane. Dla elementu sześciennego wypisane są poniżej.
 
 \begin{equation} \label{eq:f_ksztaltu_hex}
 	\begin{aligned}
@@ -178,6 +178,8 @@ Ostatecznie wyznaczanie macierzy mas i sztywności dla elementu sześciennego zo
 	\textbf{M}^e = \int_V \rho {\textbf{N}}^T \textbf{N} dV \quad \rightarrow \quad \textbf{M}^e = \int_{-1}^1 \int_{-1}^1 \int_{-1}^1 \rho {\textbf{N}}^T \textbf{N} det\textbf{J} d\xi d\eta d\zeta \\
 	\end{aligned}
 \end{equation}
+
+Cała procedura pozwala na całkowanie we współrzędnych naturalnych, gdzie granice całkowania są stałe. Uwzględnienie jakobianu powoduje, że całka w nowych współrzędnych jest równa całce na współrzędnych rzeczywistych.
 
 
 
