@@ -3,7 +3,7 @@
 \label{sec:Taylor}
 Prezentowana w poniższej sekcji metoda kompensacji dyspersji została przedstawiona w artykule []\textcolor{red}{referenacja do yuanliu}
 \subsection{Podstawy teoretyczne}
-Po wzbudzeniu badanego pręta odpowiednim sygnałem wejściowym, możliwe jest aby przełączył się on w tryb obioru sygnału i nasłuchiwał nadejścia odpowiedzi układu. W takim wypadku odpowiedź jaką uzyskamy będzie sumą odpowiedzi ze wszystkich odbić, od końca pręta oraz ewentualnych łączeń lub uszkodzeń.  Proponowana w tym rozdziale metoda opiera sie na założeniu, że w badanym obiekce propaguje jedna wybrana postać drgań. Jej celem jest kompensacja powstałej dyspersji, tak aby sygnały z różnych punktów odbicia nie nachodziły na siebie i była możliwa ich interpretacja w celu ustalenia ilości punktów odbicia oraz oszacowania ich odegłości od miejsca wzbudzenia na podstawie znajomości prędkości grupowej fali. Przy tak sformułowanych założeniach, sygnał otrzymany w odbiorniku można przedstawić wzorem:
+Po wzbudzeniu badanego pręta odpowiednim sygnałem wejściowym, możliwe jest aby nadajnik przełączył się w tryb obioru sygnału i nasłuchiwał nadejścia odpowiedzi układu. W takim wypadku odpowiedź jaką uzyskamy będzie sumą odpowiedzi ze wszystkich odbić, od końca pręta oraz ewentualnych łączeń lub uszkodzeń.  Proponowana w tym rozdziale metoda opiera się na założeniu, że w badanym obiekce propaguje jedna wybrana postać drgań. Jej celem jest kompensacja powstałej dyspersji, tak aby sygnały z różnych punktów odbicia nie nachodziły na siebie i była możliwa ich interpretacja w celu ustalenia ilości punktów odbicia oraz oszacowania ich odegłości od miejsca wzbudzenia na podstawie znajomości prędkości grupowej fali. Przy tak sformułowanych założeniach, sygnał otrzymany w odbiorniku można przedstawić wzorem:
 \begin{equation}
 g(t) = \sum\limits_{n=1}{N}f_n(r_n,t)=\frac{1}{2\pi}\int _{-\infty}^{\infty}F(\omega)\sum\limits_{n=1}^{N}(A_n(\omega)e^{-ikr_n})e^{i\omega t} d\omega \label{eq:g(t)_taylor}
 \end{equation}
@@ -78,7 +78,7 @@ Ponieważ $G(\omega)$ jest znane oraz znana jest analizowana krzywa dyspersji, z
 Należy zaznaczyć, iż stosowanie omawianej metody jest możliwe tylko w sytuacji, gdy $K(\omega)$ jest funkcją monotoniczną
 
 \subsection{Implementacja numeryczna}
-Implementacja prezentowanej metody opiera się głównie na znajomości krzywej dyspersji, której propagację bierzemy pod uwagę. Pierwszym krokiem, jest wygenerowanie odpowiedniego sygnału testowego. Mając właściwy sygnał można przystąpić do właściwego procesu kompensacji. W pierwszej kolejności analizowane jest widmo amplitudowe otrzymanego sygnału. Na jego podstawie uzyskiwana jest informacja o częstotliwości z największą energią. Zostaje ona wybrana na częstotliwość w której nastąpi przybliżenie liniowe. Po wybraniu $\omega _0$ odnajdywane jest na krzywej dyspersji odpowiednia wartość liczby falowej. Korzystając z zależności opisujących wartości $k_0$ i $k_1$ wyliczone zostaje liniowe przybliżenie badanej krzywej. Uzyskane w aplikacji wyniki przedstawia rysunek \ref{fig:krzywa_moja}. Linia niebieska prezentuje oryginalną krzywą dyspersji, natomiast linia zielona przdstawia jej przybliżenie uzyskane w aplikacji przy użyciu rozwinięcia w szereg Taylora.
+Implementacja prezentowanej metody opiera się głównie na znajomości krzywej dyspersji, której propagację bierzemy pod uwagę. Pierwszym krokiem, jest wygenerowanie odpowiedniego sygnału testowego. Mając wygenerowany sygnał można przystąpić do właściwego procesu kompensacji. W pierwszej kolejności analizowane jest widmo amplitudowe otrzymanego sygnału. Na jego podstawie uzyskiwana jest informacja o częstotliwości z największą energią. Zostaje ona wybrana na częstotliwość w której nastąpi przybliżenie liniowe. Po wybraniu $\omega _0$ odnajdywane jest na krzywej dyspersji odpowiednia wartość liczby falowej. Korzystając z zależności opisujących wartości $k_0$ i $k_1$ wyliczone zostaje liniowe przybliżenie badanej krzywej. Uzyskane w aplikacji wyniki przedstawia rysunek \ref{fig:krzywa_moja}. Linia niebieska prezentuje oryginalną krzywą dyspersji, natomiast linia zielona przdstawia jej przybliżenie uzyskane w aplikacji przy użyciu rozwinięcia w szereg Taylora.
 
 \begin{figure}[h]
 \centering
@@ -87,7 +87,7 @@ Implementacja prezentowanej metody opiera się głównie na znajomości krzywej 
 \label{fig:krzywa_moja}
 \end{figure}
 
-Kolejnym krokiem implementowanego algorytmu, jest wyliczenie G(k) na podstawie otrzymanego widma sygnału $G(\omega)$ na podstawie krzywej dyspersji. Następnie ponowne wyznaczenie zależności w dziedzinie częstotliwości, tym razem jednak używając przybliżenia liniowego zamiast oryginalnej krzywej dyspersji. Omawiany algorytm doskonale ilustruje rysunek \ref{fig:algo_Taylora}
+Kolejnym krokiem implementowanego algorytmu, jest wyliczenie G(k) na podstawie otrzymanego widma sygnału $G(\omega)$ oraz krzywej dyspersji. Następnie ponowne wyznaczenie zależności w dziedzinie częstotliwości, tym razem jednak używając przybliżenia liniowego zamiast oryginalnej zależności $k(\omega)$. Omawiany algorytm doskonale ilustruje rysunek \ref{fig:algo_Taylora}
 
 \begin{figure}[h]
 \centering
@@ -96,23 +96,35 @@ Kolejnym krokiem implementowanego algorytmu, jest wyliczenie G(k) na podstawie o
 \label{fig:algo_Taylora}
 \end{figure}
 
-Przedstawia on krzywą $G(\omega)$ z aż trzema osiami poziomymi. Linia ciągła przedstawia zależność $G(K(\omega))$, czerwonymi kółkami oznaczony jest sygnał $G(\omega)$. Jak widać przejście z dziedziny $K(\omega)$ na $\omega$ jest nieliniowe co wynika z niliniowego charakteru krzywej dyspersji. Zielonymi trójkątami oznaczono natomiast krzywą $G(K_{lin}(\omega))$. Jak widać przejście z dziedziny $\omega$ na $K_{lin}(\omega)$ jest przejściem o charakterze liniowym. 
+Przedstawia on krzywą $G(\omega)$ z aż trzema osiami poziomymi. Linia ciągła przedstawia zależność $G(K(\omega))$, czerwonymi kółkami oznaczony jest sygnał $G(\omega)$. Jak widać przejście z dziedziny $K(\omega)$ na $\omega$ jest nieliniowe co wynika z nieliniowego charakteru krzywej dyspersji. Zielonymi trójkątami oznaczono natomiast krzywą $G(K_{lin}(\omega))$. Przejście z dziedziny $\omega$ na $K_{lin}(\omega)$ jest przejściem o charakterze liniowym. 
 \subsection{Wybrane wyniki symulacji}
-Rysunek \ref{fig:liniakrzyws} obrazuje przybliżenie krzywej dyspersji wyznaczonej dla zadanego sygnału z rysunku 4.8.
+Dokładność odwzorowania przybliżenia liniowego oryginalnej krzywej zależy od jej kształtu. Im bardziej liniowa jest charakterystyka w pewnym otoczeniu wybranej częstotliwości, tym mniej widoczne będzie zjawisko dyspersji i tym dokładniejsze będzie odwzorowanie. Rysunek \ref{fig:taylor porownanie} pokazuje wygenerowane przybliżenie krzywej dyspersji odpowiadającej pierwszej postaci oraz jej liniowego przybliżenia. Rysunek \ref{fig:taylor porownanie2} krzywą odpowiadającą trzeciej postaci oraz jej liniowego przybliżenia. Łatwo można zauważyć, że w przypadku pierwszej krzywej największe różnice są przy bardzo niskich częstotliwościach a dalej funkcja uzyskuje kształt niemalże liniowy. W przypadku drugiej krzywej dopasowanie jest zdecydowanie mniej dokładne
+
 \begin{figure}[h]
 \centering
-\includegraphics[width=13cm]{Zdjecia/4/krzywa_moja}
+\includegraphics[width=13cm]{Zdjecia/4/taylorporownanie}
 \caption{Porównanie oryginalnej krzwej z jej liniowym przybliżeniem}
-\label{fig:liniakrzyws}
+\label{fig:taylor porownanie}
 \end{figure}
-Rysunek \ref{fig:przedipo} ilustruje przykład sygnału przed i po kompensacji.
+
 \begin{figure}[h]
 \centering
-\includegraphics[width=13cm]{Zdjecia/4/przedipo}
-\caption{Porównanie sygału przed i po kompensacji}
-\label{fig:przedipo}
+\includegraphics[width=13cm]{Zdjecia/4/taylor_porownanie_trzecie}
+\caption{Porównanie oryginalnej krzwej z jej liniowym przybliżeniem}
+\label{fig:taylor porownanie2}
 \end{figure}
-Na ostatnim rysunku przedstawione zostało porównanie otrzymanych w wyniku kompensacji sygnałów z sygnałem zadanym \ref{fig:przedipo2}
+
+Kolejny rysunek przedstawia przykład sygnału przed i po kompensacji. W prezentowanym przykładzie propagowała pierwsza postać drgań, na odległość dwóch metrów. Sygnał skompensowany w znacznie większym stopniu przypomina sygnał wejściowy. Również czas jego trwania nieco się skrócił. Ze względu na małą dyspersyjność wybranego trybu, wydłużenie w czasie w prezentowanym przykładzie nie było bardzo znaczne, niemniej jednak stosując omawianą metodą kompensacji czas trwania sygnału udało się skrócić do wartości zbliżonej do długości sygnału oryginalnego.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=13cm]{Zdjecia/4/taylor_pierwszy_prim}
+\caption{Porównanie sygnału przed i po kompensacji}
+\label{fig:taylor pierwsza}
+\end{figure}
+
+
+Na ostatnim rysunku \ref{fig:przedipo2} przedstawione zostało porównanie otrzymanych w wyniku kompensacji sygnałów z sygnałem zadanym. Sygnał nie został odzyskany do postaci idealnie odpowiadającej pierwotnemu sygnałowi, co wynika bezpośrednio z zastosowanej procedury, jednak cel kompensacji, jakim jest skrócenie czasu trwania otrzymanego sygnału został osiągnięty. Dodatkowym atutem prezentowanej metody w stosunku do tej omówionej w poprzednim podrzodziale jest brak konieczności znajomości długości ścieżki propagacji. Pozwala ona na badanie obiektu bez zalożeń o odleglości na jaką sygnał będzie propagował oraz ilości jego odbić w obiekcie.
 \begin{figure}[h]
 \centering
 \includegraphics[width=13cm]{Zdjecia/4/przedipo2}

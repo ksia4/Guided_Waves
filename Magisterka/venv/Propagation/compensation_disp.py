@@ -449,12 +449,12 @@ def linear_mapping_compensation(signal, number_of_modes, disp_curves):
     new_G_w = []
     print("Liczę nowe G(w) to z falką")
 
-    # plt.figure("Porównanie 2 wyników")
-    # plt.plot(mean_mode.all_omega_khz, KrzyweDyspersji.k_v)
-    # plt.plot(frequency_from_numpy, k_0 + k_1*(frequency_from_numpy - w_0))
-    #
-    # plt.title("Porównanie oryginalnej krzywej z jej liniowym przybliżeniem")
-    # plt.show()
+    plt.figure("Porównanie 2 wyników")
+    plt.plot(mean_mode.all_omega_khz, KrzyweDyspersji1.k_v)
+    plt.plot(frequency_from_numpy, k_0 + k_1*(frequency_from_numpy - w_0))
+
+    plt.title("Porównanie oryginalnej krzywej z jej liniowym przybliżeniem")
+    plt.show()
 
     for ind, f in enumerate(frequency_from_numpy):
         print(len(frequency_from_numpy)-ind)
@@ -480,10 +480,46 @@ def linear_mapping_compensation(signal, number_of_modes, disp_curves):
 
 
 if __name__ == "__main__":
-    KrzyweDyspersji1= selectMode.SelectedMode('../../../Dane/Node4_10_4_4/kvect', '../../../Dane/Node4_10_4_4/omega')
+    KrzyweDyspersji1= selectMode.SelectedMode('../eig/kvect', '../eig//omega')
     KrzyweDyspersji1.selectMode()
-    print("1")
-    KrzyweDyspersji1.plot_modes(4)
+    dist = 2 # w metrach
+
+    signal_array1, time_x_freq1 = Anim_dyspersji.get_chirp()
+
+    bez_komp2 = wave_length_propagation([time_x_freq1[0], signal_array1[3]], [3], KrzyweDyspersji1, dist, True, 100)
+    bez_komp1 = wave_length_propagation([time_x_freq1[0], signal_array1[3]], [1,2,3], KrzyweDyspersji1, dist, True, 100)
+    plt.plot(bez_komp1[0], bez_komp1[1])
+    plt.plot(bez_komp2[0], bez_komp2[1])
+    plt.title("Porównanie")
+    plt.show()
+    exit(0)
+
+    po_komp2 = linear_mapping_compensation(bez_komp2, 3, KrzyweDyspersji1)
+
+
+    plt.figure("porównanie2")
+    plt.subplot(211)
+
+    plt.plot(bez_komp2[0], bez_komp2[1])
+    plt.xlabel("time[s]")
+    plt.ylabel("Amplitude")
+    plt.title("Sygnał przed kompensacją")
+
+    plt.subplot(212)
+    plt.plot(po_komp2[0], po_komp2[1])
+    plt.xlabel("time[s]")
+    plt.ylabel("Amplitude")
+    plt.title("Sygnał po kompensacji")
+    plt.show()
+
+    exit(0)
+    # print("1")
+    # KrzyweDyspersji1.plot_modes(10)
+    # exit(0)
+
+
+
+
     KD2 = selectMode.SelectedMode('../../../Dane/Node4_10_6_6/kvect', '../../../Dane/Node4_10_6_6/omega')
     KD2.selectMode()
     print("2")

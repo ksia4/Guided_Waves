@@ -277,7 +277,7 @@ class SelectedMode:
             dziady = []
             for p in self.AllModes.modeTable[i].points:
                 dziady.append(p.w)
-            plt.plot(dziady, self.k_v, markersize=8)
+            plt.plot(dziady, self.k_v,'.', markersize=8)
         plt.xlabel("Frequency [kHz]")
         plt.ylabel("Wavenumber [rad/m]")
         plt.xlim([0, 180])#600
