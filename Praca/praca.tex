@@ -249,6 +249,8 @@ backend=biber
 \setcounter{secnumdepth}{4}
 \brokenpenalty=10000\relax
 
+\bibliography{bibliografia}
+
 \begin{document}
 
 \titlepages
@@ -284,13 +286,13 @@ backend=biber
 
 
 % Załączniki
-\begin{appendices}
-  \makeatletter% Kod poniżej powoduje ustęp w spisie treści
-  \addtocontents{toc}{\let\protect\l@chapter\protect\l@section}
-  \input{zalacznikA}
+%\begin{appendices}
+  %\makeatletter% Kod poniżej powoduje ustęp w spisie treści
+  %\addtocontents{toc}{\let\protect\l@chapter\protect\l@section}
+  %\input{zalacznikA}
   % \input{zalocznikB}
   % itd.
-  \makeatother%
-\end{appendices}
+  %\makeatother%
+%\end{appendices}
 
 \end{document}
