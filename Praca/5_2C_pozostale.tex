@@ -110,7 +110,7 @@ W tym module zawarte są dwie funkcje, które są przykładami budowy modelu za 
 
 \vspace {3mm}
 
-W pierwszej lini uzyskiwana jest macierz współrzędnych węzłów siatki. Następnie siatka jest wyświetlana w na płaszczyźnie, bądź w rzucie izometrycznym jeśli wartości z modułu config mają wartości TRUE. Kolejnym etapem jest tworzenie elementów skończonych i warunkowe ich wyświetlanie. Wartość start przechowuje czas, w którym rozpoczyna się obliczanie macierzy sztywności - k. Po obliczeniu też macierzy wyświetlanu jest komunikat z czasem obliczeń.  Podobnie poniżej w przypadu macierzy mas.
+W pierwszej lini uzyskiwana jest macierz współrzędnych węzłów siatki. Następnie siatka jest wyświetlana w na płaszczyźnie, bądź w rzucie izometrycznym jeśli wartości z modułu config mają wartości TRUE. Kolejnym etapem jest tworzenie elementów skończonych i warunkowe ich wyświetlanie. Wartość start przechowuje czas, w którym rozpoczyna się obliczanie macierzy sztywności - k. Po obliczeniu tej macierzy wyświetlany jest komunikat z czasem obliczeń.  Podobnie poniżej w przypadu macierzy mas.
 
 \textit{mes8(numberOfPlanes, radius, numberOfCircles, numberOfPointsOnCircle, addNodes)} - funkcja przyjmuje jako argumenty liczbę płaszczyzn siatki - numberOfPlanes, promień pręta - radius, liczbę okręgów na jednej płaszczyźnie siatki - numOfCircles, liczbę węzłów na pierwszym okręgu siatki - numOfPointsOnCircle oraz liczbę dodatkowych punktów na każdym kolejnym okręgu siatki przy zastosowaniu odpowiedniego jej typu - addNodes. Poniżej znajduje się całość kodu tej funkcji.
 
@@ -176,10 +176,10 @@ Moduł pozwala na obliczanie krzywych wzbudzalności dla poszczególnych modów.
 \textit{hermitianTranspose(matrix)} - funkcja przyjmuje jako argument macierz, a zwraca sprzężenie hermitowskie macierzy wejściowej.
 
 \vspace {3mm}
-\textit{calculateP(kr, kl, wavenumber, eigvector)} - funcja przyjmuje jako argumenty podmacierze macierzy sztywności \( k\_r i k\_l \) wykorzystywane wcześniej we wzorze \ref{eq:MES5}, wartości liczby falowej, dla których wyznaczano wartości i wektory własne - wavenumber oraz wektory własne eigvector. Zwraca wartość \( P \) zgodnie ze wzorem \ref{eq:wzbudzanie3}.
+\textit{calculateP(kr, kl, wavenumber, eigvector)} - funcja przyjmuje jako argumenty podmacierze macierzy sztywności \( k\_r \) i \(k\_l \) wykorzystywane wcześniej we wzorze \ref{eq:MES5}, wartości liczby falowej, dla których wyznaczano wartości i wektory własne - wavenumber oraz wektory własne - eigvector. Zwraca wartość \( P \) zgodnie ze wzorem \ref{eq:wzbudzanie3}.
 
 \vspace {3mm}
-\textit{calculateExcitablity(mode, f)} - funkcja przyjmuje jako argumenty numer modu - mode oraz wektor będący wymuszającą siłą węzłową dla modelu MES. Wyznacza dla każdej częstotliwości, z którą związany jest wektor własny, wartość amplitudy. Zwraca wektor częstotliwości i amplitud.
+\textit{calculateExcitablity(mode, f)} - funkcja przyjmuje jako argumenty numer modu - mode oraz wektor będący wymuszającą siłą węzłową dla modelu MES - f. Wyznacza dla każdej częstotliwości, z którą związany jest wektor własny, wartość amplitudy. Zwraca wektor częstotliwości i amplitudy.
 
 \vspace {3mm}
 \textit{calculateAndShowCurves(numberOfModes)} - funkcja przyjmuje jako argument liczbę początkowych modów, dla których ma wyznaczyć krzywe wzbudzalności- numberOfModes. Po obliczeniu przedstawia wykres krzywych wzbudzalności.
@@ -192,4 +192,4 @@ Wszystkie dane umieszczone są w katalogu \textit{eig}. Liczby falowe zapisane s
 
 Wartości własne zapisane są w katalogu \textit{eig} w pliku \textit{omega}. Każda kolumna zawiera wartości wyznaczone dla jednej wartości liczby falowej.
 
-Wektory własne zapisywane są w katalogu \textit{eig}, w plikach mających w nazwie \textit{eig\_}, a następnie wartość liczby falowej. W każdym z taikch plików zapisane są wartości własne i odpowiadające im wektory własne dla jednej wartości liczby falowej. W pierwszej linii znajduje się wartość własna, w drugiej odpowiadający jej wektor własny, a następnie pozostałe wartości i wektory własne w kolejnych liniach.
+Wektory własne zapisywane są w katalogu \textit{eig}, w plikach mających w nazwie \textit{eig\_}, a następnie wartość liczby falowej. W każdym z takich plików zapisane są wartości własne i odpowiadające im wektory własne dla jednej wartości liczby falowej. W pierwszej linii znajduje się wartość własna, w drugiej odpowiadający jej wektor własny, a następnie pozostałe wartości i wektory własne w kolejnych liniach.
