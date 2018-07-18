@@ -1,21 +1,21 @@
 \section{Metoda mapowania sygnału z dziedziny czasu na dziedzinę odległości}
 \label{sec:Wilcox}
 
-Poniżej omawiana metoda, została opisana w artykule [\textcolor{red}{Wilcox}]. Opiera się na odpowiednim zastosowaniu transformaty Fouriera, pozwala na kompensację sygnału poprzez przejście z dziedziny czasu na dziedzinę odległości, dzięki czemu w wyniku otrzymywany jest skompensowany sygnał oraz informacja o długości ścieżki propagacji.
+Opisana w poniższej sekcji metoda została zaprezentowana w artykule [\textcolor{red}{[1kasia]}]. Opiera się na odpowiednim zastosowaniu transformaty Fouriera. Pozwala na kompensację sygnału poprzez przejście z dziedziny czasu na dziedzinę odległości, dzięki czemu w wyniku otrzymywany jest skompensowany sygnał oraz informacja o długości ścieżki propagacji.
 
 \subsection{Podstawy teoretyczne}
 
-W niniejszej pracy rozważaną strukturą, w której powstają i propagują fale prowadzone jest długi stalowy pret. Przyjmując oznaczenie sygnału wejściowego jako $f(t)$, natomiast propagujący w pręcie sygnał jako $u(x,t)$ zakłada się iż w miejscu wzbudzenia, w miejscu w którym zamontowany jest odpowiedni wzbudnik zachodzi zależność 
+W niniejszej pracy rozważaną strukturą, w której powstają i propagują fale prowadzone jest długi stalowy pret. Przyjmując oznaczenie sygnału wejściowego jako $f(t)$, natomiast propagujący w pręcie sygnał jako $u(x,t)$ zakłada się iż w miejscu wzbudzenia, zachodzi zależność: 
 \begin{equation}
 u(x,t) = f(t)
 \end{equation}
-Znając $u(x,t)$ w jednym punkcie w przestrzeni oraz znając charakterystykę propagującego trybu lub trybów fali prowadzonj, można odtworzyć sygnał po dowolnej odległości propagacji oraz w dowolnym punkcie czasowym. Można to osiągnąć rozważając przesunięcie fazowe każdej składowej częstotliwości oddzielnie:
+Znając $u(x,t)$ w jednym punkcie w przestrzeni oraz znając charakterystykę propagującego trybu lub trybów fali prowadzonej, można odtworzyć sygnał po dowolnej odległości propagacji oraz w dowolnym punkcie czasowym. Można to osiągnąć rozważając przesunięcie fazowe każdej składowej częstotliwości oddzielnie:
 \begin{equation}
 u(x,t) = \int\limits_{-\infty}^{\infty}F(\omega)e^{i(k(\omega)x - \omega t)}d\omega \label{eq:propagacja_jeden_mod}
 \end{equation}
 Propagacja więcej niż jednego trybu fali oznacza, iż dana częstotliwość wzbudziła więcej niż jedną jej postać. Co za tym idzie w takim przypadku również możliwe jest odtworzenie przebiegu fali poprzez lekką modyfikację wzoru \ref{eq:propagacja_jeden_mod}
 \begin{equation}
-u(x,t) = \int\limits_{-\infty}^{\infty}F(\omega)e^{ - \omega t)}\sum \limits _{j=1}^{n}e^{ik_j(\omega)x} d\omega\label{eq:propagacja_kilka_mod}
+u(x,t) = \int\limits_{-\infty}^{\infty}F(\omega)e^{ -i \omega t}\sum \limits _{j=1}^{n}e^{ik_j(\omega)x} d\omega\label{eq:propagacja_kilka_mod}
 \end{equation}
 gdzie:
 
@@ -28,7 +28,7 @@ Jak już zostało wspomniane, otrzymany sygnał g(t) można odwzorować na funkc
 x=v_{gr}t \label{eq:x=vgrt}
 \end{equation}
 
-Gdzie $v_{gr}$ jest prędkością grupową trybu fali prowadzonej, mierzoną zazwyczaj dla częstotliwości środkowej, lub tej o największej energii. Odwzorowanie takie jest proste do osiągnięcia poprzez zwykłe skalowanie osi czasu g(t) na odległośći propagacji. W przypadku takiego odwzorowania możliwości wykrycia defektów struktury, znajdujących się w bliskiej odległości od innych cech strukturalnych takich jak na przykład koniec badanego pręta czy punkt łączenia dwóch prętów, zależy od czasu trwania poszczególnych sygnałów. Długie sygnały będą się na siebie nakładać co może doprowadzić do niewykrycia uszkodzenia. Z tego względu sygnał g(t) powinien być jak najkrótszy. 
+Gdzie $v_{gr}$ jest prędkością grupową trybu fali prowadzonej, mierzoną zazwyczaj dla częstotliwości środkowej, lub tej o największej energii. Odwzorowanie takie jest proste do osiągnięcia poprzez zwykłe skalowanie osi czasu g(t) na odległośći propagacji. W przypadku takiego odwzorowania, możliwości wykrycia defektów struktury, znajdujących się w bliskiej odległości od innych cech strukturalnych takich jak na przykład koniec badanego pręta czy punkt łączenia dwóch prętów, zależy od czasu trwania poszczególnych sygnałów. Długie sygnały będą się na siebie nakładać co może doprowadzić do niewykrycia uszkodzenia. Z tego względu sygnał g(t) powinien być jak najkrótszy. 
 
 Przedstawiany algorytm kompensacji dyspersji, zastępuje proste mapowacznie czasu na odległość przy pomocy równania \ref{eq:x=vgrt} takim, które jest wykonywane w domenie liczby falowej. Takie podejście pozwala wziąć pod uwagę prędkości zależne od częstotliwości, czyli wzięcie pod uwagę dyspersji. Niezbędnym elementem omawianej metody jest znajomość krzywych dyspresji badanego obiektu, w zakresie propagowanych trybów. Dokładność z jaką wyliczone krzywe reprezentują rzeczywistą charakterystykę układu, znajduje odzwierciedlenie w jakości uzyskanych wyników. W sytuacji idelanej przedstawiany algorytm przywraca każdy sygnał do dokładnego kształtu pierwotnego, niezależnie od jego odległości propagacji.  
 
@@ -36,7 +36,7 @@ Celem omawianej metody jest przekształcenie otrzymanego sygnału $g(t)$ w funkc
 \begin{figure}[h]
 \centering
 \includegraphics[width=14cm]{Zdjecia/4/Wilcox_zasada_dzial}
-\caption{\textcolor{red}{wymyśl na to jakiś tytuł + referencja do Wilcoxa}}
+\caption{Zasada działania omawianej techniki kompensacji dyspersji\textcolor{red}{[1kasia]}}
 \label{fig:Wilcox_propaguje}
 \end{figure}
 Obliczenie propagowanego wstecz sygnału dla ujemnych wartości $x'$ w $t=0$ daje dokładnie poszukiwane odwzorowanie z czasu na odlgełość propagacji, która jest poszukiwana i która kompensuje rozproszenie odebranych sygnałów. Nowa zmienna propagacji $x'$ może być zdefiniowana jako $x=-x'$. Wynika z tego, iż propagacja wsteczna może zostać opisana wzorem:
@@ -53,12 +53,12 @@ $h(x)$ - skompensowany dyspersyjnie przebieg odległości.
 
 Funkja h(x) przedstawiona jest na rysunku \ref{fig:Wilcox_propaguje} (c).
 
-W niniejszej pracy nie został uwzględniony współczynnik odbicia $A_j$. Na potrzeby symulacji przyjęte zistało iż jest on stały, niezależny od czestotliwości i wynosi 1. Gdyby jednak brać go pod uwagę to wzór \textcolor{red}{numerek tego wzoru na g(t)} przyjałby postać:
+W niniejszej pracy nie został uwzględniony współczynnik odbicia $A_j$. Na potrzeby symulacji przyjęte zostało iż jest on stały, niezależny od czestotliwości i wynosi 1. Gdyby jednak brać go pod uwagę to wzór 4.16 przyjałby postać:
 \begin{equation}
 g(t) = \sum \limits _{j}\int\limits_{-\infty}^{\infty}A_j(\omega)F(\omega)e^(ik(\omega)x_j-wt)d\omega
 \end{equation}
 
-W wprzyadku stałego współczynnika odbić wszystkie sygnały w h(x) powinny mieć ten sam kształt obwiedni co oryginalny sygnał wejściowy. Gdyby jednak zależał on od częstotliwości , wówczas obwiednia sygnału w h(x) zostanie zniekształcona i na ogół wydłużona. Takie zniekształcenie jest artefaktem charakterystycznym dla danego punktu odbicia fali. Co za tym idzie takie zakłócenie byłoby obserwowane nawet, gdyby zjawisko dyspersji nie występowało. 
+W przyadku stałego współczynnika odbić wszystkie sygnały w h(x) powinny mieć ten sam kształt obwiedni co oryginalny sygnał wejściowy. Gdyby jednak zależał on od częstotliwości , wówczas obwiednia sygnału w h(x) zostanie zniekształcona i na ogół wydłużona. Takie zniekształcenie jest artefaktem charakterystycznym dla danego punktu odbicia fali. Co za tym idzie takie zakłócenie byłoby obserwowane nawet, gdyby zjawisko dyspersji nie występowało. 
 
 \subsection{implementacja numeryczna}
 Równanie \ref{eq:wsteczna propagacja} jest podstawowym równaniem omawianej metody. Jest równaniem kompensacji dyspersji dla funkcji ciągłych. W praktyce sygnał g(t) nie jest sygnałem ciągłym a sygnałem dyskretnym, wygenerowanym w aplikacji lub otrzymanym z przetwornika. Na potrzeby tego rozdziału przyjmijmy nastepujące oznaczenia:
@@ -75,7 +75,7 @@ $\Delta x$ -przestrzenny okres próbkowania h(x)
 
 $n\Delta x$ - całkowita przestrzenna długość sygnału
 
-Najprostszą implementacją omawianego algorytmu jest poddanie sygnału g(t) szybkiej transformacie Fouriera, a następnie całkowanie numeryczne w zakresie częstotliwości sygnału wejściowego. Takie rozwiązanie byłoby niezwykle czasochłonne ponieważ całkowanie musiałoby zostać wykonane dla każde z n punkót w skompensowanym sygnale h(x). Metodą, która została zaimplementowana w opisanej aplikacji polega na lekkiej modyfikacji równania \ref{eq:wsteczna propagacja}. Ta zmiana pozwala na wykonywanie całkowania w ramach algorytmu odwrotnej transformaty Fouriera. Skompensowany sygnał jest funkcją odległości. Odwrotna transformata Fouriera musi zostać zastosowana na sygnale w dziedzinie liczby falowej. Wynika z tego, iż zmienna całkowania w równaniu \ref{eq:wsteczna propagacja} musi zostać zmieniona z $\omega$ na $k$. Można to łatwo zrobić używając poniższych zależności:
+Najprostszą implementacją omawianego algorytmu jest poddanie sygnału g(t) szybkiej transformacie Fouriera, a następnie całkowanie numeryczne w zakresie częstotliwości sygnału wejściowego. Takie rozwiązanie byłoby niezwykle czasochłonne ponieważ całkowanie musiałoby zostać wykonane dla każdego z n punkót w skompensowanym sygnale h(x). Metodą, która została zaimplementowana w opisanej aplikacji polega na modyfikacji równania \ref{eq:wsteczna propagacja}. Ta zmiana pozwala na wykonywanie całkowania w ramach algorytmu odwrotnej transformaty Fouriera. Skompensowany sygnał jest funkcją odległości. Odwrotna transformata Fouriera musi zostać zastosowana na sygnale w dziedzinie liczby falowej. Wynika z tego, iż zmienna całkowania w równaniu \ref{eq:wsteczna propagacja} musi zostać zmieniona z $\omega$ na $k$. Można to łatwo zrobić używając poniższych zależności:
 \begin{equation}
 d\omega = v_{gr}(\omega)dk
 \end{equation}
@@ -106,7 +106,7 @@ $$
 
 Równanie \ref{eq:h(x) dobre} ma postać odwrotnej transformaty Fouriera $H(k)$, w punktach spróbkowanych ze stałym przestrzennym okresem próbkowania $\Delta k$. Uzyskana z transformaty Fouriera funkcja $G(\omega)$ jest funkcją o punktach równomiernie spróbkowanych w dziedzinie częstotliwości. Ze względu na nieliniowy charakter krzywych dyspersji przejście z dziedziny częstości na dziedzinę liczby falowej dałoby w rezultacie funkcję o nierównomiernie spróbkowanej osi k. Aby uzyskać porządany efekt konieczne jest użycie znanej z krzywej dyspersji zależności między wartościami $\omega$ oraz $k$, aby interpolować funkcję G, tak by znaleźć jej wartości w punktach równomiernie rozmieszczonych w dziedzinie liczby falowej.
 
-$G(\omega)$ jest sygnałem zawierającym informacje zarówno o fazie jak i amplitudzie sygnału. W rozwiązaniu numerycznym istotne jest aby dobrać odpowiednie wartości kroków. Zbyt duże ich wartości mogą spowodować utratę informacji, natomiast zbyt małe prowadzą do znacznego wydłużania czasu obliczeń, w zamian za co uzyskiwane wyniki są dokładniejsze i wpływ szumu staje się mniej znaczący. W celu zmniejszenia szumu powodowanego przez błędy interpolacji w końcowym, skompensowanym sygnale, otrzymany wygnał g(t) wypełnia się zerami.W aplikacji użytkownik ma możliwość samodzielnie podać ile razy chce wydłużyć sygnał poprzez wypełnienie zerami. Ograniczenim podlega zarówno $\delta k$ jak i ilość punktów liczb falowych n. Aby zapobiec zawijaniu sygnału w domenie odległości, minimalna długość skompensowanego sygnału h(x) musi być większa od długości pierwotnego sygnału g(t) pomnożonego przez maksymalną prędkość grupową $v_max$.
+$G(\omega)$ jest sygnałem zawierającym informacje zarówno o fazie jak i amplitudzie sygnału. W rozwiązaniu numerycznym istotne jest aby dobrać odpowiednie wartości kroków. Zbyt duże ich wartości mogą spowodować utratę informacji, natomiast zbyt małe prowadzą do znacznego wydłużania czasu obliczeń, w zamian za co uzyskiwane wyniki są dokładniejsze i wpływ szumu staje się mniej znaczący. W celu zmniejszenia szumu powodowanego przez błędy interpolacji w końcowym, skompensowanym sygnale, otrzymany sygnał g(t) wypełnia się zerami.W aplikacji użytkownik ma możliwość samodzielnie podać ile razy chce wydłużyć sygnał poprzez wypełnienie zerami. Ograniczenim podlega zarówno $\Delta k$ jak i ilość punktów liczb falowych n. Aby zapobiec zawijaniu sygnału w domenie odległości, minimalna długość skompensowanego sygnału h(x) musi być większa od długości pierwotnego sygnału g(t) pomnożonego przez maksymalną prędkość grupową $v_{max}$.
 \begin{equation}
 n\Delta x > m\Delta tv_{max}\label{eq:nierownosc dlugosci sygnalow}
 \end{equation} 
@@ -138,21 +138,21 @@ h(x) = \int\limits _{-\infty}^{\infty}G(\omega)e^{i(k_1(\omega)+k_2(\omega))\fra
 \end{equation}
 W implementacji oznacza to, iż kilka krzywych dyspersji zostaje ośrednionych do jednej postaci w której $k_{12} = \frac{1}{2}(k_1(\omega) + k_2(\omega))$
 \subsection{Wybrane wyniki symulacji}
-Przykładowe sygnał wejściowy wygenerowane w aplikacji zaprezentowane zostały na rysunku \ref{fig:przykl_we}
+Przykładowe sygnał wejściowy wygenerowane w aplikacji zaprezentowane zostały na rysunku \ref{fig:przykl_we}.
 \begin{figure}[h]
 \centering
 \includegraphics[width=14cm]{Zdjecia/4/przykl_we}
 \caption{przykładowy sygnał wejściowy}
 \label{fig:przykl_we}
 \end{figure}
-Przykładowa krzywa dyspersji powstała w wyniku uśrednienia trzech pierwszych postaci fali zaprezentowana została na rysunku \ref{fig:mean}
+Przykładowa krzywa dyspersji powstała w wyniku uśrednienia trzech pierwszych postaci fali zaprezentowana została na rysunku \ref{fig:mean}. 
 \begin{figure}[h]
 \centering
 \includegraphics[width=14cm]{Zdjecia/4/meanmode}
 \caption{Średnia krzywa dyspersji powstała z uśrednienia trzech pierwszych krzywych}
 \label{fig:mean}
 \end{figure}
-Na kolejnym rysunku \ref{fig:wil1} przedstawiono porównanie sygnału przed i po kompensacji.
+Na kolejnym rysunku \ref{fig:wil1} przedstawiono porównanie sygnału przed i po kompensacji. Rozproszony sygnał został skompensowany do znacznie krótszej postaci. Dodatkowo w łatwy sposób możliwe jest odczytanie długości ścieżki propagacji, która w tym przypadku wynosiła dwa metry. 
 \begin{figure}[h]
 \centering
 \includegraphics[width=14cm]{Zdjecia/4/wilcox1}
@@ -166,4 +166,11 @@ Kolejny rysunek przedstawia wyniki symulacji, w której sygnał nie został dost
 \caption{Sygnał, który przepropagował 5 metrów, widoczne zawijanie sygnału}
 \label{fig:zawij}
 \end{figure}
-%Ostatni rysunek prezentuje porównanie skompensowanych sygnałów z sygnałami wejściowymi. \textcolor{red}{Numerek obrazka porównaniem chirpa i wyników}
+Ostatni rysunek prezentuje porównanie skompensowanego sygnału z sygnałem wejściowym, w przypadku, gdy symulowana była propagacja pierwszych trzech postaci fali prowadzonej. Omawiana metoda daje najlepsze wyniki kompensacji. Ze wszystkich prezentowanych w ramach niniejszej pracy metod, ta najdokładniej odwzorowuje zadany na wejściu sygnał. Jej kolejnymi atutami są minimalne wymagania jeśli chodzi o dane wejściowe oraz największa ilość otrzymywanych informacji. Na podstawie znajomości jedynie przepropagowanego sygnału oraz znajomości krzywych dyspersji propagujących postaci jest ona w stanie skompensować rozproszony sygnał, podając jednocześnie informację o długości ścieżki propagacji. Algorytm radzi sobie dobrze zarówno z kompensacją jednej propagującej postaci jak i dwiema a nawet trzema.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=14cm]{Zdjecia/4/Wilcoxporownanie}
+\caption{Porównanie sygnału wejściowego oraz sygnału skompensowanego}
+\label{fig:willast}
+\end{figure}
