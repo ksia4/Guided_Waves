@@ -63,35 +63,14 @@
 % --- < bibliografia > ---
 
 
-\usepackage[
-style=numeric,
-sorting=none,
-%
-% Zastosuj styl wpisu bibliograficznego właściwy językowi publikacji.
-language=autobib,
-autolang=other,
-% Zapisuj datę dostępu do strony WWW w formacie RRRR-MM-DD.
-urldate=edtf,
-seconds=true,
-% Nie dodawaj numerów stron, na których występuje cytowanie.
-backref=false,
-% Podawaj ISBN.
-isbn=true,
-% Nie podawaj URL-i, o ile nie jest to konieczne.
-url=false,
-%
-% Ustawienia związane z polskimi normami dla bibliografii.
-maxbibnames=3,
-% Jeżeli używamy Bibera:
-backend=biber
-]{biblatex}
+
 
 
 \usepackage{csquotes}
 % Ponieważ `csquotes` nie posiada polskiego stylu, można skorzystać z mocno zbliżonego stylu chorwackiego.
 \DeclareQuoteAlias{croatian}{polish}
 
-\addbibresource{bibliografia.bib}
+
 
 % Nie wyświetlaj wybranych pól.
 %\AtEveryBibitem{\clearfield{note}}
@@ -249,9 +228,9 @@ backend=biber
 \setcounter{secnumdepth}{4}
 \brokenpenalty=10000\relax
 
-\bibliography{bibliografia}
 
 \begin{document}
+\bibliographystyle{ieeetr}
 
 \titlepages
 
@@ -282,7 +261,7 @@ backend=biber
 \cleardoublepage
 \phantomsection
 \addcontentsline{toc}{chapter}{Bibliografia}
-\printbibliography
+%\printbibliography
 
 
 % Załączniki
@@ -294,5 +273,5 @@ backend=biber
   % itd.
   %\makeatother%
 %\end{appendices}
-
+\bibliography{bibliografia}
 \end{document}
