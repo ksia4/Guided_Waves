@@ -25,9 +25,14 @@ kr = []
 force = []
 
 # Stale materialowe
-young_mod = 70000
-poisson_coef = 0.3
-density = 2.7*1e-9
+# young_mod = 70000 #aluminium
+# density = 2.7*1e-9 #aluminium
+# poisson_coef = 0.33 #aluminium
+
+young_mod = 210000 #steel
+density = 7.9*1e-9 #steel
+poisson_coef = 0.3 #steel
+
 
 # Wyswietlanie siatki na plaszczyznie, siatki w 3D i triangulacji
 show_plane = False

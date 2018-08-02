@@ -112,19 +112,19 @@ def drawDispercionCurves(number_of_curves_to_draw=10, save_plot_to_file=False):
         plt.plot(f_v * 1e-3, k_v, 'g.', markersize=3)
     plt.xlabel("Frequency [kHz]")
     plt.ylabel("Wavenumber [rad/m]")
-    plt.xlim([-5, 200])#600
-    plt.ylim([-5, 400])#2000
+    plt.xlim([-5, 100])#600
+    plt.ylim([-5, 200])#2000
 
     plt.subplot(212)
     for ind in curves:
         f_v = new_fsys[ind, :] / (2 * np.pi)
         # v_p = (2 * np.pi * (f_v / k_v)) / (np.sqrt(config.young_mod / config.density) * 1e-3)
-        v_p = f_v / k_v
+        v_p = (f_v / k_v)* 2 * np.pi
         plt.plot(f_v * 1e-3, v_p, 'g.', markersize=3)
     plt.xlabel("Frequency [kHz]")
     plt.ylabel("Velocity [m/s]")
-    plt.xlim([-5, 200])#500
-    plt.ylim([-5, 5000])#50
+    plt.xlim([-5, 100])#500
+    plt.ylim([-5, 10000])#50
 
     if save_plot_to_file:
         plt.savefig('dis_curves.png')
@@ -149,19 +149,19 @@ def drawDispercionCurvesFromFile(number_of_curves_to_draw=30, save_plot_to_file=
         plt.plot(f_v * 1e-3, k_v, 'g.', markersize=3)
     plt.xlabel("Frequency [kHz]")
     plt.ylabel("Wavenumber [rad/m]")
-    plt.xlim([-5, 200])#600
-    plt.ylim([-5, 400])#2000
+    plt.xlim([-5, 100])#600
+    plt.ylim([-5, 200])#2000
 
     plt.subplot(212)
     for ind in curves:
         f_v = rd.read_complex_omega(path_to_omega_files, ind) / (2 * np.pi)
-        v_p = f_v / k_v
+        v_p = (f_v / k_v) * 2 * np.pi
         # v_p = (2 * np.pi * (f_v / k_v)) / (np.sqrt(config.young_mod / config.density) * 1e-3)
         plt.plot(f_v * 1e-3, v_p, 'g.', markersize=3)
     plt.xlabel("Frequency [kHz]")
     plt.ylabel("Phase velocity [m/s]")
-    plt.xlim([-5, 200])#500
-    plt.ylim([-5, 5000])#50
+    plt.xlim([-5, 100])#500
+    plt.ylim([-5, 10000])#50
 
     if save_plot_to_file:
         plt.savefig('dis_curves.png')
