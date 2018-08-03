@@ -27,7 +27,7 @@
 \BOOKMARK [0][-]{chapter.4}{Metody kompensacji dyspersji}{}% 27
 \BOOKMARK [1][-]{section.4.1}{Cel kompensacji}{chapter.4}% 28
 \BOOKMARK [2][-]{subsection.4.1.1}{Zastosowanie fal Lamba w nieniszczacych testach}{section.4.1}% 29
-\BOOKMARK [2][-]{subsection.4.1.2}{Sygnal stosowany wy symulacji}{section.4.1}% 30
+\BOOKMARK [2][-]{subsection.4.1.2}{Sygnal stosowany w symulacji}{section.4.1}% 30
 \BOOKMARK [1][-]{section.4.2}{Agregacja krzywych dyspersji uzyskanych z zaimplementowanego solvera}{chapter.4}% 31
 \BOOKMARK [2][-]{subsection.4.2.1}{Cel agregacji}{section.4.2}% 32
 \BOOKMARK [2][-]{subsection.4.2.2}{Algorytm agregacji}{section.4.2}% 33

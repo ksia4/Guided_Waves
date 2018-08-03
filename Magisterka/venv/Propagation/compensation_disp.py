@@ -491,6 +491,8 @@ if __name__ == "__main__":
 
     KD3 = selectMode.SelectedMode('../../../Dane/Node4_10_8_8/kvect', '../../../Dane/Node4_10_8_8/omega')
     KD3.selectMode()
+    KD3.plot_modes(30)
+    exit(0)
     # print("3")
     # KD3.plot_modes(4)
     # KD4 = selectMode.SelectedMode('../../../Dane/Node8_brick_3/kvect', '../../../Dane/Node8_brick_3/omega')

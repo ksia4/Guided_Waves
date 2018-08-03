@@ -30,14 +30,14 @@
 \contentsline {chapter}{\numberline {4}Metody kompensacji dyspersji}{53}{chapter.4}
 \contentsline {section}{\numberline {4.1}Cel kompensacji}{53}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Zastosowanie fal Lamba w nieniszczacych testach}{53}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Sygna\IeC {\l } stosowany wy symulacji}{56}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.2}Sygna\IeC {\l } stosowany w symulacji}{56}{subsection.4.1.2}
 \contentsline {section}{\numberline {4.2}Agregacja krzywych dyspersji uzyskanych z zaimplementowanego solvera}{58}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Cel agregacji}{58}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}Algorytm agregacji}{58}{subsection.4.2.2}
 \contentsline {section}{\numberline {4.3}Metoda odwracania sygna\IeC {\l }u w czasie}{60}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}Podstawy teoretyczne}{60}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Implementacja numeryczna}{61}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}Wybrane wyniki z symulacji}{64}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.2}Implementacja numeryczna}{62}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Wybrane wyniki z symulacji}{63}{subsection.4.3.3}
 \contentsline {section}{\numberline {4.4}Metoda mapowania liniowego przy pomocy rozwini\IeC {\k e}cia w szereg Taylora}{69}{section.4.4}
 \contentsline {subsection}{\numberline {4.4.1}Podstawy teoretyczne}{69}{subsection.4.4.1}
 \contentsline {subsection}{\numberline {4.4.2}Implementacja numeryczna}{72}{subsection.4.4.2}

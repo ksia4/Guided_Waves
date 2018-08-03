@@ -9,44 +9,56 @@ A level-1 auxiliary file: 4_Metody_kompensacji_dyspersji.aux
 A level-1 auxiliary file: 5_Aplikacja_do_obliczen_numerycznych.aux
 A level-1 auxiliary file: 6_Podsumowanie.aux
 Database file #1: bibliografia.bib
-You've used 7 entries,
+Warning--empty journal in bartek_wolny
+Warning--empty journal in bartek_rose
+Warning--empty journal in bartek_nazarchuk
+Warning--empty journal in bartek_feruza
+Warning--empty title in bartek_piezo
+Warning--empty journal in bartek_piezo
+Warning--empty journal in bartek_srodka
+Warning--empty journal in bartek_gavin
+Warning--empty journal in bartek_pointer
+Warning--empty year in bartek_pointer
+Warning--empty journal in bartek_erke
+You've used 23 entries,
             1876 wiz_defined-function locations,
-            533 strings with 4865 characters,
-and the built_in function-call counts, 2014 in all, are:
-= -- 206
-> -- 67
+            608 strings with 6833 characters,
+and the built_in function-call counts, 5856 in all, are:
+= -- 599
+> -- 131
 < -- 0
-+ -- 25
-- -- 18
-* -- 141
-:= -- 283
-add.period$ -- 7
-call.type$ -- 7
-change.case$ -- 7
++ -- 57
+- -- 34
+* -- 374
+:= -- 793
+add.period$ -- 22
+call.type$ -- 23
+change.case$ -- 22
 chr.to.int$ -- 0
-cite$ -- 7
-duplicate$ -- 110
-empty$ -- 178
-format.name$ -- 18
-if$ -- 506
+cite$ -- 34
+duplicate$ -- 332
+empty$ -- 589
+format.name$ -- 34
+if$ -- 1478
 int.to.chr$ -- 0
-int.to.str$ -- 7
-missing$ -- 7
-newline$ -- 24
-num.names$ -- 7
-pop$ -- 11
+int.to.str$ -- 23
+missing$ -- 23
+newline$ -- 72
+num.names$ -- 23
+pop$ -- 77
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 92
+skip$ -- 234
 stack$ -- 0
-substring$ -- 129
-swap$ -- 57
+substring$ -- 441
+swap$ -- 142
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 0
-while$ -- 18
-width$ -- 8
-write$ -- 73
+warning$ -- 11
+while$ -- 53
+width$ -- 25
+write$ -- 209
+(There were 11 warnings)

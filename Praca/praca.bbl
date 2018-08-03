@@ -1,13 +1,82 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{kotwy}
+T.~STEPINSKI and K.-J. MATSSON, ``Rock bolt inspection by means of rbt
+  instrument,'' {\em 19 th World Conference on Non-Destructive Testing}, 2016.
+
+\bibitem{bartek_wolny}
+A.~S.~Wolny, ``Wytrzymałość materiałów,'' pp.~1--41, 2002.
+
+\bibitem{bartek_rose}
+J.~L. Rose, ``Ultrasonic guided waves in solid media,'' pp.~1--39, 77--106,
+  120--133, 155--171, 2014.
+
+\bibitem{bartek_nazarchuk}
+O.~S. Z.~Nazarchuk, V.Skalskyi, ``Acoustic emission, methodology and
+  applications,'' pp.~29--69, 2017.
+
+\bibitem{bartek_feruza}
+F.~A. Amirkulova, ``Dispersion relations for elastic waves in plates and
+  rods,'' pp.~29--69, 2011.
+
+\bibitem{bartek_cervena}
+P.~H. O.~Cervena, ``The problems at investigation of state of stress of thick
+  orthotropic plate,'' {\em Applied and Computational Mechanics}, vol.~1,
+  no.~1, pp.~11--20, 2007.
+
+\bibitem{bartek_tian}
+L.~Y. Z.~Tian, ``Lamb wave frequency–wavenumber analysis and decomposition,''
+  {\em Journal of Intelligent Material Systems and Structures}, vol.~25,
+  pp.~1107 -- 1123, 2014.
+
+\bibitem{bartek_valsamos}
+G.~S. G.~Valsamosa, F.~Casadeia, ``A numerical study of wave dispersion curves
+  in cylindrical rods with circular cross-section,'' {\em Applied and
+  Computational Mechanics}, vol.~7, p.~99–114, 2013.
+
+\bibitem{bartek_kijanka}
+P.~P. P.~Kijanka, W. J.~Staszewski, ``Generalised semi-analytical method for
+  excitability curves calculation and numerical modal amplitude analysis for
+  lamb waves,'' {\em Structural Control and Health Monitoring}, vol.~25, 2018.
+
+\bibitem{bartek_fabien}
+L.~L. F.~Treyssède, ``Numerical and analytical calculation of modal
+  excitability for elastic wave generation in lossy waveguides,'' {\em The
+  Journal of the Acoustical Society of America}, vol.~133, pp.~3827--3837,
+  2013.
+
+\bibitem{bartek_kwach}
+K.~J.~Kwasniewski, I.~Dominik, ``A self-excited acoustical system for stress
+  measurement in a cement plant,'' {\em Mechanics and Control}, vol.~31, no.~1,
+  pp.~29--34, 2012.
+
+\bibitem{bartek_kwach2}
+K.~J.~Kwasniewski, I.~Dominik, ``Harmonic analysis of self-excited acoustical
+  system for stress changes measurement in compressed steel structural
+  section,'' {\em Solid State Phenomena}, vol.~198, pp.~639--644, 2013.
+
+\bibitem{bartek_piezo}
+https://www.americanpiezo.com 2018.
+
+\bibitem{bartek_srodka}
+W.~Śródka, ``Trzy lekcje metody elementów skończonych,'' 2004.
+
+\bibitem{bartek_gavin}
+H.~P. Gavin, ``Structural element stiffness, mass, and damping matrices,''
+  2018.
+
+\bibitem{bartek_pointer}
+J.~Pointer, ``Understanding accuracy and discretization error in an fea
+  model,''
+
+\bibitem{bartek_erke}
+R.~R. E.~Wang, T.~Nelson, ``Back to elements - tetrahedra vs. hexahedra,''
+  2018.
 
 \bibitem{kasia}
 A.~K. Mal, P.~C. Xu, and Y.~Barcohen, ``Leaky lamb waves for the ultrasonic
   nondestructive evaluation of adhesive bonds,'' {\em J.Eng. Mater.
   Technol.-Trans. ASME}, vol.~112, no.~3, p.~255–259, 1990.
-
-\bibitem{kotwy}
-T.~STEPINSKI and K.-J. MATSSON, ``Rock bolt inspection by means of rbt
-  instrument,'' {\em 19 th World Conference on Non-Destructive Testing}, 2016.
 
 \bibitem{kasia1}
 P.~D. Wilcox, ``A rapid signal processing technique to remove the effect of
