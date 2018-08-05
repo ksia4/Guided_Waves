@@ -35,8 +35,8 @@ if __name__ == "__main__":
         if text1 == '4':
             # parametry preta
             radius = 25
-            num_of_circles = 4
-            num_of_points_at_c1 = 4
+            num_of_circles = 8
+            num_of_points_at_c1 = 8
             MES.mes4(radius, num_of_circles, num_of_points_at_c1)
 
         if text1 == '8':
@@ -44,7 +44,7 @@ if __name__ == "__main__":
             numberOfPlanes = 3
             firstCircle = 16    # for brickMesh should be 16
             addNodes = 0    # for brickMesh doesn't matter
-            circles = 2
+            circles = 10
             MES.mes8(numberOfPlanes, radius, circles, firstCircle, addNodes)
 
         if text1 == 'M':

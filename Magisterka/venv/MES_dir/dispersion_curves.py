@@ -149,8 +149,8 @@ def drawDispercionCurvesFromFile(number_of_curves_to_draw=30, save_plot_to_file=
         plt.plot(f_v * 1e-3, k_v, 'g.', markersize=3)
     plt.xlabel("Frequency [kHz]")
     plt.ylabel("Wavenumber [rad/m]")
-    plt.xlim([-5, 100])#600
-    plt.ylim([-5, 200])#2000
+    plt.xlim([-5, 200])#600
+    plt.ylim([-5, 400])#2000
 
     plt.subplot(212)
     for ind in curves:
@@ -160,7 +160,7 @@ def drawDispercionCurvesFromFile(number_of_curves_to_draw=30, save_plot_to_file=
         plt.plot(f_v * 1e-3, v_p, 'g.', markersize=3)
     plt.xlabel("Frequency [kHz]")
     plt.ylabel("Phase velocity [m/s]")
-    plt.xlim([-5, 100])#500
+    plt.xlim([-5, 200])#500
     plt.ylim([-5, 10000])#50
 
     if save_plot_to_file:
