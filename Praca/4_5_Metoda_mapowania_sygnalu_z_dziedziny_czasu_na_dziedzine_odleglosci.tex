@@ -174,3 +174,51 @@ Ostatni rysunek prezentuje porównanie skompensowanego sygnału z sygnałem wej�
 \caption{Porównanie sygnału wejściowego oraz sygnału skompensowanego}
 \label{fig:willast}
 \end{figure}
+
+\subsection{Przykład zastoosowania na podstawie symulacji wybranego pręta}
+
+Na potrzeby symulacji, jako testowany obiekt, przyjęty został pręt wykonany ze stali czarnej o grubości 25 mm i długości dwóch metrów. Pierwszym etapem było wygenerowanie odpowiednich krzywych dyspersji. Rysunek \ref{fig:krzywestalowe} przedstawia wygenerowane krzywe dyspersji dla zdefiniowanego powyżej pręta. 
+\begin{figure}[h]
+\centering
+\includegraphics[width=14cm]{Zdjecia/4/krzywestalowe}
+\caption{Krzywe dyspersji analizowanego pręta}
+\label{fig:krzywestalowe}
+\end{figure}
+
+Do ich wygenerowania użyte zostały czworościenne elementy skończone. Płaszczyzna złożona z ośmiu okręgów, w pierwszym z nich wygenerowane osiem punktów. Rozkład punktów na pojedynczej płaszczyźnie przedstawia wysunek \ref{fig:punktynaplaszczyznie}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=14cm]{Zdjecia/4/siatka}
+\caption{rozkład punktów modelu MES na płaszczyźnie, użyty do generacji modelu}
+\label{fig:punktynaplaszczyznie}
+\end{figure}
+
+Do symulacji użyty został sygnał linear chirp, opisany na początku tego rozdziału. Pierwszym krokiem jest jego odpowiednie wydlużenie w czasie poprzez dołożenie na jego końcu odpowiedniej ilości zer. Wydłużony sygnał przedstawia rysunek \ref{fig:dlugisygnal}. Następnie wykonana została symulacja propagacji tak przygotowanego sygnału na dystans dwóch metrów. Symulacja taka odpowiada sytuacji, w której odpowiedni wzbudnik zostałby umieszczony na jednym z końców badanego obiektu, natomiast na jego drugim końcu znalazłby się odpowiedni odbiornik. Do symulacji przyjęte zostało, iż w badanym obiekcie propagują trzy pierwsze postaci fali prowadzonej. Wyniki symulacji przedstawione zostały na rysunku \ref{fig:sygnalrozproszony}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=14cm]{Zdjecia/4/sygnalrozproszony}
+\caption{Sygnał rozproszony, uzyskany drogą symulacji}
+\label{fig:sygnalrozproszony}
+\end{figure}
+
+Kolejnym krokiem jest kompensacja tak otrzymanego sygnału. Otrzymany drogą symulacji, rozproszony sygnał został przekazany do funkcji kompensującej. W wyniku kompensacji otrzymany zostaje sygnał zmapowany na dziedzinę odległości. Z otrzymanych wyników łatwo odczytać, iż długość ścieżki propagacji wyniosła dwa metry. Jest to dokładnie taka odległość na jaką sygnał wejściowy został przepropagowany zaraz na początku. Uzyskany omawianą metodą sygnał przedstawiony został na rysunku \ref{fig:skompensowanysygnal}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=14cm]{Zdjecia/4/sygnalskompensowany}
+\caption{Sygnał skompensowany omawiana metodą}
+\label{fig:skompensowanysygnal}
+\end{figure}
+
+Ostatnie rysunek przedstawia zestawienie pozwalające na porównanie: sygnału wejściowego, sygnału rozproszonego oraz sygnału skompensowanego. łatwo zauważyć, iż sygnał przed kompensacją uległ dyspersji i jest znacznie rozproszony, co uniemożliwiłoby jego identyfikacje oraz określenie, czy badana struktura nie jest uszkodzona. Sygnał po kompensacji, jest niemal identyczny z sygnałem zadanym. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=14cm]{Zdjecia/4/porownaniewszystkichsygnalow}
+\caption{Porównanie sygnałów: wejściowego, rozproszonego oraz skompensowanego}
+\label{fig:porownaniewszystkich}
+\end{figure}
+
+Stworzona aplikacja pozwala zatem na kompleksową symulację fali prowadzonej w zadanym pręcie. Znając parametry fizyczne zadanego materiału, możliwe jest wygenerowanie modelu pręta wykonanego z dowolnego materiału, oraz dowolnej długości. Możliwa jest również symulacja propagacji fali prowadzonej na dowolną odległość oraz, co zostało opisane w tym rozdziale, kompensacja dyspersji trzema wybranymi metodami. Jak widać na powyższym przykładzie omawiana metoda pozwala na uzyskanie bardzo dobrych wyników symulacyjnych.

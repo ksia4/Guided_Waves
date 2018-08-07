@@ -103,4 +103,42 @@ Po skończonych obliczeniach wyświetlany jest otrzymany sygnał.
 
 \subsection{Przykład zastosowania do wygenerowania danych dla zadanego pręta}
 
-W niniejszej sekcji został zaprezentowany proces generowania danych dla pręta ze stali czarnej o średnicy 25 mm oraz długości 2m. Po uruchomieniu programu api_main.py w menu przedstawionym na rysunku \ref{fig:gui1} należy nacisnąć przycisk .. Wygeneruj nowe dane przy pomocy mes ''. W następnym wyświetlonym oknie, przedstawionym na rysunku \ref{fig:gui7} należy ustawić żądane parametry modelu MES. Po obliczeniu 
+W niniejszej sekcji został zaprezentowany proces generowania danych dla pręta ze stali czarnej o średnicy 25 mm oraz długości 2m. Przed uruchominiem programu należy w pliku $config.py$, znajdującym się w folderze $MES\_dir$ ustawić dane materiału pręta, którego chcemy symulować. Konieczne jest podanie wartości modułu Younga, gęstości oraz współczynnika Poissona. Należy te wartości przypisać do odpowiednich zmiennych w pliku. Są to kolejno: $young\_mod$, $density$, $poisson\_coef$ Gdy odpowiednie wartości zostaną ustawione należy uruchomić program $api\_main.py$ w menu przedstawionym na rysunku \ref{fig:gui1} należy nacisnąć przycisk ,, Wygeneruj nowe dane przy pomocy mes ''. Wyświetlone zostanie okno ustawień siatki MES generowanej przez program. W tym miejscu  ustawiana zostaje średnica pręta, dla którego ma zostać wygenerowany model. Przyjmowaną jednostką jest milimetr, dlatego w polu średnica nalezy wpisać wartość 25 \ref{fig:srednica25}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=13cm]{Zdjecia/5/kasia/srednica25}
+\caption{okno programu do ustawień siatki MES}
+\label{fig:srednica25}
+\end{figure}
+
+Warto zaznaczyć, iż jeśli wybrana została siatka czworościenna nalezy ustawić jedynie parametry w sekcji ,, Dla siatki czworościennej''. Parametry z drugiej sekcji nie będą brane pod uwagę. W przypadku wyboru siatki szesciościennej sytuacja jest analogiczna. Na rysunku \ref{fig:srednica25} zaznaczona została opcja ,, Pokaż płaszczyznę '' spowoduje ona, iż w trakcie trwania obliczeń, z momencie gdy zostanie wygenerowana płaszczyzna, zostanie one również wyśietlona do podglądu użytkownikowi. Przedstawia to rysunek \ref{fig:plaszczyzna}. Gdyby zostały zaznaczone również dwie pozostałe opcje, wówczas kolejno zostałyby również wyświetlone: model pręta stworzony z wygenerowanych punktów oraz model pręta z narysowaną siatką elementów skończonych. Aby rozpocząć obliczenia nalezy wcisnąć przycisk ,, Oblicz ''.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=13cm]{Zdjecia/5/kasia/plaszczyzna}
+\caption{Okno obliczeń, z wyświetloną wygenerowaną płaszczyzną}
+\label{fig:srednica25}
+\end{figure}
+
+Ważne jest aby po oględzinach uzyskanych wyników zamknąć każde dodatkowo pojawiające się okno, przedstawiające siatkę, pręt lub też pręt z elementami skończonymi, ponieważ bez tego program nie przejdzie do kolejnego okna. Gdy obliczenia zostaną zakończona pojawi się okno przedstawione na rysunku \ref{fig:gui6} W tym momencie nowe dane zostały wygenerowane i są przechowywane w pamięci programu. Możliwy jest teraz podgląd wygenerowanych krzywych dyspersji poprzez przycisk '' Wyświetl krzywe dyspersji''. Przedstawione zostało to na rysunku \ref{fig:krzywesa}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=13cm]{Zdjecia/5/kasia/krzywesa}
+\caption{Okno programu z wyswietlonymi krzywymi dyspersji}
+\label{fig:krzywesa}
+\end{figure}
+
+Aby móc korzystać z pozostałych funkcji programu należy zamknąć okienko z krzywymi.
+
+Na tak wygenerowanych danych można testować zaimplementowane metody kompensacji dyspersji. Na przykład metodę mapowania sygnału z dziedziny czasu na dziedzinę odległości. Aby to zrobić należy nacisnąć przycisk ,,Symulacja kompensacji metodą mapowania z dziedziny czasu na dziedzinę odległości. Następnie wyświetlony zostanie ekran służący do generowania sygnału omówionego na początku rozdziału 4., który przepropagował zadaną odległość. Aby zasymulować sygnał, został wprowadzony do założonego na początku sekcji pręta, przepropagował jego długość, wynoszącą 2 metry i został odebrany na jego końcu, jako długość ścieżki propagacji należy wpisać 2. Natomiast indeksy propagujących zostały przyjęte jako pierwsze trzy postaci. Powyższe ustawienia ilustruje rysunek \ref{fig:genersygnal}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=13cm]{Zdjecia/5/kasia/genersygnal}
+\caption{Okno programu przedstawiające ustawienia generowanego sygnału}
+\label{fig:genersygnal}
+\end{figure}
+
+Gdy obliczenia zostaną zakończone, wyświetlone zostanie okno z wynikami kompensacji. Po jego zamknięciu znów pojawi się główne menu, z którego poziomu możliwa jest symulacja kompensacji opracowanymi metodami, wyświetlenie aktualnie używanych krzywych dyspersji oraz wygenerowanie nowych danych.

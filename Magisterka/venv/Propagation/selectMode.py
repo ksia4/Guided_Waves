@@ -281,7 +281,7 @@ class SelectedMode:
         plt.xlabel("Frequency [kHz]", fontsize=15)
         plt.ylabel("Wavenumber [rad/m]", fontsize=15)
         plt.xlim([0, 180])#600
-        plt.ylim([0, 400])#2000
+        plt.ylim([0, 100])#2000
         plt.xticks(size=13)
         plt.yticks(size=13)
         plt.show()

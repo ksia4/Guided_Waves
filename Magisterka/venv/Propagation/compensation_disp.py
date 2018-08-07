@@ -489,7 +489,7 @@ if __name__ == "__main__":
     # bez_komp1 = wave_length_propagation([time_x_freq1[0], signal_array1[3]], [1,2,3], KrzyweDyspersji1, dist, True, 100)
 
 
-    KD3 = selectMode.SelectedMode('../../../Dane/Node4_10_8_8/kvect', '../../../Dane/Node4_10_8_8/omega')
+    KD3 = selectMode.SelectedMode('../../../Dane/25mm_stal/Node4_25_8_8/kvect', '../../../Dane/25mm_stal/Node4_25_8_8/omega')
     KD3.selectMode()
     KD3.plot_modes(30)
     exit(0)
@@ -549,19 +549,19 @@ if __name__ == "__main__":
     # wilcox5 = mapping_from_time_to_distance(signal5, KD5, [0, 1, 2])
 
     plt.figure("Wilcox")
-    plt.subplot(211)
+    plt.subplot(311)
     plt.plot(time_x_freq3[0], signal_array3[3])
     plt.title("Sygnał wejściowy")
     plt.xlabel("distence [m]")
     plt.ylabel("Amplitude [-]")
 
-    # plt.subplot(512)
-    # plt.plot(wilcox2[0], wilcox2[1])
-    # plt.title("Skompensowany sygnał2")
-    # plt.xlabel("distence [m]")
-    # plt.ylabel("Amplitude [-]")
+    plt.subplot(312)
+    plt.plot(signal3[0], signal3[1])
+    plt.title("Rozproszony sygnał")
+    plt.xlabel("time [s]")
+    plt.ylabel("Amplitude [-]")
 
-    plt.subplot(212)
+    plt.subplot(313)
     plt.plot(wilcox3[0], wilcox3[1])
     plt.title("Skompensowany sygnał")
     plt.xlabel("distence [m]")

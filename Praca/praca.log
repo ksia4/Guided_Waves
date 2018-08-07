@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.8.3)  3 AUG 2018 19:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.8.3)  6 AUG 2018 15:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3528,14 +3528,14 @@ t/12 ;$
 File: Zdjecia/5/kasia/gui_drzewo.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/gui_drzewo.png>
-Package pdftex.def Info: Zdjecia/5/kasia/gui_drzewo.png used on input line 7.
+Package pdftex.def Info: Zdjecia/5/kasia/gui_drzewo.png used on input line 8.
 (pdftex.def)             Requested size: 227.62204pt x 398.66647pt.
 
 <Zdjecia/5/kasia/gui1.png, id=1486, 1202.4925pt x 828.09375pt>
 File: Zdjecia/5/kasia/gui1.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/gui1.png>
-Package pdftex.def Info: Zdjecia/5/kasia/gui1.png used on input line 16.
+Package pdftex.def Info: Zdjecia/5/kasia/gui1.png used on input line 17.
 (pdftex.def)             Requested size: 369.88582pt x 254.72261pt.
 
 
@@ -3545,60 +3545,57 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: Zdjecia/5/kasia/gui2.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/gui2.png>
-Package pdftex.def Info: Zdjecia/5/kasia/gui2.png used on input line 25.
+Package pdftex.def Info: Zdjecia/5/kasia/gui2.png used on input line 26.
 (pdftex.def)             Requested size: 369.88582pt x 255.13959pt.
-
-Underfull \vbox (badness 7433) has occurred while \output is active []
-
  [123 <./Zdjecia/5/kasia/gui_drzewo.png>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/kasia/gui3.png, id=1497, 1198.4775pt x 824.07875pt>
+<Zdjecia/5/kasia/gui3.png, id=1498, 1198.4775pt x 824.07875pt>
 File: Zdjecia/5/kasia/gui3.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/gui3.png>
-Package pdftex.def Info: Zdjecia/5/kasia/gui3.png used on input line 34.
+Package pdftex.def Info: Zdjecia/5/kasia/gui3.png used on input line 35.
 (pdftex.def)             Requested size: 369.88582pt x 254.33008pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/kasia/gui4.png, id=1498, 638.385pt x 542.025pt>
+<Zdjecia/5/kasia/gui4.png, id=1499, 638.385pt x 542.025pt>
 File: Zdjecia/5/kasia/gui4.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/gui4.png>
-Package pdftex.def Info: Zdjecia/5/kasia/gui4.png used on input line 41.
+Package pdftex.def Info: Zdjecia/5/kasia/gui4.png used on input line 42.
 (pdftex.def)             Requested size: 369.88582pt x 314.05215pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/kasia/gui6.png, id=1500, 1201.48875pt x 829.0975pt>
+<Zdjecia/5/kasia/gui6.png, id=1501, 1201.48875pt x 829.0975pt>
 File: Zdjecia/5/kasia/gui6.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/gui6.png>
-Package pdftex.def Info: Zdjecia/5/kasia/gui6.png used on input line 50.
+Package pdftex.def Info: Zdjecia/5/kasia/gui6.png used on input line 51.
 (pdftex.def)             Requested size: 369.88582pt x 255.24643pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/kasia/gui7.png, id=1504, 1199.48125pt x 826.08624pt>
+<Zdjecia/5/kasia/gui7.png, id=1505, 1199.48125pt x 826.08624pt>
 File: Zdjecia/5/kasia/gui7.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/gui7.png>
-Package pdftex.def Info: Zdjecia/5/kasia/gui7.png used on input line 59.
+Package pdftex.def Info: Zdjecia/5/kasia/gui7.png used on input line 60.
 (pdftex.def)             Requested size: 369.88582pt x 254.73534pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/kasia/gui8.png, id=1506, 1199.48125pt x 825.0825pt>
+<Zdjecia/5/kasia/gui8.png, id=1507, 1199.48125pt x 825.0825pt>
 File: Zdjecia/5/kasia/gui8.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/gui8.png>
-Package pdftex.def Info: Zdjecia/5/kasia/gui8.png used on input line 69.
+Package pdftex.def Info: Zdjecia/5/kasia/gui8.png used on input line 70.
 (pdftex.def)             Requested size: 369.88582pt x 254.42583pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -3607,60 +3604,113 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/kasia/guiKomp1.png, id=1521, 1201.48875pt x 826.08624pt>
+<Zdjecia/5/kasia/guiKomp1.png, id=1522, 1201.48875pt x 826.08624pt>
 File: Zdjecia/5/kasia/guiKomp1.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/guiKomp1.png>
-Package pdftex.def Info: Zdjecia/5/kasia/guiKomp1.png used on input line 78.
+Package pdftex.def Info: Zdjecia/5/kasia/guiKomp1.png used on input line 79.
 (pdftex.def)             Requested size: 369.88582pt x 254.31938pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/kasia/guiLast.png, id=1523, 1200.485pt x 826.08624pt>
+<Zdjecia/5/kasia/guiLast.png, id=1524, 1200.485pt x 826.08624pt>
 File: Zdjecia/5/kasia/guiLast.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/guiLast.png>
-Package pdftex.def Info: Zdjecia/5/kasia/guiLast.png used on input line 87.
+Package pdftex.def Info: Zdjecia/5/kasia/guiLast.png used on input line 88.
 (pdftex.def)             Requested size: 369.88582pt x 254.52106pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/kasia/guiLast2.png, id=1525, 1197.47375pt x 823.075pt>
+<Zdjecia/5/kasia/guiLast2.png, id=1526, 1197.47375pt x 823.075pt>
 File: Zdjecia/5/kasia/guiLast2.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/guiLast2.png>
-Package pdftex.def Info: Zdjecia/5/kasia/guiLast2.png used on input line 96.
+Package pdftex.def Info: Zdjecia/5/kasia/guiLast2.png used on input line 97.
 (pdftex.def)             Requested size: 369.88582pt x 254.2338pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-)) [125 <./Zdjecia/5/kasia/gui2.png>] [126 <./Zdjecia/5/kasia/gui3.png> <./Zdje
-cia/5/kasia/gui4.png>] [127 <./Zdjecia/5/kasia/gui6.png> <./Zdjecia/5/kasia/gui
-7.png>] [128 <./Zdjecia/5/kasia/gui8.png> <./Zdjecia/5/kasia/guiKomp1.png>]
+[125 <./Zdjecia/5/kasia/gui2.png>] [126 <./Zdjecia/5/kasia/gui3.png> <./Zdjecia
+/5/kasia/gui4.png>] [127 <./Zdjecia/5/kasia/gui6.png> <./Zdjecia/5/kasia/gui7.p
+ng>] [128 <./Zdjecia/5/kasia/gui8.png> <./Zdjecia/5/kasia/guiKomp1.png>]
 [129 <./Zdjecia/5/kasia/guiLast.png> <./Zdjecia/5/kasia/guiLast2.png>]
+
+LaTeX Warning: Reference `fig:srednica25' on page 130 undefined on input line 1
+06.
+
+<Zdjecia/5/kasia/srednica25.png, id=1551, 1195.46625pt x 818.05624pt>
+File: Zdjecia/5/kasia/srednica25.png Graphic file (type png)
+
+<use Zdjecia/5/kasia/srednica25.png>
+Package pdftex.def Info: Zdjecia/5/kasia/srednica25.png used on input line 110.
+
+(pdftex.def)             Requested size: 369.88582pt x 253.10799pt.
+
+
+LaTeX Warning: Reference `fig:srednica25' on page 130 undefined on input line 1
+15.
+
+
+LaTeX Warning: Reference `fig:plaszczyzna' on page 130 undefined on input line 
+115.
+
+<Zdjecia/5/kasia/plaszczyzna.png, id=1552, 1542.76375pt x 873.2625pt>
+File: Zdjecia/5/kasia/plaszczyzna.png Graphic file (type png)
+
+<use Zdjecia/5/kasia/plaszczyzna.png>
+Package pdftex.def Info: Zdjecia/5/kasia/plaszczyzna.png used on input line 119
+.
+(pdftex.def)             Requested size: 369.88582pt x 209.36075pt.
+ [130
+
+ <./Zdjecia/5/kasia/srednica25.png (PNG copy)>]
+
+LaTeX Warning: Reference `fig:krzywesa' on page 131 undefined on input line 124
+.
+
+<Zdjecia/5/kasia/krzywesa.png, id=1561, 1538.74875pt x 873.2625pt>
+File: Zdjecia/5/kasia/krzywesa.png Graphic file (type png)
+
+<use Zdjecia/5/kasia/krzywesa.png>
+Package pdftex.def Info: Zdjecia/5/kasia/krzywesa.png used on input line 128.
+(pdftex.def)             Requested size: 369.88582pt x 209.90707pt.
+
+
+LaTeX Warning: Reference `fig:genersygnal' on page 131 undefined on input line 
+135.
+
+[131 <./Zdjecia/5/kasia/plaszczyzna.png> <./Zdjecia/5/kasia/krzywesa.png>]
+<Zdjecia/5/kasia/genersygnal.png, id=1568, 1197.47375pt x 824.07875pt>
+File: Zdjecia/5/kasia/genersygnal.png Graphic file (type png)
+
+<use Zdjecia/5/kasia/genersygnal.png>
+Package pdftex.def Info: Zdjecia/5/kasia/genersygnal.png used on input line 139
+.
+(pdftex.def)             Requested size: 369.88582pt x 254.54384pt.
+)) [132 <./Zdjecia/5/kasia/genersygnal.png>]
 \openout2 = `6_Podsumowanie.aux'.
 
-
-(./6_Podsumowanie.tex
+ (./6_Podsumowanie.tex
 Rozdzia\l  6.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [130
+ [133
 
 
 
 ])
-[131] (./praca.bbl [132
+[134] (./praca.bbl [135
 
 
 
 ])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 277.
- [133]
+ [136]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 277.
  (./praca.aux (./1_Wprowadzenie.aux)
 (./2_Wybrane_zagadnienia_propagacji_fal_w_osrodku_sprezystym.aux)
@@ -3669,9 +3719,15 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 277.
 (./5_Aplikacja_do_obliczen_numerycznych.aux) (./6_Podsumowanie.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 277.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 277.
-Package rerunfilecheck Info: File `praca.out' has not changed.
-(rerunfilecheck)             Checksum: 954823D0C73556EA3E0581007BD97500;5074.
 
+
+Package rerunfilecheck Warning: File `praca.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `praca.out':
+(rerunfilecheck)             Before: 954823D0C73556EA3E0581007BD97500;5074
+(rerunfilecheck)             After:  C41C48B8953C9BA2B0DFB1A95ADFADDB;5269.
 
 LaTeX Warning: There were undefined references.
 
@@ -3680,10 +3736,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 26475 strings out of 493029
- 471093 string characters out of 6136235
+ 26509 strings out of 493029
+ 471909 string characters out of 6136235
  548539 words of memory out of 5000000
- 28763 multiletter control sequences out of 15000+600000
+ 28783 multiletter control sequences out of 15000+600000
  204097 words of font info for 278 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,17n,122p,10383b,971s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -3698,6 +3754,9 @@ pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
+
+pdfTeX warning (dest): name{section*.103} has been referenced but does not exis
+t, replaced by a fixed one
 
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texlive/
 texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}{/usr/share/texlive/texmf-dist
@@ -3719,10 +3778,10 @@ live/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/txfonts/txsyc.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/
 utmri8a.pfb>
-Output written on praca.pdf (136 pages, 8796429 bytes).
+Output written on praca.pdf (139 pages, 9092312 bytes).
 PDF statistics:
- 1746 PDF objects out of 2073 (max. 8388607)
- 1436 compressed objects within 15 object streams
- 526 named destinations out of 1000 (max. 500000)
- 1083 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1774 PDF objects out of 2073 (max. 8388607)
+ 1457 compressed objects within 15 object streams
+ 536 named destinations out of 1000 (max. 500000)
+ 1103 words of extra memory for PDF output out of 10000 (max. 10000000)
 
