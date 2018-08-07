@@ -1,0 +1,116 @@
+\subsection{Moduł main}
+\label{cha:main}
+
+Przykładowy skrypt wyznaczający krzywe dyspersji, z pomocą wcześniej opisanych modułów, znajduje się w module \textbf{main} głównego katalogu projektu. Kod przedstawiony jest poniżej.
+
+\vspace{3mm}
+import sympy as sp
+
+import numpy as np
+
+from MES\_dir import MES, config, dispersion\_curves
+
+from MARC import functions
+
+\vspace{3mm}
+\# begin MES
+
+x, y, z = sp.symbols('x, y, z')
+
+if \_\_name\_\_ == "\_\_main\_\_":
+
+\vspace{3mm}
+    print("Wpisz wartość: ")
+
+    print("1 - rysowanie krzywy dyspersji z wykorzystaniem MES")
+
+    print("2 - rysowanie krzywych dyspersji z ostatnio policzonych danych")
+
+    text = input()
+
+\vspace{3mm}
+    if text == '1':
+
+\vspace{3mm}
+        print("Wpisz wartość: ")
+
+        print("4 - elementy czworościenne")
+
+        print("8 - elemnty sześcienne")
+
+        print("M - wczytanie macierzy z MARC i wykreślenie krzywych")
+
+        text1 = input()
+
+\vspace{3mm}
+        \# wektor liczby falowej
+
+        config.kvect\_min = 1e-10
+
+        config.kvect\_max = np.pi / 4
+
+        config.kvect\_no\_of\_points = 51
+
+\vspace{3mm}
+        \# rysowanie wykresow
+
+\vspace{3mm}
+        config.show\_plane = True
+
+        config.show\_bar = True
+
+        config.show\_elements = True
+
+\vspace{3mm}
+        \# obliczenia
+
+        if text1 == '4':
+
+            \# parametry preta
+
+            radius = 10
+
+            num\_of\_circles = 4
+
+            num\_of\_points\_at\_c1 = 4
+
+            MES.mes4(radius, num\_of\_circles, num\_of\_points\_at\_c1)
+
+\vspace{3mm}
+
+        if text1 == '8':
+
+            radius = 10
+
+            numberOfPlanes = 3
+
+            firstCircle = 16 \#for brickMesh should be 16
+
+            addNodes = 0
+
+            circles = 1
+
+            MES.mes8(numberOfPlanes, radius, circles, firstCircle, addNodes)
+
+\vspace{3mm}
+        if text1 == 'M':
+
+            config.k, config.m = functions.getStiffAndMassMatrix()
+
+        dispersion\_curves.drawDispercionCurves()
+
+        print("koniec")
+
+\vspace{3mm}
+    \# rysowanie krzywych dyspersji z wczesniej obliczonych wartosci
+
+    if text == '2':
+
+        dispersion\_curves.drawDispercionCurvesFromFile()
+
+\vspace{3mm}
+Pierwsze linijki zapewniają dostęp do funkcji z potrzebnych modułów programu oraz bibliotek Python-a. Następnie znajduje się definicja zmiennych symbolicznych, które są wykorzystywane w programie. W dalszej części następuje seria warunków, które pozwalają na wybor obliczania nowych wartości własnych (text=1), bądź skorzystana z wcześniej wyznaczonch do wykreślenia krzywych dyspersji (text=2). Wyboru dokonujemy poprzez wpisane odpowiedniej cyfry w konsoli programu. 
+
+Jeśli chcemy obliczyć nowe krzywe, to będziemy mogli skorzystać z budowania modelu MES przy pomocy elementów czworościennych (text1=4), elementów sześciennych (text1=8), bądź skorzystać z modelu wyznaczonego w programie MARC (text1=M) i zapisanego w postaci plików z roszerzeniem dat w katalogu \textit{MARC}. Niezależnie od wybranego sposobu dostarczania modelu, program w kolejnej fazie przejdzie do wyznaczania krzywych dyspersji.
+
+Siatkę dla elementów skończonych możemy dostosować przez zmianę odpowiednich wartości przyjmowanych jako argumenty funkcji \textit{mes4} oraz \textit{mes8}. Dla zmiany rodzaju siatki należy wybrać inną funkcję do jej generacji w funkcji \textit{mes4} lub \textit{mes8}. Należy przy tym pamiętać żeby dostosować także funkcję budującą elementy skończone. Przykładowo dla siatki tworzonej przy pomocy \textit{brickMesh}, powinna to być funkcja \textit{createBrickElements}.
