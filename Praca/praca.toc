@@ -46,24 +46,25 @@
 \contentsline {subsection}{\numberline {4.5.1}Podstawy teoretyczne}{77}{subsection.4.5.1}
 \contentsline {subsection}{\numberline {4.5.2}implementacja numeryczna}{80}{subsection.4.5.2}
 \contentsline {subsection}{\numberline {4.5.3}Wybrane wyniki symulacji}{82}{subsection.4.5.3}
-\contentsline {section}{\numberline {4.6}Porownanie opracowanych metod kompensacji}{85}{section.4.6}
-\contentsline {subsection}{\numberline {4.6.1}Metoda odwracania sygna\IeC {\l }u w czasie}{85}{subsection.4.6.1}
-\contentsline {subsection}{\numberline {4.6.2}Metoda mapowania liniowego przy pomocy rozwini\IeC {\k e}cia w szereg Taylora}{86}{subsection.4.6.2}
-\contentsline {subsection}{\numberline {4.6.3}Metoda mapowania sygna\IeC {\l }u z dziedziny czasu na dziedzin\IeC {\k e} odleg\IeC {\l }o\IeC {\'s}ci}{87}{subsection.4.6.3}
-\contentsline {chapter}{\numberline {5}Aplikacja do oblicze\IeC {\'n} numerycznych}{89}{chapter.5}
-\contentsline {section}{\numberline {5.1}Instalacja i konfiguracja \IeC {\'s}rodowiska}{89}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Anaconda}{89}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}PyCharm}{94}{subsection.5.1.2}
-\contentsline {section}{\numberline {5.2}Potrzebne biblioteki}{95}{section.5.2}
-\contentsline {section}{\numberline {5.3}Obliczenia MES i wyznaczanie krzywych dyspersji oraz wzbudzalno\IeC {\'s}ci}{99}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}Elementy czworo\IeC {\'s}cienne}{99}{subsection.5.3.1}
-\contentsline {subsection}{\numberline {5.3.2}Elementy sze\IeC {\'s}cienne}{105}{subsection.5.3.2}
-\contentsline {subsection}{\numberline {5.3.3}Pozosta\IeC {\l }e modu\IeC {\l }y katalogu MES\_dir}{107}{subsection.5.3.3}
-\contentsline {subsection}{\numberline {5.3.4}Modu\IeC {\l } main}{111}{subsection.5.3.4}
-\contentsline {section}{\numberline {5.4}Segregacja krzywych dyspersji}{113}{section.5.4}
-\contentsline {section}{\numberline {5.5}Metody kompensacji dyspersji}{118}{section.5.5}
-\contentsline {section}{\numberline {5.6}Graficzny interfejs u\IeC {\.z}ytkownika}{123}{section.5.6}
-\contentsline {subsection}{\numberline {5.6.1}Opis dost\IeC {\k e}pnych funkcji}{123}{subsection.5.6.1}
-\contentsline {subsection}{\numberline {5.6.2}Przyk\IeC {\l }ad zastosowania do wygenerowania danych dla zadanego pr\IeC {\k e}ta}{130}{subsection.5.6.2}
-\contentsline {chapter}{\numberline {6}Podsumowanie}{133}{chapter.6}
-\contentsline {chapter}{Bibliografia}{135}{section*.107}
+\contentsline {subsection}{\numberline {4.5.4}Przyk\IeC {\l }ad zastoosowania na podstawie symulacji wybranego pr\IeC {\k e}ta}{85}{subsection.4.5.4}
+\contentsline {section}{\numberline {4.6}Porownanie opracowanych metod kompensacji}{88}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}Metoda odwracania sygna\IeC {\l }u w czasie}{88}{subsection.4.6.1}
+\contentsline {subsection}{\numberline {4.6.2}Metoda mapowania liniowego przy pomocy rozwini\IeC {\k e}cia w szereg Taylora}{89}{subsection.4.6.2}
+\contentsline {subsection}{\numberline {4.6.3}Metoda mapowania sygna\IeC {\l }u z dziedziny czasu na dziedzin\IeC {\k e} odleg\IeC {\l }o\IeC {\'s}ci}{90}{subsection.4.6.3}
+\contentsline {chapter}{\numberline {5}Aplikacja do oblicze\IeC {\'n} numerycznych}{92}{chapter.5}
+\contentsline {section}{\numberline {5.1}Instalacja i konfiguracja \IeC {\'s}rodowiska}{92}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Anaconda}{92}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}PyCharm}{97}{subsection.5.1.2}
+\contentsline {section}{\numberline {5.2}Potrzebne biblioteki}{98}{section.5.2}
+\contentsline {section}{\numberline {5.3}Obliczenia MES i wyznaczanie krzywych dyspersji oraz wzbudzalno\IeC {\'s}ci}{102}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Elementy czworo\IeC {\'s}cienne}{102}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Elementy sze\IeC {\'s}cienne}{108}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}Pozosta\IeC {\l }e modu\IeC {\l }y katalogu MES\_dir}{110}{subsection.5.3.3}
+\contentsline {subsection}{\numberline {5.3.4}Modu\IeC {\l } main}{114}{subsection.5.3.4}
+\contentsline {section}{\numberline {5.4}Segregacja krzywych dyspersji}{116}{section.5.4}
+\contentsline {section}{\numberline {5.5}Metody kompensacji dyspersji}{121}{section.5.5}
+\contentsline {section}{\numberline {5.6}Graficzny interfejs u\IeC {\.z}ytkownika}{126}{section.5.6}
+\contentsline {subsection}{\numberline {5.6.1}Opis dost\IeC {\k e}pnych funkcji}{126}{subsection.5.6.1}
+\contentsline {subsection}{\numberline {5.6.2}Przyk\IeC {\l }ad zastosowania do wygenerowania danych dla zadanego pr\IeC {\k e}ta}{133}{subsection.5.6.2}
+\contentsline {chapter}{\numberline {6}Podsumowanie}{136}{chapter.6}
+\contentsline {chapter}{Bibliografia}{138}{section*.112}

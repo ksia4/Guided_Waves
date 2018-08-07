@@ -43,24 +43,25 @@
 \BOOKMARK [2][-]{subsection.4.5.1}{Podstawy teoretyczne}{section.4.5}% 43
 \BOOKMARK [2][-]{subsection.4.5.2}{implementacja numeryczna}{section.4.5}% 44
 \BOOKMARK [2][-]{subsection.4.5.3}{Wybrane wyniki symulacji}{section.4.5}% 45
-\BOOKMARK [1][-]{section.4.6}{Porownanie opracowanych metod kompensacji}{chapter.4}% 46
-\BOOKMARK [2][-]{subsection.4.6.1}{Metoda odwracania sygnalu w czasie}{section.4.6}% 47
-\BOOKMARK [2][-]{subsection.4.6.2}{Metoda mapowania liniowego przy pomocy rozwiniecia w szereg Taylora}{section.4.6}% 48
-\BOOKMARK [2][-]{subsection.4.6.3}{Metoda mapowania sygnalu z dziedziny czasu na dziedzine odleglosci}{section.4.6}% 49
-\BOOKMARK [0][-]{chapter.5}{Aplikacja do obliczen numerycznych}{}% 50
-\BOOKMARK [1][-]{section.5.1}{Instalacja i konfiguracja srodowiska}{chapter.5}% 51
-\BOOKMARK [2][-]{subsection.5.1.1}{Anaconda}{section.5.1}% 52
-\BOOKMARK [2][-]{subsection.5.1.2}{PyCharm}{section.5.1}% 53
-\BOOKMARK [1][-]{section.5.2}{Potrzebne biblioteki}{chapter.5}% 54
-\BOOKMARK [1][-]{section.5.3}{Obliczenia MES i wyznaczanie krzywych dyspersji oraz wzbudzalnosci}{chapter.5}% 55
-\BOOKMARK [2][-]{subsection.5.3.1}{Elementy czworoscienne}{section.5.3}% 56
-\BOOKMARK [2][-]{subsection.5.3.2}{Elementy szescienne}{section.5.3}% 57
-\BOOKMARK [2][-]{subsection.5.3.3}{Pozostale moduly katalogu MES\137dir}{section.5.3}% 58
-\BOOKMARK [2][-]{subsection.5.3.4}{Modul main}{section.5.3}% 59
-\BOOKMARK [1][-]{section.5.4}{Segregacja krzywych dyspersji}{chapter.5}% 60
-\BOOKMARK [1][-]{section.5.5}{Metody kompensacji dyspersji}{chapter.5}% 61
-\BOOKMARK [1][-]{section.5.6}{Graficzny interfejs uzytkownika}{chapter.5}% 62
-\BOOKMARK [2][-]{subsection.5.6.1}{Opis dostepnych funkcji}{section.5.6}% 63
-\BOOKMARK [2][-]{subsection.5.6.2}{Przyklad zastosowania do wygenerowania danych dla zadanego preta}{section.5.6}% 64
-\BOOKMARK [0][-]{chapter.6}{Podsumowanie}{}% 65
-\BOOKMARK [0][-]{section*.107}{Bibliografia}{}% 66
+\BOOKMARK [2][-]{subsection.4.5.4}{Przyklad zastoosowania na podstawie symulacji wybranego preta}{section.4.5}% 46
+\BOOKMARK [1][-]{section.4.6}{Porownanie opracowanych metod kompensacji}{chapter.4}% 47
+\BOOKMARK [2][-]{subsection.4.6.1}{Metoda odwracania sygnalu w czasie}{section.4.6}% 48
+\BOOKMARK [2][-]{subsection.4.6.2}{Metoda mapowania liniowego przy pomocy rozwiniecia w szereg Taylora}{section.4.6}% 49
+\BOOKMARK [2][-]{subsection.4.6.3}{Metoda mapowania sygnalu z dziedziny czasu na dziedzine odleglosci}{section.4.6}% 50
+\BOOKMARK [0][-]{chapter.5}{Aplikacja do obliczen numerycznych}{}% 51
+\BOOKMARK [1][-]{section.5.1}{Instalacja i konfiguracja srodowiska}{chapter.5}% 52
+\BOOKMARK [2][-]{subsection.5.1.1}{Anaconda}{section.5.1}% 53
+\BOOKMARK [2][-]{subsection.5.1.2}{PyCharm}{section.5.1}% 54
+\BOOKMARK [1][-]{section.5.2}{Potrzebne biblioteki}{chapter.5}% 55
+\BOOKMARK [1][-]{section.5.3}{Obliczenia MES i wyznaczanie krzywych dyspersji oraz wzbudzalnosci}{chapter.5}% 56
+\BOOKMARK [2][-]{subsection.5.3.1}{Elementy czworoscienne}{section.5.3}% 57
+\BOOKMARK [2][-]{subsection.5.3.2}{Elementy szescienne}{section.5.3}% 58
+\BOOKMARK [2][-]{subsection.5.3.3}{Pozostale moduly katalogu MES\137dir}{section.5.3}% 59
+\BOOKMARK [2][-]{subsection.5.3.4}{Modul main}{section.5.3}% 60
+\BOOKMARK [1][-]{section.5.4}{Segregacja krzywych dyspersji}{chapter.5}% 61
+\BOOKMARK [1][-]{section.5.5}{Metody kompensacji dyspersji}{chapter.5}% 62
+\BOOKMARK [1][-]{section.5.6}{Graficzny interfejs uzytkownika}{chapter.5}% 63
+\BOOKMARK [2][-]{subsection.5.6.1}{Opis dostepnych funkcji}{section.5.6}% 64
+\BOOKMARK [2][-]{subsection.5.6.2}{Przyklad zastosowania do wygenerowania danych dla zadanego preta}{section.5.6}% 65
+\BOOKMARK [0][-]{chapter.6}{Podsumowanie}{}% 66
+\BOOKMARK [0][-]{section*.112}{Bibliografia}{}% 67
