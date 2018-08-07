@@ -1,0 +1,195 @@
+
+\subsection{Pozostałe moduły katalogu MES\_dir}
+\label{cha:pozostale_moduly}
+
+ \( \textbf{Moduł config} \).
+
+W tym module przechowywane są dane wykorzystywane w innych częściach programu. Jego zawartość podana jest poniżej.
+
+\vspace {3mm}
+ROOT\_DIR = os.path.dirname(os.path.abspath(\_\_file\_\_))
+
+\#sciezka do katalogu MES\_dir
+\vspace {3mm}
+ndof = 3    \# liczba stopni swobody
+
+kvect\_min = 0
+
+kvect\_no\_of\_points = 0
+
+kvect\_max = 2*pi
+\vspace {3mm}
+k = []  \# globalna macierz sztywnosci
+
+m = []  \# globalna macierz mas
+
+m\_focused\_rows = [] \#globalna macierz mas - skupiona wierszami
+
+ml = []
+
+m0 = []
+
+mr = []
+
+kl = []
+
+k0 = []
+
+kr = []
+\vspace {3mm}
+force = []
+\vspace {3mm}
+\# Stale materialowe
+
+young\_mod = 70000
+
+poisson\_coef = 0.3
+
+density = 2.7*1e-9
+\vspace {3mm}
+\# Wyswietlanie siatki na plaszczyznie, siatki w 3D i triangulacji
+
+show\_plane = False
+
+show\_bar = False
+
+show\_elements = False
+\vspace {3mm}
+
+Pierwszym elementem jest ścieżka do katalogu pozwalająca wygodnie odnosić się do niego w funkcjach zapisujących i wczytujących dane z plików. Poniżej znajdują się wartość minimalna, maksymalna oraz liczba próbek wartości liczby falowej, dla których to wartości obliczane będą częstości własne. Następnie kolejno zawarte są macierze i podmacierze modelu MES, siła wymuszająca wykorzystywana przy obliczaniu wzbudzalności, stałe materiałowe konstrukcji pręta i wartości logiczne określające czy wyświetlać siatkę lub element skończone modelu.
+
+\vspace {3mm}
+
+ \( \textbf{Moduł MES} \).
+W tym module zawarte są dwie funkcje, które są przykładami budowy modelu za pomocą elementów czworościennych oraz sześciościennych.
+
+\textit{mes4(radius, numOfCircles, numOfPointsAtFirstCircle)} - funkcja przyjmuje jako argumenty promień pręta - radius, liczbę okręgów na jednej płaszczyźnie siatki - numOfCircles oraz liczbę węzłów na pierwszym okręgu siatki - numOfPointsAtFirstCircle. Poniżej znajduje się całość kodu tej funkcji.
+
+\vspace {3mm}
+
+    vertices = mesh4.circleMeshFull(radius, numOfCircles, numOfPointsAtFirstCircle)
+
+    if config.show\_plane:
+
+        mesh4.drawPlane(vertices)
+
+    if config.show\_bar:
+
+        mesh4.drawBar(vertices)
+
+\vspace {3mm}
+    indices = mesh4.triangulation(vertices)
+
+    \# mesh.draw\_triangulation(vertices, indices)
+
+    if config.show\_elements:
+
+        mesh4.drawTriangulation(vertices, indices)
+
+\vspace {3mm}
+    start = time.clock()
+
+    config.k = assembling4.assembleGlobalStiff\_matrix(vertices, indices, config.young\_mod, config.poisson\_coef)
+
+    \# assembling.drawMatrixSparsity(config.k)
+
+    print("Macierz sztywnosci gotowa")
+
+    print("Wykonywanie: ", time.clock() - start)
+
+\vspace {3mm}
+    config.m = assembling4.assembleGlobalMassMatrix(vertices, indices, config.density)
+
+    config.m\_focused\_rows = assembling4.focuseMatrixRows(config.m)
+
+    \# assembling.drawMatrixSparsity(config.m)
+
+    print("Macierz mas gotowa")
+
+    print("wykonywanie: ", time.clock() - start)
+
+\vspace {3mm}
+
+W pierwszej lini uzyskiwana jest macierz współrzędnych węzłów siatki. Następnie siatka jest wyświetlana w na płaszczyźnie, bądź w rzucie izometrycznym jeśli wartości z modułu config mają wartości TRUE. Kolejnym etapem jest tworzenie elementów skończonych i warunkowe ich wyświetlanie. Wartość start przechowuje czas, w którym rozpoczyna się obliczanie macierzy sztywności - k. Po obliczeniu tej macierzy wyświetlany jest komunikat z czasem obliczeń.  Podobnie poniżej w przypadu macierzy mas.
+
+\textit{mes8(numberOfPlanes, radius, numberOfCircles, numberOfPointsOnCircle, addNodes)} - funkcja przyjmuje jako argumenty liczbę płaszczyzn siatki - numberOfPlanes, promień pręta - radius, liczbę okręgów na jednej płaszczyźnie siatki - numOfCircles, liczbę węzłów na pierwszym okręgu siatki - numOfPointsOnCircle oraz liczbę dodatkowych punktów na każdym kolejnym okręgu siatki przy zastosowaniu odpowiedniego jej typu - addNodes. Poniżej znajduje się całość kodu tej funkcji.
+
+\vspace {3mm}
+    \# brickMesh(radius, numberOfPlanes, numberOfCircles, numberOfPointsOnCircle)
+
+    vertices = mesh8.brickMesh(radius, numberOfPlanes, numberOfCircles, numberOfPointsOnCircle)
+
+    \# createBrickElements(brickVertices, numberOfPlanes, numberOfCircles, numberOfPointsOnCircle)
+
+    indices = mesh8.createBrickElements(vertices, 3, 3, 16)
+
+\vspace {3mm}
+    start = time.clock()
+
+    config.k = assembling8.assembleGlobalStiffMatrix(vertices, indices)
+
+    print("Macierz sztywnosci gotowa")
+
+    print("Wykonywanie: ", time.clock() - start, " [s]")
+
+    print("Wykonywanie: ", (time.clock() - start)/3600, " [h]")
+
+    start = time.clock()
+
+\vspace {3mm}
+    config.m = assembling8.assembleGlobalMassMatrix(vertices, indices, config.density)
+
+    config.m\_focused\_rows = assembling8.focuse\_matrix\_rows(config.m)
+
+    print("Macierz mas gotowa")
+
+    print("wykonywanie: ", time.clock() - start, " [s]")
+
+    print("wykonywanie: ", (time.clock() - start)/3600, " [h]")
+
+\vspace {3mm}
+W tym przykładzie zastosowano siatkę brickMesh. Po wyznaczeniu współrzędnych węzłów oraz zbudowaniu elementów skończonych, obliczane są macierze mas i sztywności.
+
+ \( \textbf{Moduł dispersion\_curves} \).
+W tym module wyznaczone są punkty krzywych dyspersji, na podstawie macierzy mas i sztywności wyznaczonych z modelu MES.
+
+\vspace {3mm}
+\textit{getDataForEiq()} - funkcja wyznacza podmacierze mas i sztywności potrzebne do zastosowania wzoru \ref{eq:MES5}. Macierze przechowywane są w module \textit{config}. Dodatowo po wyznaczeniu zapisywane są do plików tekstowych, tak więc nie ma potrzeba wyznaczania ich ponownie w celu innego wykorzystania.
+
+\vspace {3mm}
+\textit{findEig()} - funkcja dla kolejnych wartości liczby falowej oblicza wartości i wektory własne pary macierzy, wyznaczonych jak we wzorze \ref{eq:MES5}. Dodatkowo wektory własne zapisywane są w niej do pliku.
+
+\vspace {3mm}
+\textit{drawDispercionCurves(number\_of\_curves\_to\_draw=10, save\_plot\_to\_file=False)} - funkcja przyjmuje jako argument liczbę początkowych modów do wyświetlenia - number\_of\_curves\_to\_draw oraz wartość logiczną określająca czy zapisać wykres do pliku png - save\_plot\_to\_file. Dodatkowo zapisauje wszystkie wartości własne w pliku tesktowym.
+
+\vspace {3mm}
+\textit{drawDispercionCurvesFromFile(number\_of\_curves\_to\_draw=10, save\_plot\_to\_file=False)} - jak powyżej z tym, że funkcja ta służy do rysowania krzywych dyspersji z wartości wczytywanych z plików tekstowych.
+
+\vspace {3mm}
+\textit{sortColumns(matrix)} - funkcja służy do wstępnego sortowania wartości własnych. Sortuje je kolumnami od najmniejszej do największej. W każdej kolumnie zapisane są wartości własne dla jednej wartości liczby falowej. Sortowanie takie jest więc poprawne tylko dla modów początkowych, które się nie krzyżują. Bardziej zaawansowany algorytm sortowania jest wprowadzany na etapie obliczeń związanym z wykorzystywaniem krzywych dyspersji.
+
+\vspace {3mm}
+ \( \textbf{Moduł excitabiliti\_curves} \).
+Moduł pozwala na obliczanie krzywych wzbudzalności dla poszczególnych modów. 
+
+\vspace {3mm}
+\textit{hermitianTranspose(matrix)} - funkcja przyjmuje jako argument macierz, a zwraca sprzężenie hermitowskie macierzy wejściowej.
+
+\vspace {3mm}
+\textit{calculateP(kr, kl, wavenumber, eigvector)} - funcja przyjmuje jako argumenty podmacierze macierzy sztywności \( k\_r \) i \(k\_l \) wykorzystywane wcześniej we wzorze \ref{eq:MES5}, wartości liczby falowej, dla których wyznaczano wartości i wektory własne - wavenumber oraz wektory własne - eigvector. Zwraca wartość \( P \) zgodnie ze wzorem \ref{eq:wzbudzanie3}.
+
+\vspace {3mm}
+\textit{calculateExcitablity(mode, f)} - funkcja przyjmuje jako argumenty numer modu - mode oraz wektor będący wymuszającą siłą węzłową dla modelu MES - f. Wyznacza dla każdej częstotliwości, z którą związany jest wektor własny, wartość amplitudy. Zwraca wektor częstotliwości i amplitudy.
+
+\vspace {3mm}
+\textit{calculateAndShowCurves(numberOfModes)} - funkcja przyjmuje jako argument liczbę początkowych modów, dla których ma wyznaczyć krzywe wzbudzalności- numberOfModes. Po obliczeniu przedstawia wykres krzywych wzbudzalności.
+
+\vspace {3mm}
+ \( \textbf{Moduł readData} \).
+W tym module zawarte są wszystkie funkcje służące do zapisu i wczytywania danych. Nie będą one z osobna omawiane ponieważ ich funkcja jest jasna. Poniżej omówiony jest sposób umieszczania danych w plikach.
+
+Wszystkie dane umieszczone są w katalogu \textit{eig}. Liczby falowe zapisane są w pliku \textit{kvect}. Każda wartość znajduje się w osobnej lini.
+
+Wartości własne zapisane są w katalogu \textit{eig} w pliku \textit{omega}. Każda kolumna zawiera wartości wyznaczone dla jednej wartości liczby falowej.
+
+Wektory własne zapisywane są w katalogu \textit{eig}, w plikach mających w nazwie \textit{eig\_}, a następnie wartość liczby falowej. W każdym z takich plików zapisane są wartości własne i odpowiadające im wektory własne dla jednej wartości liczby falowej. W pierwszej linii znajduje się wartość własna, w drugiej odpowiadający jej wektor własny, a następnie pozostałe wartości i wektory własne w kolejnych liniach.
