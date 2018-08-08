@@ -9,47 +9,51 @@ A level-1 auxiliary file: 4_Metody_kompensacji_dyspersji.aux
 A level-1 auxiliary file: 5_Aplikacja_do_obliczen_numerycznych.aux
 A level-1 auxiliary file: 6_Podsumowanie.aux
 Database file #1: bibliografia.bib
-Warning--empty journal in bartek_wolny
 Warning--empty journal in bartek_rose
+Warning--empty journal in bartek_wolny
 Warning--empty journal in bartek_nazarchuk
 Warning--empty journal in bartek_feruza
 Warning--empty title in bartek_piezo
 Warning--empty journal in bartek_piezo
+Warning--empty title in bartek_fala_podluzna
+Warning--empty journal in bartek_fala_podluzna
+Warning--empty title in bartek_fala_lowa
+Warning--empty journal in bartek_fala_lowa
 Warning--empty journal in bartek_srodka
 Warning--empty journal in bartek_gavin
 Warning--empty journal in bartek_pointer
 Warning--empty year in bartek_pointer
 Warning--empty journal in bartek_erke
-You've used 23 entries,
+You've used 25 entries,
             1876 wiz_defined-function locations,
-            608 strings with 6833 characters,
-and the built_in function-call counts, 5856 in all, are:
-= -- 599
-> -- 131
+            612 strings with 7090 characters,
+and the built_in function-call counts, 6112 in all, are:
+= -- 617
+> -- 139
 < -- 0
-+ -- 57
-- -- 34
-* -- 374
-:= -- 793
-add.period$ -- 22
-call.type$ -- 23
++ -- 61
+- -- 36
+* -- 388
+:= -- 833
+add.period$ -- 24
+call.type$ -- 25
 change.case$ -- 22
 chr.to.int$ -- 0
-cite$ -- 34
-duplicate$ -- 332
-empty$ -- 589
-format.name$ -- 34
-if$ -- 1478
+cite$ -- 40
+duplicate$ -- 350
+empty$ -- 623
+format.name$ -- 36
+if$ -- 1536
 int.to.chr$ -- 0
-int.to.str$ -- 23
-missing$ -- 23
-newline$ -- 72
-num.names$ -- 23
-pop$ -- 77
+int.to.str$ -- 25
+missing$ -- 25
+newline$ -- 78
+num.names$ -- 25
+pop$ -- 91
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 234
+skip$ -- 236
 stack$ -- 0
 substring$ -- 441
 swap$ -- 142
@@ -57,8 +61,8 @@ text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 11
-while$ -- 53
-width$ -- 25
-write$ -- 209
-(There were 11 warnings)
+warning$ -- 15
+while$ -- 55
+width$ -- 27
+write$ -- 221
+(There were 15 warnings)
