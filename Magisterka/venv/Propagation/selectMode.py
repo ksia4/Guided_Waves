@@ -16,7 +16,6 @@ class Point:
     #Funkcja do wypisywania współrzędnych punktu
     def printCoor(self):
         print("w = ", self.w, "k = ", self.k)
-        # print("w = ", self.w, "k = ", self.k)
 
 #Klasa przechowująca pojedynczy mode czyli po prostu uporządkowany zbiór punktów
 class Mode:
@@ -113,20 +112,13 @@ class Mode:
         for ind, Ppoint in enumerate(vPoints):
             if(abs(Ppoint.w - self.points[last].w) > dist): #40000
                 continue
-            #temp = np.abs(self.findAngle(Ppoint)) #abs bo nie jestem pewna czy kąt może być ujemny, ale chyyba może a znak tutaj nie ma znaczenia (chyba)
             temp = self.findAngle(Ppoint)
-            # print("Potencjalny punkt: ")
-            # Ppoint.printCoor()
-            # print("jego kąt: ")
-            # print(temp)
             if(temp < angle):
                 angle = temp
                 angind = ind
-        #print(angind)
-        #print(angle)
+
         if angind == float("inf"):
-            # print("rekurencja")
-            # print(dist)
+
             return self.findSmallestAngle(vPoints, dist+20000/zmiana)
         else:
             return angind
@@ -255,18 +247,10 @@ class SelectedMode:
             test = np.array(potentialPoints)
             AllPoints.delDuplicats(potentialPoints)
             j = 0
-            # print(i)
+
             for mod in self.AllModes.modeTable:
-                # print(j)
                 j += 1
-                # print("ostatnie dwa punkty to:")
-                # print(mod.points[i-1].printCoor())
-                # print(mod.points[i-2].printCoor())
                 ind = mod.findSmallestAngle(potentialPoints)
-                # print("I wygrał punkt: ")
-                # print(ind)
-                # potentialPoints[ind].printCoor()
-#               print(ind)
                 mod.addPoint(potentialPoints[ind])
                 if(len(potentialPoints) > 3):
                     potentialPoints.pop(ind)
@@ -296,131 +280,3 @@ if __name__ == "__main__":
     Mody = SelectedMode('../eig/kvect', '../eig/omega')
     Mody.selectMode()
     Mody.plot_modes(50)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# #Wczytujemy kolejne k, dla których mamy omegi
-# kvect = np.array(rd.read_kvect('../eig/kvect'))
-# k_v = kvect * 1e3
-
-# #AllModes jest obiektem typu Mode, który przechowuje wszyskit nieprzydzielone jeszcze do żadnego modu obiekty
-# AllPoints = Mode()
-
-# #Czytamy z pliku wszystkie omegi i robimy z nich pointy o współrzędnych omega i k
-# for ind in range(426): #Jak to sparametryzować? :/ to jest liczba wierszy w tym omega
-#     #temp = np.array(rd.read_complex_omega('../eig/omega', ind))/(2 * np.pi)
-#     temp = np.array(rd.read_complex_omega('../eig/omega', ind))
-#     for p in range (len(temp)):
-#         AllPoints.addPoint(Point(temp[p], k_v[p]))
-
-# #ModeTable to obiekt klasy data, który przechowuje listę wszystkich modów
-# ModeTable = Data()
-# #obiekt Mode, w którym są punktu z najmniejszym K czyli pierwsze punkty kolejnych modów
-# MinKTable = Mode()
-# #drugie punkty kolejnych modów
-# MinKTable2 = Mode()
-# mink = min(k_v)
-# #Wyszukiwanie pierwszych dwóch punktów kolejnych modów (punktów o najmniejszym i prawie najmniejszym k)
-# for wszystko in AllPoints.points:
-#     if(wszystko.k == mink):
-#         MinKTable.addPoint(wszystko)
-#     elif(wszystko.k == k_v[1]):
-#         MinKTable2.addPoint(wszystko)
-
-# #usuwanie punktów które już znalazły swój mod
-# AllPoints.delDuplicats(MinKTable.points)
-# AllPoints.delDuplicats(MinKTable2.points)
-
-# #sortowanie po omegach
-# AllPoints.quicksort(0, len(AllPoints.points) - 1)
-# MinKTable.quicksort(0, len(MinKTable.points)-1)
-# MinKTable2.quicksort(0, len(MinKTable.points)-1)
-
-# #dodajemy pierwsze dwa punkty do odpowiednich modów
-# for ind, m in enumerate(MinKTable.points):
-#     ModeTable.addMode(Mode())
-#     ModeTable.modeTable[ind].addPoint(m)
-#     ModeTable.modeTable[ind].addPoint(MinKTable2.points[ind])
-
-# #Segregowanie punktów do modów
-# for i in range(2, len(k_v)):
-#     actk = k_v[i]
-#     potentialPoints = AllPoints.findPointsWithK(actk)
-#     test = np.array(potentialPoints)
-#     AllPoints.delDuplicats(potentialPoints)
-#     j = 0
-#     print(i)
-#     for mod in ModeTable.modeTable:
-#         print(j)
-#         j += 1
-#         print("ostatnie dwa punkty to:")
-#         print(mod.points[i-1].printCoor())
-#         print(mod.points[i-2].printCoor())
-#         ind = mod.findSmallestAngle(potentialPoints)
-#         print("I wygrał punkt: ")
-#         print(ind)
-#         potentialPoints[ind].printCoor()
-# #        print(ind)
-#         mod.addPoint(potentialPoints[ind])
-#         if(len(potentialPoints) > 3):
-#             potentialPoints.pop(ind)
-# #    print(len(AllPoints.points))
-
-#ModeTable.modeTable[0].points[0].printCoor()
-#ModeTable.modeTable[0].points[1].printCoor()
-
-# plt.figure(1)
-# for i in range(50):
-#     dziady = []
-#     for p in ModeTable.modeTable[i].points:
-#         dziady.append(p.w)
-#     plt.plot(dziady, k_v, markersize=8)
-#
-# plt.xlabel("Frequency [kHz]")
-# plt.ylabel("Wavenumber [rad/m]")
-# plt.xlim([0, 500])#600
-# plt.ylim([0, 400])#2000
-# plt.show()
-
-
-
-# testowy = Mode()
-# testowy.addPoint(Point(1947561.8804188366, 1.0000000000000001e-07))
-# testowy.addPoint(Point(1947510.0704228566, 7.853981731974482))
-# print("Wynik testu")
-# Ppoints = []
-# Ppoints.append(Point(1947517.7369396675, 15.707963363948966))
-# Ppoints.append(Point(1947794.7754657774, 15.707963363948966))
-# Ppoints.append(Point(1977900.5513070673, 15.707963363948966))
-# #Ppoints.append(Point(117.4,94.25))
-# #Ppoints.append(Point(117.53,94.25))
-# print("uwaga uwaga")
-# #print(testowy.findSmallestAngle(Ppoints))
-# print(testowy.findAngle(Ppoints[0]))
-# #print(testowy.findAngle(Ppoints[1]))
-# #print(testowy.findAngle(Ppoints[2]))
-# #print(testowy.findAngle(Ppoints[3]))
-# testowy.addPoint(Point(2345100.5914220423, 1.0000000000000001e-07))
-# testowy.addPoint(Point(2345212.8649803414, 7.853981731974482))
-# Ppoints.append(Point(2345073.20201909, 15.707963363948966))
-# print("Z 39 modu")
-# print(testowy.findAngle(Ppoints[3]))

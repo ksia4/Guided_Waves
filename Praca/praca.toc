@@ -47,10 +47,10 @@
 \contentsline {subsection}{\numberline {4.5.2}implementacja numeryczna}{82}{subsection.4.5.2}
 \contentsline {subsection}{\numberline {4.5.3}Wybrane wyniki symulacji}{84}{subsection.4.5.3}
 \contentsline {subsection}{\numberline {4.5.4}Przyk\IeC {\l }ad zastosowania na podstawie symulacji wybranego pr\IeC {\k e}ta}{87}{subsection.4.5.4}
-\contentsline {section}{\numberline {4.6}Porownanie opracowanych metod kompensacji}{90}{section.4.6}
-\contentsline {subsection}{\numberline {4.6.1}Metoda odwracania sygna\IeC {\l }u w czasie}{90}{subsection.4.6.1}
-\contentsline {subsection}{\numberline {4.6.2}Metoda mapowania liniowego przy pomocy rozwini\IeC {\k e}cia w szereg Taylora}{91}{subsection.4.6.2}
-\contentsline {subsection}{\numberline {4.6.3}Metoda mapowania sygna\IeC {\l }u z dziedziny czasu na dziedzin\IeC {\k e} odleg\IeC {\l }o\IeC {\'s}ci}{92}{subsection.4.6.3}
+\contentsline {section}{\numberline {4.6}Porownanie opracowanych metod kompensacji}{91}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}Metoda odwracania sygna\IeC {\l }u w czasie}{91}{subsection.4.6.1}
+\contentsline {subsection}{\numberline {4.6.2}Metoda mapowania liniowego przy pomocy rozwini\IeC {\k e}cia w szereg Taylora}{92}{subsection.4.6.2}
+\contentsline {subsection}{\numberline {4.6.3}Metoda mapowania sygna\IeC {\l }u z dziedziny czasu na dziedzin\IeC {\k e} odleg\IeC {\l }o\IeC {\'s}ci}{93}{subsection.4.6.3}
 \contentsline {chapter}{\numberline {5}Aplikacja do oblicze\IeC {\'n} numerycznych}{94}{chapter.5}
 \contentsline {section}{\numberline {5.1}Instalacja i konfiguracja \IeC {\'s}rodowiska - Bart\IeC {\l }omiej Piwowarczyk}{94}{section.5.1}
 \contentsline {subsection}{\numberline {5.1.1}Anaconda}{94}{subsection.5.1.1}
