@@ -38,3 +38,5 @@ poisson_coef = 0.3 #steel
 show_plane = False
 show_bar = False
 show_elements = False
+
+saveEigVectors = False

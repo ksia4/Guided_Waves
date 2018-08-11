@@ -32,7 +32,7 @@ def getDataForEiq():
     rd.write_matrix_to_file("mr", config.mr)
 
 # Znajduje wektor wartosci wlasnych dla systemu
-def findEig(saveEigVectors=False):
+def findEig(saveEigVectors):
     getDataForEiq()
 
     ux = 1

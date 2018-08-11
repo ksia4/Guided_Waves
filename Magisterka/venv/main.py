@@ -29,6 +29,9 @@ if __name__ == "__main__":
         config.show_plane = True
         config.show_bar = False
         config.show_elements = False
+		
+		# zapisywanie wektorow wlasnych
+		saveEigVectors = True
 
 
         # obliczenia
