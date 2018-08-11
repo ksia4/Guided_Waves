@@ -146,6 +146,50 @@
 \usepackage{makecell}
 \usepackage[flushleft]{threeparttable}
 
+%%%%%%%start  komendy do autorstwa rozdzialow oraz sekcji
+\usepackage{titlesec}
+\usepackage{suffix}
+
+\newcommand\chapterauthor[1]{\authortoc{#1}\printchapterauthor{#1}}
+\WithSuffix\newcommand\chapterauthor*[1]{\printchapterauthor{#1}}
+
+\makeatletter
+\newcommand{\printchapterauthor}[1]{%
+  {\parindent0pt\vspace*{-35pt}%
+  \linespread{1.1}\Large\scshape#1%
+  \par\nobreak\vspace*{30pt}}
+  \@afterheading%
+}
+\newcommand{\authortoc}[1]{%
+  \addtocontents{toc}{\vskip-3pt}%
+  \addtocontents{toc}{%
+    \protect\contentsline{chapter}%
+    {\hskip1.5em\mdseries\scshape\protect\scriptsize#1}{}{}}
+  \addtocontents{toc}{\vskip3pt}%
+}
+\makeatother
+
+
+\newcommand\sectionauthor[1]{\authorsectoc{#1}\printsectionauthor{#1}}
+\WithSuffix\newcommand\sectionauthor*[1]{\printsectionauthor{#1}}
+
+\makeatletter
+\newcommand{\printsectionauthor}[1]{%
+  {\parindent0pt\vspace*{-15pt}\hskip1.5em%
+  \linespread{1.1}\Large\scshape#1%
+  \par\nobreak\vspace*{30pt}}
+  \@afterheading%
+}
+\newcommand{\authorsectoc}[1]{%
+  \addtocontents{toc}{\vskip-3pt}%
+  \addtocontents{toc}{%
+    \protect\contentsline{section}%
+    {\hskip2.5em\mdseries\scshape\protect\scriptsize#1}{}{}}
+  \addtocontents{toc}{\vskip3pt}%
+}
+\makeatother
+%%%%%%%koniec  komendy do autorstwa rozdzialow oraz sekcji
+
 % defines the X column to use m (\parbox[c]) instead of p (`parbox[t]`)
 \newcolumntype{C}[1]{>{\hsize=#1\hsize\centering\arraybackslash}X}
 
