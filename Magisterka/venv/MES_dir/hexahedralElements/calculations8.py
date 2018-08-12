@@ -61,7 +61,7 @@ def localStiffMatrix(elementVertices):
     def dMatrix(youngModulus, poissonCoefficient):
         a = youngModulus / ((1 + poissonCoefficient) * (1 - 2 * poissonCoefficient))
         b1 = (1 - poissonCoefficient) * a
-        b2 = (poissonCoefficient) * a
+        b2 = poissonCoefficient * a
         b3 = ((1 - 2 * poissonCoefficient) / 2) * a
         matrix = [[b1, b2, b2, 0, 0, 0], [b2, b1, b2, 0, 0, 0], [b2, b2, b1, 0, 0, 0],
                   [0, 0, 0, b3, 0, 0], [0, 0, 0, 0, b3, 0], [0, 0, 0, 0, 0, b3]]

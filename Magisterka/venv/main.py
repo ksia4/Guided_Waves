@@ -26,12 +26,12 @@ if __name__ == "__main__":
         config.kvect_no_of_points = 301
 
         # rysowanie wykresow
-        config.show_plane = True
+        config.show_plane = False
         config.show_bar = False
         config.show_elements = False
-		
-		# zapisywanie wektorow wlasnych
-		saveEigVectors = True
+
+        # zapisywanie wektorow wlasnych
+        config.saveEigVectors = False
 
 
         # obliczenia
@@ -47,7 +47,7 @@ if __name__ == "__main__":
             numberOfPlanes = 3
             firstCircle = 16    # for brickMesh should be 16
             addNodes = 0    # for brickMesh doesn't matter
-            circles = 10
+            circles = 2
             MES.mes8(numberOfPlanes, radius, circles, firstCircle, addNodes)
 
         if text1 == 'M':

@@ -71,7 +71,7 @@ def findEig(saveEigVectors):
 def drawDispercionCurves(number_of_curves_to_draw=10, save_plot_to_file=False):
     start = time.clock()
     print("eig")
-    fsys, kvect = findEig()
+    fsys, kvect = findEig(config.saveEigVectors)
     print("po eig")
     plt.figure(1)
     plt.subplot(211)
@@ -131,7 +131,7 @@ def drawDispercionCurves(number_of_curves_to_draw=10, save_plot_to_file=False):
     plt.show()
 
 #Rysuje z zapisanych w folderze eig wartości własnych, bez obliczania ich.
-def drawDispercionCurvesFromFile(number_of_curves_to_draw=30, save_plot_to_file=False):
+def drawDispercionCurvesFromFile(number_of_curves_to_draw=10, save_plot_to_file=False):
 
     plt.figure(1)
     plt.subplot(211)
@@ -174,7 +174,3 @@ def sortColumns(matrix):
         column = matrix[:, i]
         new_matrix.append(np.sort_complex(column))
     return np.array(new_matrix).transpose()
-
-
-
-
