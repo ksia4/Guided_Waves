@@ -1,7 +1,7 @@
 \BOOKMARK [0][-]{chapter.1}{Wstep}{}% 1
 \BOOKMARK [1][-]{section.1.1}{Cele pracy}{chapter.1}% 2
 \BOOKMARK [1][-]{section.1.2}{Plan pracy}{chapter.1}% 3
-\BOOKMARK [0][-]{chapter.2}{Wybrane zagadnienia propagacji fal w osrodku sprezystym - Bartlomiej Piwowarczyk}{}% 4
+\BOOKMARK [0][-]{chapter.2}{Wybrane zagadnienia propagacji fal w osrodku sprezystym}{}% 4
 \BOOKMARK [1][-]{section.2.1}{Liniowa teoria sprezystosci}{chapter.2}% 5
 \BOOKMARK [2][-]{subsection.2.1.1}{Naprezenie}{section.2.1}% 6
 \BOOKMARK [2][-]{subsection.2.1.2}{Odksztalcenie i prawko Hooke'a}{section.2.1}% 7
@@ -15,53 +15,52 @@
 \BOOKMARK [2][-]{subsection.2.3.2}{Analityczne wyznaczanie krzywych dyspersji}{section.2.3}% 15
 \BOOKMARK [2][-]{subsection.2.3.3}{Numeryczne wyznaczanie krzywych dyspresji}{section.2.3}% 16
 \BOOKMARK [2][-]{subsection.2.3.4}{Eksperymentalne wyznaczanie krzywych dyspersji}{section.2.3}% 17
-\BOOKMARK [2][-]{subsection.2.3.5}{Wyznaczanie krzywych wzbudzalnosci}{section.2.3}% 18
-\BOOKMARK [2][-]{subsection.2.3.6}{System sing-around}{section.2.3}% 19
-\BOOKMARK [0][-]{chapter.3}{Wykorzystywane zagadnienia metody element\363w skonczonych - Bartlomiej Piwowarczyk}{}% 20
-\BOOKMARK [1][-]{section.3.1}{Rozwiazywanie zadan z pomoca MES}{chapter.3}% 21
-\BOOKMARK [1][-]{section.3.2}{Funkcje ksztaltu}{chapter.3}% 22
-\BOOKMARK [1][-]{section.3.3}{Wyznaczanie macierzy sztywnosci i mas element\363w}{chapter.3}% 23
-\BOOKMARK [1][-]{section.3.4}{Agregacja globalnych macierzy mas i sztywnosci}{chapter.3}% 24
-\BOOKMARK [1][-]{section.3.5}{Rozwiazanie wyznaczonego r\363wnania macierzowego}{chapter.3}% 25
-\BOOKMARK [1][-]{section.3.6}{Zbieznosc metody i bledy rozwiazania}{chapter.3}% 26
-\BOOKMARK [0][-]{chapter.4}{Metody kompensacji dyspersji - Katarzyna Rugiello}{}% 27
-\BOOKMARK [1][-]{section.4.1}{Cel kompensacji}{chapter.4}% 28
-\BOOKMARK [2][-]{subsection.4.1.1}{Zastosowanie fal Lamba w nieniszczacych testach}{section.4.1}% 29
-\BOOKMARK [2][-]{subsection.4.1.2}{Sygnal stosowany w symulacji}{section.4.1}% 30
-\BOOKMARK [1][-]{section.4.2}{Agregacja krzywych dyspersji uzyskanych z zaimplementowanego solvera}{chapter.4}% 31
-\BOOKMARK [2][-]{subsection.4.2.1}{Cel agregacji}{section.4.2}% 32
-\BOOKMARK [2][-]{subsection.4.2.2}{Algorytm agregacji}{section.4.2}% 33
-\BOOKMARK [1][-]{section.4.3}{Metoda odwracania sygnalu w czasie}{chapter.4}% 34
-\BOOKMARK [2][-]{subsection.4.3.1}{Podstawy teoretyczne}{section.4.3}% 35
-\BOOKMARK [2][-]{subsection.4.3.2}{Implementacja numeryczna}{section.4.3}% 36
-\BOOKMARK [2][-]{subsection.4.3.3}{Wybrane wyniki z symulacji}{section.4.3}% 37
-\BOOKMARK [1][-]{section.4.4}{Metoda mapowania liniowego przy pomocy rozwiniecia w szereg Taylora}{chapter.4}% 38
-\BOOKMARK [2][-]{subsection.4.4.1}{Podstawy teoretyczne}{section.4.4}% 39
-\BOOKMARK [2][-]{subsection.4.4.2}{Implementacja numeryczna}{section.4.4}% 40
-\BOOKMARK [2][-]{subsection.4.4.3}{Wybrane wyniki symulacji}{section.4.4}% 41
-\BOOKMARK [1][-]{section.4.5}{Metoda mapowania sygnalu z dziedziny czasu na dziedzine odleglosci}{chapter.4}% 42
-\BOOKMARK [2][-]{subsection.4.5.1}{Podstawy teoretyczne}{section.4.5}% 43
-\BOOKMARK [2][-]{subsection.4.5.2}{implementacja numeryczna}{section.4.5}% 44
-\BOOKMARK [2][-]{subsection.4.5.3}{Wybrane wyniki symulacji}{section.4.5}% 45
-\BOOKMARK [2][-]{subsection.4.5.4}{Przyklad zastosowania na podstawie symulacji wybranego preta}{section.4.5}% 46
-\BOOKMARK [1][-]{section.4.6}{Porownanie opracowanych metod kompensacji}{chapter.4}% 47
-\BOOKMARK [2][-]{subsection.4.6.1}{Metoda odwracania sygnalu w czasie}{section.4.6}% 48
-\BOOKMARK [2][-]{subsection.4.6.2}{Metoda mapowania liniowego przy pomocy rozwiniecia w szereg Taylora}{section.4.6}% 49
-\BOOKMARK [2][-]{subsection.4.6.3}{Metoda mapowania sygnalu z dziedziny czasu na dziedzine odleglosci}{section.4.6}% 50
-\BOOKMARK [0][-]{chapter.5}{Aplikacja do obliczen numerycznych}{}% 51
-\BOOKMARK [1][-]{section.5.1}{Instalacja i konfiguracja srodowiska - Bartlomiej Piwowarczyk}{chapter.5}% 52
-\BOOKMARK [2][-]{subsection.5.1.1}{Anaconda}{section.5.1}% 53
-\BOOKMARK [2][-]{subsection.5.1.2}{PyCharm}{section.5.1}% 54
-\BOOKMARK [1][-]{section.5.2}{Potrzebne biblioteki - Katarzyna Rugiello}{chapter.5}% 55
-\BOOKMARK [1][-]{section.5.3}{Obliczenia MES i wyznaczanie krzywych dyspersji oraz wzbudzalnosci - Bartlomiej Piwowarczyk}{chapter.5}% 56
-\BOOKMARK [2][-]{subsection.5.3.1}{Elementy czworoscienne}{section.5.3}% 57
-\BOOKMARK [2][-]{subsection.5.3.2}{Elementy szescienne}{section.5.3}% 58
-\BOOKMARK [2][-]{subsection.5.3.3}{Pozostale moduly katalogu MES\137dir}{section.5.3}% 59
-\BOOKMARK [2][-]{subsection.5.3.4}{Modul main}{section.5.3}% 60
-\BOOKMARK [1][-]{section.5.4}{Segregacja krzywych dyspersji - Katarzyna Rugiello}{chapter.5}% 61
-\BOOKMARK [1][-]{section.5.5}{Metody kompensacji dyspersji - Katarzyna Rugiello}{chapter.5}% 62
-\BOOKMARK [1][-]{section.5.6}{Graficzny interfejs uzytkownika - Katarzyna Rugiello}{chapter.5}% 63
-\BOOKMARK [2][-]{subsection.5.6.1}{Opis dostepnych funkcji}{section.5.6}% 64
-\BOOKMARK [2][-]{subsection.5.6.2}{Przyklad zastosowania do wygenerowania danych dla zadanego preta}{section.5.6}% 65
-\BOOKMARK [0][-]{chapter.6}{Podsumowanie - Katarzyna Rugiello}{}% 66
-\BOOKMARK [0][-]{section*.112}{Bibliografia}{}% 67
+\BOOKMARK [0][-]{chapter.3}{Wykorzystywane zagadnienia metody element\363w skonczonych}{}% 18
+\BOOKMARK [1][-]{section.3.1}{Rozwiazywanie zadan z pomoca MES}{chapter.3}% 19
+\BOOKMARK [1][-]{section.3.2}{Funkcje ksztaltu}{chapter.3}% 20
+\BOOKMARK [1][-]{section.3.3}{Wyznaczanie macierzy sztywnosci i mas element\363w}{chapter.3}% 21
+\BOOKMARK [1][-]{section.3.4}{Agregacja globalnych macierzy mas i sztywnosci}{chapter.3}% 22
+\BOOKMARK [1][-]{section.3.5}{Rozwiazanie wyznaczonego r\363wnania macierzowego}{chapter.3}% 23
+\BOOKMARK [1][-]{section.3.6}{Zbieznosc metody i bledy rozwiazania}{chapter.3}% 24
+\BOOKMARK [0][-]{chapter.4}{Metody kompensacji dyspersji}{}% 25
+\BOOKMARK [1][-]{section.4.1}{Cel kompensacji}{chapter.4}% 26
+\BOOKMARK [2][-]{subsection.4.1.1}{Zastosowanie fal Lamba w nieniszczacych testach}{section.4.1}% 27
+\BOOKMARK [2][-]{subsection.4.1.2}{Sygnal stosowany w symulacji}{section.4.1}% 28
+\BOOKMARK [1][-]{section.4.2}{Agregacja krzywych dyspersji uzyskanych z zaimplementowanego solvera}{chapter.4}% 29
+\BOOKMARK [2][-]{subsection.4.2.1}{Cel agregacji}{section.4.2}% 30
+\BOOKMARK [2][-]{subsection.4.2.2}{Algorytm agregacji}{section.4.2}% 31
+\BOOKMARK [1][-]{section.4.3}{Metoda odwracania sygnalu w czasie}{chapter.4}% 32
+\BOOKMARK [2][-]{subsection.4.3.1}{Podstawy teoretyczne}{section.4.3}% 33
+\BOOKMARK [2][-]{subsection.4.3.2}{Implementacja numeryczna}{section.4.3}% 34
+\BOOKMARK [2][-]{subsection.4.3.3}{Wybrane wyniki z symulacji}{section.4.3}% 35
+\BOOKMARK [1][-]{section.4.4}{Metoda mapowania liniowego przy pomocy rozwiniecia w szereg Taylora}{chapter.4}% 36
+\BOOKMARK [2][-]{subsection.4.4.1}{Podstawy teoretyczne}{section.4.4}% 37
+\BOOKMARK [2][-]{subsection.4.4.2}{Implementacja numeryczna}{section.4.4}% 38
+\BOOKMARK [2][-]{subsection.4.4.3}{Wybrane wyniki symulacji}{section.4.4}% 39
+\BOOKMARK [1][-]{section.4.5}{Metoda mapowania sygnalu z dziedziny czasu na dziedzine odleglosci}{chapter.4}% 40
+\BOOKMARK [2][-]{subsection.4.5.1}{Podstawy teoretyczne}{section.4.5}% 41
+\BOOKMARK [2][-]{subsection.4.5.2}{implementacja numeryczna}{section.4.5}% 42
+\BOOKMARK [2][-]{subsection.4.5.3}{Wybrane wyniki symulacji}{section.4.5}% 43
+\BOOKMARK [2][-]{subsection.4.5.4}{Przyklad zastosowania na podstawie symulacji wybranego preta}{section.4.5}% 44
+\BOOKMARK [1][-]{section.4.6}{Porownanie opracowanych metod kompensacji}{chapter.4}% 45
+\BOOKMARK [2][-]{subsection.4.6.1}{Metoda odwracania sygnalu w czasie}{section.4.6}% 46
+\BOOKMARK [2][-]{subsection.4.6.2}{Metoda mapowania liniowego przy pomocy rozwiniecia w szereg Taylora}{section.4.6}% 47
+\BOOKMARK [2][-]{subsection.4.6.3}{Metoda mapowania sygnalu z dziedziny czasu na dziedzine odleglosci}{section.4.6}% 48
+\BOOKMARK [0][-]{chapter.5}{Aplikacja do obliczen numerycznych}{}% 49
+\BOOKMARK [1][-]{section.5.1}{Instalacja i konfiguracja srodowiska}{chapter.5}% 50
+\BOOKMARK [2][-]{subsection.5.1.1}{Python}{section.5.1}% 51
+\BOOKMARK [2][-]{subsection.5.1.2}{PyCharm}{section.5.1}% 52
+\BOOKMARK [1][-]{section.5.2}{Potrzebne biblioteki}{chapter.5}% 53
+\BOOKMARK [1][-]{section.5.3}{Obliczenia MES i wyznaczanie krzywych dyspersji oraz wzbudzalnosci}{chapter.5}% 54
+\BOOKMARK [2][-]{subsection.5.3.1}{Elementy czworoscienne}{section.5.3}% 55
+\BOOKMARK [2][-]{subsection.5.3.2}{Elementy szescienne}{section.5.3}% 56
+\BOOKMARK [2][-]{subsection.5.3.3}{Pozostale moduly katalogu MES\137dir}{section.5.3}% 57
+\BOOKMARK [2][-]{subsection.5.3.4}{Modul main}{section.5.3}% 58
+\BOOKMARK [2][-]{subsection.5.3.5}{Wyniki - krzywe dyspersji}{section.5.3}% 59
+\BOOKMARK [1][-]{section.5.4}{Segregacja krzywych dyspersji}{chapter.5}% 60
+\BOOKMARK [1][-]{section.5.5}{Metody kompensacji dyspersji - Katarzyna Rugiello}{chapter.5}% 61
+\BOOKMARK [1][-]{section.5.6}{Graficzny interfejs uzytkownika - Katarzyna Rugiello}{chapter.5}% 62
+\BOOKMARK [2][-]{subsection.5.6.1}{Opis dostepnych funkcji}{section.5.6}% 63
+\BOOKMARK [2][-]{subsection.5.6.2}{Przyklad zastosowania do wygenerowania danych dla zadanego preta}{section.5.6}% 64
+\BOOKMARK [0][-]{chapter.6}{Podsumowanie}{}% 65
+\BOOKMARK [0][-]{section*.111}{Bibliografia}{}% 66
