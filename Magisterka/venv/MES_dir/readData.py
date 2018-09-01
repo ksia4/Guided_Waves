@@ -131,6 +131,27 @@ def write_vector_to_file(filename, vector):
                 file.write(" \n")
 
 
+def write_exc(argsMatrix, excMatrix, path):
+    toSave = []
+    for arg, exc in zip(argsMatrix, excMatrix):
+        toSave.append(arg)
+        toSave.append(exc)
+    toSave = np.array(toSave)
+    np.savetxt(path, toSave)
+
+
+def read_exc(path):
+
+    values = np.loadtxt(path)
+    modes = int(values.shape[0]/2)
+
+    argsMatrix = []
+    excMatrix = []
+    for mode in range(modes):
+        argsMatrix.append(values[2*mode])
+        excMatrix.append(values[2*mode + 1])
+
+    return argsMatrix, excMatrix
 
 # test = readEigMap('../eig/eig_0.1060287521046555','(8.24804760615e+13-1.64828439995e+12j)')
 

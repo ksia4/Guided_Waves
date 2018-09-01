@@ -186,6 +186,29 @@ W tym module wyznaczone są punkty krzywych dyspersji, na podstawie macierzy mas
 %\vspace {3mm}
 %\textit{calculateAndShowCurves(numberOfModes)} - funkcja przyjmuje jako argument liczbę początkowych modów, dla których ma wyznaczyć krzywe wzbudzalności- numberOfModes. Po obliczeniu przedstawia wykres krzywych wzbudzalności.
 
+
+\vspace {3mm}
+ \( \textbf{Moduł singi\_around} \).
+Moduł pozwala na symulację efektu sing around.
+
+\vspace {3mm}
+\textit{getSignalSpectrum()} - funkcja generuje sygnał, którego symulacja będzie symulowana. W tym przypadku jest to sygnał chirp.
+
+\vspace {3mm}
+\textit{getCurvesInSignalArgs(numberOfModes, args)} - funcja przyjmuje jako argumenty liczbę modów - numberOfModes oraz argumenty widma badanego sygnału - args. Pozwala na znalezienie wartości liczby falowej oraz amplitudy dla krzywych, dla częstotliwości zawartych w widmie badanego sygnału. Zwraca macierze liczby falowej i amplitudy z liczbą wierszy równa liczbie modów, oraz liczbą kolumn równą liczbie punktów sygnału badanego.
+
+\vspace {3mm}
+\textit{lenghtPropagate(length, fChirp, kvect, excAmplitude)} - funcja przyjmuje jako argumenty długość ścieżki propagacji - length, widmo badanego sygnału - fChirp, macierz liczb falowych związanych z krzywymi dyspersji - kvect oraz macierz amplitud krzywych wzbudzalności - excAmplitude. Przyjmowane macierze są obliczone tak, że wartości wyznaczone w tych samych częstościach, w których znajdują się wartości sygnału chirp. Funkcja zwraca widmo sygnału po propagacji na wprowadzonej długości.
+
+\vspace {3mm}
+\textit{singAround(iterations, length, frequency, fChirp, kvect, excAmplitude)} - funkcja przyjmuje jako argumenty liczbę cykli propagacji - iterations, długość ścieżki propagacji - length, częstotliwości zawarte w sygnale - frequency, widmo sygnału - fChirp, macierz liczb falowych - kvect oraz macierz amplitud krzywych wzbudzalności - excAmplitude. Funkcja zwraca widmo sygnału po kilkukrotnej propagacji na zadanej długości.
+
+\vspace {3mm}
+\textit{plotSignal(args, values)} - funkcja przyjmuje jako argumenty wektor argumentów funkcji - args oraz wektor wartości funkcji - values. Rysuje zadaną funkcję.
+
+\vspace {3mm}
+\textit{plotCurves(args, values)} - funkcja przyjmuje jako argumenty wektor argumentów funkcji - args oraz macierz wartości funkcji dla kilku krzywych - values. Rysuje zadane krzywe.
+
 \vspace {3mm}
  \( \textbf{Moduł readData} \).
 W tym module zawarte są wszystkie funkcje służące do zapisu i wczytywania danych. Nie będą one z osobna omawiane ponieważ ich funkcja jest jasna. Poniżej omówiony jest sposób umieszczania danych w plikach.
