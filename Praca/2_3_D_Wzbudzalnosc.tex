@@ -9,7 +9,7 @@ Pierwszy sposób wykorzystuję standardowy model MES ze wzoru \ref{eq:MES1}. Wyz
 
 \vspace{3mm}
 
-Innym sposobem omawianym w literaturze jest zastosowanie metody SAFE (Semi-Analytical Finite Element). Jest ona modyfikacją metody elementów skończonych, polegającą na ustaleniu analitycznego rozwiązania problemu, dla jednego kierunku propagacji. W przypadku problemu trójwymiarowego pozwala to na tworzenie elementów dwuwymiarowych, w kierunkach propagacji, dla których nie znamy rozwiązania. Dzięki temu cały model jest prostszy i szybszy w rozwiązaniu. Sformułowanie takie jest jednak złożone i nie będzie tutaj przytaczane w całości. Jest ono opisane dokładniej w \textcolor{red}{Fabien}.
+Innym sposobem omawianym w literaturze jest zastosowanie metody SAFE (Semi-Analytical Finite Element). Jest ona modyfikacją metody elementów skończonych, polegającą na ustaleniu analitycznego rozwiązania problemu, dla jednego kierunku propagacji. W przypadku problemu trójwymiarowego pozwala to na tworzenie elementów dwuwymiarowych, w kierunkach propagacji, dla których nie znamy rozwiązania. Dzięki temu cały model jest prostszy i szybszy w rozwiązaniu. Sformułowanie takie jest jednak złożone i nie będzie tutaj przytaczane w całości. Jest ono opisane dokładniej w \cite{bartek_fabien}.
 
 Wynikiem wykorzystania metody SAFE jest związek siły wymuszającej i przemieszczenia węzłów modelu. Związek ten przedstawia wzór \ref{eq:wzbudzanie1}. Wzbudzalność określić można na podstawie macierzy E. Określa ona dla modu m, związek pomiędzy siłą przyłożoną w i-tym węźle i przemieszczeniu j-tego węzła \( (\textbf{E}_m)_{ij} \). Rysunek \ref{fig:wzbudzalnosc1} przedstawia wzbudzalność obliczoną dla pierwszych dwóch modów w dwuwarstwowej płycie, bez tłumienia.
 
@@ -31,7 +31,7 @@ gdzie
 \begin{figure}[h]
 \centering
 \includegraphics[width=10cm]{Zdjecia/2/wzbudzalnosc1}
-\caption{Krzywe wzbudzalności dla dwuwarstwowej cienkiej płyty}
+\caption{Krzywe wzbudzalności dla dwuwarstwowej cienkiej płyty \cite{bartek_fabien}}
 \label{fig:wzbudzalnosc1}
 \end{figure}
 
@@ -66,14 +66,14 @@ gdzie
 
 Należy zaznaczyć, że do obliczenia amplitud poszczególnych modów, konieczna jest znajomość krzywych dyspersji (zależności \( k(\omega) \) ), oraz wektorów własnych odpowiadających częstościom własnym, dla których wyznaczamy amplitudy.
 
-\subsection{System sing-around}
+\subsection{System sing\_around (lub Self-Excited Acoustical System)}
 
 Systemy sing-around to samowzbudne systemy, do pomiaru parametrów rezonansowych fal. Idea systemu polega na dodatnim sprzężeniu zwrotnym pomiędzy przetwornikiem pomiarowym oraz wzbudnikiem. Badanie konstrukcji rozpoczyna arbitralny sygnał wzbudzający. Przetwornik pomiarowy odbiera sygnał i przetwarza go na sygnał elektryczny, który jest odpowiednio filtrowany i wzmacniany, a następnie podawany do wzbudnika. Dane pomiarowe są przesyłane do systemu akwizycji i obróbki, w celu wydobycia informacji o stanie konstrukcji. Schemat przykładowego stanowiska badawczego znajduje się na rysunku \ref{fig:sing_around}.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=10cm]{Zdjecia/2/sing_around}
-\caption{Stanowisko badawcze z systemem sing around}
+\caption{Stanowisko badawcze z systemem sing around \cite{bartek_kwach}}
 \label{fig:sing_around}
 \end{figure}
 
@@ -82,14 +82,14 @@ Popularnym zastosowaniem tego typu systemów jest pośredni pomiar naprężeń, 
 \begin{figure}[h]
 \centering
 \includegraphics[width=10cm]{Zdjecia/2/sing_around_silos}
-\caption{Widok podpory silosa z zamontowanymi przyżadami}
+\caption{Widok podpory silosa z zamontowanymi przyżadami \cite{bartek_kwach}}
 \label{fig:sing_around_silos}
 \end{figure}
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=14cm]{Zdjecia/2/sing_around_wyniki}
-\caption{Wyniki pomiaru dla ciągłego dostarczania cementu do silosa}
+\caption{Wyniki pomiaru dla ciągłego dostarczania cementu do silosa \cite{bartek_kwach}}
 \label{fig:sing_around_wyniki}
 \end{figure}
 
