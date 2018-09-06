@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.8.3)  1 SEP 2018 20:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.8.3)  6 SEP 2018 23:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -666,15 +666,15 @@ Package etexcmds Info: Could not find \expanded.
 ))))
 
 Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 538.
-
-
-Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
 less on input line 540.
 
 
-Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
 less on input line 542.
+
+
+Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
+less on input line 544.
 
 (/usr/share/texlive/texmf-dist/tex/latex/titlesec/block.tss
 File: block.tss 2016/03/15
@@ -3862,7 +3862,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  26670 strings out of 493029
  475284 string characters out of 6136235
- 556468 words of memory out of 5000000
+ 556465 words of memory out of 5000000
  28888 multiletter control sequences out of 15000+600000
  213235 words of font info for 281 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -3900,7 +3900,7 @@ mf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/txfonts/txsyc.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
 /times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.
 pfb>
-Output written on praca.pdf (153 pages, 9079787 bytes).
+Output written on praca.pdf (153 pages, 9079762 bytes).
 PDF statistics:
  1991 PDF objects out of 2073 (max. 8388607)
  1591 compressed objects within 16 object streams
