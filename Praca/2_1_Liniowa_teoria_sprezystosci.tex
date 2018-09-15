@@ -8,13 +8,12 @@ Liniowa teoria sprężystości jest mechaniką ciała stałego opartą na nastę
   \item odkształcenia i przemieszczenia są bardzo małe
   \item spełniona jest zasada superpozycji
   \item ośrodek zachowuje się zgodnie z prawem Hooke'a
-  \item siły działają na ciało w taki sam sposób przed odkształeceniem jak i po odkształceniu
 \end{itemize}
 
 \subsection{Naprężenie}
 \label{sec:naprezenie}
 
-Naprężenie można zdefiniować jako miara sił wewnętrznych ciała w punkcie. Weźmy ciało przedstawione na rysunku \ref{fig:potato}, na które działają siły zewnętrzne P1 i P2. W płaszczyźnie przekroju wybieramy punkt B, w którego otoczeniu określamy pole dA. Stosunek sił jakimi oddziałują na siebie połówki ciała w tym punkcie przekroju, do pola dA, nazywamy naprężeniem ciała w punkcie B. Kierunek naprężenia będzie zgodny z kierunkiem działania siły przekrojowej w punkcie.
+Naprężenie można zdefiniować jako miarę sił wewnętrznych ciała w punkcie. Weźmy ciało przedstawione na rysunku \ref{fig:potato}, na które działają siły zewnętrzne P1 i P2. W płaszczyźnie przekroju wybieramy punkt B, w którego otoczeniu określamy pole dA. Stosunek sił jakimi oddziałują na siebie połówki ciała w tym punkcie przekroju, do pola dA, nazywamy naprężeniem ciała w punkcie B. Kierunek naprężenia będzie zgodny z kierunkiem działania siły przekrojowej w punkcie.
 
 \begin{figure}[h]
 \centering
@@ -23,7 +22,7 @@ Naprężenie można zdefiniować jako miara sił wewnętrznych ciała w punkcie.
 \label{fig:potato}
 \end{figure}
 
-Stana naprężenia w punkcie B oznacza ogół naprężeń, które otrzymamy dla wszystkich możliwych przekrojów ciała przez ten punkt.
+Stan naprężenia w punkcie B oznacza ogół naprężeń, które otrzymamy dla wszystkich możliwych przekrojów ciała przez ten punkt.
 W przypadku trójwymiarowego stanu naprężenia, dla każdego przekroju wektor naprężenia będzie miał inny kierunek. Stan naprężenia można opisać przy pomocy tensora naprężeń, dla układu kartezjańskiego danego wzorem:
 
 
@@ -76,7 +75,7 @@ gdzie
         \item[$\nu$] współczynnik Poissona.
 \end{eqwhere}
 
-	Współczynnik Poissona jest wielkością bezwymiarową. Określa on sposób w jaki odkształca się ciało i przyjmuje wartości z przedziału [-1, 1]. Dla popularnych w mechanice stopów metali przyjmuje zwykle wartości z przedziału [0.2 , 0.4]. Wartości ujemne przyjmuje dla tak zwanych materiałów odwrotnych, które pod wpływem naprężenia zwiększają swoją objętość.
+	Współczynnik Poissona jest wielkością bezwymiarową. Określa on sposób w jaki odkształca się ciało i przyjmuje wartości z przedziału [-1.5, 0.5]. Dla popularnych w mechanice stopów metali przyjmuje zwykle wartości z przedziału [0.2 , 0.4]. Wartości ujemne przyjmuje dla tak zwanych materiałów odwrotnych, które pod wpływem naprężenia zwiększają swoją objętość.
 
 	Dla przypadku prostego rozciągania zachodzi jeszcze jedna zależność. Opisuje ona związek pomiędzy naprężeniem i odkształceniem i nazywana jest prawem Hooke'a.
 
@@ -117,20 +116,20 @@ gdzie
 Dla takiego przypadku prawo Hooke'a przybiera bardziej skomplikowaną postać:
 
 \begin{equation}
-\varepsilon_xx=\frac{1}{E}(\sigma_xx-\nu(\sigma_yy+\sigma_zz)), \gamma_{xy}=\frac{\tau_{xy}}{G}
+\varepsilon_{xx}=\frac{1}{E}(\sigma_{xx}-\nu(\sigma_{yy}+\sigma_{zz})), \gamma_{xy}=\frac{\tau_{xy}}{G}
 \end{equation}
 \begin{equation}
-\varepsilon_yy=\frac{1}{E}(\sigma_yy-\nu(\sigma_xx+\sigma_zz)), \gamma_{xz}=\frac{\tau_{xz}}{G}
+\varepsilon_{yy}=\frac{1}{E}(\sigma_{yy}-\nu(\sigma_{xx}+\sigma_{zz})), \gamma_{xz}=\frac{\tau_{xz}}{G}
 \end{equation}
 \begin{equation}
-\varepsilon_zz=\frac{1}{E}(\sigma_zz-\nu(\sigma_xx+\sigma_yy)), \gamma_{yz}=\frac{\tau_{yz}}{G}
+\varepsilon_{zz}=\frac{1}{E}(\sigma_{zz}-\nu(\sigma_{xx}+\sigma_{yy})), \gamma_{yz}=\frac{\tau_{yz}}{G}
 \end{equation}
 
 \begin{eqwhere}[2cm]
         \item[$G$] moduł Kirchoffa
 \end{eqwhere}
 
-	Moduł Kirchoffa opisuje zależność odkształcenia postaciowego od naprężenia stycznego występującego w materiale. Jednostką tego współczynnika jest paskal, a typowymi wartościami są dla stali 80 Gpa, dla aluminium 25,5 GPa.
+	Moduł Kirchoffa opisuje zależność odkształcenia postaciowego od naprężenia stycznego występującego w materiale. Jednostką tego współczynnika jest paskal, a typowymi wartościami są dla stali 80 GPa, dla aluminium 25,5 GPa.
 
 	Opisane wcześniej stałe materiałowe są powiązane równaniem:
 \begin{equation}

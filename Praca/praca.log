@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.8.3)  6 SEP 2018 23:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.8.3)  6 SEP 2018 23:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -666,15 +666,15 @@ Package etexcmds Info: Could not find \expanded.
 ))))
 
 Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 540.
+less on input line 532.
 
 
 Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 542.
+less on input line 534.
 
 
 Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
-less on input line 544.
+less on input line 536.
 
 (/usr/share/texlive/texmf-dist/tex/latex/titlesec/block.tss
 File: block.tss 2016/03/15
@@ -1916,11 +1916,6 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/bx/n' in size <28> not available
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 28.0pt on input line 278.
-LaTeX Font Info:    Font shape `T1/ntxtlf/bx/n' in size <24> not available
-(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 278.
-
-LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 24.0pt on input line 278.
 LaTeX Font Info:    Font shape `T1/ntxtlf/bx/n' in size <22> not available
 (Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 278.
 
@@ -2049,7 +2044,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.9}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.45 ...}Algorytm agregacji}{61}{subsection.4.2.2}
+l.45 ...Algorytm segregacji}{61}{subsection.4.2.2}
                                                    [9
 
 ]
@@ -2076,7 +2071,7 @@ l.99 ...\k e}pnych funkcji}{136}{subsection.5.6.1}
 
 (./1_Wprowadzenie.tex
 Rozdzia\l  1.
-<Zdjecia/1/badania_falami.png, id=431, 519.44063pt x 362.85562pt>
+<Zdjecia/1/badania_falami.png, id=427, 519.44063pt x 362.85562pt>
 File: Zdjecia/1/badania_falami.png Graphic file (type png)
 
 <use Zdjecia/1/badania_falami.png>
@@ -2113,15 +2108,15 @@ LaTeX Warning: Citation `bartek_crecraft' on page 15 undefined on input line 5.
 
 (./2_1_Liniowa_teoria_sprezystosci.tex
 LaTeX Font Info:    Font shape `T1/ntxtlf/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 14.
+(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 13.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 14.4pt on input line 14.
+(Font)              scaled to size 14.4pt on input line 13.
 
-<Zdjecia/2/potato.png, id=471, 156.585pt x 120.45pt>
+<Zdjecia/2/potato.png, id=467, 156.585pt x 120.45pt>
 File: Zdjecia/2/potato.png Graphic file (type png)
 
 <use Zdjecia/2/potato.png>
-Package pdftex.def Info: Zdjecia/2/potato.png used on input line 21.
+Package pdftex.def Info: Zdjecia/2/potato.png used on input line 20.
 (pdftex.def)             Requested size: 142.26378pt x 109.43689pt.
 
 
@@ -2131,48 +2126,51 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-] <Zdjecia/2/rozciaganie.png, id=491, 588.69937pt x 158.09062pt>
+] <Zdjecia/2/rozciaganie.png, id=486, 588.69937pt x 158.09062pt>
 File: Zdjecia/2/rozciaganie.png Graphic file (type png)
 
 <use Zdjecia/2/rozciaganie.png>
-Package pdftex.def Info: Zdjecia/2/rozciaganie.png used on input line 52.
+Package pdftex.def Info: Zdjecia/2/rozciaganie.png used on input line 51.
 (pdftex.def)             Requested size: 284.52756pt x 76.4085pt.
  [16 <./Zdjecia/2/potato.png> <./Zdjecia/2/rozciaganie.png>]
-Underfull \hbox (badness 2142) in paragraph at lines 91--92
+Underfull \hbox (badness 2142) in paragraph at lines 90--91
 []\T1/ntxtlf/m/n/12 Moduª Younga okre-±la za-le»-no±¢ od-ksztaª-ce-nia li-nio-w
 ego i przy-ªo-»o-nego
  []
 
 [17]) (./2_2_Rodzaje_fal.tex
-<Zdjecia/2/fala_podluzna.jpg, id=517, 301.125pt x 155.83218pt>
+<Zdjecia/2/fala_podluzna.jpg, id=516, 301.125pt x 155.83218pt>
 File: Zdjecia/2/fala_podluzna.jpg Graphic file (type jpg)
 
 <use Zdjecia/2/fala_podluzna.jpg>
 Package pdftex.def Info: Zdjecia/2/fala_podluzna.jpg used on input line 23.
 (pdftex.def)             Requested size: 284.52756pt x 147.25743pt.
- [18]
-<Zdjecia/2/fala_poprzeczna2.jpg, id=534, 691.08188pt x 246.1697pt>
-File: Zdjecia/2/fala_poprzeczna2.jpg Graphic file (type jpg)
 
-<use Zdjecia/2/fala_poprzeczna2.jpg>
-Package pdftex.def Info: Zdjecia/2/fala_poprzeczna2.jpg used on input line 46.
-(pdftex.def)             Requested size: 284.52756pt x 101.35092pt.
- [19 <./Zdjecia/2/fala_podluzna.jpg> <./Zdjecia/2/fala_poprzeczna2.jpg>]
-<Zdjecia/2/fala_rayleigha.jpg, id=543, 264.23718pt x 149.05687pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[18] <Zdjecia/2/fala_poprzeczna3.png, id=530, 399.74344pt x 127.22531pt>
+File: Zdjecia/2/fala_poprzeczna3.png Graphic file (type png)
+
+<use Zdjecia/2/fala_poprzeczna3.png>
+Package pdftex.def Info: Zdjecia/2/fala_poprzeczna3.png used on input line 46.
+(pdftex.def)             Requested size: 284.52756pt x 90.55966pt.
+ [19 <./Zdjecia/2/fala_podluzna.jpg> <./Zdjecia/2/fala_poprzeczna3.png>]
+<Zdjecia/2/fala_rayleigha.jpg, id=539, 264.23718pt x 149.05687pt>
 File: Zdjecia/2/fala_rayleigha.jpg Graphic file (type jpg)
 
 <use Zdjecia/2/fala_rayleigha.jpg>
 Package pdftex.def Info: Zdjecia/2/fala_rayleigha.jpg used on input line 71.
 (pdftex.def)             Requested size: 142.26378pt x 80.25069pt.
 
-<Zdjecia/2/fala_lova.jpg, id=544, 270.25969pt x 151.3153pt>
+<Zdjecia/2/fala_lova.jpg, id=540, 270.25969pt x 151.3153pt>
 File: Zdjecia/2/fala_lova.jpg Graphic file (type jpg)
 
 <use Zdjecia/2/fala_lova.jpg>
 Package pdftex.def Info: Zdjecia/2/fala_lova.jpg used on input line 76.
 (pdftex.def)             Requested size: 142.26378pt x 79.65413pt.
 
-<Zdjecia/2/fala_lamba2.jpg, id=552, 247.67531pt x 305.64188pt>
+<Zdjecia/2/fala_lamba2.jpg, id=548, 247.67531pt x 305.64188pt>
 File: Zdjecia/2/fala_lamba2.jpg Graphic file (type jpg)
 
 <use Zdjecia/2/fala_lamba2.jpg>
@@ -2183,7 +2181,7 @@ Package pdftex.def Info: Zdjecia/2/fala_lamba2.jpg used on input line 89.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 ) (./2_3_Dyspersja.tex [20 <./Zdjecia/2/fala_rayleigha.jpg> <./Zdjecia/2/fala_l
-ova.jpg>] <Zdjecia/2/czestotliwosc1.jpg, id=564, 456.68489pt x 324.44617pt>
+ova.jpg>] <Zdjecia/2/czestotliwosc1.jpg, id=560, 456.68489pt x 324.44617pt>
 File: Zdjecia/2/czestotliwosc1.jpg Graphic file (type jpg)
 
 <use Zdjecia/2/czestotliwosc1.jpg>
@@ -2211,7 +2209,7 @@ LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/2/char_fazowa.jpg, id=566, 390.56554pt x 332.13448pt>
+<Zdjecia/2/char_fazowa.jpg, id=562, 390.56554pt x 332.13448pt>
 File: Zdjecia/2/char_fazowa.jpg Graphic file (type jpg)
 
 <use Zdjecia/2/char_fazowa.jpg>
@@ -2225,7 +2223,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [21 <./Zdjecia/2/fala_lamba2.jpg>] [22 <./Zdjecia/2/czestotliwosc1.jpg>]
-<Zdjecia/2/char_predkosc_fazowa.jpg, id=581, 482.8251pt x 325.98383pt>
+<Zdjecia/2/char_predkosc_fazowa.jpg, id=577, 482.8251pt x 325.98383pt>
 File: Zdjecia/2/char_predkosc_fazowa.jpg Graphic file (type jpg)
 
 <use Zdjecia/2/char_predkosc_fazowa.jpg>
@@ -2237,7 +2235,7 @@ Package pdftex.def Info: Zdjecia/2/char_predkosc_fazowa.jpg used on input line
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-<Zdjecia/2/predkosc_grupowa_wierzcholek.jpg, id=585, 248.42813pt x 107.65219pt>
+<Zdjecia/2/predkosc_grupowa_wierzcholek.jpg, id=581, 248.42813pt x 107.65219pt>
 File: Zdjecia/2/predkosc_grupowa_wierzcholek.jpg Graphic file (type jpg)
 <use Zdjecia/2/predkosc_grupowa_wierzcholek.jpg>
 Package pdftex.def Info: Zdjecia/2/predkosc_grupowa_wierzcholek.jpg used on inp
@@ -2252,7 +2250,7 @@ Underfull \vbox (badness 5475) has occurred while \output is active []
 
  [23 <./Zdjecia/2/char_fazowa.jpg>] [24 <./Zdjecia/2/char_predkosc_fazowa.jpg> 
 <./Zdjecia/2/predkosc_grupowa_wierzcholek.jpg>]
-<Zdjecia/2/predkosc_grupowa_wykres.jpg, id=601, 527.72156pt x 415.5525pt>
+<Zdjecia/2/predkosc_grupowa_wykres.jpg, id=597, 527.72156pt x 415.5525pt>
 File: Zdjecia/2/predkosc_grupowa_wykres.jpg Graphic file (type jpg)
 
 <use Zdjecia/2/predkosc_grupowa_wykres.jpg>
@@ -2260,7 +2258,7 @@ Package pdftex.def Info: Zdjecia/2/predkosc_grupowa_wykres.jpg used on input li
 ne 71.
 (pdftex.def)             Requested size: 284.52756pt x 224.04626pt.
  (./2_3_A_Analitycznie.tex
-<Zdjecia/2/dyspersja_analitycznie_sprezyna.jpg, id=605, 337.26pt x 201.75375pt>
+<Zdjecia/2/dyspersja_analitycznie_sprezyna.jpg, id=601, 337.26pt x 201.75375pt>
 File: Zdjecia/2/dyspersja_analitycznie_sprezyna.jpg Graphic file (type jpg)
 <use Zdjecia/2/dyspersja_analitycznie_sprezyna.jpg>
 Package pdftex.def Info: Zdjecia/2/dyspersja_analitycznie_sprezyna.jpg used on 
@@ -2274,7 +2272,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 Underfull \vbox (badness 1102) has occurred while \output is active []
 
  [26 <./Zdjecia/2/dyspersja_analitycznie_sprezyna.jpg>]
-<Zdjecia/2/dyspersja_analitycznie_sprezyna2.jpg, id=626, 406.51875pt x 246.1697
+<Zdjecia/2/dyspersja_analitycznie_sprezyna2.jpg, id=622, 406.51875pt x 246.1697
 pt>
 File: Zdjecia/2/dyspersja_analitycznie_sprezyna2.jpg Graphic file (type jpg)
  <use Zdjecia/2/dyspersja_analitycznie_sprezyna2.jpg>
@@ -2288,7 +2286,7 @@ Underfull \hbox (badness 2181) in paragraph at lines 80--80
  []
 
 [27 <./Zdjecia/2/dyspersja_analitycznie_sprezyna2.jpg>]
-<Zdjecia/2/dyspersja_analitycznie_plyta.jpg, id=641, 389.20406pt x 228.10219pt>
+<Zdjecia/2/dyspersja_analitycznie_plyta.jpg, id=637, 389.20406pt x 228.10219pt>
 File: Zdjecia/2/dyspersja_analitycznie_plyta.jpg Graphic file (type jpg)
 <use Zdjecia/2/dyspersja_analitycznie_plyta.jpg>
 Package pdftex.def Info: Zdjecia/2/dyspersja_analitycznie_plyta.jpg used on inp
@@ -2304,14 +2302,14 @@ leigha-Lamba i s[]
 Underfull \vbox (badness 1852) has occurred while \output is active []
 
  [28 <./Zdjecia/2/dyspersja_analitycznie_plyta.jpg>] [29]
-<Zdjecia/2/dyspersja_tian1.jpg, id=671, 509.65407pt x 365.11406pt>
+<Zdjecia/2/dyspersja_tian1.jpg, id=667, 509.65407pt x 365.11406pt>
 File: Zdjecia/2/dyspersja_tian1.jpg Graphic file (type jpg)
 
 <use Zdjecia/2/dyspersja_tian1.jpg>
 Package pdftex.def Info: Zdjecia/2/dyspersja_tian1.jpg used on input line 81.
 (pdftex.def)             Requested size: 284.52756pt x 203.84407pt.
  [30]
-<Zdjecia/2/widmo_wymuszenia_waskopasmowe.jpg, id=690, 520.19344pt x 377.91188pt
+<Zdjecia/2/widmo_wymuszenia_waskopasmowe.jpg, id=686, 520.19344pt x 377.91188pt
 >
 File: Zdjecia/2/widmo_wymuszenia_waskopasmowe.jpg Graphic file (type jpg)
  <use Zdjecia/2/widmo_wymuszenia_waskopasmowe.jpg>
@@ -2319,7 +2317,7 @@ Package pdftex.def Info: Zdjecia/2/widmo_wymuszenia_waskopasmowe.jpg used on in
 put line 105.
 (pdftex.def)             Requested size: 284.52756pt x 206.70464pt.
  [31 <./Zdjecia/2/dyspersja_tian1.jpg>]
-<Zdjecia/2/widmo_wymuszenia_szerokopasmowe1a.jpg, id=702, 441.90094pt x 309.405
+<Zdjecia/2/widmo_wymuszenia_szerokopasmowe1a.jpg, id=698, 441.90094pt x 309.405
 94pt>
 File: Zdjecia/2/widmo_wymuszenia_szerokopasmowe1a.jpg Graphic file (type jpg)
  <use Zdjecia/2/widmo_wymuszenia_szerokopasmowe1a.jpg>
@@ -2330,7 +2328,7 @@ n input line 129.
 Underfull \vbox (badness 2564) has occurred while \output is active []
 
  [32 <./Zdjecia/2/widmo_wymuszenia_waskopasmowe.jpg>]
-<Zdjecia/2/widmo_wymuszenia_szerokopasmowe2a.jpg, id=713, 432.86719pt x 309.405
+<Zdjecia/2/widmo_wymuszenia_szerokopasmowe2a.jpg, id=709, 432.86719pt x 309.405
 94pt>
 File: Zdjecia/2/widmo_wymuszenia_szerokopasmowe2a.jpg Graphic file (type jpg)
  <use Zdjecia/2/widmo_wymuszenia_szerokopasmowe2a.jpg>
@@ -2341,7 +2339,7 @@ n input line 136.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/2/metoda_numeryczna3.jpg, id=717, 514.92375pt x 214.55156pt>
+<Zdjecia/2/metoda_numeryczna3.jpg, id=713, 514.92375pt x 214.55156pt>
 File: Zdjecia/2/metoda_numeryczna3.jpg Graphic file (type jpg)
 
 <use Zdjecia/2/metoda_numeryczna3.jpg>
@@ -2353,7 +2351,7 @@ Package pdftex.def Info: Zdjecia/2/metoda_numeryczna3.jpg used on input line 14
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-<Zdjecia/2/metoda_numeryczna3_sztywnosc.jpg, id=720, 341.02406pt x 285.31593pt>
+<Zdjecia/2/metoda_numeryczna3_sztywnosc.jpg, id=716, 341.02406pt x 285.31593pt>
 File: Zdjecia/2/metoda_numeryczna3_sztywnosc.jpg Graphic file (type jpg)
 <use Zdjecia/2/metoda_numeryczna3_sztywnosc.jpg>
 Package pdftex.def Info: Zdjecia/2/metoda_numeryczna3_sztywnosc.jpg used on inp
@@ -2363,7 +2361,7 @@ ut line 162.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/2/przykladowe_krzywe.jpg, id=733, 859.71187pt x 222.8325pt>
+<Zdjecia/2/przykladowe_krzywe.jpg, id=729, 859.71187pt x 222.8325pt>
 File: Zdjecia/2/przykladowe_krzywe.jpg Graphic file (type jpg)
 
 <use Zdjecia/2/przykladowe_krzywe.jpg>
@@ -2377,14 +2375,14 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 ) (./2_3_C_Eksperymentalnie.tex [34 <./Zdjecia/2/widmo_wymuszenia_szerokopasmow
 e2a.jpg>] [35 <./Zdjecia/2/metoda_numeryczna3.jpg> <./Zdjecia/2/metoda_numerycz
 na3_sztywnosc.jpg> <./Zdjecia/2/przykladowe_krzywe.jpg>]
-<Zdjecia/2/piezo_stos.jpg, id=747, 292.09125pt x 371.88937pt>
+<Zdjecia/2/piezo_stos.jpg, id=743, 292.09125pt x 371.88937pt>
 File: Zdjecia/2/piezo_stos.jpg Graphic file (type jpg)
 
 <use Zdjecia/2/piezo_stos.jpg>
 Package pdftex.def Info: Zdjecia/2/piezo_stos.jpg used on input line 17.
 (pdftex.def)             Requested size: 142.26378pt x 181.13219pt.
 
-<Zdjecia/2/piezo_plytka.jpg, id=748, 439.6425pt x 386.94562pt>
+<Zdjecia/2/piezo_plytka.jpg, id=744, 439.6425pt x 386.94562pt>
 File: Zdjecia/2/piezo_plytka.jpg Graphic file (type jpg)
 
 <use Zdjecia/2/piezo_plytka.jpg>
@@ -2394,7 +2392,7 @@ Package pdftex.def Info: Zdjecia/2/piezo_plytka.jpg used on input line 22.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/2/laser.jpg, id=754, 493.845pt x 292.09125pt>
+<Zdjecia/2/laser.jpg, id=750, 493.845pt x 292.09125pt>
 File: Zdjecia/2/laser.jpg Graphic file (type jpg)
 
 <use Zdjecia/2/laser.jpg>
@@ -2416,7 +2414,7 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 6.6pt on input line 14.
 
-<Zdjecia/2/wzbudzalnosc1.png, id=772, 504.38437pt x 397.485pt>
+<Zdjecia/2/wzbudzalnosc1.png, id=768, 504.38437pt x 397.485pt>
 File: Zdjecia/2/wzbudzalnosc1.png Graphic file (type png)
 
 <use Zdjecia/2/wzbudzalnosc1.png>
@@ -2430,7 +2428,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 Underfull \vbox (badness 1831) has occurred while \output is active []
 
  [38]
-<Zdjecia/2/sing_around.png, id=784, 578.16pt x 271.0125pt>
+<Zdjecia/2/sing_around.png, id=780, 578.16pt x 271.0125pt>
 File: Zdjecia/2/sing_around.png Graphic file (type png)
 
 <use Zdjecia/2/sing_around.png>
@@ -2440,7 +2438,7 @@ Package pdftex.def Info: Zdjecia/2/sing_around.png used on input line 75.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [39 <./Zdjecia/2/wzbudzalnosc1.png>]
-<Zdjecia/2/sing_around_silos.png, id=793, 414.79968pt x 310.15875pt>
+<Zdjecia/2/sing_around_silos.png, id=789, 414.79968pt x 310.15875pt>
 File: Zdjecia/2/sing_around_silos.png Graphic file (type png)
 
 <use Zdjecia/2/sing_around_silos.png>
@@ -2448,7 +2446,7 @@ Package pdftex.def Info: Zdjecia/2/sing_around_silos.png used on input line 84.
 
 (pdftex.def)             Requested size: 284.52756pt x 212.75562pt.
 
-<Zdjecia/2/sing_around_wyniki.png, id=796, 585.68813pt x 223.58531pt>
+<Zdjecia/2/sing_around_wyniki.png, id=792, 585.68813pt x 223.58531pt>
 File: Zdjecia/2/sing_around_wyniki.png Graphic file (type png)
 
 <use Zdjecia/2/sing_around_wyniki.png>
@@ -2471,14 +2469,14 @@ Rozdzia\l  3.
 
 
 ]
-<Zdjecia/3/MES_przyklad.png, id=828, 456.20438pt x 227.34938pt>
+<Zdjecia/3/MES_przyklad.png, id=824, 456.20438pt x 227.34938pt>
 File: Zdjecia/3/MES_przyklad.png Graphic file (type png)
 
 <use Zdjecia/3/MES_przyklad.png>
 Package pdftex.def Info: Zdjecia/3/MES_przyklad.png used on input line 27.
 (pdftex.def)             Requested size: 284.52756pt x 141.79813pt.
 ) (./3_2_funkcje_ksztaltu.tex
-<Zdjecia/3/rozklad_temperatury.jpg, id=833, 345.54094pt x 224.33812pt>
+<Zdjecia/3/rozklad_temperatury.jpg, id=829, 345.54094pt x 224.33812pt>
 File: Zdjecia/3/rozklad_temperatury.jpg Graphic file (type jpg)
 
 <use Zdjecia/3/rozklad_temperatury.jpg>
@@ -2488,7 +2486,7 @@ Package pdftex.def Info: Zdjecia/3/rozklad_temperatury.jpg used on input line 9
  [43 <./Zdjecia/3/MES_przyklad.png> <./Zdjecia/3/rozklad_temperatury.jpg>] [44]
 )
 (./3_3_wyznaczanie_macierzy_sztywnosci_i_mas_elementu.tex
-<Zdjecia/3/pret.png, id=860, 539.01375pt x 250.68657pt>
+<Zdjecia/3/pret.png, id=856, 539.01375pt x 250.68657pt>
 File: Zdjecia/3/pret.png Graphic file (type png)
 
 <use Zdjecia/3/pret.png>
@@ -2497,7 +2495,7 @@ Package pdftex.def Info: Zdjecia/3/pret.png used on input line 8.
 
 Underfull \vbox (badness 2119) has occurred while \output is active []
 
- [45 <./Zdjecia/3/pret.png>] <Zdjecia/3/pret_upr.png, id=871, 444.91219pt x 149
+ [45 <./Zdjecia/3/pret.png>] <Zdjecia/3/pret_upr.png, id=867, 444.91219pt x 149
 .8097pt>
 File: Zdjecia/3/pret_upr.png Graphic file (type png)
 
@@ -2508,7 +2506,7 @@ Package pdftex.def Info: Zdjecia/3/pret_upr.png used on input line 34.
 Underfull \vbox (badness 1038) has occurred while \output is active []
 
  [46 <./Zdjecia/3/pret_upr.png>] [47]
-<Zdjecia/3/izoparam.png, id=895, 506.6428pt x 231.11343pt>
+<Zdjecia/3/izoparam.png, id=891, 506.6428pt x 231.11343pt>
 File: Zdjecia/3/izoparam.png Graphic file (type png)
 
 <use Zdjecia/3/izoparam.png>
@@ -2516,7 +2514,7 @@ Package pdftex.def Info: Zdjecia/3/izoparam.png used on input line 138.
 (pdftex.def)             Requested size: 284.52756pt x 129.79292pt.
  [48 <./Zdjecia/3/izoparam.png>])
 (./3_4_agregacja_globlanych_macierzy_mas_i_sztywnosci.tex
-<Zdjecia/3/agregacja.png, id=906, 381.67593pt x 220.57407pt>
+<Zdjecia/3/agregacja.png, id=902, 381.67593pt x 220.57407pt>
 File: Zdjecia/3/agregacja.png Graphic file (type png)
 
 <use Zdjecia/3/agregacja.png>
@@ -2554,7 +2552,7 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 24.88pt on input line 90.
 ) (./3_6_stablinosc_metody_i_bledy_rozwiazania.tex
-<Zdjecia/3/zgodnosc.png, id=946, 436.63126pt x 182.18062pt>
+<Zdjecia/3/zgodnosc.png, id=942, 436.63126pt x 182.18062pt>
 File: Zdjecia/3/zgodnosc.png Graphic file (type png)
 
 <use Zdjecia/3/zgodnosc.png>
@@ -2573,7 +2571,7 @@ Underfull \vbox (badness 1648) has occurred while \output is active []
  (./4_Metody_kompensacji_dyspersji.tex
 Rozdzia\l  4.
 (./4_1_Cel_kompensacji.tex
-<Zdjecia/4/kotwy.png, id=984, 1228.59pt x 424.58624pt>
+<Zdjecia/4/kotwy.png, id=980, 1228.59pt x 424.58624pt>
 File: Zdjecia/4/kotwy.png Graphic file (type png)
 
 <use Zdjecia/4/kotwy.png>
@@ -2584,7 +2582,7 @@ Package pdftex.def Info: Zdjecia/4/kotwy.png used on input line 10.
 
 
 ]
-<Zdjecia/4/dyspersja.png, id=993, 1578.89874pt x 916.42375pt>
+<Zdjecia/4/dyspersja.png, id=989, 1578.89874pt x 916.42375pt>
 File: Zdjecia/4/dyspersja.png Graphic file (type png)
 
 <use Zdjecia/4/dyspersja.png>
@@ -2603,7 +2601,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [58 <./Zdjecia/4/dyspersja.png>]
-<Zdjecia/4/linear_chirp.png, id=1014, 807.015pt x 307.1475pt>
+<Zdjecia/4/linear_chirp.png, id=1010, 807.015pt x 307.1475pt>
 File: Zdjecia/4/linear_chirp.png Graphic file (type png)
 
 <use Zdjecia/4/linear_chirp.png>
@@ -2622,7 +2620,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [59]
-<Zdjecia/4/test_chirp.png, id=1027, 1538.46pt x 882.29625pt>
+<Zdjecia/4/test_chirp.png, id=1023, 1538.46pt x 882.29625pt>
 File: Zdjecia/4/test_chirp.png Graphic file (type png)
 
 <use Zdjecia/4/test_chirp.png>
@@ -2630,8 +2628,11 @@ Package pdftex.def Info: Zdjecia/4/test_chirp.png used on input line 81.
 (pdftex.def)             Requested size: 398.33858pt x 228.43576pt.
 )
 (./4_2_Agregacja_krzywych_dyspersji_uzyskanych_z_zaimplementowanego_solvera.tex
-[60 <./Zdjecia/4/linear_chirp.png> <./Zdjecia/4/test_chirp.png>] [61]
-<Zdjecia/4/zagregowane_krzywe.png, id=1040, 1342.01375pt x 748.7975pt>
+[60 <./Zdjecia/4/linear_chirp.png> <./Zdjecia/4/test_chirp.png>]
+Underfull \vbox (badness 5726) has occurred while \output is active []
+
+ [61]
+<Zdjecia/4/zagregowane_krzywe.png, id=1036, 1342.01375pt x 748.7975pt>
 File: Zdjecia/4/zagregowane_krzywe.png Graphic file (type png)
 
 <use Zdjecia/4/zagregowane_krzywe.png>
@@ -2647,14 +2648,14 @@ ne_krzywe.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [64]
-<Zdjecia/4/algorytm_komp_tr.png, id=1071, 1477.52pt x 780.9175pt>
+<Zdjecia/4/algorytm_komp_tr.png, id=1067, 1477.52pt x 780.9175pt>
 File: Zdjecia/4/algorytm_komp_tr.png Graphic file (type png)
 
 <use Zdjecia/4/algorytm_komp_tr.png>
 Package pdftex.def Info: Zdjecia/4/algorytm_komp_tr.png used on input line 50.
 (pdftex.def)             Requested size: 398.33858pt x 210.52881pt.
  [65 <./Zdjecia/4/algorytm_komp_tr.png>]
-<Zdjecia/4/porownanie_roznych_odleglosci_time_reversal.png, id=1079, 1665.22125
+<Zdjecia/4/porownanie_roznych_odleglosci_time_reversal.png, id=1075, 1665.22125
 pt x 945.5325pt>
 File: Zdjecia/4/porownanie_roznych_odleglosci_time_reversal.png Graphic file (t
 ype png)
@@ -2669,14 +2670,14 @@ File: Zdjecia/4/test_chirp.png Graphic file (type png)
 Package pdftex.def Info: Zdjecia/4/test_chirp.png used on input line 70.
 (pdftex.def)             Requested size: 398.33858pt x 228.43576pt.
 
-<Zdjecia/4/tr_przykl.png, id=1082, 1533.73pt x 891.33pt>
+<Zdjecia/4/tr_przykl.png, id=1078, 1533.73pt x 891.33pt>
 File: Zdjecia/4/tr_przykl.png Graphic file (type png)
 
 <use Zdjecia/4/tr_przykl.png>
 Package pdftex.def Info: Zdjecia/4/tr_przykl.png used on input line 77.
 (pdftex.def)             Requested size: 398.33858pt x 231.49553pt.
 
-<Zdjecia/4/TR-rozna_ilosc_modow.png, id=1084, 1527.7075pt x 893.3375pt>
+<Zdjecia/4/TR-rozna_ilosc_modow.png, id=1080, 1527.7075pt x 893.3375pt>
 File: Zdjecia/4/TR-rozna_ilosc_modow.png Graphic file (type png)
 
 <use Zdjecia/4/TR-rozna_ilosc_modow.png>
@@ -2684,14 +2685,14 @@ Package pdftex.def Info: Zdjecia/4/TR-rozna_ilosc_modow.png used on input line
 84.
 (pdftex.def)             Requested size: 398.33858pt x 232.93019pt.
 
-<Zdjecia/4/obrazek100.png, id=1086, 1515.6625pt x 900.36375pt>
+<Zdjecia/4/obrazek100.png, id=1082, 1515.6625pt x 900.36375pt>
 File: Zdjecia/4/obrazek100.png Graphic file (type png)
 
 <use Zdjecia/4/obrazek100.png>
 Package pdftex.def Info: Zdjecia/4/obrazek100.png used on input line 91.
 (pdftex.def)             Requested size: 398.33858pt x 236.61693pt.
 
-<Zdjecia/4/skompensowane_TR.png, id=1088, 1531.7225pt x 911.405pt>
+<Zdjecia/4/skompensowane_TR.png, id=1084, 1531.7225pt x 911.405pt>
 File: Zdjecia/4/skompensowane_TR.png Graphic file (type png)
 
 <use Zdjecia/4/skompensowane_TR.png>
@@ -2712,7 +2713,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/4/tr_rozna_il_postaci_skomp.png, id=1104, 1525.7pt x 896.34875pt>
+<Zdjecia/4/tr_rozna_il_postaci_skomp.png, id=1100, 1525.7pt x 896.34875pt>
 File: Zdjecia/4/tr_rozna_il_postaci_skomp.png Graphic file (type png)
 
 <use Zdjecia/4/tr_rozna_il_postaci_skomp.png>
@@ -2723,7 +2724,7 @@ line 106.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/4/tr_porownanie.png, id=1106, 1366.10374pt x 768.8725pt>
+<Zdjecia/4/tr_porownanie.png, id=1102, 1366.10374pt x 768.8725pt>
 File: Zdjecia/4/tr_porownanie.png Graphic file (type png)
 
 <use Zdjecia/4/tr_porownanie.png>
@@ -2738,7 +2739,7 @@ bez kom-pen-sa-cji(górny) oraz z
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/4/tr_porownanie2.png, id=1107, 1318.9275pt x 754.82pt>
+<Zdjecia/4/tr_porownanie2.png, id=1103, 1318.9275pt x 754.82pt>
 File: Zdjecia/4/tr_porownanie2.png Graphic file (type png)
 
 <use Zdjecia/4/tr_porownanie2.png>
@@ -2758,7 +2759,7 @@ Underfull \hbox (badness 3872) in paragraph at lines 2--2
 
 [72
 
-] <Zdjecia/4/buba.png, id=1147, 775.89874pt x 695.59875pt>
+] <Zdjecia/4/buba.png, id=1143, 775.89874pt x 695.59875pt>
 File: Zdjecia/4/buba.png Graphic file (type png)
 
 <use Zdjecia/4/buba.png>
@@ -2768,7 +2769,7 @@ Package pdftex.def Info: Zdjecia/4/buba.png used on input line 52.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[73] <Zdjecia/4/widma.png, id=1160, 1192.455pt x 635.37375pt>
+[73] <Zdjecia/4/widma.png, id=1156, 1192.455pt x 635.37375pt>
 File: Zdjecia/4/widma.png Graphic file (type png)
 
 <use Zdjecia/4/widma.png>
@@ -2779,7 +2780,7 @@ Package pdftex.def Info: Zdjecia/4/widma.png used on input line 73.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [74 <./Zdjecia/4/buba.png>]
-<Zdjecia/4/krzywa_moja.png, id=1170, 1523.6925pt x 989.6975pt>
+<Zdjecia/4/krzywa_moja.png, id=1166, 1523.6925pt x 989.6975pt>
 File: Zdjecia/4/krzywa_moja.png Graphic file (type png)
 
 <use Zdjecia/4/krzywa_moja.png>
@@ -2789,7 +2790,7 @@ Package pdftex.def Info: Zdjecia/4/krzywa_moja.png used on input line 85.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/4/algo_Taylora.png, id=1172, 803.0pt x 831.105pt>
+<Zdjecia/4/algo_Taylora.png, id=1168, 803.0pt x 831.105pt>
 File: Zdjecia/4/algo_Taylora.png Graphic file (type png)
 
 <use Zdjecia/4/algo_Taylora.png>
@@ -2801,7 +2802,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [75 <./Zdjecia/4/widma.png>] [76 <./Zdjecia/4/krzywa_moja.png>] [77 <./Zdjecia/
 4/algo_Taylora.png>]
-<Zdjecia/4/taylorporownanie.png, id=1193, 1314.9125pt x 754.82pt>
+<Zdjecia/4/taylorporownanie.png, id=1189, 1314.9125pt x 754.82pt>
 File: Zdjecia/4/taylorporownanie.png Graphic file (type png)
 
 <use Zdjecia/4/taylorporownanie.png>
@@ -2809,7 +2810,7 @@ Package pdftex.def Info: Zdjecia/4/taylorporownanie.png used on input line 105.
 
 (pdftex.def)             Requested size: 369.88582pt x 212.32716pt.
 
-<Zdjecia/4/taylor_porownanie_trzecie.png, id=1194, 1278.7775pt x 744.7825pt>
+<Zdjecia/4/taylor_porownanie_trzecie.png, id=1190, 1278.7775pt x 744.7825pt>
 File: Zdjecia/4/taylor_porownanie_trzecie.png Graphic file (type png)
 
 <use Zdjecia/4/taylor_porownanie_trzecie.png>
@@ -2820,7 +2821,7 @@ line 112.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/4/taylor_pierwszy_prim.png, id=1195, 1326.9575pt x 753.81625pt>
+<Zdjecia/4/taylor_pierwszy_prim.png, id=1191, 1326.9575pt x 753.81625pt>
 File: Zdjecia/4/taylor_pierwszy_prim.png Graphic file (type png)
 
 <use Zdjecia/4/taylor_pierwszy_prim.png>
@@ -2831,7 +2832,7 @@ Package pdftex.def Info: Zdjecia/4/taylor_pierwszy_prim.png used on input line
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/4/przedipo2.png, id=1197, 1570.86874pt x 928.46875pt>
+<Zdjecia/4/przedipo2.png, id=1193, 1570.86874pt x 928.46875pt>
 File: Zdjecia/4/przedipo2.png Graphic file (type png)
 
 <use Zdjecia/4/przedipo2.png>
@@ -2852,7 +2853,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [81
 
 ]
-<Zdjecia/4/Wilcox_zasada_dzial.png, id=1232, 704.6325pt x 681.54625pt>
+<Zdjecia/4/Wilcox_zasada_dzial.png, id=1228, 704.6325pt x 681.54625pt>
 File: Zdjecia/4/Wilcox_zasada_dzial.png Graphic file (type png)
 
 <use Zdjecia/4/Wilcox_zasada_dzial.png>
@@ -2876,28 +2877,28 @@ Underfull \vbox (badness 1735) has occurred while \output is active []
 Underfull \vbox (badness 1194) has occurred while \output is active []
 
  [85]
-<Zdjecia/4/przykl_we.png, id=1274, 1562.83875pt x 903.375pt>
+<Zdjecia/4/przykl_we.png, id=1270, 1562.83875pt x 903.375pt>
 File: Zdjecia/4/przykl_we.png Graphic file (type png)
 
 <use Zdjecia/4/przykl_we.png>
 Package pdftex.def Info: Zdjecia/4/przykl_we.png used on input line 144.
 (pdftex.def)             Requested size: 398.33858pt x 230.2542pt.
 
-<Zdjecia/4/meanmode.png, id=1276, 1529.715pt x 873.2625pt>
+<Zdjecia/4/meanmode.png, id=1272, 1529.715pt x 873.2625pt>
 File: Zdjecia/4/meanmode.png Graphic file (type png)
 
 <use Zdjecia/4/meanmode.png>
 Package pdftex.def Info: Zdjecia/4/meanmode.png used on input line 151.
 (pdftex.def)             Requested size: 398.33858pt x 227.38934pt.
 
-<Zdjecia/4/wilcox1.png, id=1278, 1576.89125pt x 915.42pt>
+<Zdjecia/4/wilcox1.png, id=1274, 1576.89125pt x 915.42pt>
 File: Zdjecia/4/wilcox1.png Graphic file (type png)
 
 <use Zdjecia/4/wilcox1.png>
 Package pdftex.def Info: Zdjecia/4/wilcox1.png used on input line 158.
 (pdftex.def)             Requested size: 398.33858pt x 231.243pt.
 
-<Zdjecia/4/naklada.png, id=1280, 1566.85374pt x 886.31125pt>
+<Zdjecia/4/naklada.png, id=1276, 1566.85374pt x 886.31125pt>
 File: Zdjecia/4/naklada.png Graphic file (type png)
 
 <use Zdjecia/4/naklada.png>
@@ -2915,7 +2916,7 @@ Underfull \vbox (badness 1231) has occurred while \output is active []
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [87 <./Zdjecia/4/meanmode.png> <./Zdjecia/4/wilcox1.png>]
-<Zdjecia/4/Wilcoxporownanie.png, id=1297, 1350.04375pt x 775.89874pt>
+<Zdjecia/4/Wilcoxporownanie.png, id=1293, 1350.04375pt x 775.89874pt>
 File: Zdjecia/4/Wilcoxporownanie.png Graphic file (type png)
 
 <use Zdjecia/4/Wilcoxporownanie.png>
@@ -2927,7 +2928,7 @@ Package pdftex.def Info: Zdjecia/4/Wilcoxporownanie.png used on input line 173.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [88 <./Zdjecia/4/naklada.png>]
-<Zdjecia/4/krzywestalowe.png, id=1305, 1379.1525pt x 775.89874pt>
+<Zdjecia/4/krzywestalowe.png, id=1301, 1379.1525pt x 775.89874pt>
 File: Zdjecia/4/krzywestalowe.png Graphic file (type png)
 
 <use Zdjecia/4/krzywestalowe.png>
@@ -2937,7 +2938,7 @@ Package pdftex.def Info: Zdjecia/4/krzywestalowe.png used on input line 189.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/4/siatka.png, id=1307, 462.528pt x 344.0052pt>
+<Zdjecia/4/siatka.png, id=1303, 462.528pt x 344.0052pt>
 File: Zdjecia/4/siatka.png Graphic file (type png)
 
 <use Zdjecia/4/siatka.png>
@@ -2947,7 +2948,7 @@ Package pdftex.def Info: Zdjecia/4/siatka.png used on input line 198.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/4/sygnalrozproszony.png, id=1309, 607.26875pt x 239.89626pt>
+<Zdjecia/4/sygnalrozproszony.png, id=1305, 607.26875pt x 239.89626pt>
 File: Zdjecia/4/sygnalrozproszony.png Graphic file (type png)
 
 <use Zdjecia/4/sygnalrozproszony.png>
@@ -2959,7 +2960,7 @@ Package pdftex.def Info: Zdjecia/4/sygnalrozproszony.png used on input line 207
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [89 <./Zdjecia/4/Wilcoxporownanie.png>]
-<Zdjecia/4/sygnalskompensowany.png, id=1320, 613.29124pt x 239.89626pt>
+<Zdjecia/4/sygnalskompensowany.png, id=1316, 613.29124pt x 239.89626pt>
 File: Zdjecia/4/sygnalskompensowany.png Graphic file (type png)
 
 <use Zdjecia/4/sygnalskompensowany.png>
@@ -2971,7 +2972,7 @@ Package pdftex.def Info: Zdjecia/4/sygnalskompensowany.png used on input line 2
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-<Zdjecia/4/porownaniewszystkichsygnalow.png, id=1321, 1360.08125pt x 788.9475pt
+<Zdjecia/4/porownaniewszystkichsygnalow.png, id=1317, 1360.08125pt x 788.9475pt
 >
 File: Zdjecia/4/porownaniewszystkichsygnalow.png Graphic file (type png)
  <use Zdjecia/4/porownaniewszystkichsygnalow.png>
@@ -3008,14 +3009,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 ]
-<Zdjecia/5/anaconda1.png, id=1380, 620.3175pt x 488.57532pt>
+<Zdjecia/5/anaconda1.png, id=1376, 620.3175pt x 488.57532pt>
 File: Zdjecia/5/anaconda1.png Graphic file (type png)
 
 <use Zdjecia/5/anaconda1.png>
 Package pdftex.def Info: Zdjecia/5/anaconda1.png used on input line 19.
 (pdftex.def)             Requested size: 398.33858pt x 313.7383pt.
 
-<Zdjecia/5/anaconda2.png, id=1381, 619.56468pt x 489.32813pt>
+<Zdjecia/5/anaconda2.png, id=1377, 619.56468pt x 489.32813pt>
 File: Zdjecia/5/anaconda2.png Graphic file (type png)
 
 <use Zdjecia/5/anaconda2.png>
@@ -3025,7 +3026,7 @@ Package pdftex.def Info: Zdjecia/5/anaconda2.png used on input line 26.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/anaconda3.png, id=1382, 620.3175pt x 489.32813pt>
+<Zdjecia/5/anaconda3.png, id=1378, 620.3175pt x 489.32813pt>
 File: Zdjecia/5/anaconda3.png Graphic file (type png)
 
 <use Zdjecia/5/anaconda3.png>
@@ -3035,7 +3036,7 @@ Package pdftex.def Info: Zdjecia/5/anaconda3.png used on input line 33.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/anaconda4.png, id=1383, 319.94531pt x 358.33875pt>
+<Zdjecia/5/anaconda4.png, id=1379, 319.94531pt x 358.33875pt>
 File: Zdjecia/5/anaconda4.png Graphic file (type png)
 
 <use Zdjecia/5/anaconda4.png>
@@ -3045,7 +3046,7 @@ Package pdftex.def Info: Zdjecia/5/anaconda4.png used on input line 40.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/anaconda5.png, id=1384, 296.60812pt x 328.97906pt>
+<Zdjecia/5/anaconda5.png, id=1380, 296.60812pt x 328.97906pt>
 File: Zdjecia/5/anaconda5.png Graphic file (type png)
 
 <use Zdjecia/5/anaconda5.png>
@@ -3055,7 +3056,7 @@ Package pdftex.def Info: Zdjecia/5/anaconda5.png used on input line 47.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/python6.png, id=1385, 267.24844pt x 114.4275pt>
+<Zdjecia/5/python6.png, id=1381, 267.24844pt x 114.4275pt>
 File: Zdjecia/5/python6.png Graphic file (type png)
 
 <use Zdjecia/5/python6.png>
@@ -3065,7 +3066,7 @@ Package pdftex.def Info: Zdjecia/5/python6.png used on input line 54.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/python7.png, id=1386, 449.42906pt x 76.03406pt>
+<Zdjecia/5/python7.png, id=1382, 449.42906pt x 76.03406pt>
 File: Zdjecia/5/python7.png Graphic file (type png)
 
 <use Zdjecia/5/python7.png>
@@ -3075,7 +3076,7 @@ Package pdftex.def Info: Zdjecia/5/python7.png used on input line 62.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/python8.png, id=1387, 449.42906pt x 108.405pt>
+<Zdjecia/5/python8.png, id=1383, 449.42906pt x 108.405pt>
 File: Zdjecia/5/python8.png Graphic file (type png)
 
 <use Zdjecia/5/python8.png>
@@ -3088,14 +3089,14 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [97 <./Zdjecia/5/anaconda1.png>] [98 <./Zdjecia/5/anaconda2.png> <./Zdjecia/5/a
 naconda3.png>] [99 <./Zdjecia/5/anaconda4.png> <./Zdjecia/5/anaconda5.png>]
 [100 <./Zdjecia/5/python6.png> <./Zdjecia/5/python7.png> <./Zdjecia/5/python8.p
-ng>] <Zdjecia/5/pycharm3.png, id=1416, 206.27063pt x 296.60812pt>
+ng>] <Zdjecia/5/pycharm3.png, id=1412, 206.27063pt x 296.60812pt>
 File: Zdjecia/5/pycharm3.png Graphic file (type png)
 
 <use Zdjecia/5/pycharm3.png>
 Package pdftex.def Info: Zdjecia/5/pycharm3.png used on input line 83.
 (pdftex.def)             Requested size: 284.52756pt x 409.17482pt.
 
-<Zdjecia/5/pycharm4.png, id=1417, 751.30687pt x 316.93407pt>
+<Zdjecia/5/pycharm4.png, id=1413, 751.30687pt x 316.93407pt>
 File: Zdjecia/5/pycharm4.png Graphic file (type png)
 
 <use Zdjecia/5/pycharm4.png>
@@ -3108,7 +3109,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 ) (./5_2_Potrzebne_biblioteki.tex [101
 
  <./Zdjecia/5/pycharm3.png>]
-<Zdjecia/5/kasia/file2.png, id=1425, 397.485pt x 238.8925pt>
+<Zdjecia/5/kasia/file2.png, id=1421, 397.485pt x 238.8925pt>
 File: Zdjecia/5/kasia/file2.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/file2.png>
@@ -3118,7 +3119,7 @@ Package pdftex.def Info: Zdjecia/5/kasia/file2.png used on input line 20.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/kasia/settingsA.png, id=1426, 268.00125pt x 322.20375pt>
+<Zdjecia/5/kasia/settingsA.png, id=1422, 268.00125pt x 322.20375pt>
 File: Zdjecia/5/kasia/settingsA.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/settingsA.png>
@@ -3128,7 +3129,7 @@ Package pdftex.def Info: Zdjecia/5/kasia/settingsA.png used on input line 29.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/kasia/settings2A.png, id=1427, 270.00874pt x 505.89pt>
+<Zdjecia/5/kasia/settings2A.png, id=1423, 270.00874pt x 505.89pt>
 File: Zdjecia/5/kasia/settings2A.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/settings2A.png>
@@ -3138,7 +3139,7 @@ Package pdftex.def Info: Zdjecia/5/kasia/settings2A.png used on input line 38.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/kasia/settings3.png, id=1428, 1094.0875pt x 690.58pt>
+<Zdjecia/5/kasia/settings3.png, id=1424, 1094.0875pt x 690.58pt>
 File: Zdjecia/5/kasia/settings3.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/settings3.png>
@@ -3148,7 +3149,7 @@ Package pdftex.def Info: Zdjecia/5/kasia/settings3.png used on input line 47.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/kasia/settings4.png, id=1429, 1099.10625pt x 692.5875pt>
+<Zdjecia/5/kasia/settings4.png, id=1425, 1099.10625pt x 692.5875pt>
 File: Zdjecia/5/kasia/settings4.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/settings4.png>
@@ -3158,7 +3159,7 @@ Package pdftex.def Info: Zdjecia/5/kasia/settings4.png used on input line 54.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/kasia/settings5.png, id=1430, 923.45pt x 753.81625pt>
+<Zdjecia/5/kasia/settings5.png, id=1426, 923.45pt x 753.81625pt>
 File: Zdjecia/5/kasia/settings5.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/settings5.png>
@@ -3168,7 +3169,7 @@ Package pdftex.def Info: Zdjecia/5/kasia/settings5.png used on input line 63.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/kasia/settings6.png, id=1431, 924.45375pt x 757.83125pt>
+<Zdjecia/5/kasia/settings6.png, id=1427, 924.45375pt x 757.83125pt>
 File: Zdjecia/5/kasia/settings6.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/settings6.png>
@@ -3183,7 +3184,7 @@ ng>] [103 <./Zdjecia/5/kasia/file2.png> <./Zdjecia/5/kasia/settingsA.png>]
 [104 <./Zdjecia/5/kasia/settings2A.png>] [105 <./Zdjecia/5/kasia/settings3.png 
 (PNG copy)> <./Zdjecia/5/kasia/settings4.png (PNG copy)>] [106 <./Zdjecia/5/kas
 ia/settings5.png (PNG copy)> <./Zdjecia/5/kasia/settings6.png (PNG copy)>]
-<Zdjecia/5/okno_projektu.png, id=1472, 256.70906pt x 433.62pt>
+<Zdjecia/5/okno_projektu.png, id=1468, 256.70906pt x 433.62pt>
 File: Zdjecia/5/okno_projektu.png Graphic file (type png)
 
 <use Zdjecia/5/okno_projektu.png>
@@ -3192,7 +3193,7 @@ Package pdftex.def Info: Zdjecia/5/okno_projektu.png used on input line 11.
  (./5_3A_czworoscienne.tex [107
 
  <./Zdjecia/5/okno_projektu.png>]
-<Zdjecia/5/okno_projektu_MES.png, id=1479, 147.55125pt x 272.51813pt>
+<Zdjecia/5/okno_projektu_MES.png, id=1475, 147.55125pt x 272.51813pt>
 File: Zdjecia/5/okno_projektu_MES.png Graphic file (type png)
 
 <use Zdjecia/5/okno_projektu_MES.png>
@@ -3203,70 +3204,70 @@ Package pdftex.def Info: Zdjecia/5/okno_projektu_MES.png used on input line 11.
 Underfull \vbox (badness 2302) has occurred while \output is active []
 
  [108 <./Zdjecia/5/okno_projektu_MES.png>]
-<Zdjecia/5/siatka1.png, id=1488, 417.05812pt x 306.39468pt>
+<Zdjecia/5/siatka1.png, id=1484, 417.05812pt x 306.39468pt>
 File: Zdjecia/5/siatka1.png Graphic file (type png)
 
 <use Zdjecia/5/siatka1.png>
 Package pdftex.def Info: Zdjecia/5/siatka1.png used on input line 46.
 (pdftex.def)             Requested size: 170.71718pt x 125.4216pt.
 
-<Zdjecia/5/siatka2.png, id=1489, 413.29407pt x 305.64188pt>
+<Zdjecia/5/siatka2.png, id=1485, 413.29407pt x 305.64188pt>
 File: Zdjecia/5/siatka2.png Graphic file (type png)
 
 <use Zdjecia/5/siatka2.png>
 Package pdftex.def Info: Zdjecia/5/siatka2.png used on input line 52.
 (pdftex.def)             Requested size: 170.71718pt x 126.25137pt.
 
-<Zdjecia/5/siatka3.png, id=1490, 417.81094pt x 304.13625pt>
+<Zdjecia/5/siatka3.png, id=1486, 417.81094pt x 304.13625pt>
 File: Zdjecia/5/siatka3.png Graphic file (type png)
 
 <use Zdjecia/5/siatka3.png>
 Package pdftex.def Info: Zdjecia/5/siatka3.png used on input line 58.
 (pdftex.def)             Requested size: 170.71718pt x 124.26971pt.
 
-<Zdjecia/5/siatka4.png, id=1491, 414.79968pt x 300.3722pt>
+<Zdjecia/5/siatka4.png, id=1487, 414.79968pt x 300.3722pt>
 File: Zdjecia/5/siatka4.png Graphic file (type png)
 
 <use Zdjecia/5/siatka4.png>
 Package pdftex.def Info: Zdjecia/5/siatka4.png used on input line 64.
 (pdftex.def)             Requested size: 170.71718pt x 123.62088pt.
 
-<Zdjecia/5/pret1.png, id=1492, 336.50719pt x 288.3272pt>
+<Zdjecia/5/pret1.png, id=1488, 336.50719pt x 288.3272pt>
 File: Zdjecia/5/pret1.png Graphic file (type png)
 
 <use Zdjecia/5/pret1.png>
 Package pdftex.def Info: Zdjecia/5/pret1.png used on input line 76.
 (pdftex.def)             Requested size: 170.71718pt x 146.275pt.
 
-<Zdjecia/5/pret2.png, id=1493, 341.02406pt x 270.25969pt>
+<Zdjecia/5/pret2.png, id=1489, 341.02406pt x 270.25969pt>
 File: Zdjecia/5/pret2.png Graphic file (type png)
 
 <use Zdjecia/5/pret2.png>
 Package pdftex.def Info: Zdjecia/5/pret2.png used on input line 82.
 (pdftex.def)             Requested size: 170.71718pt x 135.29445pt.
 
-<Zdjecia/5/pret3.png, id=1494, 345.54094pt x 274.02374pt>
+<Zdjecia/5/pret3.png, id=1490, 345.54094pt x 274.02374pt>
 File: Zdjecia/5/pret3.png Graphic file (type png)
 
 <use Zdjecia/5/pret3.png>
 Package pdftex.def Info: Zdjecia/5/pret3.png used on input line 88.
 (pdftex.def)             Requested size: 170.71718pt x 135.38503pt.
 
-<Zdjecia/5/pret4.png, id=1495, 345.54094pt x 272.51813pt>
+<Zdjecia/5/pret4.png, id=1491, 345.54094pt x 272.51813pt>
 File: Zdjecia/5/pret4.png Graphic file (type png)
 
 <use Zdjecia/5/pret4.png>
 Package pdftex.def Info: Zdjecia/5/pret4.png used on input line 94.
 (pdftex.def)             Requested size: 170.71718pt x 134.64114pt.
 
-<Zdjecia/5/triangulation1.png, id=1496, 338.76563pt x 271.0125pt>
+<Zdjecia/5/triangulation1.png, id=1492, 338.76563pt x 271.0125pt>
 File: Zdjecia/5/triangulation1.png Graphic file (type png)
 
 <use Zdjecia/5/triangulation1.png>
 Package pdftex.def Info: Zdjecia/5/triangulation1.png used on input line 105.
 (pdftex.def)             Requested size: 170.71718pt x 136.57695pt.
 
-<Zdjecia/5/triangulation2.png, id=1497, 345.54094pt x 274.77657pt>
+<Zdjecia/5/triangulation2.png, id=1493, 345.54094pt x 274.77657pt>
 File: Zdjecia/5/triangulation2.png Graphic file (type png)
 
 <use Zdjecia/5/triangulation2.png>
@@ -3306,14 +3307,14 @@ ngth, num-be-rO-fPla-nes) \T1/ntxtlf/m/n/12 -
 Underfull \vbox (badness 3333) has occurred while \output is active []
 
  [113]
-<Zdjecia/5/hex_siatka1.png, id=1535, 419.31656pt x 308.65312pt>
+<Zdjecia/5/hex_siatka1.png, id=1531, 419.31656pt x 308.65312pt>
 File: Zdjecia/5/hex_siatka1.png Graphic file (type png)
 
 <use Zdjecia/5/hex_siatka1.png>
 Package pdftex.def Info: Zdjecia/5/hex_siatka1.png used on input line 38.
 (pdftex.def)             Requested size: 213.39568pt x 157.07661pt.
 
-<Zdjecia/5/hex_siatka2.png, id=1536, 421.575pt x 306.39468pt>
+<Zdjecia/5/hex_siatka2.png, id=1532, 421.575pt x 306.39468pt>
 File: Zdjecia/5/hex_siatka2.png Graphic file (type png)
 
 <use Zdjecia/5/hex_siatka2.png>
@@ -3324,14 +3325,14 @@ Overfull \hbox (1.79993pt too wide) in paragraph at lines 36--48
 []$[]$ $[]$ 
  []
 
-<Zdjecia/5/hex_czworokaty1.png, id=1537, 417.05812pt x 299.61937pt>
+<Zdjecia/5/hex_czworokaty1.png, id=1533, 417.05812pt x 299.61937pt>
 File: Zdjecia/5/hex_czworokaty1.png Graphic file (type png)
 
 <use Zdjecia/5/hex_czworokaty1.png>
 Package pdftex.def Info: Zdjecia/5/hex_czworokaty1.png used on input line 55.
 (pdftex.def)             Requested size: 213.39568pt x 153.30675pt.
 
-<Zdjecia/5/hex_czworokaty2.png, id=1538, 421.575pt x 303.38344pt>
+<Zdjecia/5/hex_czworokaty2.png, id=1534, 421.575pt x 303.38344pt>
 File: Zdjecia/5/hex_czworokaty2.png Graphic file (type png)
 
 <use Zdjecia/5/hex_czworokaty2.png>
@@ -3342,14 +3343,14 @@ Overfull \hbox (1.79993pt too wide) in paragraph at lines 53--65
 []$[]$ $[]$ 
  []
 
-<Zdjecia/5/hex_elementy1.png, id=1539, 340.27126pt x 273.27094pt>
+<Zdjecia/5/hex_elementy1.png, id=1535, 340.27126pt x 273.27094pt>
 File: Zdjecia/5/hex_elementy1.png Graphic file (type png)
 
 <use Zdjecia/5/hex_elementy1.png>
 Package pdftex.def Info: Zdjecia/5/hex_elementy1.png used on input line 72.
 (pdftex.def)             Requested size: 213.39568pt x 171.37767pt.
 
-<Zdjecia/5/hex_elementy2.png, id=1540, 338.76563pt x 268.75406pt>
+<Zdjecia/5/hex_elementy2.png, id=1536, 338.76563pt x 268.75406pt>
 File: Zdjecia/5/hex_elementy2.png Graphic file (type png)
 
 <use Zdjecia/5/hex_elementy2.png>
@@ -3389,7 +3390,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 168--169
  []
 
 [119]) (./5_3D_main.tex [120] [121]) (./5_3E_wyniki.tex
-<Zdjecia/5/wykres4.png, id=1588, 481.8pt x 358.33875pt>
+<Zdjecia/5/wykres4.png, id=1584, 481.8pt x 358.33875pt>
 File: Zdjecia/5/wykres4.png Graphic file (type png)
 
 <use Zdjecia/5/wykres4.png>
@@ -3399,7 +3400,7 @@ Package pdftex.def Info: Zdjecia/5/wykres4.png used on input line 8.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/wykres8.png, id=1589, 481.8pt x 358.33875pt>
+<Zdjecia/5/wykres8.png, id=1585, 481.8pt x 358.33875pt>
 File: Zdjecia/5/wykres8.png Graphic file (type png)
 
 <use Zdjecia/5/wykres8.png>
@@ -3409,7 +3410,7 @@ Package pdftex.def Info: Zdjecia/5/wykres8.png used on input line 16.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/porownanie.png, id=1591, 481.8pt x 358.33875pt>
+<Zdjecia/5/porownanie.png, id=1587, 481.8pt x 358.33875pt>
 File: Zdjecia/5/porownanie.png Graphic file (type png)
 
 <use Zdjecia/5/porownanie.png>
@@ -3421,21 +3422,21 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 ) (./5_3F_wynikiExc.tex [122] [123 <./Zdjecia/5/wykres4.png>] [124 <./Zdjecia/5
 /wykres8.png> <./Zdjecia/5/porownanie.png>]
-<Zdjecia/5/chirp1.png, id=1614, 442.65375pt x 313.9228pt>
+<Zdjecia/5/chirp1.png, id=1610, 442.65375pt x 313.9228pt>
 File: Zdjecia/5/chirp1.png Graphic file (type png)
 
 <use Zdjecia/5/chirp1.png>
 Package pdftex.def Info: Zdjecia/5/chirp1.png used on input line 8.
 (pdftex.def)             Requested size: 284.52756pt x 201.79128pt.
 
-<Zdjecia/5/chirp_widmo.png, id=1615, 426.84468pt x 319.94531pt>
+<Zdjecia/5/chirp_widmo.png, id=1611, 426.84468pt x 319.94531pt>
 File: Zdjecia/5/chirp_widmo.png Graphic file (type png)
 
 <use Zdjecia/5/chirp_widmo.png>
 Package pdftex.def Info: Zdjecia/5/chirp_widmo.png used on input line 15.
 (pdftex.def)             Requested size: 284.52756pt x 213.28333pt.
 
-<Zdjecia/5/krzywe_wzbudzalnosci.png, id=1616, 431.36156pt x 316.93407pt>
+<Zdjecia/5/krzywe_wzbudzalnosci.png, id=1612, 431.36156pt x 316.93407pt>
 File: Zdjecia/5/krzywe_wzbudzalnosci.png Graphic file (type png)
 
 <use Zdjecia/5/krzywe_wzbudzalnosci.png>
@@ -3446,7 +3447,7 @@ Package pdftex.def Info: Zdjecia/5/krzywe_wzbudzalnosci.png used on input line
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/1.png, id=1619, 435.12563pt x 319.94531pt>
+<Zdjecia/5/1.png, id=1615, 435.12563pt x 319.94531pt>
 File: Zdjecia/5/1.png Graphic file (type png)
  <use Zdjecia/5/1.png>
 Package pdftex.def Info: Zdjecia/5/1.png used on input line 31.
@@ -3455,7 +3456,7 @@ Package pdftex.def Info: Zdjecia/5/1.png used on input line 31.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/8.png, id=1620, 438.13687pt x 317.68687pt>
+<Zdjecia/5/8.png, id=1616, 438.13687pt x 317.68687pt>
 File: Zdjecia/5/8.png Graphic file (type png)
  <use Zdjecia/5/8.png>
 Package pdftex.def Info: Zdjecia/5/8.png used on input line 38.
@@ -3469,7 +3470,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
  <./Zdjecia/5/chirp1.png> <./Zdjecia/5/chirp_widmo.png>]))
 (./5_4_Segregacja_krzywych_dyspersji.tex [126 <./Zdjecia/5/krzywe_wzbudzalnosci
 .png> <./Zdjecia/5/1.png>]
-<Zdjecia/5/kasia/selectMode.png, id=1639, 372.39125pt x 578.16pt>
+<Zdjecia/5/kasia/selectMode.png, id=1635, 372.39125pt x 578.16pt>
 File: Zdjecia/5/kasia/selectMode.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/selectMode.png>
@@ -3479,18 +3480,17 @@ Package pdftex.def Info: Zdjecia/5/kasia/selectMode.png used on input line 6.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[127 <./Zdjecia/5/8.png>] [128 <./Zdjecia/5/kasia/selectMode.png>] [129]
+[127 <./Zdjecia/5/8.png>]
+Underfull \vbox (badness 3219) has occurred while \output is active []
+
+ [128 <./Zdjecia/5/kasia/selectMode.png>]
+Underfull \vbox (badness 1460) has occurred while \output is active []
+
+ [129]
 Underfull \hbox (badness 2401) in paragraph at lines 65--66
 []$\OML/ntxmi/m/it/12 findPointWithK\U/ntxmia/m/it/12 }\OML/ntxmi/m/it/12 k\U/n
 txmia/m/it/12 ~$ \T1/ntxtlf/m/n/12 przyj-muje je-den ar-gu-ment, k. Wy-szu-kuje
  w ta-blicy
- []
-
-
-Underfull \hbox (badness 1072) in paragraph at lines 73--74
-[]$\OML/ntxmi/m/it/12 findKWithGivenOmega[]Hz\U/ntxmia/m/it/12 }\OML/ntxmi/m/it
-/12 omega[]Hz\U/ntxmia/m/it/12 ~$ \T1/ntxtlf/m/n/12 przyj-muje je-den pa-ra-met
-r, omega,
  []
 
 [130]
@@ -3500,15 +3500,8 @@ a/m/it/12 ~$ \T1/ntxtlf/m/n/12 - przyj-muje obiekt typu mode i do-daje go do ta
 -blicy
  []
 
-
-Underfull \hbox (badness 1701) in paragraph at lines 109--110
-[]$\OML/ntxmi/m/it/12 plot[]odes\U/ntxmia/m/it/12 }\OML/ntxmi/m/it/12 num[]f[]o
-des\U/ntxmia/m/it/12 ~$\T1/ntxtlf/m/n/12 , która jako ar-gu-ment przyj-muje lic
-zb[] caªkowit[],
- []
-
 [131]) (./5_5_Metody_kompensacji_dyspersji.tex
-<Zdjecia/5/kasia/compensation.png, id=1666, 292.09125pt x 541.02126pt>
+<Zdjecia/5/kasia/compensation.png, id=1662, 292.09125pt x 541.02126pt>
 File: Zdjecia/5/kasia/compensation.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/compensation.png>
@@ -3519,7 +3512,10 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 8.0pt on input line 8.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 6.1pt on input line 8.
- [132 <./Zdjecia/5/kasia/compensation.png>]
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 
 LaTeX Warning: Command \' invalid in math mode on input line 14.
 
@@ -3530,6 +3526,7 @@ Overfull \hbox (10.62067pt too wide) in paragraph at lines 16--17
 m/it/12 signal; distance; numbers[]of[]modes; disp[]curves\U/ntxmia/m/it/12 ~$
  []
 
+[132]
 
 LaTeX Warning: Command \l invalid in math mode on input line 19.
 
@@ -3549,9 +3546,16 @@ ntxmi/m/it/12 dispersion; dispercion[]curves;$
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \hbox (badness 1383) in paragraph at lines 18--20
+\OML/ntxmi/m/it/12 propagated[]modes; need[]to[]pad \U/ntxmia/m/it/12 = \OML/nt
+xmi/m/it/12 False\U/ntxmia/m/it/12 ~$ \T1/ntxtlf/m/n/12 jest funkcj[] kompensuj
+[]c[] roz-pro-
+ []
 
- [133]
+
+Underfull \vbox (badness 3291) has occurred while \output is active []
+
+ [133 <./Zdjecia/5/kasia/compensation.png>]
 
 LaTeX Warning: Command \l invalid in math mode on input line 25.
 
@@ -3592,6 +3596,13 @@ me-toda
  []
 
 
+Underfull \hbox (badness 4647) in paragraph at lines 39--40
+[]$\OML/ntxmi/m/it/12 find[]omega[]in[]dispercion[]curves[]rad[]s\U/ntxmia/m/it
+/12 }\OML/ntxmi/m/it/12 mode; temp[]k; k[]vect\U/ntxmia/m/it/12 ~$ \T1/ntxtlf/m
+/n/12 - funk-cja
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 45--46
 []$\OML/ntxmi/m/it/12 calculate[]mean[]mode\U/ntxmia/m/it/12 }\OML/ntxmi/m/it/1
 2 dispercion[]curves; numbers[]of[]propagated[]modes\U/ntxmia/m/it/12 ~$
@@ -3607,6 +3618,10 @@ ch wy-mie-nio-nych w
 LaTeX Warning: Command \' invalid in math mode on input line 47.
 
 Missing character: There is no ± in font ntxmi!
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [135]
 
 LaTeX Warning: Command \' invalid in math mode on input line 50.
 
@@ -3624,9 +3639,6 @@ u-men-tem jest od-le-gªo±¢
  []
 
 
-Underfull \vbox (badness 7203) has occurred while \output is active []
-
- [135]
 Overfull \hbox (0.81778pt too wide) in paragraph at lines 54--55
 []$\OML/ntxmi/m/it/12 KrzyweDyspersji \U/ntxmia/m/it/12 = \OML/ntxmi/m/it/12 se
 lectMode:SelectedMode\U/ntxmia/m/it/12 }[]\OML/ntxmi/m/it/12 ::=eig=kvect[];[] 
@@ -3660,14 +3672,14 @@ t/12 ;$
  []
 
 ) (./5_6_Graficzny_interfejs_uzytkownika.tex [136]
-<Zdjecia/5/kasia/gui_drzewo.png, id=1691, 355.3275pt x 622.325pt>
+<Zdjecia/5/kasia/gui_drzewo.png, id=1687, 355.3275pt x 622.325pt>
 File: Zdjecia/5/kasia/gui_drzewo.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/gui_drzewo.png>
 Package pdftex.def Info: Zdjecia/5/kasia/gui_drzewo.png used on input line 9.
 (pdftex.def)             Requested size: 227.62204pt x 398.66647pt.
 
-<Zdjecia/5/kasia/gui1.png, id=1693, 1202.4925pt x 828.09375pt>
+<Zdjecia/5/kasia/gui1.png, id=1689, 1202.4925pt x 828.09375pt>
 File: Zdjecia/5/kasia/gui1.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/gui1.png>
@@ -3677,7 +3689,7 @@ Package pdftex.def Info: Zdjecia/5/kasia/gui1.png used on input line 18.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/kasia/gui2.png, id=1695, 1200.485pt x 828.09375pt>
+<Zdjecia/5/kasia/gui2.png, id=1691, 1200.485pt x 828.09375pt>
 File: Zdjecia/5/kasia/gui2.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/gui2.png>
@@ -3687,20 +3699,17 @@ Package pdftex.def Info: Zdjecia/5/kasia/gui2.png used on input line 27.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/kasia/gui3.png, id=1698, 1198.4775pt x 824.07875pt>
+<Zdjecia/5/kasia/gui3.png, id=1694, 1198.4775pt x 824.07875pt>
 File: Zdjecia/5/kasia/gui3.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/gui3.png>
 Package pdftex.def Info: Zdjecia/5/kasia/gui3.png used on input line 36.
 (pdftex.def)             Requested size: 369.88582pt x 254.33008pt.
-
-Underfull \vbox (badness 1484) has occurred while \output is active []
-
  [137 <./Zdjecia/5/kasia/gui_drzewo.png>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/kasia/gui4.png, id=1707, 638.385pt x 542.025pt>
+<Zdjecia/5/kasia/gui4.png, id=1703, 638.385pt x 542.025pt>
 File: Zdjecia/5/kasia/gui4.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/gui4.png>
@@ -3710,17 +3719,17 @@ Package pdftex.def Info: Zdjecia/5/kasia/gui4.png used on input line 43.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/kasia/gui6.png, id=1709, 1201.48875pt x 829.0975pt>
+<Zdjecia/5/kasia/gui6.png, id=1705, 901.11656pt x 621.82312pt>
 File: Zdjecia/5/kasia/gui6.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/gui6.png>
 Package pdftex.def Info: Zdjecia/5/kasia/gui6.png used on input line 52.
-(pdftex.def)             Requested size: 369.88582pt x 255.24643pt.
+(pdftex.def)             Requested size: 369.88582pt x 255.24326pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/kasia/gui7.png, id=1713, 1199.48125pt x 826.08624pt>
+<Zdjecia/5/kasia/gui7.png, id=1709, 1199.48125pt x 826.08624pt>
 File: Zdjecia/5/kasia/gui7.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/gui7.png>
@@ -3730,7 +3739,7 @@ Package pdftex.def Info: Zdjecia/5/kasia/gui7.png used on input line 61.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/kasia/gui8.png, id=1715, 1199.48125pt x 825.0825pt>
+<Zdjecia/5/kasia/gui8.png, id=1711, 1199.48125pt x 825.0825pt>
 File: Zdjecia/5/kasia/gui8.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/gui8.png>
@@ -3740,35 +3749,35 @@ Package pdftex.def Info: Zdjecia/5/kasia/gui8.png used on input line 71.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/kasia/guiKomp1.png, id=1718, 1201.48875pt x 826.08624pt>
+<Zdjecia/5/kasia/guiKomp1.png, id=1714, 901.11656pt x 619.56468pt>
 File: Zdjecia/5/kasia/guiKomp1.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/guiKomp1.png>
 Package pdftex.def Info: Zdjecia/5/kasia/guiKomp1.png used on input line 80.
-(pdftex.def)             Requested size: 369.88582pt x 254.31938pt.
+(pdftex.def)             Requested size: 369.88582pt x 254.31622pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1430) has occurred while \output is active []
 
  [138 <./Zdjecia/5/kasia/gui1.png>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/kasia/guiLast.png, id=1729, 1200.485pt x 826.08624pt>
+<Zdjecia/5/kasia/guiLast.png, id=1725, 900.36375pt x 619.56468pt>
 File: Zdjecia/5/kasia/guiLast.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/guiLast.png>
 Package pdftex.def Info: Zdjecia/5/kasia/guiLast.png used on input line 89.
-(pdftex.def)             Requested size: 369.88582pt x 254.52106pt.
+(pdftex.def)             Requested size: 369.88582pt x 254.5242pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Zdjecia/5/kasia/guiLast2.png, id=1731, 1197.47375pt x 823.075pt>
+<Zdjecia/5/kasia/guiLast2.png, id=1727, 898.10532pt x 617.30624pt>
 File: Zdjecia/5/kasia/guiLast2.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/guiLast2.png>
 Package pdftex.def Info: Zdjecia/5/kasia/guiLast2.png used on input line 98.
-(pdftex.def)             Requested size: 369.88582pt x 254.2338pt.
+(pdftex.def)             Requested size: 369.88582pt x 254.23694pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -3802,20 +3811,20 @@ File: Zdjecia/5/kasia/krzywesa.png Graphic file (type png)
 Package pdftex.def Info: Zdjecia/5/kasia/krzywesa.png used on input line 129.
 (pdftex.def)             Requested size: 369.88582pt x 209.90707pt.
  [145 <./Zdjecia/5/kasia/plaszczyzna.png> <./Zdjecia/5/kasia/krzywesa.png>]
-<Zdjecia/5/kasia/genersygnal.png, id=1777, 1197.47375pt x 824.07875pt>
+<Zdjecia/5/kasia/genersygnal.png, id=1777, 898.10532pt x 618.05907pt>
 File: Zdjecia/5/kasia/genersygnal.png Graphic file (type png)
 
 <use Zdjecia/5/kasia/genersygnal.png>
 Package pdftex.def Info: Zdjecia/5/kasia/genersygnal.png used on input line 140
 .
-(pdftex.def)             Requested size: 369.88582pt x 254.54384pt.
+(pdftex.def)             Requested size: 369.88582pt x 254.54698pt.
 )) [146 <./Zdjecia/5/kasia/genersygnal.png>]
 \openout2 = `6_Podsumowanie.aux'.
 
  (./6_Podsumowanie.tex
 Rozdzia\l  6.
 
-Underfull \vbox (badness 6741) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [147
 
@@ -3850,7 +3859,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 320.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 320.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 320.
 Package rerunfilecheck Info: File `praca.out' has not changed.
-(rerunfilecheck)             Checksum: 114F5044ED68FEF1A0B8634CDAEAAA17;5618.
+(rerunfilecheck)             Checksum: AEF53D3585A07CA6CF74D1664DE07806;5579.
 
 
 LaTeX Warning: There were undefined references.
@@ -3860,21 +3869,15 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 26670 strings out of 493029
- 475284 string characters out of 6136235
- 556465 words of memory out of 5000000
- 28888 multiletter control sequences out of 15000+600000
- 213235 words of font info for 281 fonts, out of 8000000 for 9000
+ 26661 strings out of 493029
+ 475159 string characters out of 6136235
+ 555364 words of memory out of 5000000
+ 28881 multiletter control sequences out of 15000+600000
+ 210439 words of font info for 280 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,17n,122p,10383b,971s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exi
+pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exi
 st, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
-, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
@@ -3900,10 +3903,10 @@ mf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/txfonts/txsyc.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
 /times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.
 pfb>
-Output written on praca.pdf (153 pages, 9079762 bytes).
+Output written on praca.pdf (153 pages, 9124264 bytes).
 PDF statistics:
- 1991 PDF objects out of 2073 (max. 8388607)
- 1591 compressed objects within 16 object streams
- 567 named destinations out of 1000 (max. 500000)
+ 1992 PDF objects out of 2073 (max. 8388607)
+ 1587 compressed objects within 16 object streams
+ 565 named destinations out of 1000 (max. 500000)
  1208 words of extra memory for PDF output out of 10000 (max. 10000000)
 

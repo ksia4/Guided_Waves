@@ -13,7 +13,7 @@ Rozwiązać to równanie można na wiele sposobów. Przedstawione zostaną tutaj
 W metodzie całkowania jawnego zakładamy rozpoczęcie obliczeń w kroku czasowym t i przybliżamy pochodną drugiego rzędu poprzez formułę centralną:
 
 \begin{equation}
-	\ddot{\textbf{x}}^t = \frac{\textbf{x}^{t+1} - 2\textbf{x}^t + \textbf{x}^{t-1}}{\delta t^2}.
+	\ddot{\textbf{x}}^t = \frac{\textbf{x}^{t+1} - 2\textbf{x}^t + \textbf{x}^{t-1}}{\Delta t^2}.
 \end{equation}
 
 Po podstawieniu do równania \ref{eq:mes_wyjsciowe} wyznaczamy \( \textbf{x}^{t+1} \):
@@ -27,7 +27,7 @@ Metoda ta charakteryzuje się tym, że do stabilności rozwiązania często wyma
 Metoda całkowania niejawnego różni się wyjściowym krokiem czasowym. Zakładamy początkową chwilę czasową \( t+1 \), co przy zastosowaniu tej samej formuły różnicowej wprowadza krok wstecz.
 
 \begin{equation} \label{eq:niejawne}
-	\ddot{\textbf{x}}^{t+1} = \frac{\textbf{x}^{t+1} - 2\textbf{x}^t + \textbf{x}^{t-1}}{\delta t^2}.
+	\ddot{\textbf{x}}^{t+1} = \frac{\textbf{x}^{t+1} - 2\textbf{x}^t + \textbf{x}^{t-1}}{\Delta t^2}.
 \end{equation}
 
 Podstawiamy równanie \ref{eq:niejawne} do równania
@@ -42,9 +42,9 @@ i otrzymujemy
 	\textbf{x}^{t+1} = (\textbf{M} + \Delta t^2 \textbf{K})^{-1} (\Delta t^2 \textbf{F}^{t+1} + 2\textbf{MX}^t - \textbf{MX}^{t-1}.
 \end{equation}
 
-W tym wypadku nie unikniemy już odwracania macierzy \( \textbf{M} + \Delta t^2 \textbf{K} \), co powoduje wydłużenie obliczeń. Zaletą tej metody jest fakt, że jest ona bezwarunkowo stabilna.
+W tym wypadku nie unikniemy już odwracania macierzy \( \textbf{M} + \Delta t^2 \textbf{K} \), co powoduje wydłużenie obliczeń. Zaletą tej metody jest fakt, że może być ona bezwarunkowo stabilna.
 
-W metodzie modalnej jako pierwsze należy wyznaczyć wektory własne dla równania jednorodnego \( \textbf{M} \ddot{\textbf{x}} + \textbf{Kx} = 0 \). Wektory własne wyznaczyć można z dokładnością do stałej multiplikatywnej. Możliwe jest wyskalowanie tych wektorów w taki sposób, aby maciesz tych wektorów \( \boldsymbol{\phi} \) miała własność:
+W metodzie modalnej jako pierwsze należy wyznaczyć wektory własne dla równania jednorodnego \( \textbf{M} \ddot{\textbf{x}} + \textbf{Kx} = 0 \). Wektory własne wyznaczyć można z dokładnością do stałej multiplikatywnej. Możliwe jest wyskalowanie tych wektorów w taki sposób, aby macierz tych wektorów \( \boldsymbol{\phi} \) miała własność:
 
 \begin{equation} 
 	\boldsymbol{\phi}^T \textbf{M} \boldsymbol{\phi} = \textbf{I}.
